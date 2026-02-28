@@ -1,176 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Akgün Apps & Extensions</title>
-<style>
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f0f2f5;
-    color: #111;
-  }
-  header {
-    background: #0071e3;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  header h1 { margin: 0; font-size: 36px; }
-  .bio {
-    max-width: 840px;
-    margin: 30px auto 20px auto;
-    padding: 0 20px;
-    text-align: center;
-    line-height: 1.6;
-    color: #333;
-  }
-  .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  .card {
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  }
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    background: #fff;
-  }
-  .card-content {
-    padding: 15px;
-  }
-  .card-content h3 { margin: 0 0 10px 0; font-size: 20px; }
-  .card-content p {
-    margin: 0 0 15px 0;
-    color: #555;
-    font-size: 14px;
-    line-height: 1.4;
-  }
-  .card-content a {
-    display: inline-block;
-    background: #0071e3;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .card-content a:hover {
-    background: #005bb5;
-  }
-  .support {
-    text-align: center;
-    margin: 40px 0;
-  }
-  .support a {
-    display: inline-block;
-    background: #ff813f;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-size: 16px;
-    text-decoration: none;
-  }
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 14px;
-    color: #888;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Akgün | Apps & Extensions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --bg-color: #f5f5f7;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header & Hero Section */
+        header {
+            padding: 80px 20px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Bio Section */
+        .bio {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #424245;
+        }
+
+        /* Grid System */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Design */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background: #ffffff;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            min-height: 45px;
+        }
+
+        .btn-store {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-store:hover {
+            background: #0056b3;
+        }
+
+        /* Support Section */
+        .support {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .coffee-btn {
+            background: #FF813F;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(255, 129, 63, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .coffee-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-top: 1px solid #d2d2d7;
+        }
+
+        footer a { color: var(--text-secondary); }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card { animation: fadeIn 0.6s ease backwards; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.3s; }
+        .card:nth-child(5) { animation-delay: 0.4s; }
+
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Ali Akgün</h1>
-  <p>Computer Engineer & Software Developer | <a href="https://www.linkedin.com/in/akgunali/" target="_blank">LinkedIn</a></p>
+    <h1>Ali Akgün</h1>
+    <p class="subtitle">Computer Engineer & Software Developer</p>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/akgunali/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
 </header>
 
 <div class="bio">
-  <p>
-    Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim.  
-    Bu uygulamalar ve eklentiler, zamanınızı size geri kazandırmak için geliştirildi.  
-    Eğer sizi saatler sürecek zahmetli ve manuel işlemlerden kurtarabildiysem,  
-    bana bir kahve ısmarlayarak destek olabilirsiniz.
-  </p>
+    <p>
+        Ben Ali Akgün. Geliştirdiğim uygulamalar ve eklentilerle zamanınızı size geri kazandırmayı hedefliyorum. 
+        Zahmetli manuel işlemleri sizin için otomatiğe bağladıysam ne mutlu bana!
+    </p>
 </div>
 
-<div class="container">
-
-  <!-- Milu FM -->
-  <div class="card">
-    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/2d/6f/3a/2d6f3a66-3ddf-dcfe-e8b8-68f5fb4a4e38/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Milu FM">
-    <div class="card-content">
-      <h3>Milu FM: Radyo, MP3 & AI</h3>
-      <p>Modern radyo ve müzik deneyimi + AI özellikli müzik oynatıcı. Developed by Ali Akgün.</p>
-      <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" target="_blank">View on App Store</a>
+<main class="container">
+    <div class="card">
+        <div>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/2d/6f/3a/2d6f3a66-3ddf-dcfe-e8b8-68f5fb4a4e38/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Milu FM">
+            <h3>Milu FM: Radyo & AI</h3>
+            <p>Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştiren hepsi bir arada çözüm.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store" target="_blank">
+            <i class="fab fa-apple"></i> App Store'da Gör
+        </a>
     </div>
-  </div>
 
-  <!-- Kur'an Namaz Pro -->
-  <div class="card">
-    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/df/cc/20/dfcc208a-86bd-2ca2-3d8d-8b773a145b76/AppIcon-1x_U007emarketing-0-85-220-0-7.png/200x200bb.png" alt="Kur'an Namaz Pro">
-    <div class="card-content">
-      <h3>Kur'an Namaz Pro</h3>
-      <p>Kur'an okuma ve namaz vakitlerini takip eden yardımcı uygulama. Developed by Ali Akgün.</p>
-      <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" target="_blank">View on App Store</a>
+    <div class="card">
+        <div>
+            <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/df/cc/20/dfcc208a-86bd-2ca2-3d8d-8b773a145b76/AppIcon-1x_U007emarketing-0-85-220-0-7.png/200x200bb.png" alt="Kur'an Namaz Pro">
+            <h3>Kur'an Namaz Pro</h3>
+            <p>Hassas vakit takibi ve modern arayüzü ile ibadetlerinizi kolaylaştıran dijital yardımcınız.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store" target="_blank">
+            <i class="fab fa-apple"></i> App Store'da Gör
+        </a>
     </div>
-  </div>
 
-  <!-- Hayvanları Öğreniyorum -->
-  <div class="card">
-    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d5/79/28/d57928c6-0c5a-4e3a-f09e-29743b9d5e1a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Hayvanları Öğreniyorum">
-    <div class="card-content">
-      <h3>Hayvanları Öğreniyorum +4 Yaş</h3>
-      <p>Eğlenceli ve eğitici oyunla çocuklara hayvanları öğreten uygulama. :contentReference[oaicite:0]{index=0}</p>
-      <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" target="_blank">View on App Store</a>
+    <div class="card">
+        <div>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d5/79/28/d57928c6-0c5a-4e3a-f09e-29743b9d5e1a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Hayvanları Öğreniyorum">
+            <h3>Hayvanları Öğreniyorum</h3>
+            <p>+4 yaş çocuklar için tasarlanmış, doğayı ve hayvanlar alemini eğlenerek öğreten interaktif oyun.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store" target="_blank">
+            <i class="fab fa-apple"></i> App Store'da Gör
+        </a>
     </div>
-  </div>
 
-  <!-- Eşle Öğren -->
-  <div class="card">
-    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/f9/94/6c/f9946c1d-ef2f-4b10-4a4e-0b5f5d413f88/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Eşle Öğren">
-    <div class="card-content">
-      <h3>Eşle Öğren: Okul Öncesi Oyunlar</h3>
-      <p>Eğlenceli eşleştirme oyunuyla okul öncesi zihin geliştirme. :contentReference[oaicite:1]{index=1}</p>
-      <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" target="_blank">View on App Store</a>
+    <div class="card">
+        <div>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/f9/94/6c/f9946c1d-ef2f-4b10-4a4e-0b5f5d413f88/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Eşle Öğren">
+            <h3>Eşle Öğren</h3>
+            <p>Okul öncesi dönemdeki çocukların bilişsel becerilerini ve hafızalarını geliştiren eşleştirme oyunları.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store" target="_blank">
+            <i class="fab fa-apple"></i> App Store'da Gör
+        </a>
     </div>
-  </div>
 
-  <!-- Anlat Bul -->
-  <div class="card">
-    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/84/2c/41/842c416a-dc51-2391-a365-783f2ab121d6/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Anlat Bul">
-    <div class="card-content">
-      <h3>Anlat Bul – Çocuklar İçin Tabu</h3>
-      <p>Eğlenceli tabu tarzı kelime oyunu çocuklar için. :contentReference[oaicite:2]{index=2}</p>
-      <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" target="_blank">View on App Store</a>
+    <div class="card">
+        <div>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/84/2c/41/842c416a-dc51-2391-a365-783f2ab121d6/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Anlat Bul">
+            <h3>Anlat Bul</h3>
+            <p>Çocuklar için özel kelime setleriyle hazırlanan, ailece oynanabilecek eğlenceli bir tabu deneyimi.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" class="btn-store" target="_blank">
+            <i class="fab fa-apple"></i> App Store'da Gör
+        </a>
     </div>
-  </div>
+</main>
 
-</div>
-
-<!-- Buy Me Coffee -->
 <div class="support">
-  <a href="https://buymeacoffee.com/aliakgun" target="_blank">☕ Buy Me a Coffee</a>
+    <p>Emeğimi desteklemek isterseniz:</p>
+    <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn" target="_blank">
+        <i class="fas fa-coffee"></i> Bir Kahve Ismarla
+    </a>
 </div>
 
 <footer>
-  © 2026 Ali Akgün | <a href="mailto:support@yourdomain.com">Contact</a>
+    © 2026 Ali Akgün • Tüm Hakları Saklıdır.<br>
+    <a href="mailto:support@yourdomain.com">İletişim</a>
 </footer>
 
 </body>
