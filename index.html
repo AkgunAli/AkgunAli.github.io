@@ -8,7 +8,8 @@
     <style>
         :root {
             --primary-color: #007AFF;
-            --chrome-color: #4285F4;
+            --apple-black: #000000;
+            --chrome-blue: #4285F4;
             --bg-color: #f5f5f7;
             --card-bg: rgba(255, 255, 255, 0.9);
             --text-main: #1d1d1f;
@@ -47,7 +48,7 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 13px;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
         .lang-btn.active { background: var(--primary-color); color: white; }
@@ -58,23 +59,19 @@
             background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
         }
 
-        header h1 { font-size: 48px; margin-bottom: 5px; font-weight: 700; letter-spacing: -1px; }
+        header h1 { font-size: 42px; margin-bottom: 5px; font-weight: 700; letter-spacing: -1px; }
         .subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 15px; }
 
         .bio {
             max-width: 700px;
             margin: 0 auto 15px;
-            padding: 0 20px;
             text-align: center;
             font-size: 17px;
             color: #424245;
+            padding: 0 20px;
         }
 
-        .support-hero {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
+        .support-hero { text-align: center; margin-bottom: 40px; }
         .coffee-btn {
             background: #FF813F;
             color: white;
@@ -82,41 +79,64 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(255, 129, 63, 0.2);
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
         }
-        .coffee-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 129, 63, 0.3); }
+        .coffee-btn:hover { transform: scale(1.05); }
+
+        /* Tab Sistemi */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            border-radius: 12px;
+            border: none;
+            background: #e8e8ed;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            color: var(--primary-color);
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: grid;
+            display: none; /* JS ile açılacak */
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
         }
+
+        .container.active { display: grid; }
 
         .card {
             background: var(--card-bg);
             border-radius: 24px;
             padding: 25px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: 0.4s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid rgba(0,0,0,0.03);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            background: white;
-        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); background: white; }
 
         .card img {
             width: 100px;
@@ -127,24 +147,27 @@
             box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
-        .card h3 { font-size: 19px; margin: 5px 0; font-weight: 600; }
-        .card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 15px; min-height: 42px; }
+        .card h3 { font-size: 19px; margin: 5px 0; }
+        .card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; min-height: 42px; }
 
+        /* Store Butonları */
         .btn-store {
-            padding: 10px 18px;
-            border-radius: 15px;
+            padding: 12px 20px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 13.5px;
+            font-size: 14px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            transition: 0.3s;
+            color: white;
         }
 
-        .btn-apple { background: var(--primary-color); color: white; }
-        .btn-chrome { background: var(--chrome-color); color: white; }
-        .btn-store:hover { opacity: 0.9; }
+        .btn-apple { background: var(--apple-black); }
+        .btn-chrome { background: var(--chrome-blue); }
+        .btn-store:hover { opacity: 0.85; transform: translateY(-2px); }
 
         footer { text-align: center; padding: 60px; color: var(--text-secondary); border-top: 1px solid #d2d2d7; margin-top: 60px; }
     </style>
@@ -176,10 +199,15 @@
     </a>
 </div>
 
-<main class="container">
+<div class="tabs">
+    <button class="tab-btn active" onclick="showTab('apps')" id="tab-apps-label">Mobil Uygulamalar</button>
+    <button class="tab-btn" onclick="showTab('extensions')" id="tab-ext-label">Chrome Eklentileri</button>
+</div>
+
+<main id="apps-container" class="container active">
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp">
             <h3 data-key="milu-title">Milu FM: Radyo & AI</h3>
             <p data-key="milu-desc">Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.</p>
         </div>
@@ -190,7 +218,7 @@
 
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp">
             <h3 data-key="kuran-title">Kur'an Namaz Pro</h3>
             <p data-key="kuran-desc">Hassas vakit takibi ve modern arayüzü ile dijital ibadet yardımcınız.</p>
         </div>
@@ -201,29 +229,7 @@
 
     <div class="card">
         <div>
-            <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60" alt="Apple Icon">
-            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
-            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
-        </div>
-        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60" alt="Ekşi Sözlük Icon">
-            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
-            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
-        </div>
-        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
             <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
             <p data-key="animal-desc">Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.</p>
         </div>
@@ -234,7 +240,7 @@
 
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
             <h3 data-key="taboo-title">Anlat Bul</h3>
             <p data-key="taboo-desc">Çocuklar için özel kelime setleriyle eğlenceli bir tabu deneyimi.</p>
         </div>
@@ -245,12 +251,36 @@
 
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
             <h3 data-key="match-title">Eşle Öğren</h3>
             <p data-key="match-desc">Okul öncesi çocuklar için hafıza ve zeka geliştiren eşleştirme oyunu.</p>
         </div>
         <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store btn-apple" target="_blank">
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+        </a>
+    </div>
+</main>
+
+<main id="extensions-container" class="container">
+    <div class="card">
+        <div>
+            <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60">
+            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
+            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60">
+            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
+            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
         </a>
     </div>
 </main>
@@ -263,7 +293,9 @@
     const translations = {
         tr: {
             subtitle: "Bilgisayar Mühendisi & Yazılım Geliştirici",
-            bio: "Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu uygulamalar ve eklentiler, zamanınızı size geri kazandırmak için geliştirildi. Eğer sizi manuel işlemlerden kurtarabildiysem, bana bir kahve ısmarlayarak destek olabilirsiniz.",
+            bio: "Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu projeler zamanınızı size geri kazandırmak için geliştirildi.",
+            tabApps: "Mobil Uygulamalar",
+            tabExt: "Chrome Eklentileri",
             "milu-title": "Milu FM: Radyo & AI",
             "milu-desc": "Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.",
             "kuran-title": "Kur'an Namaz Pro",
@@ -285,7 +317,9 @@
         },
         en: {
             subtitle: "Computer Engineer & Software Developer",
-            bio: "I'm Ali Akgün, a Computer Engineer and Software Developer. These apps and extensions were built to save you time. If I've saved you from tedious manual tasks, feel free to support me by buying a coffee.",
+            bio: "I'm Ali Akgün, a Computer Engineer and Software Developer. These projects are built to save you time.",
+            tabApps: "Mobile Apps",
+            tabExt: "Chrome Extensions",
             "milu-title": "Milu FM: Radio & AI",
             "milu-desc": "Combine modern radio experience with an AI-powered music player.",
             "kuran-title": "Quran Prayer Pro",
@@ -307,22 +341,31 @@
         }
     };
 
+    function showTab(type) {
+        document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById(type + '-container').classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
     function switchLang(lang) {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
             if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
         });
-        
-        // Eklenen Subtitle Çevirisi
+
         document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
-        
         document.getElementById('bio-text').innerText = translations[lang].bio;
+        document.getElementById('tab-apps-label').innerText = translations[lang].tabApps;
+        document.getElementById('tab-ext-label').innerText = translations[lang].tabExt;
         document.getElementById('coffee-label').innerText = translations[lang].coffee;
         document.getElementById('footer-text').innerText = translations[lang].footer;
+
         document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            el.innerText = translations[lang][key];
+            el.innerText = translations[lang][el.getAttribute('data-key')];
         });
+
         document.querySelectorAll('.apple-view').forEach(el => el.innerText = translations[lang]["apple-btn"]);
         document.querySelectorAll('.chrome-view').forEach(el => el.innerText = translations[lang]["chrome-btn"]);
     }
