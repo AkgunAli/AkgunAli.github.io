@@ -24,6 +24,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Dil Seçici */
         .lang-switcher {
             position: fixed;
             top: 20px;
@@ -57,7 +58,7 @@
             background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
         }
 
-        header h1 { font-size: 48px; margin-bottom: 10px; font-weight: 700; }
+        header h1 { font-size: 48px; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
         .subtitle { font-size: 20px; color: var(--text-secondary); margin-bottom: 20px; }
 
         .bio {
@@ -91,18 +92,18 @@
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.1);
             background: white;
         }
 
         .card img {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 24px;
             margin: 0 auto 20px;
-            object-fit: contain;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
 
         .card h3 { font-size: 20px; margin: 10px 0; font-weight: 600; }
@@ -118,10 +119,12 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            transition: 0.2s ease;
         }
 
         .btn-apple { background: var(--primary-color); color: white; }
         .btn-chrome { background: var(--chrome-color); color: white; }
+        .btn-store:hover { opacity: 0.9; transform: scale(1.02); }
 
         .support { text-align: center; margin: 100px 0; }
         .coffee-btn {
@@ -134,7 +137,10 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 10px 20px rgba(255, 129, 63, 0.3);
+            transition: 0.3s;
         }
+        .coffee-btn:hover { transform: scale(1.05); }
 
         footer { text-align: center; padding: 60px; color: var(--text-secondary); border-top: 1px solid #d2d2d7; }
     </style>
@@ -148,24 +154,31 @@
 
 <header>
     <h1>Ali Akgün</h1>
-    <p class="subtitle" id="main-subtitle">Bilgisayar Mühendisi & Yazılım Geliştirici</p>
+    <p class="subtitle" id="main-subtitle">Computer Engineer & Software Developer</p>
     <div class="social-links">
         <a href="https://www.linkedin.com/in/akgunali/" target="_blank" style="text-decoration: none; color: var(--primary-color);">
             <i class="fab fa-linkedin"></i> LinkedIn
         </a>
     </div>
+
+    <div class="support">
+    <p id="support-text">Emeğimi desteklemek isterseniz:</p>
+    <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn" target="_blank">
+        <i class="fas fa-coffee"></i> <span id="coffee-label">Bir Kahve Ismarla</span>
+    </a>
+    </div>
 </header>
 
 <div class="bio" id="bio-text">
-    Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu uygulamalar zamanınızı size geri kazandırmak için geliştirildi.
+    Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu projeler zamanınızı size geri kazandırmak ve hayatınızı kolaylaştırmak için geliştirildi.
 </div>
 
 <main class="container">
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/2d/6f/3a/2d6f3a66-3ddf-dcfe-e8b8-68f5fb4a4e38/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/240x240bb.png" referrerpolicy="no-referrer">
-            <h3 data-key="milu-title">Milu FM: Radyo, MP3 & AI</h3>
-            <p data-key="milu-desc">Modern radyo ve müzik deneyimi + AI özellikli müzik oynatıcı.</p>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp" referrerpolicy="no-referrer" crossorigin="anonymous">
+            <h3 data-key="milu-title">Milu FM: Radyo & AI</h3>
+            <p data-key="milu-desc">Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.</p>
         </div>
         <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store btn-apple" target="_blank">
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
@@ -174,9 +187,9 @@
 
     <div class="card">
         <div>
-            <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/df/cc/20/dfcc208a-86bd-2ca2-3d8d-8b773a145b76/AppIcon-1x_U007emarketing-0-85-220-0-7.png/240x240bb.png" referrerpolicy="no-referrer">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp" referrerpolicy="no-referrer" crossorigin="anonymous">
             <h3 data-key="kuran-title">Kur'an Namaz Pro</h3>
-            <p data-key="kuran-desc">Kur'an okuma ve namaz vakitlerini takip eden yardımcı uygulama.</p>
+            <p data-key="kuran-desc">Hassas vakit takibi ve modern arayüzü ile dijital ibadet yardımcınız.</p>
         </div>
         <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store btn-apple" target="_blank">
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
@@ -185,9 +198,9 @@
 
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d5/79/28/d57928c6-0c5a-4e3a-f09e-29743b9d5e1a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/240x240bb.png" referrerpolicy="no-referrer">
-            <h3 data-key="animal-title">Hayvanları Öğreniyorum +4 Yaş</h3>
-            <p data-key="animal-desc">Eğlenceli ve eğitici oyunla çocuklara hayvanları öğreten uygulama.</p>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer" crossorigin="anonymous">
+            <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
+            <p data-key="animal-desc">Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.</p>
         </div>
         <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store btn-apple" target="_blank">
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
@@ -196,20 +209,9 @@
 
     <div class="card">
         <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/f9/94/6c/f9946c1d-ef2f-4b10-4a4e-0b5f5d413f88/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/240x240bb.png" referrerpolicy="no-referrer">
-            <h3 data-key="match-title">Eşle Öğren: Okul Öncesi</h3>
-            <p data-key="match-desc">Eğlenceli eşleştirme oyunuyla okul öncesi zihin geliştirme.</p>
-        </div>
-        <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/84/2c/41/842c416a-dc51-2391-a365-783f2ab121d6/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/240x240bb.png" referrerpolicy="no-referrer">
-            <h3 data-key="taboo-title">Anlat Bul – Çocuklar İçin Tabu</h3>
-            <p data-key="taboo-desc">Eğlenceli tabu tarzı kelime oyunu çocuklar için.</p>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer" crossorigin="anonymous">
+            <h3 data-key="taboo-title">Anlat Bul</h3>
+            <p data-key="taboo-desc">Çocuklar için özel kelime setleriyle eğlenceli bir tabu deneyimi.</p>
         </div>
         <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" class="btn-store btn-apple" target="_blank">
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
@@ -218,11 +220,22 @@
 
     <div class="card">
         <div>
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer" crossorigin="anonymous">
+            <h3 data-key="match-title">Eşle Öğren</h3>
+            <p data-key="match-desc">Okul öncesi çocuklar için hafıza ve zeka geliştiren eşleştirme oyunu.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store btn-apple" target="_blank">
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg">
             <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
-            <p data-key="dark-desc">App Store Connect'i karanlık modda kullanmanızı sağlayan eklenti.</p>
+            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
         </div>
-        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb?hl=tr" class="btn-store btn-chrome" target="_blank">
+        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
             <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
         </a>
     </div>
@@ -231,20 +244,13 @@
         <div>
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg">
             <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
-            <p data-key="eksi-desc">Ekşi Sözlük'te toplu mesaj silme işlemlerini kolaylaştıran eklenti.</p>
+            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
         </div>
-        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh?hl=tr" class="btn-store btn-chrome" target="_blank">
+        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
             <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
         </a>
     </div>
 </main>
-
-<div class="support">
-    <p id="support-text">Emeğimi desteklemek isterseniz:</p>
-    <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn" target="_blank">
-        <i class="fas fa-coffee"></i> <span id="coffee-label">Bir Kahve Ismarla</span>
-    </a>
-</div>
 
 <footer id="footer-text">
     © 2026 Ali Akgün • Tüm Hakları Saklıdır.
@@ -255,20 +261,20 @@
         tr: {
             subtitle: "Bilgisayar Mühendisi & Yazılım Geliştirici",
             bio: "Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu uygulamalar ve eklentiler, zamanınızı size geri kazandırmak için geliştirildi. Eğer sizi manuel işlemlerden kurtarabildiysem, bana bir kahve ısmarlayarak destek olabilirsiniz.",
-            "milu-title": "Milu FM: Radyo, MP3 & AI",
-            "milu-desc": "Modern radyo ve müzik deneyimi + AI özellikli müzik oynatıcı.",
+            "milu-title": "Milu FM: Radyo & AI",
+            "milu-desc": "Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.",
             "kuran-title": "Kur'an Namaz Pro",
-            "kuran-desc": "Kur'an okuma ve namaz vakitlerini takip eden yardımcı uygulama.",
-            "animal-title": "Hayvanları Öğreniyorum +4 Yaş",
-            "animal-desc": "Eğlenceli ve eğitici oyunla çocuklara hayvanları öğreten uygulama.",
-            "match-title": "Eşle Öğren: Okul Öncesi",
-            "match-desc": "Eğlenceli eşleştirme oyunuyla okul öncesi zihin geliştirme.",
-            "taboo-title": "Anlat Bul – Çocuklar İçin Tabu",
-            "taboo-desc": "Eğlenceli tabu tarzı kelime oyunu çocuklar için.",
+            "kuran-desc": "Hassas vakit takibi ve modern arayüzü ile dijital ibadet yardımcınız.",
+            "animal-title": "Hayvanları Öğreniyorum",
+            "animal-desc": "Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.",
+            "taboo-title": "Anlat Bul",
+            "taboo-desc": "Çocuklar için özel kelime setleriyle eğlenceli bir tabu deneyimi.",
+            "match-title": "Eşle Öğren",
+            "match-desc": "Okul öncesi çocuklar için hafıza ve zeka geliştiren eşleştirme oyunu.",
             "dark-title": "App Store Connect Dark Mode",
-            "dark-desc": "App Store Connect'i karanlık modda kullanmanızı sağlayan eklenti.",
+            "dark-desc": "Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.",
             "eksi-title": "Ekşi Sözlük Mesaj Silme",
-            "eksi-desc": "Ekşi Sözlük'te toplu mesaj silme işlemlerini kolaylaştıran eklenti.",
+            "eksi-desc": "Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.",
             "support": "Emeğimi desteklemek isterseniz:",
             "coffee": "Bir Kahve Ismarla",
             "footer": "© 2026 Ali Akgün • Tüm Hakları Saklıdır.",
@@ -277,21 +283,21 @@
         },
         en: {
             subtitle: "Computer Engineer & Software Developer",
-            bio: "I'm Ali Akgün, Computer Engineer and Software Developer. These apps and extensions were developed to save you time. If I've helped you avoid manual tasks, feel free to support me by buying a coffee.",
-            "milu-title": "Milu FM: Radio, MP3 & AI",
-            "milu-desc": "Modern radio experience + AI-powered music player.",
+            bio: "I'm Ali Akgün, a Computer Engineer and Software Developer. These apps and extensions were built to save you time. If I've saved you from tedious manual tasks, feel free to support me by buying a coffee.",
+            "milu-title": "Milu FM: Radio & AI",
+            "milu-desc": "Combine modern radio experience with an AI-powered music player.",
             "kuran-title": "Quran Prayer Pro",
-            "kuran-desc": "An assistant app for reading the Quran and tracking prayer times.",
-            "animal-title": "Learn Animals 4+ Age",
-            "animal-desc": "Fun and educational game teaching animals to children.",
-            "match-title": "Match & Learn: Preschool",
-            "match-desc": "Pre-school mental development with fun matching games.",
-            "taboo-title": "Anlat Bul – Taboo for Kids",
-            "taboo-desc": "A fun taboo-style word game for children.",
+            "kuran-desc": "Your digital prayer assistant with precise timing and a modern interface.",
+            "animal-title": "Learn Animals",
+            "animal-desc": "A fun and educational game for kids to discover the animal kingdom.",
+            "taboo-title": "Describe & Find",
+            "taboo-desc": "A fun taboo-style word game experience with special sets for kids.",
+            "match-title": "Match & Learn",
+            "match-desc": "A memory and intelligence boosting matching game for preschoolers.",
             "dark-title": "App Store Connect Dark Mode",
-            "dark-desc": "Chrome extension to use App Store Connect in dark mode.",
-            "eksi-title": "Eksi Sozluk Bulk Delete",
-            "eksi-desc": "Extension to easily delete bulk messages on Eksi Sozluk.",
+            "dark-desc": "Chrome extension that brings dark mode to the developer dashboard.",
+            "eksi-title": "Eksi Sozluk Message Deleter",
+            "eksi-desc": "A practical solution to clear your inbox with a single click.",
             "support": "If you'd like to support my work:",
             "coffee": "Buy Me a Coffee",
             "footer": "© 2026 Ali Akgün • All Rights Reserved.",
