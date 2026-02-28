@@ -18,7 +18,7 @@
             --lang-bg: rgba(210, 210, 215, 0.5);
         }
 
-        /* Sistem Koyu Moddaysa Otomatik Geçiş */
+        /* Akıllı Başlangıç: Sistem Koyu Moddaysa Otomatik Geçiş */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #000000;
@@ -31,6 +31,7 @@
             }
         }
 
+        /* Manuel Seçim İçin Temalar */
         [data-theme="dark"] {
             --bg-color: #000000;
             --card-bg: #1c1c1e;
@@ -39,6 +40,16 @@
             --tab-bg: #2c2c2e;
             --lang-bg: #2c2c2e;
             --apple-black: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --tab-bg: #e1e1e6;
+            --lang-bg: rgba(210, 210, 215, 0.5);
+            --apple-black: #000000;
         }
 
         body {
@@ -132,10 +143,9 @@
 
         /* Tabs */
         .tabs {
-            display: flex; justify-content: center; gap: 5px; margin-bottom: 35px;
+            display: flex; justify-content: center; gap: 5px;
             background: var(--tab-bg); padding: 4px; border-radius: 14px;
-            width: fit-content; margin: 0 auto;
-            margin-bottom: 15px;
+            width: fit-content; margin: 0 auto 15px;
         }
 
         .tab-btn {
@@ -178,9 +188,7 @@
         }
     </style>
 </head>
-<body data-theme="light">
-
-<div class="top-actions">
+<body> <div class="top-actions">
     <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn-top" target="_blank">
         <i class="fas fa-coffee"></i> <span id="coffee-label">Bir Kahve Ismarla</span>
     </a>
@@ -265,7 +273,7 @@
 <main id="extensions-container" class="container">
     <div class="card">
         <div>
-        <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60" alt="Apple Icon">
+            <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" style="width: 80px; height: 80px;">
             <h3 data-key="dark-title">App Store Dark Mode</h3>
             <p data-key="dark-desc">Connect için karanlık mod eklentisi.</p>
         </div>
@@ -275,7 +283,7 @@
     </div>
     <div class="card">
         <div>
-            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60" alt="Ekşi Sözlük Icon">
+            <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" style="width: 80px; height: 80px;">
             <h3 data-key="eksi-title">Ekşi Mesaj Silme</h3>
             <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizleyin.</p>
         </div>
@@ -319,16 +327,17 @@
         }
     };
 
-function setThemeIcon(theme) {
+    // İkonu güncelleyen yardımcı fonksiyon (ÖNEMLİ: Tanımlandı)
+    function setThemeIcon(theme) {
         const icon = document.querySelector("#theme-btn i");
         if (theme === "dark") {
-            icon.className = "fas fa-sun"; // Karanlık moddaysa güneş göster
+            icon.className = "fas fa-sun"; // Koyu moddaysa güneş göster
         } else {
             icon.className = "fas fa-moon"; // Aydınlık moddaysa ay göster
         }
     }
 
-    // Sayfa açıldığında sistem tercihini kontrol et (Akıllı Başlangıç)
+    // Akıllı Başlangıç: Sayfa açıldığında tarayıcı modunu kontrol et
     window.addEventListener('load', () => {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
@@ -344,7 +353,7 @@ function setThemeIcon(theme) {
         const body = document.body;
         let currentTheme = body.getAttribute("data-theme");
         
-        // Eğer tema atanmamışsa sistem ayarına bak
+        // Tema henüz atanmadıysa (ilk açılış) sistem tercihine bak
         if (!currentTheme) {
             currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
         }
