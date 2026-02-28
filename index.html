@@ -18,20 +18,7 @@
             --lang-bg: rgba(210, 210, 215, 0.5);
         }
 
-        /* Akıllı Başlangıç: Sistem Koyu Moddaysa Otomatik Geçiş */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #000000;
-                --card-bg: #1c1c1e;
-                --text-main: #f5f5f7;
-                --text-secondary: #a1a1a6;
-                --tab-bg: #2c2c2e;
-                --lang-bg: #2c2c2e;
-                --apple-black: #ffffff;
-            }
-        }
-
-        /* Manuel Seçim İçin Temalar */
+        /* Manuel Seçim ve Sistem Geçişi İçin Temalar */
         [data-theme="dark"] {
             --bg-color: #000000;
             --card-bg: #1c1c1e;
@@ -40,16 +27,6 @@
             --tab-bg: #2c2c2e;
             --lang-bg: #2c2c2e;
             --apple-black: #ffffff;
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --text-main: #1d1d1f;
-            --text-secondary: #86868b;
-            --tab-bg: #e1e1e6;
-            --lang-bg: rgba(210, 210, 215, 0.5);
-            --apple-black: #000000;
         }
 
         body {
@@ -327,40 +304,39 @@
         }
     };
 
-    // İkonu güncelleyen yardımcı fonksiyon (ÖNEMLİ: Tanımlandı)
     function setThemeIcon(theme) {
         const icon = document.querySelector("#theme-btn i");
         if (theme === "dark") {
-            icon.className = "fas fa-sun"; // Koyu moddaysa güneş göster
+            icon.className = "fas fa-sun"; 
         } else {
-            icon.className = "fas fa-moon"; // Aydınlık moddaysa ay göster
+            icon.className = "fas fa-moon"; 
         }
     }
 
-    // Akıllı Başlangıç: Sayfa açıldığında tarayıcı modunu kontrol et
-    window.addEventListener('load', () => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            document.body.setAttribute("data-theme", "dark");
-            setThemeIcon("dark");
-        } else {
-            document.body.setAttribute("data-theme", "light");
-            setThemeIcon("light");
-        }
+    // TEMA UYGULAMA (Sistem veya Manuel)
+    function applyTheme(theme) {
+        document.body.setAttribute("data-theme", theme);
+        setThemeIcon(theme);
+    }
+
+    // 1. Sistem Değişimlerini Dinle (Chrome/OS Karanlık Modu değiştiğinde)
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addEventListener('change', (e) => {
+        const newTheme = e.matches ? "dark" : "light";
+        applyTheme(newTheme);
     });
 
-    function toggleTheme() {
-        const body = document.body;
-        let currentTheme = body.getAttribute("data-theme");
-        
-        // Tema henüz atanmadıysa (ilk açılış) sistem tercihine bak
-        if (!currentTheme) {
-            currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-        }
+    // 2. Sayfa Açıldığında İlk Kontrol
+    window.addEventListener('DOMContentLoaded', () => {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? "dark" : "light");
+    });
 
+    // 3. Manuel Butonla Değiştirme
+    function toggleTheme() {
+        const currentTheme = document.body.getAttribute("data-theme");
         const newTheme = currentTheme === "light" ? "dark" : "light";
-        body.setAttribute("data-theme", newTheme);
-        setThemeIcon(newTheme);
+        applyTheme(newTheme);
     }
 
     function showTab(type) {
