@@ -63,14 +63,13 @@
 
         .bio {
             max-width: 700px;
-            margin: 0 auto 10px;
+            margin: 0 auto 15px;
             padding: 0 20px;
             text-align: center;
             font-size: 17px;
             color: #424245;
         }
 
-        /* Hero Support Button */
         .support-hero {
             text-align: center;
             margin-bottom: 50px;
@@ -141,7 +140,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: 0.2s;
         }
 
         .btn-apple { background: var(--primary-color); color: white; }
@@ -203,6 +201,28 @@
 
     <div class="card">
         <div>
+            <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60" alt="Apple Icon">
+            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
+            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60" alt="Ekşi Sözlük Icon">
+            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
+            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" referrerpolicy="no-referrer">
             <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
             <p data-key="animal-desc">Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.</p>
@@ -233,28 +253,6 @@
             <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
         </a>
     </div>
-
-    <div class="card">
-        <div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg">
-            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
-            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
-        </div>
-        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg">
-            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
-            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
-        </div>
-        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
 </main>
 
 <footer id="footer-text">
@@ -264,7 +262,6 @@
 <script>
     const translations = {
         tr: {
-            subtitle: "Computer Engineer & Software Developer",
             bio: "Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim. Bu uygulamalar ve eklentiler, zamanınızı size geri kazandırmak için geliştirildi. Eğer sizi manuel işlemlerden kurtarabildiysem, bana bir kahve ısmarlayarak destek olabilirsiniz.",
             "milu-title": "Milu FM: Radyo & AI",
             "milu-desc": "Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.",
@@ -286,7 +283,6 @@
             "chrome-btn": "Web Store'da Gör"
         },
         en: {
-            subtitle: "Computer Engineer & Software Developer",
             bio: "I'm Ali Akgün, a Computer Engineer and Software Developer. These apps and extensions were built to save you time. If I've saved you from tedious manual tasks, feel free to support me by buying a coffee.",
             "milu-title": "Milu FM: Radio & AI",
             "milu-desc": "Combine modern radio experience with an AI-powered music player.",
@@ -314,16 +310,13 @@
             btn.classList.remove('active');
             if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
         });
-
         document.getElementById('bio-text').innerText = translations[lang].bio;
         document.getElementById('coffee-label').innerText = translations[lang].coffee;
         document.getElementById('footer-text').innerText = translations[lang].footer;
-
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
             el.innerText = translations[lang][key];
         });
-
         document.querySelectorAll('.apple-view').forEach(el => el.innerText = translations[lang]["apple-btn"]);
         document.querySelectorAll('.chrome-view').forEach(el => el.innerText = translations[lang]["chrome-btn"]);
     }
