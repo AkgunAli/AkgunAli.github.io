@@ -3,79 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Akgün Apps</title>
+<title>Ali Akgün Apps & Extensions</title>
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f5f7fa;
-  color: #111;
-  display: flex;
-  justify-content: center;
-}
-.container {
-  max-width: 700px;
-  padding: 60px 20px;
-}
-h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-p {
-  color: #555;
-  line-height: 1.6;
-}
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  margin-top: 30px;
-}
-a {
-  color: #0071e3;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-.footer {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #888;
-}
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f0f2f5;
+    color: #111;
+  }
+
+  header {
+    background: #0071e3;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  header p {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+  }
+  header a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .bio {
+    max-width: 800px;
+    margin: 40px auto 20px auto;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .bio strong {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+  }
+
+  .card-content p {
+    margin: 0 0 15px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .card-content a {
+    display: inline-block;
+    background: #0071e3;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .card-content a:hover {
+    background: #005bb5;
+  }
+
+  .support {
+    text-align: center;
+    margin: 40px 0;
+  }
+  .support a {
+    display: inline-block;
+    background: #ff813f;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-size: 16px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  .support a:hover {
+    background: #e6702f;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    color: #888;
+  }
+  footer a {
+    color: #0071e3;
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
-<div class="container">
+
+<header>
   <h1>Ali Akgün</h1>
-  <p>Independent iOS Developer</p>
+  <p>Computer Engineer & Software Developer | <a href="https://www.linkedin.com/in/akgunali/" target="_blank">LinkedIn</a></p>
+</header>
 
+<div class="bio">
+  <p>
+    Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim.  
+    Bu uygulama ve eklentileri, en değerli varlığınız olan zamanınızı size geri kazandırmak için geliştirdim.  
+    Eğer sizi saatler sürecek zahmetli ve manuel işlemlerden kurtarabildiysem, bana bir kahve ısmarlayarak destek olabilirsiniz.
+  </p>
+  <strong>I'm Ali Akgün.  
+  I built these apps and extensions to help you win your time back.  
+  If I've saved you from tedious manual work, feel free to support me by buying a coffee.</strong>
+</div>
+
+<div class="container">
+  <!-- App Store Apps -->
   <div class="card">
-    <h3>Apps</h3>
-    <p>
-      View all apps on the App Store:<br>
-      <a href="https://apps.apple.com/us/developer/ali-akgun/id1672967762" target="_blank">
-        Apple Developer Page
-      </a>
-    </p>
+    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/01/23/45/01234567-89ab-cdef-0123-456789abcdef/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="App 1">
+    <div class="card-content">
+      <h3>App 1</h3>
+      <p>Kısa açıklama burada yer alacak. Uygulamanın amacı ve öne çıkan özelliği yazılabilir.</p>
+      <a href="https://apps.apple.com/us/developer/ali-akgun/id1672967762" target="_blank">View on App Store</a>
+    </div>
   </div>
 
+  <!-- Chrome Extension 1 -->
   <div class="card">
-    <h3>Support</h3>
-    <p>Email: support@yourdomain.com</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Chrome_icon_%282011%29.png" alt="App Store Connect Dark Mode">
+    <div class="card-content">
+      <h3>App Store Connect Dark Mode</h3>
+      <p>Chrome eklentisi ile App Store Connect'i karanlık modda kullanabilirsiniz.</p>
+      <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb?hl=tr" target="_blank">View on Chrome Web Store</a>
+    </div>
   </div>
 
+  <!-- Chrome Extension 2 -->
   <div class="card">
-    <h3>Privacy Policy</h3>
-    <p>
-      Privacy details are available inside each application and on their respective App Store pages.
-    </p>
-  </div>
-
-  <div class="footer">
-    © 2026 Ali Akgün. All rights reserved.
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Chrome_icon_%282011%29.png" alt="Ekşi Sözlük Toplu Mesaj Silme">
+    <div class="card-content">
+      <h3>Ekşi Sözlük Toplu Mesaj Silme</h3>
+      <p>Ekşi Sözlük'te toplu mesaj silme işlemlerini kolaylaştıran Chrome eklentisi.</p>
+      <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh?hl=tr" target="_blank">View on Chrome Web Store</a>
+    </div>
   </div>
 </div>
+
+<div class="support">
+  <h3>Support Me</h3>
+  <a href="https://buymeacoffee.com/aliakgun" target="_blank">☕ Buy Me a Coffee</a>
+</div>
+
+<footer>
+  © 2026 Ali Akgün | <a href="mailto:support@yourdomain.com">Contact</a>
+</footer>
+
 </body>
 </html>
