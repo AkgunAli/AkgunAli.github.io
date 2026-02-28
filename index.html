@@ -319,18 +319,32 @@
         }
     };
 
-        window.addEventListener('load', () => {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                    document.body.setAttribute("data-theme", "dark");
-                    setThemeIcon("dark");
-                }
-            });
+function setThemeIcon(theme) {
+        const icon = document.querySelector("#theme-btn i");
+        if (theme === "dark") {
+            icon.className = "fas fa-sun"; // Karanlık moddaysa güneş göster
+        } else {
+            icon.className = "fas fa-moon"; // Aydınlık moddaysa ay göster
+        }
+    }
+
+    // Sayfa açıldığında sistem tercihini kontrol et (Akıllı Başlangıç)
+    window.addEventListener('load', () => {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.body.setAttribute("data-theme", "dark");
+            setThemeIcon("dark");
+        } else {
+            document.body.setAttribute("data-theme", "light");
+            setThemeIcon("light");
+        }
+    });
 
     function toggleTheme() {
         const body = document.body;
-        // Mevcut temayı belirle (data-theme yoksa sistem tercihine bak)
         let currentTheme = body.getAttribute("data-theme");
+        
+        // Eğer tema atanmamışsa sistem ayarına bak
         if (!currentTheme) {
             currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
         }
