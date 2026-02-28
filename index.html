@@ -53,11 +53,19 @@
 
         .lang-btn.active { background: var(--primary-color); color: white; }
 
-        /* YENİ HERO TASARIMI */
+        /* HERO TASARIMI */
         .hero {
             padding: 100px 20px 40px;
             text-align: center;
             background: radial-gradient(circle at top, #ffffff 0%, #f5f5f7 100%);
+        }
+
+        .hero-title-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .hero h1 {
@@ -70,11 +78,31 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .linkedin-small-btn {
+            background: #0077b5;
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(0, 119, 181, 0.2);
+        }
+
+        .linkedin-small-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: #005a8a;
+        }
+
         .subtitle {
             font-size: 20px;
             color: var(--primary-color);
             font-weight: 600;
-            margin: 10px 0 20px;
+            margin: 8px 0 20px;
             letter-spacing: 0.5px;
         }
 
@@ -85,28 +113,6 @@
             color: var(--text-secondary);
             line-height: 1.6;
         }
-
-        .social-hero {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .linkedin-btn {
-            background: #0077b5;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .linkedin-btn:hover { background: #005a8a; transform: translateY(-2px); }
 
         .support-hero { text-align: center; margin-bottom: 50px; }
         .coffee-btn {
@@ -224,17 +230,16 @@
 </div>
 
 <header class="hero">
-    <h1 id="main-name">Ali Akgün</h1>
+    <div class="hero-title-area">
+        <h1 id="main-name">Ali Akgün</h1>
+        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" class="linkedin-small-btn" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
     <p class="subtitle" id="main-subtitle">Bilgisayar Mühendisi & Yazılım Geliştirici</p>
     
     <div class="bio" id="bio-text">
         Bu projeler zamanınızı size geri kazandırmak ve manuel işleri kolaylaştırmak için geliştirildi.
-    </div>
-
-    <div class="social-hero">
-        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" class="linkedin-btn">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
     </div>
 
     <div class="support-hero">
@@ -309,7 +314,7 @@
 <main id="extensions-container" class="container">
     <div class="card">
         <div>
-            <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60">
+            <img src="https://lh3.googleusercontent.com/z69_9M0N6f03YkU2_83xH_A5p_T-5S-5S8vYj5eIq6U5E9p7I=w128-h128-e365-rj-sc0x00ffffff" alt="App Store Connect Dark Mode">
             <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
             <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
         </div>
@@ -320,7 +325,7 @@
 
     <div class="card">
         <div>
-            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60">
+            <img src="https://lh3.googleusercontent.com/yv-z0l6q_A5p_T-5S-5S8vYj5eIq6U5E9p7I=w128-h128-e365-rj-sc0x00ffffff" alt="Ekşi Sözlük Mesaj Silme">
             <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
             <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
         </div>
