@@ -8,6 +8,7 @@
     <style>
         :root {
             --primary-color: #007AFF;
+            --chrome-color: #4285F4;
             --bg-color: #f5f5f7;
             --card-bg: rgba(255, 255, 255, 0.9);
             --text-main: #1d1d1f;
@@ -23,13 +24,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Dil Seçici Stil */
+        /* Dil Seçici */
         .lang-switcher {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
-            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             padding: 5px;
             border-radius: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -44,7 +46,7 @@
             border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
         }
 
@@ -54,12 +56,12 @@
         }
 
         header {
-            padding: 80px 20px 40px;
+            padding: 100px 20px 40px;
             text-align: center;
             background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
         }
 
-        header h1 { font-size: 48px; margin-bottom: 10px; }
+        header h1 { font-size: 48px; margin-bottom: 10px; font-weight: 700; }
         .subtitle { font-size: 20px; color: var(--text-secondary); margin-bottom: 20px; }
 
         .bio {
@@ -72,7 +74,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: grid;
@@ -85,43 +87,49 @@
             border-radius: 28px;
             padding: 30px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            background: white;
         }
 
         .card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
             margin: 0 auto 20px;
-            object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            display: block; /* Görselin yüklenmesi için zorlama */
+            object-fit: contain;
         }
 
+        .card h3 { font-size: 20px; margin: 10px 0; font-weight: 600; }
+        .card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; min-height: 42px; }
+
         .btn-store {
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 20px;
+            padding: 12px 20px;
+            border-radius: 18px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 14px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-top: 20px;
+            transition: opacity 0.2s;
         }
 
-        .support { text-align: center; margin: 80px 0; }
+        .btn-apple { background: var(--primary-color); color: white; }
+        .btn-chrome { background: var(--chrome-color); color: white; }
+
+        .btn-store:hover { opacity: 0.9; }
+
+        .support { text-align: center; margin: 100px 0; }
         .coffee-btn {
             background: #FF813F;
             color: white;
@@ -132,9 +140,13 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 10px 20px rgba(255, 129, 63, 0.3);
         }
 
-        footer { text-align: center; padding: 40px; color: var(--text-secondary); border-top: 1px solid #d2d2d7; }
+        footer { text-align: center; padding: 60px; color: var(--text-secondary); border-top: 1px solid #d2d2d7; }
+        
+        /* Görseller için fallback */
+        img { background-color: #fff; }
     </style>
 </head>
 <body>
@@ -145,10 +157,12 @@
 </div>
 
 <header>
-    <h1 id="main-title">Ali Akgün</h1>
+    <h1>Ali Akgün</h1>
     <p class="subtitle" id="main-subtitle">Bilgisayar Mühendisi & Yazılım Geliştirici</p>
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/akgunali/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" style="text-decoration: none; color: var(--primary-color);">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
     </div>
 </header>
 
@@ -163,8 +177,8 @@
             <h3 data-key="milu-title">Milu FM: Radyo & AI</h3>
             <p data-key="milu-desc">Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.</p>
         </div>
-        <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store" target="_blank">
-            <i class="fab fa-apple"></i> <span class="store-text">App Store</span>
+        <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store btn-apple" target="_blank">
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
         </a>
     </div>
 
@@ -174,8 +188,30 @@
             <h3 data-key="kuran-title">Kur'an Namaz Pro</h3>
             <p data-key="kuran-desc">Hassas vakit takibi ve modern arayüzü ile ibadet yardımcınız.</p>
         </div>
-        <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store" target="_blank">
-            <i class="fab fa-apple"></i> <span class="store-text">App Store</span>
+        <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store btn-apple" target="_blank">
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome">
+            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
+            <p data-key="dark-desc">Geliştiriciler için App Store Connect arayüzünü karanlık moda dönüştürür.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb?hl=tr" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Chrome Web Store</span>
+        </a>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome">
+            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
+            <p data-key="eksi-desc">Ekşi Sözlük'te toplu mesaj silme işlemlerini saniyeler içinde halledin.</p>
+        </div>
+        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh?hl=tr" class="btn-store btn-chrome" target="_blank">
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Chrome Web Store</span>
         </a>
     </div>
 
@@ -185,8 +221,8 @@
             <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
             <p data-key="animal-desc">Çocuklar için doğayı ve hayvanları öğreten eğlenceli oyun.</p>
         </div>
-        <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store" target="_blank">
-            <i class="fab fa-apple"></i> <span class="store-text">App Store</span>
+        <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store btn-apple" target="_blank">
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
         </a>
     </div>
 </main>
@@ -206,57 +242,63 @@
     const translations = {
         tr: {
             subtitle: "Bilgisayar Mühendisi & Yazılım Geliştirici",
-            bio: "Ben Ali Akgün. Geliştirdiğim uygulamalar ve eklentilerle zamanınızı size geri kazandırmayı hedefliyorum. Eğer sizi manuel işlemlerden kurtarabildiysem, bir kahve ısmarlayarak destek olabilirsiniz.",
+            bio: "Ben Ali Akgün. Geliştirdiğim uygulamalar ve eklentilerle zamanınızı size geri kazandırmayı hedefliyorum. Manuel işlemlerden kurtulmanız için buradayım.",
             "milu-title": "Milu FM: Radyo & AI",
             "milu-desc": "Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.",
             "kuran-title": "Kur'an Namaz Pro",
             "kuran-desc": "Hassas vakit takibi ve modern arayüzü ile ibadet yardımcınız.",
+            "dark-title": "App Store Connect Dark Mode",
+            "dark-desc": "Geliştiriciler için App Store Connect arayüzünü karanlık moda dönüştürür.",
+            "eksi-title": "Ekşi Sözlük Mesaj Silme",
+            "eksi-desc": "Ekşi Sözlük'te toplu mesaj silme işlemlerini saniyeler içinde halledin.",
             "animal-title": "Hayvanları Öğreniyorum",
             "animal-desc": "Çocuklar için doğayı ve hayvanları öğreten eğlenceli oyun.",
             "support": "Emeğimi desteklemek isterseniz:",
             "coffee": "Bir Kahve Ismarla",
             "footer": "© 2026 Ali Akgün • Tüm Hakları Saklıdır.",
-            "view": "App Store'da Gör"
+            "apple-btn": "App Store'da Gör",
+            "chrome-btn": "Web Store'da Gör"
         },
         en: {
             subtitle: "Computer Engineer & Software Developer",
-            bio: "I'm Ali Akgün. I build apps and extensions to save you time. If I've saved you from tedious manual tasks, feel free to support me by buying a coffee.",
+            bio: "I'm Ali Akgün. I build apps and extensions to save you time. I'm here to help you get rid of manual tasks.",
             "milu-title": "Milu FM: Radio & AI",
             "milu-desc": "Combine modern radio experience with an AI-powered music player.",
             "kuran-title": "Quran Prayer Pro",
             "kuran-desc": "Your prayer assistant with precise timing and a modern interface.",
+            "dark-title": "App Store Connect Dark Mode",
+            "dark-desc": "Dark mode extension for the App Store Connect dashboard.",
+            "eksi-title": "Eksi Sozluk Message Deleter",
+            "eksi-desc": "Bulk delete messages on Eksi Sozluk in seconds.",
             "animal-title": "Learn Animals",
             "animal-desc": "A fun and educational game for kids to discover the animal kingdom.",
             "support": "If you'd like to support my work:",
             "coffee": "Buy Me a Coffee",
             "footer": "© 2026 Ali Akgün • All Rights Reserved.",
-            "view": "View on App Store"
+            "apple-btn": "View on App Store",
+            "chrome-btn": "View on Web Store"
         }
     };
 
     function switchLang(lang) {
-        // Buton aktiflik durumu
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
             if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
         });
 
-        // Metinleri değiştir
         document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
         document.getElementById('bio-text').innerText = translations[lang].bio;
         document.getElementById('support-text').innerText = translations[lang].support;
         document.getElementById('coffee-label').innerText = translations[lang].coffee;
         document.getElementById('footer-text').innerText = translations[lang].footer;
 
-        // Kart içerikleri
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
             el.innerText = translations[lang][key];
         });
 
-        document.querySelectorAll('.store-text').forEach(el => {
-            el.innerText = translations[lang].view;
-        });
+        document.querySelectorAll('.apple-view').forEach(el => el.innerText = translations[lang]["apple-btn"]);
+        document.querySelectorAll('.chrome-view').forEach(el => el.innerText = translations[lang]["chrome-btn"]);
     }
 </script>
 
