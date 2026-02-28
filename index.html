@@ -18,6 +18,19 @@
             --lang-bg: rgba(210, 210, 215, 0.5);
         }
 
+        /* Sistem Koyu Moddaysa Otomatik Geçiş */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000000;
+                --card-bg: #1c1c1e;
+                --text-main: #f5f5f7;
+                --text-secondary: #a1a1a6;
+                --tab-bg: #2c2c2e;
+                --lang-bg: #2c2c2e;
+                --apple-black: #ffffff;
+            }
+        }
+
         [data-theme="dark"] {
             --bg-color: #000000;
             --card-bg: #1c1c1e;
@@ -306,12 +319,25 @@
         }
     };
 
+        window.addEventListener('load', () => {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                    document.body.setAttribute("data-theme", "dark");
+                    setThemeIcon("dark");
+                }
+            });
+
     function toggleTheme() {
         const body = document.body;
-        const icon = document.querySelector("#theme-btn i");
-        const isLight = body.getAttribute("data-theme") === "light";
-        body.setAttribute("data-theme", isLight ? "dark" : "light");
-        icon.className = isLight ? "fas fa-sun" : "fas fa-moon";
+        // Mevcut temayı belirle (data-theme yoksa sistem tercihine bak)
+        let currentTheme = body.getAttribute("data-theme");
+        if (!currentTheme) {
+            currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+        }
+
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        body.setAttribute("data-theme", newTheme);
+        setThemeIcon(newTheme);
     }
 
     function showTab(type) {
