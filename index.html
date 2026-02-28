@@ -11,41 +11,21 @@
     background: #f0f2f5;
     color: #111;
   }
-
   header {
     background: #0071e3;
     color: white;
     text-align: center;
     padding: 60px 20px;
   }
-  header h1 {
-    margin: 0;
-    font-size: 36px;
-  }
-  header p {
-    margin: 5px 0 0 0;
-    font-size: 18px;
-  }
-  header a {
-    color: #fff;
-    text-decoration: underline;
-  }
-
+  header h1 { margin: 0; font-size: 36px; }
   .bio {
-    max-width: 800px;
-    margin: 40px auto 20px auto;
+    max-width: 840px;
+    margin: 30px auto 20px auto;
     padding: 0 20px;
     text-align: center;
     line-height: 1.6;
     color: #333;
   }
-
-  .bio strong {
-    display: block;
-    margin-top: 15px;
-    font-size: 18px;
-  }
-
   .container {
     max-width: 1000px;
     margin: 40px auto;
@@ -54,7 +34,6 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
   }
-
   .card {
     background: white;
     border-radius: 14px;
@@ -66,29 +45,22 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
-
   .card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
   }
-
   .card-content {
     padding: 15px;
   }
-
-  .card-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 20px;
-  }
-
+  .card-content h3 { margin: 0 0 10px 0; font-size: 20px; }
   .card-content p {
     margin: 0 0 15px 0;
     color: #555;
     font-size: 14px;
     line-height: 1.4;
   }
-
   .card-content a {
     display: inline-block;
     background: #0071e3;
@@ -101,7 +73,6 @@
   .card-content a:hover {
     background: #005bb5;
   }
-
   .support {
     text-align: center;
     margin: 40px 0;
@@ -114,21 +85,12 @@
     border-radius: 12px;
     font-size: 16px;
     text-decoration: none;
-    margin-top: 10px;
   }
-  .support a:hover {
-    background: #e6702f;
-  }
-
   footer {
     text-align: center;
     padding: 30px 20px;
     font-size: 14px;
     color: #888;
-  }
-  footer a {
-    color: #0071e3;
-    text-decoration: none;
   }
 </style>
 </head>
@@ -142,48 +104,68 @@
 <div class="bio">
   <p>
     Ben Ali Akgün, Bilgisayar Mühendisi ve Yazılım Geliştiricisiyim.  
-    Bu uygulama ve eklentileri, en değerli varlığınız olan zamanınızı size geri kazandırmak için geliştirdim.  
-    Eğer sizi saatler sürecek zahmetli ve manuel işlemlerden kurtarabildiysem, bana bir kahve ısmarlayarak destek olabilirsiniz.
+    Bu uygulamalar ve eklentiler, zamanınızı size geri kazandırmak için geliştirildi.  
+    Eğer sizi saatler sürecek zahmetli ve manuel işlemlerden kurtarabildiysem,  
+    bana bir kahve ısmarlayarak destek olabilirsiniz.
   </p>
-  <strong>I'm Ali Akgün.  
-  I built these apps and extensions to help you win your time back.  
-  If I've saved you from tedious manual work, feel free to support me by buying a coffee.</strong>
 </div>
 
 <div class="container">
-  <!-- App Store Apps -->
+
+  <!-- Milu FM -->
   <div class="card">
-    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/01/23/45/01234567-89ab-cdef-0123-456789abcdef/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="App 1">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/2d/6f/3a/2d6f3a66-3ddf-dcfe-e8b8-68f5fb4a4e38/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Milu FM">
     <div class="card-content">
-      <h3>App 1</h3>
-      <p>Kısa açıklama burada yer alacak. Uygulamanın amacı ve öne çıkan özelliği yazılabilir.</p>
-      <a href="https://apps.apple.com/us/developer/ali-akgun/id1672967762" target="_blank">View on App Store</a>
+      <h3>Milu FM: Radyo, MP3 & AI</h3>
+      <p>Modern radyo ve müzik deneyimi + AI özellikli müzik oynatıcı. Developed by Ali Akgün.</p>
+      <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" target="_blank">View on App Store</a>
     </div>
   </div>
 
-  <!-- Chrome Extension 1 -->
+  <!-- Kur'an Namaz Pro -->
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Chrome_icon_%282011%29.png" alt="App Store Connect Dark Mode">
+    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/df/cc/20/dfcc208a-86bd-2ca2-3d8d-8b773a145b76/AppIcon-1x_U007emarketing-0-85-220-0-7.png/200x200bb.png" alt="Kur'an Namaz Pro">
     <div class="card-content">
-      <h3>App Store Connect Dark Mode</h3>
-      <p>Chrome eklentisi ile App Store Connect'i karanlık modda kullanabilirsiniz.</p>
-      <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb?hl=tr" target="_blank">View on Chrome Web Store</a>
+      <h3>Kur'an Namaz Pro</h3>
+      <p>Kur'an okuma ve namaz vakitlerini takip eden yardımcı uygulama. Developed by Ali Akgün.</p>
+      <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" target="_blank">View on App Store</a>
     </div>
   </div>
 
-  <!-- Chrome Extension 2 -->
+  <!-- Hayvanları Öğreniyorum -->
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Chrome_icon_%282011%29.png" alt="Ekşi Sözlük Toplu Mesaj Silme">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d5/79/28/d57928c6-0c5a-4e3a-f09e-29743b9d5e1a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Hayvanları Öğreniyorum">
     <div class="card-content">
-      <h3>Ekşi Sözlük Toplu Mesaj Silme</h3>
-      <p>Ekşi Sözlük'te toplu mesaj silme işlemlerini kolaylaştıran Chrome eklentisi.</p>
-      <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh?hl=tr" target="_blank">View on Chrome Web Store</a>
+      <h3>Hayvanları Öğreniyorum +4 Yaş</h3>
+      <p>Eğlenceli ve eğitici oyunla çocuklara hayvanları öğreten uygulama. :contentReference[oaicite:0]{index=0}</p>
+      <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" target="_blank">View on App Store</a>
     </div>
   </div>
+
+  <!-- Eşle Öğren -->
+  <div class="card">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/f9/94/6c/f9946c1d-ef2f-4b10-4a4e-0b5f5d413f88/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Eşle Öğren">
+    <div class="card-content">
+      <h3>Eşle Öğren: Okul Öncesi Oyunlar</h3>
+      <p>Eğlenceli eşleştirme oyunuyla okul öncesi zihin geliştirme. :contentReference[oaicite:1]{index=1}</p>
+      <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" target="_blank">View on App Store</a>
+    </div>
+  </div>
+
+  <!-- Anlat Bul -->
+  <div class="card">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/84/2c/41/842c416a-dc51-2391-a365-783f2ab121d6/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.png" alt="Anlat Bul">
+    <div class="card-content">
+      <h3>Anlat Bul – Çocuklar İçin Tabu</h3>
+      <p>Eğlenceli tabu tarzı kelime oyunu çocuklar için. :contentReference[oaicite:2]{index=2}</p>
+      <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" target="_blank">View on App Store</a>
+    </div>
+  </div>
+
 </div>
 
+<!-- Buy Me Coffee -->
 <div class="support">
-  <h3>Support Me</h3>
   <a href="https://buymeacoffee.com/aliakgun" target="_blank">☕ Buy Me a Coffee</a>
 </div>
 
