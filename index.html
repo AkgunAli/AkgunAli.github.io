@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+            /* Light Mode Renkleri */
             --primary-color: #007AFF;
             --apple-black: #000000;
             --chrome-blue: #4285F4;
             --bg-color: #f5f5f7;
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: #ffffff;
             --text-main: #1d1d1f;
             --text-secondary: #86868b;
+            --tab-bg: #e1e1e6;
+            --lang-bg: rgba(210, 210, 215, 0.5);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Renkleri */
+            --bg-color: #000000;
+            --card-bg: #1c1c1e;
+            --text-main: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --tab-bg: #2c2c2e;
+            --lang-bg: #2c2c2e;
+            --apple-black: #ffffff;
         }
 
         body {
@@ -21,6 +35,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
@@ -33,83 +48,79 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        /* Kahve Butonu - Minimalist */
-        .coffee-btn-top {
-            background: #FF813F;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13px;
+        /* Tema Değiştirici Buton */
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-main);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 12px rgba(255, 129, 63, 0.15);
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
-        .coffee-btn-top:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(255, 129, 63, 0.25); }
 
-        /* YENİ DİL SEÇİCİ (Apple Style Segmented Control) */
+        /* Dil Seçici (Premium Apple Style) */
         .lang-switcher {
-            background: rgba(210, 210, 215, 0.5);
+            background: var(--lang-bg);
             backdrop-filter: blur(20px);
             padding: 3px;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
-            gap: 2px;
-            border: 0.5px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .lang-btn {
             border: none;
             background: transparent;
-            padding: 5px 12px;
-            border-radius: 8px;
+            padding: 6px 14px;
+            border-radius: 9px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 12px;
-            transition: all 0.2s ease;
-            color: #424245;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-secondary);
         }
 
         .lang-btn.active {
-            background: white;
+            background: var(--card-bg);
             color: var(--text-main);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
         }
 
-        /* HERO TASARIMI - Padding Azaltıldı */
+        /* Hero & Header */
         .hero {
-            padding: 70px 20px 40px; /* Üst boşluk 120'den 70'e düşürüldü */
+            padding: 70px 20px 40px;
             text-align: center;
-            background: radial-gradient(circle at top, #ffffff 0%, #f5f5f7 100%);
         }
 
         .hero-title-area {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 48px;
             margin: 0;
             font-weight: 800;
-            letter-spacing: -2px;
-            color: var(--text-main);
+            letter-spacing: -1.5px;
         }
 
         .linkedin-small-btn {
             background: #0077b5;
             color: white;
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -119,30 +130,27 @@
             transition: 0.3s;
         }
 
-        .linkedin-small-btn:hover { transform: scale(1.1); background: #005a8a; }
-
         .subtitle {
             font-size: 19px;
             color: var(--primary-color);
             font-weight: 600;
-            margin: 6px 0 15px;
+            margin: 5px 0 15px;
         }
 
         .bio {
-            max-width: 580px;
+            max-width: 550px;
             margin: 0 auto;
             font-size: 17px;
             color: var(--text-secondary);
-            line-height: 1.5;
         }
 
         /* TABS */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 5px;
             margin-bottom: 35px;
-            background: #e1e1e6;
+            background: var(--tab-bg);
             padding: 4px;
             border-radius: 14px;
             width: fit-content;
@@ -151,7 +159,7 @@
         }
 
         .tab-btn {
-            padding: 8px 22px;
+            padding: 8px 20px;
             border-radius: 10px;
             border: none;
             background: transparent;
@@ -159,25 +167,24 @@
             font-weight: 600;
             font-size: 14px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .tab-btn.active {
-            background: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            background: var(--card-bg);
             color: var(--text-main);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        /* GRID & CARDS */
+        /* CARDS */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-
         .container.active { display: grid; }
 
         .card {
@@ -185,58 +192,65 @@
             border-radius: 24px;
             padding: 25px;
             text-align: center;
-            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid rgba(128,128,128,0.1);
         }
 
-        .card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); background: white; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
         .card img {
             width: 80px;
             height: 80px;
             border-radius: 18px;
-            margin: 0 auto 15px;
-            object-fit: cover;
+            margin-bottom: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .card h3 { font-size: 19px; margin: 0 0 8px; font-weight: 700; }
-        .card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; min-height: 42px; }
-
         .btn-store {
-            padding: 12px 20px;
+            padding: 12px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
+            color: white;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: 0.2s;
-            color: white;
         }
-
-        .btn-apple { background: var(--apple-black); }
+        .btn-apple { background: var(--apple-black); color: var(--bg-color); }
         .btn-chrome { background: var(--chrome-blue); }
-        .btn-store:hover { opacity: 0.85; }
+
+        .coffee-btn-top {
+            background: #FF813F;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
         footer { text-align: center; padding: 50px; color: var(--text-secondary); font-size: 13px; }
 
         @media (max-width: 600px) {
-            .hero h1 { font-size: 38px; }
-            .top-actions { top: 10px; right: 10px; }
+            .hero h1 { font-size: 36px; }
+            .top-actions { top: 10px; right: 10px; gap: 8px; }
             .coffee-btn-top span { display: none; }
-            .hero { padding-top: 60px; }
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
 <div class="top-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-icon">
+        <i class="fas fa-moon"></i>
+    </button>
     <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn-top" target="_blank">
         <i class="fas fa-coffee"></i> <span id="coffee-label">Bir Kahve Ismarla</span>
     </a>
@@ -249,20 +263,17 @@
 <header class="hero">
     <div class="hero-title-area">
         <h1 id="main-name">Ali Akgün</h1>
-        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" class="linkedin-small-btn" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" class="linkedin-small-btn">
             <i class="fab fa-linkedin-in"></i>
         </a>
     </div>
     <p class="subtitle" id="main-subtitle">Bilgisayar Mühendisi & Yazılım Geliştirici</p>
-    
-    <div class="bio" id="bio-text">
-        Bu projeler zamanınızı size geri kazandırmak ve manuel işleri kolaylaştırmak için geliştirildi.
-    </div>
+    <div class="bio" id="bio-text">Projelerim zamanınızı size kazandırmak için tasarlandı.</div>
 </header>
 
 <div class="tabs">
     <button class="tab-btn active" onclick="showTab('apps')" id="tab-apps-label">Mobil Uygulamalar</button>
-    <button class="tab-btn" onclick="showTab('extensions')" id="tab-ext-label">Chrome Eklentileri</button>
+    <button class="tab-btn" onclick="showTab('extensions')" id="tab-ext-label">Eklentiler</button>
 </div>
 
 <main id="apps-container" class="container active">
@@ -270,54 +281,30 @@
         <div>
             <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp">
             <h3 data-key="milu-title">Milu FM: Radyo & AI</h3>
-            <p data-key="milu-desc">Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.</p>
+            <p data-key="milu-desc">Yapay zeka destekli modern radyo deneyimi.</p>
         </div>
         <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store</span>
         </a>
     </div>
-
     <div class="card">
         <div>
             <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp">
             <h3 data-key="kuran-title">Kur'an Namaz Pro</h3>
-            <p data-key="kuran-desc">Hassas vakit takibi ve modern arayüzü ile dijital ibadet yardımcınız.</p>
+            <p data-key="kuran-desc">Dijital ibadet yardımcınız.</p>
         </div>
         <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store</span>
         </a>
     </div>
-
     <div class="card">
         <div>
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
             <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
-            <p data-key="animal-desc">Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.</p>
+            <p data-key="animal-desc">Çocuklar için eğlenceli ve öğretici oyun.</p>
         </div>
         <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
-            <h3 data-key="taboo-title">Anlat Bul</h3>
-            <p data-key="taboo-desc">Çocuklar için özel kelime setleriyle eğlenceli bir tabu deneyimi.</p>
-        </div>
-        <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
-            <h3 data-key="match-title">Eşle Öğren</h3>
-            <p data-key="match-desc">Okul öncesi çocuklar için hafıza ve zeka geliştiren eşleştirme oyunu.</p>
-        </div>
-        <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+            <i class="fab fa-apple"></i> <span class="apple-view">App Store</span>
         </a>
     </div>
 </main>
@@ -325,82 +312,49 @@
 <main id="extensions-container" class="container">
     <div class="card">
         <div>
-            <img src="https://lh3.googleusercontent.com/WOfuT-oI0S_C87xH3NnK9-R-mR9Z9r4r5i4p5" alt="App Store Connect Dark Mode" onerror="this.src='https://www.google.com/chrome/static/images/chrome-logo.svg'">
-            <h3 data-key="dark-title">App Store Connect Dark Mode</h3>
-            <p data-key="dark-desc">Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.</p>
+            <img src="https://www.google.com/chrome/static/images/chrome-logo.svg">
+            <h3 data-key="dark-title">App Store Dark Mode</h3>
+            <p data-key="dark-desc">Connect için karanlık mod eklentisi.</p>
         </div>
         <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://lh3.googleusercontent.com/WOfuT-oI0S_C87xH3NnK9-R-mR9Z9r4r5i4p5" alt="Ekşi Sözlük Mesaj Silme" onerror="this.src='https://www.google.com/chrome/static/images/chrome-logo.svg'">
-            <h3 data-key="eksi-title">Ekşi Sözlük Mesaj Silme</h3>
-            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.</p>
-        </div>
-        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
+            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store</span>
         </a>
     </div>
 </main>
 
 <footer>
-    <p id="footer-text">© 2026 Ali Akgün • Tüm Hakları Saklıdır.</p>
+    <p id="footer-text">© 2026 Ali Akgün</p>
 </footer>
 
 <script>
     const translations = {
         tr: {
             subtitle: "Bilgisayar Mühendisi & Yazılım Geliştirici",
-            bio: "Bu projeler zamanınızı size geri kazandırmak ve manuel işleri kolaylaştırmak için geliştirildi.",
-            tabApps: "Mobil Uygulamalar",
-            tabExt: "Chrome Eklentileri",
-            coffee: "Bir Kahve Ismarla",
-            "milu-title": "Milu FM: Radyo & AI",
-            "milu-desc": "Modern radyo deneyimini yapay zeka destekli müzik oynatıcıyla birleştirin.",
-            "kuran-title": "Kur'an Namaz Pro",
-            "kuran-desc": "Hassas vakit takibi ve modern arayüzü ile dijital ibadet yardımcınız.",
-            "animal-title": "Hayvanları Öğreniyorum",
-            "animal-desc": "Çocuklar için doğayı ve hayvanları öğreten eğlenceli interaktif oyun.",
-            "taboo-title": "Anlat Bul",
-            "taboo-desc": "Çocuklar için özel kelime setleriyle eğlenceli bir tabu deneyimi.",
-            "match-title": "Eşle Öğren",
-            "match-desc": "Okul öncesi çocuklar için hafıza ve zeka geliştiren eşleştirme oyunu.",
-            "dark-title": "App Store Connect Dark Mode",
-            "dark-desc": "Geliştiriciler için dashboard'u karanlık moda dönüştüren Chrome eklentisi.",
-            "eksi-title": "Ekşi Sözlük Mesaj Silme",
-            "eksi-desc": "Mesaj kutunuzu tek tıkla temizlemenizi sağlayan pratik çözüm.",
-            "footer": "© 2026 Ali Akgün • Tüm Hakları Saklıdır.",
-            "apple-btn": "App Store'da Gör",
-            "chrome-btn": "Web Store'da Gör"
+            bio: "Projelerim zamanınızı size kazandırmak için tasarlandı.",
+            tabApps: "Uygulamalar", tabExt: "Eklentiler", coffee: "Bir Kahve Ismarla",
+            "milu-title": "Milu FM: Radyo & AI", "kuran-title": "Kur'an Namaz Pro", "animal-title": "Hayvanları Öğreniyorum",
+            "dark-title": "App Store Dark Mode", "apple-btn": "App Store'da Gör", "chrome-btn": "Web Store'da Gör"
         },
         en: {
             subtitle: "Computer Engineer & Software Developer",
-            bio: "These projects are built to save you time and simplify manual tasks.",
-            tabApps: "Mobile Apps",
-            tabExt: "Chrome Extensions",
-            coffee: "Buy Me a Coffee",
-            "milu-title": "Milu FM: Radio & AI",
-            "milu-desc": "Combine modern radio experience with an AI-powered music player.",
-            "kuran-title": "Quran Prayer Pro",
-            "kuran-desc": "Your digital prayer assistant with precise timing and a modern interface.",
-            "animal-title": "Learn Animals",
-            "animal-desc": "A fun and educational game for kids to discover the animal kingdom.",
-            "taboo-title": "Describe & Find",
-            "taboo-desc": "A fun taboo-style word game experience with special sets for kids.",
-            "match-title": "Match & Learn",
-            "match-desc": "A memory and intelligence boosting matching game for preschoolers.",
-            "dark-title": "App Store Connect Dark Mode",
-            "dark-desc": "Chrome extension that brings dark mode to the developer dashboard.",
-            "eksi-title": "Eksi Sozluk Message Deleter",
-            "eksi-desc": "A practical solution to clear your inbox with a single click.",
-            "footer": "© 2026 Ali Akgün • All Rights Reserved.",
-            "apple-btn": "View on App Store",
-            "chrome-btn": "View on Web Store"
+            bio: "My projects are designed to save you time.",
+            tabApps: "Apps", tabExt: "Extensions", coffee: "Buy Me a Coffee",
+            "milu-title": "Milu FM: Radio & AI", "kuran-title": "Quran Prayer Pro", "animal-title": "Learn Animals",
+            "dark-title": "App Store Dark Mode", "apple-btn": "View on App Store", "chrome-btn": "View on Web Store"
         }
     };
+
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.querySelector("#theme-icon i");
+        if (body.getAttribute("data-theme") === "light") {
+            body.setAttribute("data-theme", "dark");
+            icon.className = "fas fa-sun";
+        } else {
+            body.setAttribute("data-theme", "light");
+            icon.className = "fas fa-moon";
+        }
+    }
 
     function showTab(type) {
         document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
@@ -412,20 +366,11 @@
     function switchLang(lang) {
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById('btn-' + lang).classList.add('active');
-
         document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
         document.getElementById('bio-text').innerText = translations[lang].bio;
         document.getElementById('tab-apps-label').innerText = translations[lang].tabApps;
         document.getElementById('tab-ext-label').innerText = translations[lang].tabExt;
         document.getElementById('coffee-label').innerText = translations[lang].coffee;
-        document.getElementById('footer-text').innerText = translations[lang].footer;
-
-        document.querySelectorAll('[data-key]').forEach(el => {
-            el.innerText = translations[lang][el.getAttribute('data-key')];
-        });
-
-        document.querySelectorAll('.apple-view').forEach(el => el.innerText = translations[lang]["apple-btn"]);
-        document.querySelectorAll('.chrome-view').forEach(el => el.innerText = translations[lang]["chrome-btn"]);
     }
 </script>
 
