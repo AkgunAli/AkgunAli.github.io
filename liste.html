@@ -1,351 +1,699 @@
-
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-.classroom { padding: 1rem; max-width: 960px; margin: 0 auto; font-family: var(--font-sans); }
-.teacher-area { text-align: center; margin-bottom: 1.5rem; }
-.teacher-desk { display: inline-block; background: var(--color-background-info); border: 1.5px solid #378ADD; border-radius: 10px; padding: 10px 32px; font-size: 13px; font-weight: 500; color: var(--color-text-info); }
-.teacher-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
-.rows-container { display: flex; flex-direction: column; gap: 14px; margin-bottom: 1.5rem; }
-.row { display: flex; gap: 18px; align-items: center; }
-.side { display: flex; gap: 8px; flex-wrap: wrap; }
-.aisle { width: 28px; flex-shrink: 0; }
-.desk-wrap { position: relative; display: inline-block; }
-.desk { border: 1.5px solid var(--color-border-secondary); border-radius: 8px; padding: 7px 10px; font-size: 11px; color: var(--color-text-primary); background: var(--color-background-primary); min-width: 88px; text-align: center; line-height: 1.3; transition: background 0.15s, border-color 0.15s, opacity 0.15s; white-space: pre-line; cursor: pointer; user-select: none; }
-.desk:hover { border-color: #E24B4A; }
-.desk.empty { background: var(--color-background-tertiary); color: var(--color-text-tertiary); border-style: dashed; cursor: default; font-style: italic; }
-.desk.empty:hover { border-color: var(--color-border-secondary); }
-.desk.absent { background: var(--color-background-tertiary) !important; color: var(--color-text-tertiary) !important; border-color: #E24B4A !important; border-style: dashed !important; opacity: 0.6; text-decoration: line-through; }
-.x-badge { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; background: #E24B4A; color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; padding: 1rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); }
-.controls label { font-size: 13px; color: var(--color-text-secondary); }
-.groups-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
-.group-card { background: var(--color-background-primary); border: 1.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 10px 14px; min-width: 140px; }
-.group-title { font-size: 11px; font-weight: 500; margin-bottom: 6px; }
-.group-member { font-size: 12px; color: var(--color-text-secondary); padding: 2px 0; }
-.btn { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 7px 14px; font-size: 12px; cursor: pointer; color: var(--color-text-primary); }
-.btn:hover { background: var(--color-background-secondary); }
-.btn-primary { background: #378ADD; color: white; border-color: #378ADD; }
-.btn-primary:hover { background: #185FA5; }
-.btn-toggle { font-size: 12px; }
-.btn-toggle.active { background: #1D9E75; color: white; border-color: #1D9E75; }
-.status { font-size: 13px; color: var(--color-text-secondary); }
-.row-label { font-size: 11px; color: var(--color-text-tertiary); width: 16px; text-align: center; flex-shrink: 0; }
-.lang-bar { display: flex; justify-content: flex-end; margin-bottom: 0.75rem; gap: 6px; }
-.lang-btn { font-size: 12px; padding: 4px 12px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); cursor: pointer; color: var(--color-text-secondary); }
-.lang-btn.active { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; border-color: var(--color-border-primary); }
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    padding: 3vh 4vw;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1vw;
+    margin-bottom: 3vh
+  }
+
+  .lbtn {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    cursor: pointer;
+    color: #64748b;
+    transition: all .2s ease;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02)
+  }
+
+  .lbtn:hover {
+    background: #f1f5f9;
+    color: #334155
+  }
+
+  .lbtn.on {
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #1e293b;
+    box-shadow: 0 4px 6px rgba(30, 41, 59, 0.1)
+  }
+
+  .teacher-wrap {
+    text-align: center;
+    margin-bottom: 2rem
+  }
+
+  .teacher-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    text-transform: uppercase
+  }
+
+  .teacher-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border: 1px solid #e2e8f0;
+    border-radius: 100px;
+    padding: 8px 24px 8px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s
+  }
+
+  .teacher-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06)
+  }
+
+  .teacher-icon {
+    font-size: 22px;
+    line-height: 1;
+    background: #f1f5f9;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%
+  }
+
+  .teacher-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b
+  }
+
+  .classroom-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    margin-bottom: 4vh;
+    justify-content: center;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .row-wrap {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1vw;
+  }
+
+  .row-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0
+  }
+
+  .seats {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .corridor {
+    width: 6vw;
+    /* much wider corridor to represent the room */
+    max-width: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .corridor-line {
+    width: 1px;
+    height: 100%;
+    min-height: 44px;
+    background: var(--color-border-tertiary)
+  }
+
+  .seat-wrap {
+    position: relative
+  }
+
+  .seat {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 1vw;
+    font-size: clamp(13px, 1.1vw, 16px);
+    font-weight: 600;
+    color: #334155;
+    background: #ffffff;
+    width: clamp(110px, 10vw, 180px);
+    height: clamp(55px, 6vh, 90px);
+    text-align: center;
+    line-height: 1.35;
+    cursor: pointer;
+    transition: all .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02)
+  }
+
+  .seat:hover {
+    border-color: #7F77DD;
+    background: #EEEDFE;
+    box-shadow: 0 4px 6px rgba(127, 119, 221, 0.15);
+    transform: translateY(-2px);
+    z-index: 2;
+    position: relative
+  }
+
+  .seat.empty {
+    background: #f8fafc;
+    color: #94a3b8;
+    border: 1px dashed #cbd5e1;
+    cursor: default;
+    font-style: italic;
+    font-size: clamp(11px, 0.9vw, 14px);
+    box-shadow: none
+  }
+
+  .seat.empty:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    transform: none;
+    box-shadow: none
+  }
+
+  .seat.absent {
+    background: #f8fafc !important;
+    color: #94a3b8 !important;
+    border: 1px dashed #E24B4A !important;
+    opacity: .6;
+    text-decoration: line-through;
+    cursor: pointer;
+    box-shadow: none;
+    transform: none
+  }
+
+  .seat.absent:hover {
+    opacity: .8;
+    transform: none
+  }
+
+  .xbadge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E24B4A;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    line-height: 1;
+    box-shadow: 0 4px 6px rgba(226, 75, 74, 0.3)
+  }
+
+  .gbadge {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    line-height: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    z-index: 3
+  }
+
+  .panel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 3vh;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02)
+  }
+
+  .panel label {
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 600;
+    color: #475569
+  }
+
+  .panel select {
+    font-family: inherit;
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 600;
+    padding: 12px 48px 12px 20px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+    appearance: none;
+    color: #1e293b;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02)
+  }
+
+  .panel select:focus {
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1)
+  }
+
+  .pbtn {
+    font-family: inherit;
+    font-size: clamp(14px, 1.2vw, 18px);
+    padding: 12px 32px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    cursor: pointer;
+    color: #475569;
+    transition: all .2s ease;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02)
+  }
+
+  .pbtn:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04)
+  }
+
+  .pbtn.go {
+    background: #4F46E5;
+    color: white;
+    border-color: #4F46E5;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25)
+  }
+
+  .pbtn.go:hover {
+    background: #4338CA;
+    border-color: #4338CA;
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    transform: translateY(-2px)
+  }
+
+  .hint {
+    font-size: clamp(13px, 1vw, 16px);
+    font-weight: 600;
+    margin-left: auto;
+    color: #94a3b8;
+  }
+
+  .groups-out {
+    margin-top: 2vh
+  }
+
+  .groups-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .gcard {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    width: calc(25% - 1.125vw);
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s, box-shadow 0.2s
+  }
+
+  .gcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04)
+  }
+
+  .gtitle {
+    font-size: clamp(12px, 1vw, 15px);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+    border-bottom: 2px solid
+  }
+
+  .gmember {
+    font-size: clamp(14px, 1.1vw, 18px);
+    color: #4a5568;
+    font-weight: 500;
+    padding: 4px 0;
+    line-height: 1.4;
+    display: flex;
+    align-items: center
+  }
+
+  .gmember::before {
+    content: '•';
+    margin-right: 8px;
+    color: #cbd5e1;
+    font-size: clamp(16px, 1.3vw, 20px)
+  }
 </style>
 
-<div class="classroom">
-  <div class="lang-bar">
-    <button class="lang-btn active" id="lang-de" onclick="setLang('de')">🇩🇪 Deutsch</button>
-    <button class="lang-btn" id="lang-tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+<div class="wrap">
+  <div class="topbar">
+    <button class="lbtn on" id="lde" onclick="setLang('de')">🇩🇪 Deutsch</button>
+    <button class="lbtn" id="ltr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
   </div>
 
-  <div class="teacher-area">
-    <div class="teacher-label" id="lbl-teacher-role"></div>
-    <div class="teacher-desk">🌸 Christiane Hörmann</div>
+  <div class="teacher-wrap">
+    <div class="teacher-lbl" id="tlbl" style="font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: #1e293b; margin-bottom: 2px;">Lehrerin</div>
+    <div class="teacher-note" id="tnote" style="font-size: clamp(14px, 1.1vw, 17px); color: #64748b; font-style: italic; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; padding: 0 20px;"></div>
+    <div class="teacher-card">
+      <span class="teacher-icon">🌸</span>
+      <span class="teacher-name">Christiane Hörmann 🇩🇪 </span>
+    </div>
   </div>
 
-  <div class="rows-container" id="rows-container"></div>
+  <div class="classroom-grid" id="classroom"></div>
 
-  <div class="controls">
-    <label id="lbl-size"></label>
-    <select id="group-size">
+  <div class="panel">
+    <label id="slbl">Gruppengröße:</label>
+    <select id="gsize">
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5</option>
       <option value="6">6</option>
     </select>
-    <button class="btn btn-primary" id="btn-create" onclick="createGroups()"></button>
-    <button class="btn" id="btn-reset" onclick="resetGroups()"></button>
-    <button class="btn btn-toggle" id="btn-lastname" onclick="toggleLastname()"></button>
-    <span class="status" id="status"></span>
+    <button class="pbtn go" id="bcreate" onclick="doGroups()">Gruppen erstellen</button>
+    <button class="pbtn" id="breset" onclick="doReset()">Zurücksetzen</button>
+    <button class="pbtn" id="bflag" onclick="toggleFlags()"></button>
+    <span class="hint" id="statusmsg"></span>
   </div>
 
-  <div id="groups-display"></div>
+  <div class="groups-out" id="gout"></div>
 </div>
 
 <script>
-const STUDENTS = [
-  {id:'jovanna', first:'Jovanna', last:'Milovac-Kostov', row:0, side:'right'},
-  {id:'nohra', first:'Nohra', last:'Odisho Kiyo', row:0, side:'right'},
-  {id:'nalin', first:'Nalin', last:'Merzo', row:0, side:'right'},
-  {id:'shamsia', first:'Shamsia', last:'Dilawari', row:0, side:'right'},
-  {id:'serpil', first:'Serpil', last:'Eskicioglu', row:1, side:'left'},
-  {id:'myralyn', first:'Myralyn', last:'Zapar Pacinio', row:1, side:'left'},
-  {id:'ibrahim', first:'Ibrahim', last:'Mikayilli', row:1, side:'right'},
-  {id:'vira', first:'Vira', last:'Kutova', row:1, side:'right'},
-  {id:'dariia', first:'Dariia', last:'Kharlamova', row:1, side:'right'},
-  {id:'marek', first:'Marek', last:'Rudnicki', row:1, side:'right'},
-  {id:'ali_a', first:'Ali', last:'Akgün', row:2, side:'left'},
-  {id:'desislava', first:'Desislava', last:'Yordanova', row:2, side:'left'},
-  {id:'hajar', first:'Hajar', last:'Ahmadi', row:2, side:'right'},
-  {id:'vladyslav', first:'Vladyslav', last:'Kharlamov', row:2, side:'right'},
-  {id:'ali_i', first:'Ali', last:'Ibrahimi', row:2, side:'right'},
-  {id:'yuliia', first:'Yuliia', last:'Iskra', row:3, side:'left'},
-  {id:'kateryna', first:'Kateryna', last:'Iskra', row:3, side:'left'},
-  {id:'amira', first:'Amira', last:'Samir Abdelrehim Khalaf', row:3, side:'right'},
-  {id:'rida', first:'Rida', last:'Babar', row:3, side:'right'},
-  {id:'sofian', first:'Sofian', last:'Alalwan-Khalaf', row:3, side:'right'}
-];
+  const ROWS = [
+    { left: [null, null], right: ['jovanna', 'nohra', 'nalin', 'shamsia'] },
+    { left: ['serpil', 'myralyn'], right: ['ibrahim', 'vira', 'dariia', 'marek'] },
+    { left: ['ali_a', 'desislava'], right: ['hajar', 'vladyslav', 'ali_i'] },
+    { left: ['yuliia', 'kateryna'], right: ['amira', 'rida', 'sofian'] }
+  ];
 
-const ROWS_DEF = [
-  { left: [null, null], right: ['jovanna','nohra','nalin','shamsia'] },
-  { left: ['serpil','myralyn'], right: ['ibrahim','vira','dariia','marek'] },
-  { left: ['ali_a','desislava'], right: ['hajar','vladyslav','ali_i'] },
-  { left: ['yuliia','kateryna'], right: ['amira','rida','sofian'] }
-];
+  const S = {
+    jovanna: 'Jovanna',
+    nohra: 'Nohra',
+    nalin: 'Nalin',
+    shamsia: 'Shamsia',
+    serpil: 'Serpil',
+    myralyn: 'Myralyn',
+    ibrahim: 'Ibrahim',
+    vira: 'Vira',
+    dariia: 'Dariia',
+    marek: 'Marek',
+    ali_a: 'ALI AKGÜN',
+    desislava: 'Desislava',
+    hajar: 'Hajar',
+    vladyslav: 'Vladyslav',
+    ali_i: 'Ali I.',
+    yuliia: 'Yuliia',
+    kateryna: 'Kateryna',
+    amira: 'Amira',
+    rida: 'Rida',
+    sofian: 'Sofian'
+  };
 
-const GROUP_COLORS = ['#E24B4A','#1D9E75','#7F77DD','#D85A30','#D4537E','#378ADD','#639922','#BA7517','#993C1D','#0F6E56'];
+  const FLAGS={
+    jovanna:'🇧🇦',
+    nohra:'🇸🇾',
+    nalin:'🇸🇾',
+    shamsia:'🇦🇫',
+    serpil:'🇹🇷',
+    myralyn:'🇵🇭',
+    ibrahim:'🇦🇿',
+    vira:'🇺🇦',
+    dariia:'🇺🇦',
+    marek:'🇵🇱',
+    ali_a:'🇹🇷',
+    desislava:'🇧🇬',
+    hajar:'🇸🇾',
+    vladyslav:'🇺🇦',
+    ali_i:'🇦🇫',
+    yuliia:'🇺🇦',
+    kateryna:'🇺🇦',
+    amira:'🇪🇬',
+    rida:'🇵🇰'
+  };
 
-let absent = new Set();
-let showLastname = false;
-let lang = 'de';
+  const GC = ['#4F46E5', '#059669', '#EA580C', '#DB2777', '#2563EB', '#65A30D', '#9333EA', '#DC2626', '#0D9488', '#CA8A04'];
+  const GB = ['#EEF2FF', '#ECFDF5', '#FFF7ED', '#FDF2F8', '#EFF6FF', '#F7FEE7', '#FAF5FF', '#FEF2F2', '#F0FDFA', '#FEFCE8'];
 
-const T = {
-  de: {
-    teacherRole: 'Lehrerin',
-    sizeLabel: 'Gruppengröße:',
-    createBtn: 'Gruppen erstellen',
-    resetBtn: 'Zurücksetzen',
-    lastnameBtn: 'Nachname anzeigen',
-    lastnameOff: 'Nachname anzeigen',
-    lastnameOn: 'Nachname ausblenden',
-    rowLabel: 'Reihe',
-    groupLabel: 'Gruppe',
-    noGroup: 'Keine gültige Gruppe gefunden, erneut versuchen.',
-    groupsCreated: (n) => `${n} Gruppen erstellt!`,
-    empty: 'leer',
-    absent: 'abwesend'
-  },
-  tr: {
-    teacherRole: 'Öğretmen',
-    sizeLabel: 'Grup büyüklüğü:',
-    createBtn: 'Grup Oluştur',
-    resetBtn: 'Sıfırla',
-    lastnameBtn: 'Soy isim göster',
-    lastnameOff: 'Soy isim göster',
-    lastnameOn: 'Soy isim gizle',
-    rowLabel: 'Sıra',
-    groupLabel: 'Grup',
-    noGroup: 'Geçerli grup bulunamadı, tekrar deneyin.',
-    groupsCreated: (n) => `${n} grup oluşturuldu!`,
-    empty: 'boş',
-    absent: 'yok'
+  let absent = new Set(), lang = 'de', showFlags = false, lastBest = null;
+
+  const TR = {
+    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: ['🚩 Flaggen anzeigen', '🚩 Flaggen ausblenden'], grp: 'Gruppe', empty: 'leer', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
+    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: ['🚩 Bayrakları Göster', '🚩 Bayrakları Gizle'], grp: 'Grup', empty: 'boş', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
+  };
+  const t = k => TR[lang][k];
+
+  function setLang(l) { lang = l; document.getElementById('lde').classList.toggle('on', l === 'de'); document.getElementById('ltr').classList.toggle('on', l === 'tr'); applyLang(); refreshSeats() }
+  function applyLang() {
+    document.getElementById('tlbl').textContent = t('tl');
+    document.getElementById('tnote').textContent = t('tnote');
+    document.getElementById('slbl').textContent = t('sl');
+    document.getElementById('bcreate').textContent = t('bc');
+    document.getElementById('breset').textContent = t('br');
+    document.getElementById('bflag').textContent = t('blf')[showFlags?1:0];
+    document.querySelectorAll('.seat.empty').forEach(e => e.textContent = t('empty'));
   }
-};
+  function name(id) { return showFlags && FLAGS[id] ? S[id] + ' ' + FLAGS[id] : S[id] }
+  function refreshSeats() { document.querySelectorAll('.seat[data-id]').forEach(el => { const id = el.dataset.id; if (!absent.has(id)) el.textContent = name(id) }) }
 
-function t(key, ...args) {
-  const v = T[lang][key];
-  return typeof v === 'function' ? v(...args) : v;
-}
-
-function setLang(l) {
-  lang = l;
-  document.getElementById('lang-de').classList.toggle('active', l === 'de');
-  document.getElementById('lang-tr').classList.toggle('active', l === 'tr');
-  updateUI();
-}
-
-function getName(s) {
-  return showLastname ? s.first + '\n' + s.last : s.first;
-}
-
-function toggleLastname() {
-  showLastname = !showLastname;
-  updateUI();
-}
-
-function toggleAbsent(id) {
-  if (absent.has(id)) absent.delete(id);
-  else absent.add(id);
-  resetGroups();
-  renderDesks();
-}
-
-function buildAdjacency() {
-  const adj = {};
-  ROWS_DEF.forEach(row => {
-    const get = id => STUDENTS.find(s => s.id === id);
-    const leftIds = row.left.filter(Boolean);
-    const rightIds = row.right.filter(Boolean);
-    [...leftIds, ...rightIds].forEach(id => { if (!adj[id]) adj[id] = new Set(); });
-    leftIds.forEach((id, i, arr) => {
-      if (arr[i+1]) { adj[id].add(arr[i+1]); adj[arr[i+1]].add(id); }
-    });
-    rightIds.forEach((id, i, arr) => {
-      if (arr[i+1]) { adj[id].add(arr[i+1]); adj[arr[i+1]].add(id); }
-    });
-  });
-  return adj;
-}
-
-function createGroups() {
-  const size = parseInt(document.getElementById('group-size').value);
-  const adj = buildAdjacency();
-  const active = STUDENTS.filter(s => !absent.has(s.id)).map(s => s.id);
-  let best = null;
-  for (let tries = 0; tries < 500; tries++) {
-    const shuffled = [...active].sort(() => Math.random() - 0.5);
-    const groups = [];
-    let valid = true;
-    for (let i = 0; i < shuffled.length; i += size) {
-      const group = shuffled.slice(i, i + size);
-      let ok = true;
-      for (let a = 0; a < group.length && ok; a++)
-        for (let b = a+1; b < group.length && ok; b++)
-          if (adj[group[a]] && adj[group[a]].has(group[b])) ok = false;
-      if (!ok) { valid = false; break; }
-      groups.push(group);
-    }
-    if (valid) { best = groups; break; }
+  function toggleFlags() { 
+    showFlags = !showFlags; 
+    const b = document.getElementById('bflag'); 
+    b.textContent = t('blf')[showFlags?1:0]; 
+    if(showFlags){ b.style.background='#4F46E5'; b.style.color='white'; b.style.borderColor='#4F46E5'; } else { b.style.background=''; b.style.color=''; b.style.borderColor=''; }
+    refreshSeats();
+    if(lastBest) renderGroups();
   }
 
-  const statusEl = document.getElementById('status');
-  if (!best) { statusEl.textContent = t('noGroup'); return; }
-  statusEl.textContent = t('groupsCreated', best.length);
-
-  const groupMap = {};
-  best.forEach((g, gi) => g.forEach(id => { groupMap[id] = gi; }));
-
-  document.querySelectorAll('.desk[data-id]').forEach(el => {
-    const id = el.dataset.id;
-    if (!absent.has(id) && groupMap[id] !== undefined) {
-      const gi = groupMap[id];
-      el.style.background = GROUP_COLORS[gi % GROUP_COLORS.length];
-      el.style.borderColor = GROUP_COLORS[gi % GROUP_COLORS.length];
-      el.style.color = 'white';
-      el.style.textDecoration = '';
-    }
-  });
-
-  const nameMap = {};
-  STUDENTS.forEach(s => { nameMap[s.id] = showLastname ? s.first + ' ' + s.last : s.first; });
-
-  const display = document.getElementById('groups-display');
-  const grid = document.createElement('div');
-  grid.className = 'groups-grid';
-  best.forEach((g, gi) => {
-    const card = document.createElement('div');
-    card.className = 'group-card';
-    card.style.borderColor = GROUP_COLORS[gi % GROUP_COLORS.length];
-    card.innerHTML = `<div class="group-title" style="color:${GROUP_COLORS[gi % GROUP_COLORS.length]}">${t('groupLabel')} ${gi+1}</div>` +
-      g.map(id => `<div class="group-member">${nameMap[id]}</div>`).join('');
-    grid.appendChild(card);
-  });
-  display.innerHTML = '';
-  display.appendChild(grid);
-}
-
-function resetGroups() {
-  document.querySelectorAll('.desk[data-id]').forEach(el => {
-    const id = el.dataset.id;
-    if (!absent.has(id)) {
-      el.style.background = '';
-      el.style.borderColor = '';
-      el.style.color = '';
-      el.style.textDecoration = '';
-    }
-  });
-  document.getElementById('groups-display').innerHTML = '';
-  document.getElementById('status').textContent = '';
-}
-
-function renderDesks() {
-  document.querySelectorAll('.desk[data-id]').forEach(el => {
-    const id = el.dataset.id;
-    const s = STUDENTS.find(x => x.id === id);
-    el.textContent = getName(s);
+  function toggleAbsent(id) {
+    if (absent.has(id)) { absent.delete(id) } else { absent.add(id) }
+    doReset();
+    const el = document.querySelector(`.seat[data-id="${id}"]`);
     const wrap = el.parentElement;
-    const existing = wrap.querySelector('.x-badge');
+    const badge = wrap.querySelector('.xbadge');
     if (absent.has(id)) {
-      el.classList.add('absent');
-      if (!existing) {
-        const x = document.createElement('div');
-        x.className = 'x-badge';
-        x.textContent = '✕';
-        wrap.appendChild(x);
-      }
+      el.classList.add('absent'); el.textContent = name(id);
+      if (!badge) { const x = document.createElement('div'); x.className = 'xbadge'; x.textContent = '✕'; wrap.appendChild(x) }
     } else {
-      el.classList.remove('absent');
-      el.style.background = '';
-      el.style.borderColor = '';
-      el.style.color = '';
-      if (existing) existing.remove();
+      el.classList.remove('absent'); el.textContent = name(id);
+      if (badge) badge.remove();
     }
-  });
-}
+  }
 
-function updateUI() {
-  document.getElementById('lbl-teacher-role').textContent = t('teacherRole');
-  document.getElementById('lbl-size').textContent = t('sizeLabel');
-  document.getElementById('btn-create').textContent = t('createBtn');
-  document.getElementById('btn-reset').textContent = t('resetBtn');
-  const lnBtn = document.getElementById('btn-lastname');
-  lnBtn.textContent = showLastname ? t('lastnameOn') : t('lastnameOff');
-  lnBtn.classList.toggle('active', showLastname);
-  document.querySelectorAll('.desk.empty').forEach(el => { el.textContent = t('empty'); });
-  renderDesks();
-}
+  function buildAdj() {
+    const adj = {};
+    ROWS.forEach(row => {
+      const all = [...row.left.filter(Boolean), ...row.right.filter(Boolean)];
+      all.forEach(id => { if (!adj[id]) adj[id] = new Set() });
+      row.left.filter(Boolean).forEach((id, i, a) => { if (a[i + 1]) { adj[id].add(a[i + 1]); adj[a[i + 1]].add(id) } });
+      row.right.filter(Boolean).forEach((id, i, a) => { if (a[i + 1]) { adj[id].add(a[i + 1]); adj[a[i + 1]].add(id) } });
+    });
+    return adj;
+  }
 
-function render() {
-  const container = document.getElementById('rows-container');
-  container.innerHTML = '';
-  ROWS_DEF.forEach((row, ri) => {
-    const rowDiv = document.createElement('div');
-    rowDiv.className = 'row';
+  function allActive() { return Object.keys(S).filter(id => !absent.has(id)) }
 
-    const label = document.createElement('div');
-    label.className = 'row-label';
-    label.textContent = ri + 1;
-    rowDiv.appendChild(label);
+  function doGroups() {
+    const sz = parseInt(document.getElementById('gsize').value);
+    const adj = buildAdj();
+    const active = allActive();
 
-    const leftSide = document.createElement('div');
-    leftSide.className = 'side';
-    row.left.forEach(id => {
-      const wrap = document.createElement('div');
-      wrap.className = 'desk-wrap';
-      const d = document.createElement('div');
-      if (!id) {
-        d.className = 'desk empty';
-        d.textContent = t('empty');
-      } else {
-        const s = STUDENTS.find(x => x.id === id);
-        d.className = 'desk';
-        d.dataset.id = id;
-        d.textContent = getName(s);
-        d.onclick = () => { toggleAbsent(id); };
+    if (active.length === 0) return;
+    const full = Math.floor(active.length / sz);
+    const rem = active.length % sz;
+    const sizes = [];
+
+    if (full === 0) {
+      sizes.push(active.length);
+    } else {
+      for (let i = 0; i < full; i++) sizes.push(sz);
+      if (rem > 0) {
+        if (rem <= Math.floor(sz / 2)) {
+          for (let i = 0; i < rem; i++) sizes[i % full]++;
+        } else {
+          sizes.push(rem);
+        }
       }
-      wrap.appendChild(d);
-      leftSide.appendChild(wrap);
+    }
+    const numGroups = sizes.length;
+
+    let best = null;
+    let fallback = null;
+    let minViolations = Infinity;
+
+    for (let t = 0; t < 600; t++) {
+      const sh = [...active].sort(() => Math.random() - .5);
+      const groups = [];
+      let ok = true;
+      let start = 0;
+      let violations = 0;
+
+      for (let i = 0; i < numGroups; i++) {
+        const g = sh.slice(start, start + sizes[i]);
+        start += sizes[i];
+        let good = true;
+        for (let a = 0; a < g.length; a++) {
+          for (let b = a + 1; b < g.length; b++) {
+            if (adj[g[a]] && adj[g[a]].has(g[b])) { good = false; violations++; }
+          }
+        }
+        if (!good) ok = false;
+        groups.push(g);
+      }
+
+      if (ok) { best = groups; break }
+      if (violations < minViolations) { minViolations = violations; fallback = groups; }
+    }
+
+    // Eğer tüm rastgele denemelerde "sıra arkadaşı asla aynı gruba düşmesin" kuralına uyan %100 
+    // bir sonuç çıkmazsa (ki büyük sayılarda ve dağıtımda imkansızlaşabilir), en iyi/en az ihlalli varyasyonu seç.
+    if (!best && fallback) best = fallback;
+
+    if (!best) {
+      const msg = document.getElementById('statusmsg');
+      msg.textContent = t('fail'); msg.style.color = '#E24B4A'; 
+      return; 
+    }
+    
+    lastBest = best;
+    renderGroups();
+  }
+
+  function renderGroups() {
+    if (!lastBest) return;
+    const msg = document.getElementById('statusmsg');
+    msg.textContent = t('ok')(lastBest.length); msg.style.color = '#1D9E75';
+
+    const gmap = {}; lastBest.forEach((g, gi) => g.forEach(id => { gmap[id] = gi }));
+    document.querySelectorAll('.seat[data-id]').forEach(el => {
+      const id = el.dataset.id;
+      if (!absent.has(id) && gmap[id] !== undefined) {
+        const gi = gmap[id];
+        el.style.background = GB[gi % GB.length];
+        el.style.borderColor = GC[gi % GC.length];
+        el.style.color = GC[gi % GC.length];
+        el.style.fontWeight = '600';
+        el.textContent = name(id);
+
+        const wrap = el.parentElement;
+        let badge = wrap.querySelector('.gbadge');
+        if (!badge) { badge = document.createElement('div'); badge.className = 'gbadge'; wrap.appendChild(badge) }
+        badge.textContent = gi + 1;
+        badge.style.background = GC[gi % GC.length];
+      }
     });
 
-    const aisle = document.createElement('div');
-    aisle.className = 'aisle';
-
-    const rightSide = document.createElement('div');
-    rightSide.className = 'side';
-    row.right.forEach(id => {
-      const wrap = document.createElement('div');
-      wrap.className = 'desk-wrap';
-      const d = document.createElement('div');
-      const s = STUDENTS.find(x => x.id === id);
-      d.className = 'desk';
-      d.dataset.id = id;
-      d.textContent = getName(s);
-      d.onclick = () => { toggleAbsent(id); };
-      wrap.appendChild(d);
-      rightSide.appendChild(wrap);
+    const out = document.getElementById('gout');
+    const row = document.createElement('div'); row.className = 'groups-row';
+    lastBest.forEach((g, gi) => {
+      const card = document.createElement('div'); card.className = 'gcard';
+      card.style.border = '1px solid ' + GC[gi % GC.length] + '33';
+      card.style.background = GB[gi % GB.length];
+      card.innerHTML = `<div class="gtitle" style="color:${GC[gi % GC.length]}; border-bottom-color: ${GC[gi % GC.length]}33">${t('grp')} ${gi + 1}</div>` +
+        g.map(id => `<div class="gmember">${name(id)}</div>`).join('');
+      row.appendChild(card);
     });
+    out.innerHTML = ''; out.appendChild(row);
+  }
 
-    rowDiv.appendChild(leftSide);
-    rowDiv.appendChild(aisle);
-    rowDiv.appendChild(rightSide);
-    container.appendChild(rowDiv);
-  });
-}
+  function doReset() {
+    lastBest = null;
+    document.querySelectorAll('.seat[data-id]').forEach(el => {
+      const id = el.dataset.id;
+      if (!absent.has(id)) { el.style.background = ''; el.style.borderColor = ''; el.style.color = ''; el.style.fontWeight = ''; el.textContent = name(id) }
+      const badge = el.parentElement.querySelector('.gbadge');
+      if (badge) badge.remove();
+    });
+    document.getElementById('gout').innerHTML = '';
+    document.getElementById('statusmsg').textContent = '';
+  }
 
-render();
-updateUI();
+  function build() {
+    const c = document.getElementById('classroom'); c.innerHTML = '';
+    ROWS.forEach((row, ri) => {
+      const rw = document.createElement('div'); rw.className = 'row-wrap';
+      const rn = document.createElement('div'); rn.className = 'row-num'; rn.textContent = ri + 1; rw.appendChild(rn);
+      const seats = document.createElement('div'); seats.className = 'seats';
+      row.left.forEach(id => {
+        const sw = document.createElement('div'); sw.className = 'seat-wrap';
+        const d = document.createElement('div');
+        if (!id) { d.className = 'seat empty'; d.textContent = t('empty') }
+        else { d.className = 'seat'; d.dataset.id = id; d.textContent = name(id); d.onclick = () => toggleAbsent(id) }
+        sw.appendChild(d); seats.appendChild(sw);
+      });
+      const corr = document.createElement('div'); corr.className = 'corridor';
+      const line = document.createElement('div'); line.className = 'corridor-line'; corr.appendChild(line); seats.appendChild(corr);
+      row.right.forEach(id => {
+        const sw = document.createElement('div'); sw.className = 'seat-wrap';
+        const d = document.createElement('div');
+        d.className = 'seat'; d.dataset.id = id; d.textContent = name(id); d.onclick = () => toggleAbsent(id);
+        sw.appendChild(d); seats.appendChild(sw);
+      });
+      rw.appendChild(seats); c.appendChild(rw);
+    });
+  }
+
+  build(); applyLang();
 </script>
