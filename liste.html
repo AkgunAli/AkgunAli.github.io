@@ -1,0 +1,351 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.classroom { padding: 1rem; max-width: 960px; margin: 0 auto; font-family: var(--font-sans); }
+.teacher-area { text-align: center; margin-bottom: 1.5rem; }
+.teacher-desk { display: inline-block; background: var(--color-background-info); border: 1.5px solid #378ADD; border-radius: 10px; padding: 10px 32px; font-size: 13px; font-weight: 500; color: var(--color-text-info); }
+.teacher-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.rows-container { display: flex; flex-direction: column; gap: 14px; margin-bottom: 1.5rem; }
+.row { display: flex; gap: 18px; align-items: center; }
+.side { display: flex; gap: 8px; flex-wrap: wrap; }
+.aisle { width: 28px; flex-shrink: 0; }
+.desk-wrap { position: relative; display: inline-block; }
+.desk { border: 1.5px solid var(--color-border-secondary); border-radius: 8px; padding: 7px 10px; font-size: 11px; color: var(--color-text-primary); background: var(--color-background-primary); min-width: 88px; text-align: center; line-height: 1.3; transition: background 0.15s, border-color 0.15s, opacity 0.15s; white-space: pre-line; cursor: pointer; user-select: none; }
+.desk:hover { border-color: #E24B4A; }
+.desk.empty { background: var(--color-background-tertiary); color: var(--color-text-tertiary); border-style: dashed; cursor: default; font-style: italic; }
+.desk.empty:hover { border-color: var(--color-border-secondary); }
+.desk.absent { background: var(--color-background-tertiary) !important; color: var(--color-text-tertiary) !important; border-color: #E24B4A !important; border-style: dashed !important; opacity: 0.6; text-decoration: line-through; }
+.x-badge { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; background: #E24B4A; color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; padding: 1rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); }
+.controls label { font-size: 13px; color: var(--color-text-secondary); }
+.groups-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+.group-card { background: var(--color-background-primary); border: 1.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 10px 14px; min-width: 140px; }
+.group-title { font-size: 11px; font-weight: 500; margin-bottom: 6px; }
+.group-member { font-size: 12px; color: var(--color-text-secondary); padding: 2px 0; }
+.btn { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 7px 14px; font-size: 12px; cursor: pointer; color: var(--color-text-primary); }
+.btn:hover { background: var(--color-background-secondary); }
+.btn-primary { background: #378ADD; color: white; border-color: #378ADD; }
+.btn-primary:hover { background: #185FA5; }
+.btn-toggle { font-size: 12px; }
+.btn-toggle.active { background: #1D9E75; color: white; border-color: #1D9E75; }
+.status { font-size: 13px; color: var(--color-text-secondary); }
+.row-label { font-size: 11px; color: var(--color-text-tertiary); width: 16px; text-align: center; flex-shrink: 0; }
+.lang-bar { display: flex; justify-content: flex-end; margin-bottom: 0.75rem; gap: 6px; }
+.lang-btn { font-size: 12px; padding: 4px 12px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); cursor: pointer; color: var(--color-text-secondary); }
+.lang-btn.active { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; border-color: var(--color-border-primary); }
+</style>
+
+<div class="classroom">
+  <div class="lang-bar">
+    <button class="lang-btn active" id="lang-de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+    <button class="lang-btn" id="lang-tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+  </div>
+
+  <div class="teacher-area">
+    <div class="teacher-label" id="lbl-teacher-role"></div>
+    <div class="teacher-desk">🌸 Christiane Hörmann</div>
+  </div>
+
+  <div class="rows-container" id="rows-container"></div>
+
+  <div class="controls">
+    <label id="lbl-size"></label>
+    <select id="group-size">
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <button class="btn btn-primary" id="btn-create" onclick="createGroups()"></button>
+    <button class="btn" id="btn-reset" onclick="resetGroups()"></button>
+    <button class="btn btn-toggle" id="btn-lastname" onclick="toggleLastname()"></button>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div id="groups-display"></div>
+</div>
+
+<script>
+const STUDENTS = [
+  {id:'jovanna', first:'Jovanna', last:'Milovac-Kostov', row:0, side:'right'},
+  {id:'nohra', first:'Nohra', last:'Odisho Kiyo', row:0, side:'right'},
+  {id:'nalin', first:'Nalin', last:'Merzo', row:0, side:'right'},
+  {id:'shamsia', first:'Shamsia', last:'Dilawari', row:0, side:'right'},
+  {id:'serpil', first:'Serpil', last:'Eskicioglu', row:1, side:'left'},
+  {id:'myralyn', first:'Myralyn', last:'Zapar Pacinio', row:1, side:'left'},
+  {id:'ibrahim', first:'Ibrahim', last:'Mikayilli', row:1, side:'right'},
+  {id:'vira', first:'Vira', last:'Kutova', row:1, side:'right'},
+  {id:'dariia', first:'Dariia', last:'Kharlamova', row:1, side:'right'},
+  {id:'marek', first:'Marek', last:'Rudnicki', row:1, side:'right'},
+  {id:'ali_a', first:'Ali', last:'Akgün', row:2, side:'left'},
+  {id:'desislava', first:'Desislava', last:'Yordanova', row:2, side:'left'},
+  {id:'hajar', first:'Hajar', last:'Ahmadi', row:2, side:'right'},
+  {id:'vladyslav', first:'Vladyslav', last:'Kharlamov', row:2, side:'right'},
+  {id:'ali_i', first:'Ali', last:'Ibrahimi', row:2, side:'right'},
+  {id:'yuliia', first:'Yuliia', last:'Iskra', row:3, side:'left'},
+  {id:'kateryna', first:'Kateryna', last:'Iskra', row:3, side:'left'},
+  {id:'amira', first:'Amira', last:'Samir Abdelrehim Khalaf', row:3, side:'right'},
+  {id:'rida', first:'Rida', last:'Babar', row:3, side:'right'},
+  {id:'sofian', first:'Sofian', last:'Alalwan-Khalaf', row:3, side:'right'}
+];
+
+const ROWS_DEF = [
+  { left: [null, null], right: ['jovanna','nohra','nalin','shamsia'] },
+  { left: ['serpil','myralyn'], right: ['ibrahim','vira','dariia','marek'] },
+  { left: ['ali_a','desislava'], right: ['hajar','vladyslav','ali_i'] },
+  { left: ['yuliia','kateryna'], right: ['amira','rida','sofian'] }
+];
+
+const GROUP_COLORS = ['#E24B4A','#1D9E75','#7F77DD','#D85A30','#D4537E','#378ADD','#639922','#BA7517','#993C1D','#0F6E56'];
+
+let absent = new Set();
+let showLastname = false;
+let lang = 'de';
+
+const T = {
+  de: {
+    teacherRole: 'Lehrerin',
+    sizeLabel: 'Gruppengröße:',
+    createBtn: 'Gruppen erstellen',
+    resetBtn: 'Zurücksetzen',
+    lastnameBtn: 'Nachname anzeigen',
+    lastnameOff: 'Nachname anzeigen',
+    lastnameOn: 'Nachname ausblenden',
+    rowLabel: 'Reihe',
+    groupLabel: 'Gruppe',
+    noGroup: 'Keine gültige Gruppe gefunden, erneut versuchen.',
+    groupsCreated: (n) => `${n} Gruppen erstellt!`,
+    empty: 'leer',
+    absent: 'abwesend'
+  },
+  tr: {
+    teacherRole: 'Öğretmen',
+    sizeLabel: 'Grup büyüklüğü:',
+    createBtn: 'Grup Oluştur',
+    resetBtn: 'Sıfırla',
+    lastnameBtn: 'Soy isim göster',
+    lastnameOff: 'Soy isim göster',
+    lastnameOn: 'Soy isim gizle',
+    rowLabel: 'Sıra',
+    groupLabel: 'Grup',
+    noGroup: 'Geçerli grup bulunamadı, tekrar deneyin.',
+    groupsCreated: (n) => `${n} grup oluşturuldu!`,
+    empty: 'boş',
+    absent: 'yok'
+  }
+};
+
+function t(key, ...args) {
+  const v = T[lang][key];
+  return typeof v === 'function' ? v(...args) : v;
+}
+
+function setLang(l) {
+  lang = l;
+  document.getElementById('lang-de').classList.toggle('active', l === 'de');
+  document.getElementById('lang-tr').classList.toggle('active', l === 'tr');
+  updateUI();
+}
+
+function getName(s) {
+  return showLastname ? s.first + '\n' + s.last : s.first;
+}
+
+function toggleLastname() {
+  showLastname = !showLastname;
+  updateUI();
+}
+
+function toggleAbsent(id) {
+  if (absent.has(id)) absent.delete(id);
+  else absent.add(id);
+  resetGroups();
+  renderDesks();
+}
+
+function buildAdjacency() {
+  const adj = {};
+  ROWS_DEF.forEach(row => {
+    const get = id => STUDENTS.find(s => s.id === id);
+    const leftIds = row.left.filter(Boolean);
+    const rightIds = row.right.filter(Boolean);
+    [...leftIds, ...rightIds].forEach(id => { if (!adj[id]) adj[id] = new Set(); });
+    leftIds.forEach((id, i, arr) => {
+      if (arr[i+1]) { adj[id].add(arr[i+1]); adj[arr[i+1]].add(id); }
+    });
+    rightIds.forEach((id, i, arr) => {
+      if (arr[i+1]) { adj[id].add(arr[i+1]); adj[arr[i+1]].add(id); }
+    });
+  });
+  return adj;
+}
+
+function createGroups() {
+  const size = parseInt(document.getElementById('group-size').value);
+  const adj = buildAdjacency();
+  const active = STUDENTS.filter(s => !absent.has(s.id)).map(s => s.id);
+  let best = null;
+  for (let tries = 0; tries < 500; tries++) {
+    const shuffled = [...active].sort(() => Math.random() - 0.5);
+    const groups = [];
+    let valid = true;
+    for (let i = 0; i < shuffled.length; i += size) {
+      const group = shuffled.slice(i, i + size);
+      let ok = true;
+      for (let a = 0; a < group.length && ok; a++)
+        for (let b = a+1; b < group.length && ok; b++)
+          if (adj[group[a]] && adj[group[a]].has(group[b])) ok = false;
+      if (!ok) { valid = false; break; }
+      groups.push(group);
+    }
+    if (valid) { best = groups; break; }
+  }
+
+  const statusEl = document.getElementById('status');
+  if (!best) { statusEl.textContent = t('noGroup'); return; }
+  statusEl.textContent = t('groupsCreated', best.length);
+
+  const groupMap = {};
+  best.forEach((g, gi) => g.forEach(id => { groupMap[id] = gi; }));
+
+  document.querySelectorAll('.desk[data-id]').forEach(el => {
+    const id = el.dataset.id;
+    if (!absent.has(id) && groupMap[id] !== undefined) {
+      const gi = groupMap[id];
+      el.style.background = GROUP_COLORS[gi % GROUP_COLORS.length];
+      el.style.borderColor = GROUP_COLORS[gi % GROUP_COLORS.length];
+      el.style.color = 'white';
+      el.style.textDecoration = '';
+    }
+  });
+
+  const nameMap = {};
+  STUDENTS.forEach(s => { nameMap[s.id] = showLastname ? s.first + ' ' + s.last : s.first; });
+
+  const display = document.getElementById('groups-display');
+  const grid = document.createElement('div');
+  grid.className = 'groups-grid';
+  best.forEach((g, gi) => {
+    const card = document.createElement('div');
+    card.className = 'group-card';
+    card.style.borderColor = GROUP_COLORS[gi % GROUP_COLORS.length];
+    card.innerHTML = `<div class="group-title" style="color:${GROUP_COLORS[gi % GROUP_COLORS.length]}">${t('groupLabel')} ${gi+1}</div>` +
+      g.map(id => `<div class="group-member">${nameMap[id]}</div>`).join('');
+    grid.appendChild(card);
+  });
+  display.innerHTML = '';
+  display.appendChild(grid);
+}
+
+function resetGroups() {
+  document.querySelectorAll('.desk[data-id]').forEach(el => {
+    const id = el.dataset.id;
+    if (!absent.has(id)) {
+      el.style.background = '';
+      el.style.borderColor = '';
+      el.style.color = '';
+      el.style.textDecoration = '';
+    }
+  });
+  document.getElementById('groups-display').innerHTML = '';
+  document.getElementById('status').textContent = '';
+}
+
+function renderDesks() {
+  document.querySelectorAll('.desk[data-id]').forEach(el => {
+    const id = el.dataset.id;
+    const s = STUDENTS.find(x => x.id === id);
+    el.textContent = getName(s);
+    const wrap = el.parentElement;
+    const existing = wrap.querySelector('.x-badge');
+    if (absent.has(id)) {
+      el.classList.add('absent');
+      if (!existing) {
+        const x = document.createElement('div');
+        x.className = 'x-badge';
+        x.textContent = '✕';
+        wrap.appendChild(x);
+      }
+    } else {
+      el.classList.remove('absent');
+      el.style.background = '';
+      el.style.borderColor = '';
+      el.style.color = '';
+      if (existing) existing.remove();
+    }
+  });
+}
+
+function updateUI() {
+  document.getElementById('lbl-teacher-role').textContent = t('teacherRole');
+  document.getElementById('lbl-size').textContent = t('sizeLabel');
+  document.getElementById('btn-create').textContent = t('createBtn');
+  document.getElementById('btn-reset').textContent = t('resetBtn');
+  const lnBtn = document.getElementById('btn-lastname');
+  lnBtn.textContent = showLastname ? t('lastnameOn') : t('lastnameOff');
+  lnBtn.classList.toggle('active', showLastname);
+  document.querySelectorAll('.desk.empty').forEach(el => { el.textContent = t('empty'); });
+  renderDesks();
+}
+
+function render() {
+  const container = document.getElementById('rows-container');
+  container.innerHTML = '';
+  ROWS_DEF.forEach((row, ri) => {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'row';
+
+    const label = document.createElement('div');
+    label.className = 'row-label';
+    label.textContent = ri + 1;
+    rowDiv.appendChild(label);
+
+    const leftSide = document.createElement('div');
+    leftSide.className = 'side';
+    row.left.forEach(id => {
+      const wrap = document.createElement('div');
+      wrap.className = 'desk-wrap';
+      const d = document.createElement('div');
+      if (!id) {
+        d.className = 'desk empty';
+        d.textContent = t('empty');
+      } else {
+        const s = STUDENTS.find(x => x.id === id);
+        d.className = 'desk';
+        d.dataset.id = id;
+        d.textContent = getName(s);
+        d.onclick = () => { toggleAbsent(id); };
+      }
+      wrap.appendChild(d);
+      leftSide.appendChild(wrap);
+    });
+
+    const aisle = document.createElement('div');
+    aisle.className = 'aisle';
+
+    const rightSide = document.createElement('div');
+    rightSide.className = 'side';
+    row.right.forEach(id => {
+      const wrap = document.createElement('div');
+      wrap.className = 'desk-wrap';
+      const d = document.createElement('div');
+      const s = STUDENTS.find(x => x.id === id);
+      d.className = 'desk';
+      d.dataset.id = id;
+      d.textContent = getName(s);
+      d.onclick = () => { toggleAbsent(id); };
+      wrap.appendChild(d);
+      rightSide.appendChild(wrap);
+    });
+
+    rowDiv.appendChild(leftSide);
+    rowDiv.appendChild(aisle);
+    rowDiv.appendChild(rightSide);
+    container.appendChild(rowDiv);
+  });
+}
+
+render();
+updateUI();
+</script>
