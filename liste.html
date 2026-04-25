@@ -408,16 +408,19 @@
 
 <div class="wrap">
   <div class="topbar">
-    <button class="lbtn on" id="lde" onclick="setLang('de')">🇩🇪 Deutsch</button>
-    <button class="lbtn" id="ltr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+    <button class="lbtn on" id="lde" onclick="setLang('de')"><img src="https://flagcdn.com/w20/de.png" width="16" alt="DE" style="vertical-align: middle; margin-right: 6px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)"> Deutsch</button>
+    <button class="lbtn" id="ltr" onclick="setLang('tr')"><img src="https://flagcdn.com/w20/tr.png" width="16" alt="TR" style="vertical-align: middle; margin-right: 6px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)"> Türkçe</button>
   </div>
 
   <div class="teacher-wrap">
-    <div class="teacher-lbl" id="tlbl" style="font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: #1e293b; margin-bottom: 2px;">Lehrerin</div>
-    <div class="teacher-note" id="tnote" style="font-size: clamp(14px, 1.1vw, 17px); color: #64748b; font-style: italic; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; padding: 0 20px;"></div>
+    <div class="teacher-lbl" id="tlbl"
+      style="font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: #1e293b; margin-bottom: 2px;">Lehrerin</div>
+    <div class="teacher-note" id="tnote"
+      style="font-size: clamp(14px, 1.1vw, 17px); color: #64748b; font-style: italic; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; padding: 0 20px;">
+    </div>
     <div class="teacher-card">
-      <span class="teacher-icon">🌸</span>
-      <span class="teacher-name">Christiane Hörmann 🇩🇪 </span>
+      <span class="teacher-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+      <span class="teacher-name">Christiane Hörmann <img src="https://flagcdn.com/w20/de.png" width="16" alt="DE" style="vertical-align: middle; margin-left: 4px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)"> </span>
     </div>
   </div>
 
@@ -472,27 +475,27 @@
     sofian: 'Sofian'
   };
 
-  const FLAGS={
-    jovanna:'🇧🇦',
-    nohra:'🇺🇸',
-    nalin:'🇸🇾',
-    shamsia:'🇦🇫',
-    serpil:'🇹🇷',
-    myralyn:'🇵🇭',
-    ibrahim:'🇦🇿',
-    vira:'🇺🇦',
-    dariia:'🇺🇦',
-    marek:'🇵🇱',
-    ali_a:'🇹🇷',
-    desislava:'🇧🇬',
-    hajar:'🇦🇫',
-    vladyslav:'🇺🇦',
-    ali_i:'🇦🇫',
-    yuliia:'🇺🇦',
-    kateryna:'🇺🇦',
-    amira:'🇪🇬',
-    rida:'🇵🇰',
-    sofian:'🇸🇾'
+  const FLAGS = {
+    jovanna: 'ba',
+    nohra: 'us',
+    nalin: 'sy',
+    shamsia: 'af',
+    serpil: 'tr',
+    myralyn: 'ph',
+    ibrahim: 'az',
+    vira: 'ua',
+    dariia: 'ua',
+    marek: 'pl',
+    ali_a: 'tr',
+    desislava: 'bg',
+    hajar: 'af',
+    vladyslav: 'ua',
+    ali_i: 'af',
+    yuliia: 'ua',
+    kateryna: 'ua',
+    amira: 'eg',
+    rida: 'pk',
+    sofian: 'sy'
   };
 
   const GC = ['#4F46E5', '#059669', '#EA580C', '#DB2777', '#2563EB', '#65A30D', '#9333EA', '#DC2626', '#0D9488', '#CA8A04'];
@@ -500,9 +503,11 @@
 
   let absent = new Set(), lang = 'de', showFlags = false, lastBest = null;
 
+  const flagSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; margin-right:4px"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>`;
+
   const TR = {
-    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: ['🚩 Flaggen anzeigen', '🚩 Flaggen ausblenden'], grp: 'Gruppe', empty: 'leer', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
-    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: ['🚩 Bayrakları Göster', '🚩 Bayrakları Gizle'], grp: 'Grup', empty: 'boş', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
+    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: [flagSvg + ' Flaggen anzeigen', flagSvg + ' Flaggen ausblenden'], grp: 'Gruppe', empty: 'leer', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
+    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: [flagSvg + ' Bayrakları Göster', flagSvg + ' Bayrakları Gizle'], grp: 'Grup', empty: 'boş', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
   };
   const t = k => TR[lang][k];
 
@@ -513,19 +518,24 @@
     document.getElementById('slbl').textContent = t('sl');
     document.getElementById('bcreate').textContent = t('bc');
     document.getElementById('breset').textContent = t('br');
-    document.getElementById('bflag').textContent = t('blf')[showFlags?1:0];
+    document.getElementById('bflag').innerHTML = t('blf')[showFlags ? 1 : 0];
     document.querySelectorAll('.seat.empty').forEach(e => e.textContent = t('empty'));
   }
-  function name(id) { return showFlags && FLAGS[id] ? S[id] + ' ' + FLAGS[id] : S[id] }
-  function refreshSeats() { document.querySelectorAll('.seat[data-id]').forEach(el => { const id = el.dataset.id; if (!absent.has(id)) el.textContent = name(id) }) }
+  function name(id) {
+    if (showFlags && FLAGS[id]) {
+      return `<span style="display:inline-flex; align-items:center; gap:6px;">${S[id]} <img src="https://flagcdn.com/w20/${FLAGS[id]}.png" srcset="https://flagcdn.com/w40/${FLAGS[id]}.png 2x" width="16" alt="${FLAGS[id]}" style="border-radius:2px; box-shadow: 0 0 2px rgba(0,0,0,0.2)"></span>`;
+    }
+    return S[id];
+  }
+  function refreshSeats() { document.querySelectorAll('.seat[data-id]').forEach(el => { const id = el.dataset.id; if (!absent.has(id)) el.innerHTML = name(id) }) }
 
-  function toggleFlags() { 
-    showFlags = !showFlags; 
-    const b = document.getElementById('bflag'); 
-    b.textContent = t('blf')[showFlags?1:0]; 
-    if(showFlags){ b.style.background='#4F46E5'; b.style.color='white'; b.style.borderColor='#4F46E5'; } else { b.style.background=''; b.style.color=''; b.style.borderColor=''; }
+  function toggleFlags() {
+    showFlags = !showFlags;
+    const b = document.getElementById('bflag');
+    b.innerHTML = t('blf')[showFlags ? 1 : 0];
+    if (showFlags) { b.style.background = '#4F46E5'; b.style.color = 'white'; b.style.borderColor = '#4F46E5'; } else { b.style.background = ''; b.style.color = ''; b.style.borderColor = ''; }
     refreshSeats();
-    if(lastBest) renderGroups();
+    if (lastBest) renderGroups();
   }
 
   function toggleAbsent(id) {
@@ -535,10 +545,10 @@
     const wrap = el.parentElement;
     const badge = wrap.querySelector('.xbadge');
     if (absent.has(id)) {
-      el.classList.add('absent'); el.textContent = name(id);
+      el.classList.add('absent'); el.innerHTML = name(id);
       if (!badge) { const x = document.createElement('div'); x.className = 'xbadge'; x.textContent = '✕'; wrap.appendChild(x) }
     } else {
-      el.classList.remove('absent'); el.textContent = name(id);
+      el.classList.remove('absent'); el.innerHTML = name(id);
       if (badge) badge.remove();
     }
   }
@@ -614,10 +624,10 @@
 
     if (!best) {
       const msg = document.getElementById('statusmsg');
-      msg.textContent = t('fail'); msg.style.color = '#E24B4A'; 
-      return; 
+      msg.textContent = t('fail'); msg.style.color = '#E24B4A';
+      return;
     }
-    
+
     lastBest = best;
     renderGroups();
   }
@@ -636,7 +646,7 @@
         el.style.borderColor = GC[gi % GC.length];
         el.style.color = GC[gi % GC.length];
         el.style.fontWeight = '600';
-        el.textContent = name(id);
+        el.innerHTML = name(id);
 
         const wrap = el.parentElement;
         let badge = wrap.querySelector('.gbadge');
@@ -663,7 +673,7 @@
     lastBest = null;
     document.querySelectorAll('.seat[data-id]').forEach(el => {
       const id = el.dataset.id;
-      if (!absent.has(id)) { el.style.background = ''; el.style.borderColor = ''; el.style.color = ''; el.style.fontWeight = ''; el.textContent = name(id) }
+      if (!absent.has(id)) { el.style.background = ''; el.style.borderColor = ''; el.style.color = ''; el.style.fontWeight = ''; el.innerHTML = name(id) }
       const badge = el.parentElement.querySelector('.gbadge');
       if (badge) badge.remove();
     });
@@ -681,7 +691,7 @@
         const sw = document.createElement('div'); sw.className = 'seat-wrap';
         const d = document.createElement('div');
         if (!id) { d.className = 'seat empty'; d.textContent = t('empty') }
-        else { d.className = 'seat'; d.dataset.id = id; d.textContent = name(id); d.onclick = () => toggleAbsent(id) }
+        else { d.className = 'seat'; d.dataset.id = id; d.innerHTML = name(id); d.onclick = () => toggleAbsent(id) }
         sw.appendChild(d); seats.appendChild(sw);
       });
       const corr = document.createElement('div'); corr.className = 'corridor';
@@ -689,7 +699,7 @@
       row.right.forEach(id => {
         const sw = document.createElement('div'); sw.className = 'seat-wrap';
         const d = document.createElement('div');
-        d.className = 'seat'; d.dataset.id = id; d.textContent = name(id); d.onclick = () => toggleAbsent(id);
+        d.className = 'seat'; d.dataset.id = id; d.innerHTML = name(id); d.onclick = () => toggleAbsent(id);
         sw.appendChild(d); seats.appendChild(sw);
       });
       rw.appendChild(seats); c.appendChild(rw);
