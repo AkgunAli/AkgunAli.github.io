@@ -412,36 +412,60 @@
     <button class="lbtn" id="ltr" onclick="setLang('tr')"><img src="https://flagcdn.com/w20/tr.png" width="16" alt="TR" style="vertical-align: middle; margin-right: 6px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)"> Türkçe</button>
   </div>
 
-  <div class="teacher-wrap">
-    <div class="teacher-lbl" id="tlbl"
-      style="font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: #1e293b; margin-bottom: 2px;">Lehrerin</div>
-    <div class="teacher-note" id="tnote"
-      style="font-size: clamp(14px, 1.1vw, 17px); color: #64748b; font-style: italic; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; padding: 0 20px;">
-    </div>
-    <div class="teacher-card">
-     
-      
-    <!--  <span class="teacher-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
-     -->
-      
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Rose Petals -->
-  <path d="M50,10 C60,30 70,30 80,40 C90,50 80,70 60,70 C50,70 40,60 30,50 C20,40 10,50 20,40 C30,30 40,30 50,10 Z" fill="#ff4d4d" stroke="#b30000" stroke-width="2"/>
-  <!-- Stem and Leaf -->
-  <path d="M50,70 L50,90 M50,80 L40,75 M50,80 L60,75" stroke="#2d8659" stroke-width="3" fill="none"/>
-</svg>
-      
-      
-      
-      
-      
-      
-      
-      
-      <span class="teacher-name">Christiane <img src="https://flagcdn.com/w20/de.png" width="16" alt="DE" style="vertical-align: middle; margin-left: 4px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)"> </span>
-    </div>
+
+
+
+
+
+  <div class="teacher-wrap" style="text-align: center;">
+  
+  <div class="teacher-lbl" id="tlbl"
+    style="font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: #1e293b; margin-bottom: 2px;">
+    Lehrerin
   </div>
 
+  <div class="teacher-note" id="tnote"
+    style="font-size: clamp(14px, 1.1vw, 17px); color: #64748b; font-style: italic; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; padding: 0 20px;">
+  </div>
+
+  <div class="teacher-card" style="display: inline-flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px 16px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    
+    <!-- Çiçek ikon -->
+    <span class="teacher-icon" style="display: inline-flex; align-items: center; justify-content: center;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <!-- center -->
+        <circle cx="12" cy="12" r="2.2" fill="#ec4899"/>
+        
+        <!-- petals -->
+        <ellipse cx="12" cy="5" rx="2.2" ry="3.2" fill="#f9a8d4"/>
+        <ellipse cx="12" cy="19" rx="2.2" ry="3.2" fill="#f9a8d4"/>
+        <ellipse cx="5" cy="12" rx="3.2" ry="2.2" fill="#f9a8d4"/>
+        <ellipse cx="19" cy="12" rx="3.2" ry="2.2" fill="#f9a8d4"/>
+        
+        <!-- diagonal petals -->
+        <ellipse cx="7.5" cy="7.5" rx="2" ry="2.8" transform="rotate(-45 7.5 7.5)" fill="#fbcfe8"/>
+        <ellipse cx="16.5" cy="7.5" rx="2" ry="2.8" transform="rotate(45 16.5 7.5)" fill="#fbcfe8"/>
+        <ellipse cx="7.5" cy="16.5" rx="2" ry="2.8" transform="rotate(45 7.5 16.5)" fill="#fbcfe8"/>
+        <ellipse cx="16.5" cy="16.5" rx="2" ry="2.8" transform="rotate(-45 16.5 16.5)" fill="#fbcfe8"/>
+      </svg>
+    </span>
+
+    <!-- İsim -->
+    <span class="teacher-name" style="font-weight: 600; color: #1e293b;">
+      Christiane 
+      <img src="https://flagcdn.com/w20/de.png" width="16" alt="DE"
+        style="vertical-align: middle; margin-left: 4px; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.3)">
+    </span>
+
+  </div>
+</div>
+
+
+
+
+
+
+  
   <div class="classroom-grid" id="classroom"></div>
 
   <div class="panel">
