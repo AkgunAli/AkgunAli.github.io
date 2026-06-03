@@ -339,6 +339,26 @@
     transform: translateY(-2px)
   }
 
+  .rule-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(13px, 1vw, 16px) !important;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+
+  .rule-check input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4F46E5;
+  }
+
   .hint {
     font-size: clamp(13px, 1vw, 16px);
     font-weight: 600;
@@ -470,6 +490,10 @@
       <option value="5">5</option>
       <option value="6">6</option>
     </select>
+    <label class="rule-check">
+      <input type="checkbox" id="countryRule">
+      <span id="countryRuleLbl">Keine gleiche Nationalität</span>
+    </label>
     <button class="pbtn go" id="bcreate" onclick="doGroups()">Gruppen erstellen</button>
     <button class="pbtn" id="breset" onclick="doReset()">Zurücksetzen</button>
     <button class="pbtn" id="bflag" onclick="toggleFlags()"></button>
@@ -538,11 +562,11 @@
 
   let absent = new Set(), lang = 'de', showFlags = false, lastBest = null;
 
-  const flagSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; margin-right:4px"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>`;
+  const flagSvg = `<span style="display:inline-block; font-size:17px; line-height:1; margin-right:6px; vertical-align:-2px;">🚩</span>`;
 
   const TR = {
-    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: [flagSvg + ' Flaggen anzeigen', flagSvg + ' Flaggen ausblenden'], grp: 'Gruppe', empty: '', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
-    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: [flagSvg + ' Bayrakları Göster', flagSvg + ' Bayrakları Gizle'], grp: 'Grup', empty: '', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
+    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', countryRule: 'Keine gleiche Nationalität', blf: [flagSvg + ' Flaggen anzeigen', flagSvg + ' Flaggen ausblenden'], grp: 'Gruppe', empty: '', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
+    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', countryRule: 'Aynı ülkeden olanlar eşleşmesin', blf: [flagSvg + ' Bayrakları Göster', flagSvg + ' Bayrakları Gizle'], grp: 'Grup', empty: '', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
   };
   const t = k => TR[lang][k];
 
@@ -553,6 +577,7 @@
     document.getElementById('slbl').textContent = t('sl');
     document.getElementById('bcreate').textContent = t('bc');
     document.getElementById('breset').textContent = t('br');
+    document.getElementById('countryRuleLbl').textContent = t('countryRule');
     document.getElementById('bflag').innerHTML = t('blf')[showFlags ? 1 : 0];
     document.querySelectorAll('.seat.empty').forEach(e => e.textContent = t('empty'));
   }
@@ -605,6 +630,7 @@
     const sz = parseInt(document.getElementById('gsize').value);
     const adj = buildAdj();
     const active = allActive();
+    const avoidSameCountry = document.getElementById('countryRule').checked;
 
     if (active.length === 0) return;
     const full = Math.floor(active.length / sz);
@@ -629,7 +655,7 @@
     let fallback = null;
     let minViolations = Infinity;
 
-    for (let t = 0; t < 600; t++) {
+    for (let t = 0; t < 2000; t++) {
       const sh = [...active].sort(() => Math.random() - .5);
       const groups = [];
       let ok = true;
@@ -642,7 +668,22 @@
         let good = true;
         for (let a = 0; a < g.length; a++) {
           for (let b = a + 1; b < g.length; b++) {
-            if (adj[g[a]] && adj[g[a]].has(g[b])) { good = false; violations++; }
+            // Yan yana oturanlar aynı gruba düşmesin
+            if (adj[g[a]] && adj[g[a]].has(g[b])) {
+              good = false;
+              violations++;
+            }
+
+            // Checkbox açıksa aynı ülkeden olanlar aynı gruba düşmesin
+            if (
+              avoidSameCountry &&
+              FLAGS[g[a]] &&
+              FLAGS[g[b]] &&
+              FLAGS[g[a]] === FLAGS[g[b]]
+            ) {
+              good = false;
+              violations++;
+            }
           }
         }
         if (!good) ok = false;
