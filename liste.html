@@ -541,8 +541,8 @@
   const flagSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; margin-right:4px"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>`;
 
   const TR = {
-    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: [flagSvg + ' Flaggen anzeigen', flagSvg + ' Flaggen ausblenden'], grp: 'Gruppe', empty: 'leer', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
-    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: [flagSvg + ' Bayrakları Göster', flagSvg + ' Bayrakları Gizle'], grp: 'Grup', empty: 'boş', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
+    de: { tl: 'Lehrerin', tnote: '"Herzlichen Dank für Ihre große Mühe und für alles, was Sie mir beigebracht haben."', sl: 'Gruppengröße:', bc: 'Gruppen erstellen', br: 'Zurücksetzen', blf: [flagSvg + ' Flaggen anzeigen', flagSvg + ' Flaggen ausblenden'], grp: 'Gruppe', empty: '', ok: n => `${n} Gruppen erstellt!`, fail: 'Keine gültige Gruppe gefunden.' },
+    tr: { tl: 'Öğretmen', tnote: '"Bana öğrettiğiniz her şey ve büyük emeğiniz için kalpten teşekkürler."', sl: 'Grup büyüklüğü:', bc: 'Grup Oluştur', br: 'Sıfırla', blf: [flagSvg + ' Bayrakları Göster', flagSvg + ' Bayrakları Gizle'], grp: 'Grup', empty: '', ok: n => `${n} grup oluşturuldu!`, fail: 'Geçerli grup bulunamadı.' }
   };
   const t = k => TR[lang][k];
 
