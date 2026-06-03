@@ -560,7 +560,7 @@
   const GC = ['#4F46E5', '#059669', '#EA580C', '#DB2777', '#2563EB', '#65A30D', '#9333EA', '#DC2626', '#0D9488', '#CA8A04'];
   const GB = ['#EEF2FF', '#ECFDF5', '#FFF7ED', '#FDF2F8', '#EFF6FF', '#F7FEE7', '#FAF5FF', '#FEF2F2', '#F0FDFA', '#FEFCE8'];
 
-  let absent = new Set(), lang = 'de', showFlags = false, lastBest = null;
+  let absent = new Set(), lang = 'de', showFlags = true, lastBest = null;
 
   const flagSvg = `<span style="display:inline-block; font-size:17px; line-height:1; margin-right:6px; vertical-align:-2px;">🚩</span>`;
 
@@ -782,5 +782,11 @@
     });
   }
 
-  build(); applyLang();
+  build(); 
+  applyLang();
+
+  const b = document.getElementById('bflag');
+  b.style.background = '#4F46E5';
+  b.style.color = 'white';
+  b.style.borderColor = '#4F46E5';
 </script>
