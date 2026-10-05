@@ -1,55 +1,200 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": null,
-  "developer": { "id": null, "name": "Ali Akgün", "url": null },
+  "syncedAt": "2026-10-05T07:34:25.364Z",
+  "developer": {
+    "id": 1672967762,
+    "name": "Ali Akgun",
+    "url": "https://apps.apple.com/developer/id1672967762"
+  },
   "apps": [
     {
-      "id": 6761754756,
-      "url": "https://apps.apple.com/us/app/perfect-draw-shape-color/id6761754756",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f2/6e/8d/f26e8d9f-f3b2-f961-9f19-c0a5100e1cd8/Placeholder.mill/200x200bb-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Perfect Draw: Şekil ve Renk", "genre": null, "description": "" },
-      "en": { "name": "Perfect Draw: Shape & Color", "genre": null, "description": "" }
-    },
-    {
-      "id": 6759307332,
-      "url": "https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Milu FM: Radyo & AI", "genre": null, "description": "" },
-      "en": { "name": "Milu FM: Radio & AI", "genre": null, "description": "" }
+      "id": 6769936058,
+      "url": "https://apps.apple.com/app/id6769936058",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/1a/4f/2e1a4f20-c6f8-03db-3e31-8729fe745e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-05-20T07:00:00Z",
+      "updated": "2026-05-20T22:41:38Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Deutsch mit Ali Abi: A1-B2",
+        "genre": "Education",
+        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+      },
+      "en": {
+        "name": "Deutsch mit Ali Abi: A1-B2",
+        "genre": "Education",
+        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+      },
+      "rating": 5,
+      "ratingCount": 2
     },
     {
       "id": 6759639265,
-      "url": "https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Kur'an Namaz Pro", "genre": null, "description": "" },
-      "en": { "name": "Quran Prayer Pro", "genre": null, "description": "" }
+      "url": "https://apps.apple.com/app/id6759639265",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-02-26T08:00:00Z",
+      "updated": "2026-04-25T08:51:43Z",
+      "version": "1.5",
+      "price": 0,
+      "tr": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "en": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "rating": 5,
+      "ratingCount": 2
     },
     {
       "id": 6474076891,
-      "url": "https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Anlat Bul", "genre": null, "description": "" },
-      "en": { "name": "Describe & Find", "genre": null, "description": "" }
+      "url": "https://apps.apple.com/app/id6474076891",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2024-01-17T08:00:00Z",
+      "updated": "2024-02-19T22:52:13Z",
+      "version": "1.1",
+      "price": 29.99,
+      "tr": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "en": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "rating": 5,
+      "ratingCount": 3
     },
     {
       "id": 6446329316,
-      "url": "https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Eşle Öğren", "genre": null, "description": "" },
-      "en": { "name": "Match & Learn", "genre": null, "description": "" }
+      "url": "https://apps.apple.com/app/id6446329316",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2023-03-18T07:00:00Z",
+      "updated": "2023-11-30T19:26:39Z",
+      "version": "2.1",
+      "price": 29.99,
+      "tr": {
+        "name": "Eşle Öğren:Okul Öncesi Oyunlar",
+        "genre": "Games",
+        "description": "CodingTech Eşle Öğren uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklarda; görsel, bilişsel ve kavramsal beceriler gibi birçok önemli alanı geliştirerek öğrenme süreçlerini destekliyor.\n\nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok yararlı bulacağı bir oyun daha: Eşle Öğren! Eşle Öğren oyunu hem çok kolay hem de çok öğretici. Çocuklar eğlenerek eşleme yaparken, bir çok kavramı ve o kavramlarla ilgili bilgileri de öğrenmiş olacak. Çocuk psikologları ve öğretmenler ile birlikte geliştirilen oyunumuz hem güvenli içerikli hem de eğlenceli bir öğrenme fırsatı sunmaktadır. Haydi hemen indirin, çocuğunuzla birlikte eğlenirken Hayvanlar, Yiyecekler, Meslekler gibi birçok kategoride oyunlar oynamanın tadını çıkarın! Dijital eğitim oyunlarına büyük önem veren CodingTech Bilişim’nin diğer oyunlarından çocuğunuza uygun olanları indirerek, çocuğunuzun gelişimine destek olabilirsiniz.\n\n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n- Oyun genel olarak kavram öğrenimi ve isimlendirmesiyle çocuğunuzun eşleme becerisini birleştirmektedir.\n- Çocuğunuz kavramları öğrenirken aynı zamanda da eşleme becerisini geliştirmiş olacak.\n- Oyunumuzda çocuğunuzun gelişim sürecinde öğrenmesi gereken altı önemli kavram bulunmaktadır.\n- Bu kavramlar: Hayvanlar, Yicecekler, Giysiler, Renkler, Ev Eşyaları ve Meslekler’dir.\n- Eşle Öğren oyununda çocuğunuzun bu kavramları eğlenerek öğrenmesi hedeflenmiştir.\n- Her oyun, içinde yer alan farklı kategorilerle ayrıntılı bir çeşitlendirmeyle zenginleştirilmiştir. Örneğin: Hayvanlar kavramında: Çiftlik Hayvanları-Uçan Hayvanlar-Denizde Yaşayan Hayvanlar-Vahşi Hayvanlar ve Evcil Hayvanlar kategorileri bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Eşle Öğren kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n- Çocuğunuz için en iyi eğitici oyunlar\n\nAİLELER İÇİN EŞLE ÖĞREN\nÇocukların aileleri ile birlikte kaliteli, eğlenceli ve eğitici zaman geçirebilmeleri için tasarlanmıştır. Bu sebeple çocuğunuzla birlikte oynamanız tavsiye edilir. Bu şekilde çocuğunuzun Eşle Öğren oyunundan azami derecede fayda sağlamasını ve eğlenmesini sağlamış olacaksınız."
+      },
+      "en": {
+        "name": "Eşle Öğren:Okul Öncesi Oyunlar",
+        "genre": "Games",
+        "description": "CodingTech Eşle Öğren uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklarda; görsel, bilişsel ve kavramsal beceriler gibi birçok önemli alanı geliştirerek öğrenme süreçlerini destekliyor.\n\nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok yararlı bulacağı bir oyun daha: Eşle Öğren! Eşle Öğren oyunu hem çok kolay hem de çok öğretici. Çocuklar eğlenerek eşleme yaparken, bir çok kavramı ve o kavramlarla ilgili bilgileri de öğrenmiş olacak. Çocuk psikologları ve öğretmenler ile birlikte geliştirilen oyunumuz hem güvenli içerikli hem de eğlenceli bir öğrenme fırsatı sunmaktadır. Haydi hemen indirin, çocuğunuzla birlikte eğlenirken Hayvanlar, Yiyecekler, Meslekler gibi birçok kategoride oyunlar oynamanın tadını çıkarın! Dijital eğitim oyunlarına büyük önem veren CodingTech Bilişim’nin diğer oyunlarından çocuğunuza uygun olanları indirerek, çocuğunuzun gelişimine destek olabilirsiniz.\n\n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n- Oyun genel olarak kavram öğrenimi ve isimlendirmesiyle çocuğunuzun eşleme becerisini birleştirmektedir.\n- Çocuğunuz kavramları öğrenirken aynı zamanda da eşleme becerisini geliştirmiş olacak.\n- Oyunumuzda çocuğunuzun gelişim sürecinde öğrenmesi gereken altı önemli kavram bulunmaktadır.\n- Bu kavramlar: Hayvanlar, Yicecekler, Giysiler, Renkler, Ev Eşyaları ve Meslekler’dir.\n- Eşle Öğren oyununda çocuğunuzun bu kavramları eğlenerek öğrenmesi hedeflenmiştir.\n- Her oyun, içinde yer alan farklı kategorilerle ayrıntılı bir çeşitlendirmeyle zenginleştirilmiştir. Örneğin: Hayvanlar kavramında: Çiftlik Hayvanları-Uçan Hayvanlar-Denizde Yaşayan Hayvanlar-Vahşi Hayvanlar ve Evcil Hayvanlar kategorileri bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Eşle Öğren kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n- Çocuğunuz için en iyi eğitici oyunlar\n\nAİLELER İÇİN EŞLE ÖĞREN\nÇocukların aileleri ile birlikte kaliteli, eğlenceli ve eğitici zaman geçirebilmeleri için tasarlanmıştır. Bu sebeple çocuğunuzla birlikte oynamanız tavsiye edilir. Bu şekilde çocuğunuzun Eşle Öğren oyunundan azami derecede fayda sağlamasını ve eğlenmesini sağlamış olacaksınız."
+      },
+      "rating": 5,
+      "ratingCount": 13
+    },
+    {
+      "id": 6768466757,
+      "url": "https://apps.apple.com/app/id6768466757",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/32/fb/ba32fb13-6d00-802b-bcbd-920f3319f961/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-05-21T07:00:00Z",
+      "updated": "2026-05-26T08:01:55Z",
+      "version": "1.0.1",
+      "price": 0,
+      "tr": {
+        "name": "Momera: Hamilelik Takibi",
+        "genre": "Medical",
+        "description": "Momera: Hamilelik Takibi ve Gebelik Rehberi\n\nMomera ile hamilelik sürecinizi hafta hafta takip edin. Bebeğinizin gelişimini izleyin, günlük rutinlerinizi kaydedin ve doğuma hazırlık sürecinizi tek bir uygulamada kolayca yönetin.\n\nHamilelik yolculuğunuz boyunca ihtiyaç duyabileceğiniz gelişim takibi, günlük kayıtlar, planlama araçları ve bilgilendirici içerikler Momera’da bir araya gelir.\n\nHafta Hafta Bebek Gelişimi\n\nBebeğinizin gelişimini 1. haftadan 40. haftaya kadar adım adım takip edin. Her hafta bebeğinizin boyutunu meyve ve sebze benzetmeleriyle öğrenebilir, haftalık gelişim bilgilerini inceleyebilirsiniz.\n\n• Haftalık bebek gelişimi\n• Meyve ve sebze boyut karşılaştırmaları\n• Haftalık mesajlar ve bilgiler\n• 2D ve 3D örnek ultrason görüntüleri\n• İlk kalp atışı ve ilk ultrason gibi önemli dönüm noktaları\n• Hamilelik gelişim zaman çizelgesi\n\nAnne Sağlığı ve Günlük Takip\n\nHamilelik süreciniz boyunca günlük rutinlerinizi düzenli şekilde kaydedin ve kendi ilerlemenizi kolayca takip edin.\n\n• Tekme sayacı ile bebeğinizin hareketlerini takip edin\n• Günlük su tüketimi kaydı oluşturun\n• Kilo takibi yapın\n• Folik asit kullanımınızı kaydedin\n• Günlük duygu durum notları ekleyin\n• Haftanıza özel ipuçları ve bilgiler keşfedin\n\nAyrıca hamilelik, beslenme, egzersiz ve doğuma hazırlık gibi konularda bilgilendirici makaleleri okuyabilirsiniz.\n\nPlanlama ve Hazırlık Araçları\n\nHamilelik sürecinizi daha düzenli planlayabilmeniz için geliştirilmiş araçları kullanın.\n\n• Doktor kontrolleri ve tarama notları oluşturun\n• Doğum planınızı hazırlayın\n• Doğum tercihlerinizi sevdiklerinizle paylaşın\n• Bebek isimleri sözlüğünü keşfedin\n• Paylaşılabilir alışveriş listeleri hazırlayın\n• Aile üyeleri için özel etiketler ekleyin\n\nAnılar ve Topluluk\n\nBu özel yolculuğunuzu kayıt altına alın ve diğer anne adaylarıyla iletişim kurun.\n\n• 9 aylık karın büyüme günlüğü oluşturun\n• Kendi anı defterinizi hazırlayın\n• Forum alanında deneyim paylaşın\n• Sorular sorun ve toplulukla iletişim kurun\n• Bilgilendirici kısa içerikleri keşfedin\n\nGüvenlik ve Gizlilik\n\nMomera, kullanıcı verilerinin güvenliğine önem verir. Uygulama içerisinde oluşturduğunuz kayıtları yönetebilir ve dilediğiniz zaman hesabınızı silebilirsiniz.\n\nTıbbi Uyarı:\nMomera tıbbi teşhis, tedavi veya profesyonel sağlık hizmeti sunmaz. Uygulamadaki içerikler yalnızca genel bilgilendirme amacı taşır. Sağlığınızla ilgili konularda ve tıbbi kararlarınız için lütfen doktorunuza danışın.\n\nMomera’yı şimdi indirin ve hamilelik sürecinizi bilinçli, düzenli ve keyifli bir şekilde takip etmeye başlayın."
+      },
+      "en": {
+        "name": "Momera: Hamilelik Takibi",
+        "genre": "Medical",
+        "description": "Momera: Hamilelik Takibi ve Gebelik Rehberi\n\nMomera ile hamilelik sürecinizi hafta hafta takip edin. Bebeğinizin gelişimini izleyin, günlük rutinlerinizi kaydedin ve doğuma hazırlık sürecinizi tek bir uygulamada kolayca yönetin.\n\nHamilelik yolculuğunuz boyunca ihtiyaç duyabileceğiniz gelişim takibi, günlük kayıtlar, planlama araçları ve bilgilendirici içerikler Momera’da bir araya gelir.\n\nHafta Hafta Bebek Gelişimi\n\nBebeğinizin gelişimini 1. haftadan 40. haftaya kadar adım adım takip edin. Her hafta bebeğinizin boyutunu meyve ve sebze benzetmeleriyle öğrenebilir, haftalık gelişim bilgilerini inceleyebilirsiniz.\n\n• Haftalık bebek gelişimi\n• Meyve ve sebze boyut karşılaştırmaları\n• Haftalık mesajlar ve bilgiler\n• 2D ve 3D örnek ultrason görüntüleri\n• İlk kalp atışı ve ilk ultrason gibi önemli dönüm noktaları\n• Hamilelik gelişim zaman çizelgesi\n\nAnne Sağlığı ve Günlük Takip\n\nHamilelik süreciniz boyunca günlük rutinlerinizi düzenli şekilde kaydedin ve kendi ilerlemenizi kolayca takip edin.\n\n• Tekme sayacı ile bebeğinizin hareketlerini takip edin\n• Günlük su tüketimi kaydı oluşturun\n• Kilo takibi yapın\n• Folik asit kullanımınızı kaydedin\n• Günlük duygu durum notları ekleyin\n• Haftanıza özel ipuçları ve bilgiler keşfedin\n\nAyrıca hamilelik, beslenme, egzersiz ve doğuma hazırlık gibi konularda bilgilendirici makaleleri okuyabilirsiniz.\n\nPlanlama ve Hazırlık Araçları\n\nHamilelik sürecinizi daha düzenli planlayabilmeniz için geliştirilmiş araçları kullanın.\n\n• Doktor kontrolleri ve tarama notları oluşturun\n• Doğum planınızı hazırlayın\n• Doğum tercihlerinizi sevdiklerinizle paylaşın\n• Bebek isimleri sözlüğünü keşfedin\n• Paylaşılabilir alışveriş listeleri hazırlayın\n• Aile üyeleri için özel etiketler ekleyin\n\nAnılar ve Topluluk\n\nBu özel yolculuğunuzu kayıt altına alın ve diğer anne adaylarıyla iletişim kurun.\n\n• 9 aylık karın büyüme günlüğü oluşturun\n• Kendi anı defterinizi hazırlayın\n• Forum alanında deneyim paylaşın\n• Sorular sorun ve toplulukla iletişim kurun\n• Bilgilendirici kısa içerikleri keşfedin\n\nGüvenlik ve Gizlilik\n\nMomera, kullanıcı verilerinin güvenliğine önem verir. Uygulama içerisinde oluşturduğunuz kayıtları yönetebilir ve dilediğiniz zaman hesabınızı silebilirsiniz.\n\nTıbbi Uyarı:\nMomera tıbbi teşhis, tedavi veya profesyonel sağlık hizmeti sunmaz. Uygulamadaki içerikler yalnızca genel bilgilendirme amacı taşır. Sağlığınızla ilgili konularda ve tıbbi kararlarınız için lütfen doktorunuza danışın.\n\nMomera’yı şimdi indirin ve hamilelik sürecinizi bilinçli, düzenli ve keyifli bir şekilde takip etmeye başlayın."
+      },
+      "rating": 5,
+      "ratingCount": 6
+    },
+    {
+      "id": 6759307332,
+      "url": "https://apps.apple.com/app/id6759307332",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp",
+      "released": "2026-02-28T08:00:00Z",
+      "updated": "2026-02-28T09:07:45Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Milu FM: Radyo, MP3 Player, AI",
+        "genre": "Lifestyle",
+        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
+      },
+      "en": {
+        "name": "Milu FM: Radyo, MP3 Player, AI",
+        "genre": "Lifestyle",
+        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
+      },
+      "rating": 5,
+      "ratingCount": 1
     },
     {
       "id": 6470124663,
-      "url": "https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%C4%9Freniyorum-4-ya%C5%9F/id6470124663",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp",
-      "released": null, "updated": null, "version": null, "rating": null, "ratingCount": 0, "price": null,
-      "tr": { "name": "Hayvanları Öğreniyorum", "genre": null, "description": "" },
-      "en": { "name": "Learn Animals", "genre": null, "description": "" }
+      "url": "https://apps.apple.com/app/id6470124663",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2023-10-24T07:00:00Z",
+      "updated": "2024-01-23T16:16:29Z",
+      "version": "1.4",
+      "price": 29.99,
+      "tr": {
+        "name": "Hayvanları Öğreniyorum +4 Yaş",
+        "genre": "Education",
+        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
+      },
+      "en": {
+        "name": "Hayvanları Öğreniyorum +4 Yaş",
+        "genre": "Education",
+        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
+      },
+      "rating": 5,
+      "ratingCount": 2
+    },
+    {
+      "id": 6762889649,
+      "url": "https://apps.apple.com/app/id6762889649",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-04-25T07:00:00Z",
+      "updated": "2026-04-26T06:16:44Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Magic PDF Pro: Offline Editor",
+        "genre": "Productivity",
+        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
+      },
+      "en": {
+        "name": "Magic PDF Pro: Offline Editor",
+        "genre": "Productivity",
+        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
+      },
+      "rating": 5,
+      "ratingCount": 1
+    },
+    {
+      "id": 6761754756,
+      "url": "https://apps.apple.com/app/id6761754756",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/4b/47/d24b4744-ba71-4f7c-ffca-5827e1a9d093/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-04-13T07:00:00Z",
+      "updated": "2026-04-26T18:59:37Z",
+      "version": "1.1",
+      "price": 0,
+      "tr": {
+        "name": "Perfect Draw: Shape & Color",
+        "genre": "Games",
+        "description": "Perfect Draw is the ultimate precision drawing game designed for artists, designers, and anyone who loves a challenge. Test your eye for color and your hand for shapes in two exciting modes.\n\nKey Features:\n- Shape Mode: Draw circles, squares, triangles, and more. Our advanced scoring engine evaluates your accuracy, perimeter coverage, and corner precision.\n- Color Mode: Match the target color by adjusting Hue, Saturation, and Lightness. How close can you get to the perfect 100% match?\n- Daily Challenge: Compete against the world! Every day, a new color or shape is selected for a global leaderboard. Can you reach #1?\n- Ambient Glow: Immerse yourself in a beautiful UI that changes color based on your drawing.\n- Global Leaderboards: Save your personal best and see how you rank against players worldwide.\n\nWhether you're looking to sharpen your design skills or just want a relaxing way to spend your time, Perfect Draw offers a premium, minimalist experience with smooth haptics and beautiful aesthetics.\n\nDownload now and start your journey to perfection!"
+      },
+      "en": {
+        "name": "Perfect Draw: Shape & Color",
+        "genre": "Games",
+        "description": "Perfect Draw is the ultimate precision drawing game designed for artists, designers, and anyone who loves a challenge. Test your eye for color and your hand for shapes in two exciting modes.\n\nKey Features:\n- Shape Mode: Draw circles, squares, triangles, and more. Our advanced scoring engine evaluates your accuracy, perimeter coverage, and corner precision.\n- Color Mode: Match the target color by adjusting Hue, Saturation, and Lightness. How close can you get to the perfect 100% match?\n- Daily Challenge: Compete against the world! Every day, a new color or shape is selected for a global leaderboard. Can you reach #1?\n- Ambient Glow: Immerse yourself in a beautiful UI that changes color based on your drawing.\n- Global Leaderboards: Save your personal best and see how you rank against players worldwide.\n\nWhether you're looking to sharpen your design skills or just want a relaxing way to spend your time, Perfect Draw offers a premium, minimalist experience with smooth haptics and beautiful aesthetics.\n\nDownload now and start your journey to perfection!"
+      },
+      "rating": 5,
+      "ratingCount": 1
     }
   ]
 }
