@@ -1,381 +1,297 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Akgün | Apps & Extensions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #007AFF;
-            --apple-black: #000000;
-            --chrome-blue: #4285F4;
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --text-main: #1d1d1f;
-            --text-secondary: #86868b;
-            --tab-bg: #e1e1e6;
-            --lang-bg: rgba(210, 210, 215, 0.5);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ali Akgün — iOS Uygulamaları & Chrome Eklentileri</title>
+  <meta name="description" content="Ali Akgün — Bilgisayar mühendisi ve yazılım geliştirici. Geliştirdiğim iOS uygulamaları ve Chrome eklentileri.">
+  <meta name="author" content="Ali Akgün">
+  <link rel="canonical" href="https://akgunali.github.io/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-        /* Manuel Seçim ve Sistem Geçişi İçin Temalar */
-        [data-theme="dark"] {
-            --bg-color: #000000;
-            --card-bg: #1c1c1e;
-            --text-main: #f5f5f7;
-            --text-secondary: #a1a1a6;
-            --tab-bg: #2c2c2e;
-            --lang-bg: #2c2c2e;
-            --apple-black: #ffffff;
-        }
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://akgunali.github.io/">
+  <meta property="og:title" content="Ali Akgün — Apps & Extensions">
+  <meta property="og:description" content="iOS apps and Chrome extensions built to give you your time back.">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            transition: background-color 0.3s, color 0.3s;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+  <!-- Apply the saved theme/language before first paint to avoid a flash. -->
+  <script>
+    (function () {
+      var d = document.documentElement, t, l;
+      try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+      if (t === 'light' || t === 'dark') d.dataset.theme = t;
+      var q = new URLSearchParams(location.search).get('lang');
+      l = q === 'tr' || q === 'en' ? q : l || ((navigator.language || 'tr').slice(0, 2) === 'tr' ? 'tr' : 'en');
+      d.lang = l;
+    })();
+  </script>
 
-        /* Üst Sağ Aksiyon Paneli */
-        .top-actions {
-            position: fixed;
-            top: 15px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .theme-toggle {
-            background: var(--card-bg);
-            border: 1px solid rgba(128,128,128,0.2);
-            color: var(--text-main);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .lang-switcher {
-            background: var(--lang-bg);
-            backdrop-filter: blur(20px);
-            padding: 3px;
-            border-radius: 12px;
-            display: flex;
-            border: 1px solid rgba(128,128,128,0.1);
-        }
-
-        .lang-btn {
-            border: none;
-            background: transparent;
-            padding: 6px 14px;
-            border-radius: 9px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 11px;
-            color: var(--text-secondary);
-            transition: 0.2s;
-        }
-
-        .lang-btn.active {
-            background: var(--card-bg);
-            color: var(--text-main);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-        }
-
-        .coffee-btn-top {
-            background: #FF813F;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Hero */
-        .hero { padding: 60px 20px 40px; text-align: center; }
-        .hero-title-area { display: flex; align-items: center; justify-content: center; gap: 12px; }
-        .hero h1 { font-size: 48px; margin: 0; font-weight: 800; letter-spacing: -1.5px; }
-        
-        .linkedin-small-btn {
-            background: #0077b5; color: white; width: 36px; height: 36px;
-            border-radius: 10px; display: flex; align-items: center;
-            justify-content: center; text-decoration: none; font-size: 18px;
-        }
-
-        .subtitle { font-size: 19px; color: var(--primary-color); font-weight: 600; margin: 5px 0 10px; }
-        .bio { max-width: 550px; margin: 0 auto; font-size: 17px; color: var(--text-secondary); }
-
-        /* Tabs */
-        .tabs {
-            display: flex; justify-content: center; gap: 5px;
-            background: var(--tab-bg); padding: 4px; border-radius: 14px;
-            width: fit-content; margin: 0 auto 15px;
-        }
-
-        .tab-btn {
-            padding: 8px 20px; border-radius: 10px; border: none;
-            background: transparent; color: var(--text-secondary);
-            font-weight: 600; font-size: 14px; cursor: pointer;
-        }
-
-        .tab-btn.active { background: var(--card-bg); color: var(--text-main); box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-
-        /* Grid */
-        .container {
-            max-width: 1100px; margin: 0 auto; padding: 0 20px;
-            display: none; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
-        }
-        .container.active { display: grid; }
-
-        .card {
-            background: var(--card-bg); border-radius: 24px; padding: 25px;
-            text-align: center; transition: 0.3s ease; border: 1px solid rgba(128,128,128,0.1);
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card img { width: 80px; height: 80px; border-radius: 18px; margin-bottom: 15px; object-fit: cover; }
-
-        .btn-store {
-            padding: 12px; border-radius: 12px; text-decoration: none;
-            font-weight: 600; color: white; display: flex; align-items: center;
-            justify-content: center; gap: 8px; margin-top: 20px;
-        }
-        .btn-apple { background: var(--apple-black); color: var(--bg-color); }
-        .btn-chrome { background: var(--chrome-blue); }
-
-        footer { text-align: center; padding: 50px; color: var(--text-secondary); font-size: 13px; }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 36px; }
-            .top-actions { top: 10px; right: 10px; gap: 8px; }
-            .coffee-btn-top span { display: none; }
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap">
+  <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
+  <!-- build:jsonld -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Akgün","url":"https://akgunali.github.io/","jobTitle":"Software Developer","sameAs":["https://www.linkedin.com/in/akgunali/","https://github.com/AkgunAli","https://buymeacoffee.com/aliakgun"],"owns":[{"@type":"SoftwareApplication","name":"Perfect Draw: Shape & Color","description":"The ultimate precision drawing game for artists, designers and anyone who loves a challenge.","url":"https://apps.apple.com/us/app/perfect-draw-shape-color/id6761754756","image":"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f2/6e/8d/f26e8d9f-f3b2-f961-9f19-c0a5100e1cd8/Placeholder.mill/200x200bb-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"Milu FM: Radio & AI","description":"A modern radio experience powered by AI.","url":"https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332","image":"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"Quran Prayer Pro","description":"Your digital prayer companion.","url":"https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265","image":"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"Describe & Find","description":"A fun taboo-style word game for kids.","url":"https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"Match & Learn","description":"A matching game that builds memory and focus.","url":"https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"Learn Animals","description":"An educational animal game for kids.","url":"https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%C4%9Freniyorum-4-ya%C5%9F/id6470124663","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication"},{"@type":"SoftwareApplication","name":"App Store Connect Dark Mode","description":"A dark mode extension for App Store Connect.","url":"https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb","image":"https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s128","operatingSystem":"Chrome","applicationCategory":"BrowserApplication"},{"@type":"SoftwareApplication","name":"Eksi Message Deleter","description":"Clear your Ekşi Sözlük inbox with one click.","url":"https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh","image":"https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s128","operatingSystem":"Chrome","applicationCategory":"BrowserApplication"}]}</script>
+      <!-- /build:jsonld -->
 </head>
-<body> <div class="top-actions">
-    <a href="https://buymeacoffee.com/aliakgun" class="coffee-btn-top" target="_blank">
-        <i class="fas fa-coffee"></i> <span id="coffee-label">Bir Kahve Ismarla</span>
-    </a>
-    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">
-        <i class="fas fa-moon"></i>
-    </button>
-    <div class="lang-switcher">
-        <button class="lang-btn active" id="btn-tr" onclick="switchLang('tr')">TR</button>
-        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
-    </div>
-</div>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="i-chrome" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path fill="currentColor" d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></symbol>
+  </svg>
 
-<header class="hero">
-    <div class="hero-title-area">
-        <h1 id="main-name">Ali Akgün</h1>
-        <a href="https://www.linkedin.com/in/akgunali/" target="_blank" class="linkedin-small-btn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-    </div>
-    <p class="subtitle" id="main-subtitle">Bilgisayar Mühendisi & Yazılım Geliştirici</p>
-    <div class="bio" id="bio-text">Ben Ali Akgün. Geliştirdiğim uygulamalar ve eklentilerle zamanınızı size geri kazandırmayı hedefliyorum. Eğer sizi manuel işlemlerden kurtarabildiysem, bir kahve ısmarlayarak destek olabilirsiniz.</div>
-</header>
+  <a class="skip-link" href="#projects" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
 
-<div class="tabs">
-    <button class="tab-btn active" onclick="showTab('apps')" id="tab-apps-label">Mobil Uygulamalar</button>
-    <button class="tab-btn" onclick="showTab('extensions')" id="tab-ext-label">Eklentiler</button>
-</div>
-
-<main id="apps-container" class="container active">
-
-    
-        <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f2/6e/8d/f26e8d9f-f3b2-f961-9f19-c0a5100e1cd8/Placeholder.mill/200x200bb-75.webp">
-            <h3 data-key="perfect-draw-title">Perfect Draw: Şekil ve Renk</h3>
-            <p data-key="perfect-draw-desc">Perfect Draw; sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunudur.</p>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Ali Akgün">
+        <span class="brand-mark" aria-hidden="true">AA</span>
+        <span class="brand-name">Ali Akgün</span>
+      </a>
+      <nav class="nav-actions">
+        <div class="seg seg-lang" role="group" aria-label="Language">
+          <button type="button" data-set-lang="tr">TR</button>
+          <button type="button" data-set-lang="en">EN</button>
         </div>
-        <a href="https://apps.apple.com/us/app/perfect-draw-shape-color/id6761754756" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
+        <button type="button" class="icon-btn" id="theme-toggle">
+          <svg aria-hidden="true"><use href="#i-monitor"/></svg>
+        </button>
+        <a class="btn btn-coffee" href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-coffee"/></svg>
+          <span class="hide-sm" data-tr="Kahve Ismarla" data-en="Buy me a coffee">Kahve Ismarla</span>
         </a>
+      </nav>
     </div>
+  </header>
 
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="eyebrow">
+        <svg aria-hidden="true"><use href="#i-sparkles"/></svg>
+        <span data-tr="Bağımsız iOS & Web Geliştirici" data-en="Independent iOS & Web Developer">Bağımsız iOS & Web Geliştirici</span>
+      </p>
+      <h1>
+        <span data-tr="Zamanınızı size geri kazandıran" data-en="Apps & extensions that give you">Zamanınızı size geri kazandıran</span>
+        <span class="grad" data-tr="uygulamalar ve eklentiler." data-en="your time back.">uygulamalar ve eklentiler.</span>
+      </h1>
+      <p class="lead" data-tr="Ben Ali Akgün, bilgisayar mühendisiyim. Çocuklar için eğitici oyunlardan yapay zeka destekli radyoya, geliştirici araçlarından günlük hayatı kolaylaştıran eklentilere kadar sade ve kullanışlı ürünler geliştiriyorum." data-en="I'm Ali Akgün, a computer engineer. From educational games for kids to an AI-powered radio, developer tools and everyday browser helpers — I build simple, useful products.">Ben Ali Akgün, bilgisayar mühendisiyim. Çocuklar için eğitici oyunlardan yapay zeka destekli radyoya, geliştirici araçlarından günlük hayatı kolaylaştıran eklentilere kadar sade ve kullanışlı ürünler geliştiriyorum.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects" data-tr="Projeleri keşfet" data-en="Explore projects">Projeleri keşfet</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/AkgunAli" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-github"/></svg> GitHub
+        </a>
+      </div>
+      <dl class="stats">
+        <div><dt data-tr="iOS uygulaması" data-en="iOS apps">iOS uygulaması</dt><dd><strong data-stat="apps">6</strong></dd></div>
+        <div><dt data-tr="Chrome eklentisi" data-en="Chrome extensions">Chrome eklentisi</dt><dd><strong data-stat="ext">2</strong></dd></div>
+        <div><dt data-tr="Diller" data-en="Languages">Diller</dt><dd><strong>TR · EN</strong></dd></div>
+      </dl>
+    </section>
 
-    
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp">
-            <h3 data-key="milu-title">Milu FM: Radyo & AI</h3>
-            <p data-key="milu-desc">Yapay zeka destekli modern radyo deneyimi.</p>
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <h2 id="projects-title" data-tr="Projeler" data-en="Projects">Projeler</h2>
+        <div class="toolbar">
+          <div class="seg seg-filter" role="group" data-tr="Filtre" data-en="Filter" data-attr="aria-label" aria-label="Filtre">
+            <button type="button" data-filter="all" aria-pressed="true"><span data-tr="Tümü" data-en="All">Tümü</span> <span class="count" data-count="all">8</span></button>
+            <button type="button" data-filter="ios" aria-pressed="false"><span data-tr="iOS" data-en="iOS">iOS</span> <span class="count" data-count="ios">6</span></button>
+            <button type="button" data-filter="chrome" aria-pressed="false"><span data-tr="Eklentiler" data-en="Extensions">Eklentiler</span> <span class="count" data-count="chrome">2</span></button>
+          </div>
+          <label class="search">
+            <svg aria-hidden="true"><use href="#i-search"/></svg>
+            <input type="search" id="search" autocomplete="off" spellcheck="false"
+              data-tr="Ara…" data-en="Search…" data-attr="placeholder" placeholder="Ara…">
+            <kbd aria-hidden="true">/</kbd>
+          </label>
         </div>
-        <a href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp">
-            <h3 data-key="kuran-title">Kur'an Namaz Pro</h3>
-            <p data-key="kuran-desc">Dijital ibadet yardımcınız.</p>
+      </div>
+
+      <div class="grid" id="grid">
+      <!-- build:projects -->
+      <article class="card is-featured" data-kind="ios" data-search="perfect draw: şekil ve renk sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu. perfect draw: shape &amp; color the ultimate precision drawing game for artists, designers and anyone who loves a challenge.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f2/6e/8d/f26e8d9f-f3b2-f961-9f19-c0a5100e1cd8/Placeholder.mill/200x200bb-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
         </div>
-        <a href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
-            <h3 data-key="taboo-title">Anlat Bul</h3>
-            <p data-key="taboo-desc">Çocuklar için eğlenceli tabu deneyimi.</p>
+        <h3 class="card-title" data-tr="Perfect Draw: Şekil ve Renk" data-en="Perfect Draw: Shape &amp; Color">Perfect Draw: Şekil ve Renk</h3>
+        <p class="card-desc" data-tr="Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu." data-en="The ultimate precision drawing game for artists, designers and anyone who loves a challenge.">Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/perfect-draw-shape-color/id6761754756" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Perfect Draw: Şekil ve Renk" data-en="— Perfect Draw: Shape &amp; Color">— Perfect Draw: Şekil ve Renk</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </div>
-        <a href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
-            <h3 data-key="match-title">Eşle Öğren</h3>
-            <p data-key="match-desc">Hafıza ve zeka geliştiren eşleştirme oyunu.</p>
+      </article>
+      <article class="card" data-kind="ios" data-search="milu fm: radyo &amp; ai yapay zeka destekli modern radyo deneyimi. milu fm: radio &amp; ai a modern radio experience powered by ai.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/12/46/c512465d-3ca9-419e-c4db-1896316d1fb8/Placeholder.mill/200x200bb-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
         </div>
-        <a href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-    <div class="card">
-        <div>
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp">
-            <h3 data-key="animal-title">Hayvanları Öğreniyorum</h3>
-            <p data-key="animal-desc">Çocuklar için eğitici hayvan oyunu.</p>
+        <h3 class="card-title" data-tr="Milu FM: Radyo &amp; AI" data-en="Milu FM: Radio &amp; AI">Milu FM: Radyo &amp; AI</h3>
+        <p class="card-desc" data-tr="Yapay zeka destekli modern radyo deneyimi." data-en="A modern radio experience powered by AI.">Yapay zeka destekli modern radyo deneyimi.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/milu-fm-radyo-mp3-player-ai/id6759307332" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Milu FM: Radyo &amp; AI" data-en="— Milu FM: Radio &amp; AI">— Milu FM: Radyo &amp; AI</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </div>
-        <a href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%C4%9Freniyorum-4-ya%C5%9F/id6470124663" class="btn-store btn-apple" target="_blank">
-            <i class="fab fa-apple"></i> <span class="apple-view">App Store'da Gör</span>
-        </a>
-    </div>
-</main>
-
-<main id="extensions-container" class="container">
-    <div class="card">
-        <div>
-            <img src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s60" style="width: 80px; height: 80px;">
-            <h3 data-key="dark-title">App Store Dark Mode</h3>
-            <p data-key="dark-desc">Connect için karanlık mod eklentisi.</p>
+      </article>
+      <article class="card" data-kind="ios" data-search="kur&#39;an namaz pro dijital ibadet yardımcınız. quran prayer pro your digital prayer companion.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/06/2a/2a062a25-cc8f-e960-f5b1-02d1f1c210e0/Placeholder.mill/200x200bb-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
         </div>
-        <a href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
-        </a>
-    </div>
-    <div class="card">
-        <div>
-            <img src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s60" style="width: 80px; height: 80px;">
-            <h3 data-key="eksi-title">Ekşi Mesaj Silme</h3>
-            <p data-key="eksi-desc">Mesaj kutunuzu tek tıkla temizleyin.</p>
+        <h3 class="card-title" data-tr="Kur&#39;an Namaz Pro" data-en="Quran Prayer Pro">Kur&#39;an Namaz Pro</h3>
+        <p class="card-desc" data-tr="Dijital ibadet yardımcınız." data-en="Your digital prayer companion.">Dijital ibadet yardımcınız.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/kuran-namaz-pro/id6759639265" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Kur&#39;an Namaz Pro" data-en="— Quran Prayer Pro">— Kur&#39;an Namaz Pro</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </div>
-        <a href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" class="btn-store btn-chrome" target="_blank">
-            <i class="fab fa-chrome"></i> <span class="chrome-view">Web Store'da Gör</span>
+      </article>
+      <article class="card" data-kind="ios" data-search="anlat bul çocuklar için eğlenceli tabu deneyimi. describe &amp; find a fun taboo-style word game for kids.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
+        </div>
+        <h3 class="card-title" data-tr="Anlat Bul" data-en="Describe &amp; Find">Anlat Bul</h3>
+        <p class="card-desc" data-tr="Çocuklar için eğlenceli tabu deneyimi." data-en="A fun taboo-style word game for kids.">Çocuklar için eğlenceli tabu deneyimi.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/anlat-bul-%C3%A7ocuklar-i-%C3%A7in-tabu/id6474076891" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Anlat Bul" data-en="— Describe &amp; Find">— Anlat Bul</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="card" data-kind="ios" data-search="eşle öğren hafıza ve zeka geliştiren eşleştirme oyunu. match &amp; learn a matching game that builds memory and focus.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
+        </div>
+        <h3 class="card-title" data-tr="Eşle Öğren" data-en="Match &amp; Learn">Eşle Öğren</h3>
+        <p class="card-desc" data-tr="Hafıza ve zeka geliştiren eşleştirme oyunu." data-en="A matching game that builds memory and focus.">Hafıza ve zeka geliştiren eşleştirme oyunu.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/e%C5%9Fle-%C3%B6%C4%9Fren-okul-%C3%B6ncesi-oyunlar/id6446329316" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Eşle Öğren" data-en="— Match &amp; Learn">— Eşle Öğren</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="card" data-kind="ios" data-search="hayvanları öğreniyorum çocuklar için eğitici hayvan oyunu. learn animals an educational animal game for kids.">
+        <div class="card-head">
+          <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200ia-75.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span></div>
+        </div>
+        <h3 class="card-title" data-tr="Hayvanları Öğreniyorum" data-en="Learn Animals">Hayvanları Öğreniyorum</h3>
+        <p class="card-desc" data-tr="Çocuklar için eğitici hayvan oyunu." data-en="An educational animal game for kids.">Çocuklar için eğitici hayvan oyunu.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://apps.apple.com/us/app/hayvanlar%C4%B1-%C3%B6%C4%9Freniyorum-4-ya%C5%9F/id6470124663" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Hayvanları Öğreniyorum" data-en="— Learn Animals">— Hayvanları Öğreniyorum</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="card" data-kind="chrome" data-search="app store connect dark mode app store connect için karanlık mod eklentisi. geliştirici araçları app store connect dark mode a dark mode extension for app store connect. developer tools">
+        <div class="card-head">
+          <img class="card-icon is-ext" src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s128" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Geliştirici Araçları" data-en="Developer Tools">Geliştirici Araçları</span></div>
+        </div>
+        <h3 class="card-title" data-tr="App Store Connect Dark Mode" data-en="App Store Connect Dark Mode">App Store Connect Dark Mode</h3>
+        <p class="card-desc" data-tr="App Store Connect için karanlık mod eklentisi." data-en="A dark mode extension for App Store Connect.">App Store Connect için karanlık mod eklentisi.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-chrome"/></svg>
+            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store">Web Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— App Store Connect Dark Mode" data-en="— App Store Connect Dark Mode">— App Store Connect Dark Mode</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="card" data-kind="chrome" data-search="ekşi mesaj silme ekşi sözlük mesaj kutunuzu tek tıkla temizleyin. verimlilik eksi message deleter clear your ekşi sözlük inbox with one click. productivity">
+        <div class="card-head">
+          <img class="card-icon is-ext" src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s128" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Verimlilik" data-en="Productivity">Verimlilik</span></div>
+        </div>
+        <h3 class="card-title" data-tr="Ekşi Mesaj Silme" data-en="Eksi Message Deleter">Ekşi Mesaj Silme</h3>
+        <p class="card-desc" data-tr="Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin." data-en="Clear your Ekşi Sözlük inbox with one click.">Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin.</p>
+        <div class="card-foot">
+          
+          <a class="store-link" href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-chrome"/></svg>
+            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store">Web Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Ekşi Mesaj Silme" data-en="— Eksi Message Deleter">— Ekşi Mesaj Silme</span>
+            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      <!-- /build:projects -->
+      </div>
+      <p class="empty" id="empty" hidden data-tr="Aramanızla eşleşen proje bulunamadı." data-en="No projects match your search.">Aramanızla eşleşen proje bulunamadı.</p>
+      <p class="sr-only" id="results-status" aria-live="polite"></p>
+    </section>
+
+    <section class="support">
+      <div class="support-card">
+        <div>
+          <h2 data-tr="İşinize yaradı mı?" data-en="Found it useful?">İşinize yaradı mı?</h2>
+          <p data-tr="Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz." data-en="If I saved you from tedious manual work, you can support new projects by buying me a coffee.">Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz.</p>
+        </div>
+        <a class="btn btn-coffee btn-lg" href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-coffee"/></svg>
+          <span data-tr="Bir Kahve Ismarla" data-en="Buy me a coffee">Bir Kahve Ismarla</span>
         </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Ali Akgün. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+      <a href="https://github.com/AkgunAli" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
     </div>
-</main>
-
-<footer><p id="footer-text">Copyright © 2026 Ali Akgün. Tüm Hakları Saklıdır.</p></footer>
-
-<script>
-    const translations = {
-        tr: {
-            subtitle: "Bilgisayar Mühendisi & Yazılım Geliştirici",
-            bio: "Ben Ali Akgün. Geliştirdiğim uygulamalar ve eklentilerle zamanınızı size geri kazandırmayı hedefliyorum. Eğer sizi manuel işlemlerden kurtarabildiysem, bir kahve ısmarlayarak destek olabilirsiniz.",            
-            tabApps: "Mobil Uygulamalar", tabExt: "Eklentiler", coffee: "Bir Kahve Ismarla",
-            "perfect-draw-title": "Perfect Draw: Şekil ve Renk", "perfect-draw-desc": "Perfect Draw; sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunudur.",
-            "milu-title": "Milu FM: Radyo & AI", "milu-desc": "Yapay zeka destekli modern radyo deneyimi.",
-            "kuran-title": "Kur'an Namaz Pro", "kuran-desc": "Dijital ibadet yardımcınız.",
-            "taboo-title": "Anlat Bul", "taboo-desc": "Çocuklar için eğlenceli tabu deneyimi.",
-            "match-title": "Eşle Öğren", "match-desc": "Hafıza ve zeka geliştiren eşleştirme oyunu.",
-            "animal-title": "Hayvanları Öğreniyorum", "animal-desc": "Çocuklar için eğitici hayvan oyunu.",
-            "dark-title": "App Store Dark Mode", "dark-desc": "Connect için karanlık mod eklentisi.",
-            "eksi-title": "Ekşi Mesaj Silme", "eksi-desc": "Mesaj kutunuzu tek tıkla temizleyin.",
-            "apple-btn": "App Store'da Gör", "chrome-btn": "Web Store'da Gör",
-            footer: "Copyright © 2026 Ali Akgün. Tüm Hakları Saklıdır."
-        },
-        en: {
-            subtitle: "Computer Engineer & Software Developer",
-            bio: "I'm Ali Akgün. I build apps and extensions to save you time. If I've saved you from tedious manual tasks, feel free to support me by buying a coffee.",           
-            tabApps: "Mobile Apps", tabExt: "Extensions", coffee: "Buy Me a Coffee",
-            "perfect-draw-title": "Perfect Draw: Shape & Color", "perfect-draw-desc": "Perfect Draw is the ultimate precision drawing game designed for artists, designers, and anyone who loves a challenge.",
-            "milu-title": "Milu FM: Radio & AI", "milu-desc": "Modern radio experience powered by AI.",
-            "kuran-title": "Quran Prayer Pro", "kuran-desc": "Your digital prayer assistant.",
-            "taboo-title": "Describe & Find", "taboo-desc": "Fun taboo experience for kids.",
-            "match-title": "Match & Learn", "match-desc": "Matching game for memory and intelligence.",
-            "animal-title": "Learn Animals", "animal-desc": "Educational animal game for kids.",
-            "dark-title": "App Store Dark Mode", "dark-desc": "Dark mode extension for Connect.",
-            "eksi-title": "Eksi Message Deleter", "eksi-desc": "Clear your inbox with one click.",
-            "apple-btn": "View on App Store", "chrome-btn": "View on Web Store",
-            footer: "Copyright © 2026 Ali Akgün. All rights reserved."
-        }
-    };
-
-    function setThemeIcon(theme) {
-        const icon = document.querySelector("#theme-btn i");
-        if (theme === "dark") {
-            icon.className = "fas fa-sun"; 
-        } else {
-            icon.className = "fas fa-moon"; 
-        }
-    }
-
-    // TEMA UYGULAMA (Sistem veya Manuel)
-    function applyTheme(theme) {
-        document.body.setAttribute("data-theme", theme);
-        setThemeIcon(theme);
-    }
-
-    // 1. Sistem Değişimlerini Dinle (Chrome/OS Karanlık Modu değiştiğinde)
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    darkModeMediaQuery.addEventListener('change', (e) => {
-        const newTheme = e.matches ? "dark" : "light";
-        applyTheme(newTheme);
-    });
-
-    // 2. Sayfa Açıldığında İlk Kontrol
-    window.addEventListener('DOMContentLoaded', () => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? "dark" : "light");
-    });
-
-    // 3. Manuel Butonla Değiştirme
-    function toggleTheme() {
-        const currentTheme = document.body.getAttribute("data-theme");
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-        applyTheme(newTheme);
-    }
-
-    function showTab(type) {
-        document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(type + '-container').classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    function switchLang(lang) {
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById('btn-' + lang).classList.add('active');
-        document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
-        document.getElementById('bio-text').innerText = translations[lang].bio;
-        document.getElementById('tab-apps-label').innerText = translations[lang].tabApps;
-        document.getElementById('tab-ext-label').innerText = translations[lang].tabExt;
-        document.getElementById('coffee-label').innerText = translations[lang].coffee;
-        document.getElementById('footer-text').innerText = translations[lang].footer;
-        document.querySelectorAll('[data-key]').forEach(el => { el.innerText = translations[lang][el.getAttribute('data-key')]; });
-        document.querySelectorAll('.apple-view').forEach(el => el.innerText = translations[lang]["apple-btn"]);
-        document.querySelectorAll('.chrome-view').forEach(el => el.innerText = translations[lang]["chrome-btn"]);
-    }
-</script>
+  </footer>
 </body>
 </html>

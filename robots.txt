@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /liste.html
+
+Sitemap: https://akgunali.github.io/sitemap.xml
