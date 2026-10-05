@@ -7,6 +7,10 @@
   <meta name="description" content="Ali Akgün — Bilgisayar mühendisi ve yazılım geliştirici. Geliştirdiğim iOS uygulamaları ve Chrome eklentileri.">
   <meta name="author" content="Ali Akgün">
   <link rel="canonical" href="https://akgunali.github.io/">
+  <link rel="alternate" hreflang="tr" href="https://akgunali.github.io/?lang=tr">
+  <link rel="alternate" hreflang="en" href="https://akgunali.github.io/?lang=en">
+  <link rel="alternate" hreflang="de" href="https://akgunali.github.io/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://akgunali.github.io/">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f7f7f9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0a0c" media="(prefers-color-scheme: dark)">
@@ -18,6 +22,7 @@
   <meta property="og:description" content="iOS apps and Chrome extensions built to give you your time back.">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:image" content="https://akgunali.github.io/assets/img/avatar.jpg">
   <meta name="twitter:card" content="summary">
 
@@ -27,8 +32,9 @@
       var d = document.documentElement, t, l;
       try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
       if (t === 'light' || t === 'dark') d.dataset.theme = t;
+      var langs = ['tr', 'en', 'de'], nav = (navigator.language || 'en').slice(0, 2);
       var q = new URLSearchParams(location.search).get('lang');
-      l = q === 'tr' || q === 'en' ? q : l || ((navigator.language || 'tr').slice(0, 2) === 'tr' ? 'tr' : 'en');
+      l = langs.indexOf(q) > -1 ? q : langs.indexOf(l) > -1 ? l : langs.indexOf(nav) > -1 ? nav : 'en';
       d.lang = l;
     })();
   </script>
@@ -37,8 +43,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <script src="assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css?v=8c0fabbed0">
+  <script src="assets/js/main.js?v=663dac3700" defer></script>
   <!-- build:jsonld -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Akgün","url":"https://akgunali.github.io/","jobTitle":"Software Developer","sameAs":["https://www.linkedin.com/in/akgunali/","https://github.com/AkgunAli","https://buymeacoffee.com/aliakgun"],"owns":[{"@type":"SoftwareApplication","name":"Perfect Draw: Shape & Color","description":"The ultimate precision drawing game for artists, designers and anyone who loves a challenge.","url":"https://apps.apple.com/app/id6761754756","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/4b/47/d24b4744-ba71-4f7c-ffca-5827e1a9d093/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":1}},{"@type":"SoftwareApplication","name":"Momera: Hamilelik Takibi","description":"Momera: Hamilelik Takibi ve Gebelik Rehberi","url":"https://apps.apple.com/app/id6768466757","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/32/fb/ba32fb13-6d00-802b-bcbd-920f3319f961/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":6}},{"@type":"SoftwareApplication","name":"Deutsch mit Ali Abi: A1-B2","description":"Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.","url":"https://apps.apple.com/app/id6769936058","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/1a/4f/2e1a4f20-c6f8-03db-3e31-8729fe745e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":2}},{"@type":"SoftwareApplication","name":"Magic PDF Pro: Offline Editor","description":"Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…","url":"https://apps.apple.com/app/id6762889649","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":1}},{"@type":"SoftwareApplication","name":"Milu FM: Radio & AI","description":"A modern radio experience powered by AI.","url":"https://apps.apple.com/app/id6759307332","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":1}},{"@type":"SoftwareApplication","name":"Quran Prayer Pro","description":"Your digital prayer companion.","url":"https://apps.apple.com/app/id6759639265","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":2}},{"@type":"SoftwareApplication","name":"Describe & Find","description":"A fun taboo-style word game for kids.","url":"https://apps.apple.com/app/id6474076891","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":3}},{"@type":"SoftwareApplication","name":"Learn Animals","description":"An educational animal game for kids.","url":"https://apps.apple.com/app/id6470124663","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":2}},{"@type":"SoftwareApplication","name":"Match & Learn","description":"A matching game that builds memory and focus.","url":"https://apps.apple.com/app/id6446329316","image":"https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp","operatingSystem":"iOS","applicationCategory":"MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":5,"ratingCount":13}},{"@type":"SoftwareApplication","name":"App Store Connect Dark Mode","description":"A dark mode extension for App Store Connect.","url":"https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb","image":"https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s128","operatingSystem":"Chrome","applicationCategory":"BrowserApplication"},{"@type":"SoftwareApplication","name":"Eksi Message Deleter","description":"Clear your Ekşi Sözlük inbox with one click.","url":"https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh","image":"https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s128","operatingSystem":"Chrome","applicationCategory":"BrowserApplication"}]}</script>
       <!-- /build:jsonld -->
@@ -65,7 +71,7 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
-  <a class="skip-link" href="#projects" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
+  <a class="skip-link" href="#projects" data-tr="İçeriğe geç" data-en="Skip to content" data-de="Zum Inhalt springen">İçeriğe geç</a>
 
   <header class="nav">
     <div class="nav-inner">
@@ -74,96 +80,85 @@
         <span class="brand-name">Ali Akgün</span>
       </a>
       <nav class="nav-links" aria-label="Sections">
-        <a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a>
-        <a href="#resume" data-tr="Özgeçmiş" data-en="Résumé">Özgeçmiş</a>
-        <a href="#documents" data-tr="Belgeler" data-en="Documents">Belgeler</a>
+        <a href="#projects" data-tr="Projeler" data-en="Projects" data-de="Projekte">Projeler</a>
+        <a href="#resume" data-tr="Özgeçmiş" data-en="Résumé" data-de="Lebenslauf">Özgeçmiş</a>
+        <a href="#documents" data-tr="Belgeler" data-en="Documents" data-de="Dokumente">Belgeler</a>
       </nav>
       <div class="nav-actions">
         <div class="seg seg-lang" role="group" aria-label="Language">
           <button type="button" data-set-lang="tr">TR</button>
           <button type="button" data-set-lang="en">EN</button>
+          <button type="button" data-set-lang="de">DE</button>
         </div>
         <button type="button" class="icon-btn" id="theme-toggle">
           <svg aria-hidden="true"><use href="#i-monitor"/></svg>
         </button>
         <a class="btn btn-coffee" href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-coffee"/></svg>
-          <span class="hide-sm" data-tr="Kahve Ismarla" data-en="Buy me a coffee">Kahve Ismarla</span>
+          <span class="hide-sm" data-tr="Kahve Ismarla" data-en="Buy me a coffee" data-de="Spendier mir einen Kaffee">Kahve Ismarla</span>
         </a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Ali Akgün">
+    <section class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
-      <div class="term" id="term">
-        <div class="term-bar" aria-hidden="true">
-          <span class="term-dots"><i></i><i></i><i></i></span>
-          <span class="term-title">ali@akgun: ~ — zsh</span>
+      <div class="hero-text">
+        <div class="hero-id">
+          <picture>
+            <source srcset="assets/img/avatar.webp" type="image/webp">
+            <img class="avatar" src="assets/img/avatar.jpg" alt="Ali Akgün" width="64" height="64">
+          </picture>
+          <p class="hero-loc"><span class="dot" aria-hidden="true"></span><svg aria-hidden="true"><use href="#i-pin"/></svg> Singen, <span data-tr="Almanya" data-en="Germany" data-de="Deutschland">Almanya</span></p>
         </div>
-        <div class="term-body" id="term-body">
-          <div class="term-intro" id="term-intro">
-            <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">whoami</span></p>
-            <div class="out out-whoami">
-              <picture>
-                <source srcset="assets/img/avatar.webp" type="image/webp">
-                <img class="avatar" src="assets/img/avatar.jpg" alt="Ali Akgün" width="96" height="96">
-              </picture>
-              <div>
-                <h1 class="out-name">Ali Akgün</h1>
-                <p class="out-muted" data-tr="Bilgisayar Mühendisi (B.Sc.) · Senior iOS Geliştirici" data-en="Computer Engineer (B.Sc.) · Senior iOS Developer">Bilgisayar Mühendisi (B.Sc.) · Senior iOS Geliştirici</p>
-                <p class="out-muted"><svg class="pin" aria-hidden="true"><use href="#i-pin"/></svg> Singen, <span data-tr="Almanya" data-en="Germany">Almanya</span></p>
-              </div>
-            </div>
-
-            <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">cat about.txt</span></p>
-            <p class="out out-about" data-tr="5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum — çocuklar için eğitici oyunlardan yapay zeka destekli radyoya." data-en="5+ years of iOS experience across the whole app lifecycle, from architecture to release. On the side I build apps and extensions that give you your time back — from educational games for kids to an AI-powered radio.">5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum — çocuklar için eğitici oyunlardan yapay zeka destekli radyoya.</p>
-
-            <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">ls ~/projects</span></p>
-            <p class="out out-ls">
-              <a class="dir" href="#ios">ios-apps/</a> <span class="out-muted">[<strong data-stat="apps">9</strong>]</span>
-              <a class="dir" href="#chrome">chrome-extensions/</a> <span class="out-muted">[<strong data-stat="ext">2</strong>]</span>
-            </p>
-
-            <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">cat contact.txt</span></p>
-            <p class="out out-links">
-              <a href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener">linkedin</a>
-              <a href="https://github.com/AkgunAli" target="_blank" rel="noopener">github</a>
-              <a href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">buymeacoffee</a>
-              <a href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener">cv.pdf</a>
-            </p>
-          </div>
-          <div class="term-log" id="term-log" aria-live="polite"></div>
-          <form class="term-prompt" id="term-form" hidden autocomplete="off">
-            <label class="cmd">
-              <span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span>
-              <input id="term-input" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="send"
-                data-tr="Terminal komutu" data-en="Terminal command" data-attr="aria-label" aria-label="Terminal komutu">
-            </label>
-            <p class="term-hint" data-tr="Komutları görmek için help yazın" data-en="Type help to see available commands">Komutları görmek için help yazın</p>
-          </form>
+        <h1>Ali Akgün</h1>
+        <p class="hero-role" data-tr="Senior iOS Geliştirici · Bilgisayar Mühendisi" data-en="Senior iOS Developer · Computer Engineer" data-de="Senior iOS-Entwickler · Informatikingenieur">Senior iOS Geliştirici · Bilgisayar Mühendisi</p>
+        <p class="lead" data-tr="5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum." data-en="5+ years of iOS experience across the whole app lifecycle, from architecture to release. On the side I build apps and extensions that give you your time back." data-de="Über 5 Jahre iOS-Erfahrung über den gesamten App-Lebenszyklus – von der Architektur bis zum Release. Nebenbei entwickle ich Apps und Erweiterungen, die Ihnen Zeit zurückgeben.">5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects" data-tr="Projeleri keşfet" data-en="Explore projects" data-de="Projekte entdecken">Projeleri keşfet</a>
+          <a class="btn btn-ghost" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-file"/></svg> <span data-tr="CV" data-en="CV" data-de="Lebenslauf">CV</span>
+          </a>
+          <a class="btn btn-ghost btn-icon" href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a class="btn btn-ghost btn-icon" href="https://github.com/AkgunAli" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
         </div>
       </div>
-      <a class="scroll-cue" href="#projects">
-        <span data-tr="Projeleri keşfet" data-en="Explore projects">Projeleri keşfet</span>
-        <svg aria-hidden="true"><use href="#i-arrow"/></svg>
-      </a>
+
+      <!-- Decorative: code is typed, deleted and retyped in a loop by main.js. -->
+      <div class="term" aria-hidden="true">
+        <div class="term-bar">
+          <span class="term-dots"><i></i><i></i><i></i></span>
+          <span class="term-title" id="term-title">Developer.swift</span>
+        </div>
+        <div class="term-body">
+          <pre class="code" id="term-code"><code><span class="tk-k">struct</span> <span class="tk-t">Developer</span> {
+    <span class="tk-k">let</span> name = <span class="tk-s">"Ali Akgün"</span>
+    <span class="tk-k">let</span> role = <span class="tk-s">"Senior iOS Engineer"</span>
+    <span class="tk-k">let</span> location = <span class="tk-s">"Singen, DE"</span>
+    <span class="tk-k">let</span> stack = [<span class="tk-s">"Swift"</span>, <span class="tk-s">"SwiftUI"</span>, <span class="tk-s">"Core Data"</span>]
+}</code></pre>
+        </div>
+        <div class="term-status">
+          <span><span class="tk-ok">●</span> main</span>
+          <span id="term-lang">Swift</span>
+        </div>
+      </div>
     </section>
 
     <section id="projects" class="projects" aria-labelledby="projects-title">
       <div class="section-head">
-        <h2 id="projects-title" data-tr="Projeler" data-en="Projects">Projeler</h2>
+        <h2 id="projects-title" data-tr="Projeler" data-en="Projects" data-de="Projekte">Projeler</h2>
         <div class="toolbar">
-          <div class="seg seg-filter" role="group" data-tr="Filtre" data-en="Filter" data-attr="aria-label" aria-label="Filtre">
-            <button type="button" data-filter="all" aria-pressed="true"><span data-tr="Tümü" data-en="All">Tümü</span> <span class="count" data-count="all">11</span></button>
-            <button type="button" data-filter="ios" aria-pressed="false"><span data-tr="iOS" data-en="iOS">iOS</span> <span class="count" data-count="ios">9</span></button>
-            <button type="button" data-filter="chrome" aria-pressed="false"><span data-tr="Eklentiler" data-en="Extensions">Eklentiler</span> <span class="count" data-count="chrome">2</span></button>
+          <div class="seg seg-filter" role="group" data-tr="Filtre" data-en="Filter" data-de="Filter" data-attr="aria-label" aria-label="Filtre">
+            <button type="button" data-filter="all" aria-pressed="true"><span data-tr="Tümü" data-en="All" data-de="Alle">Tümü</span> <span class="count" data-count="all">11</span></button>
+            <button type="button" data-filter="ios" aria-pressed="false"><span data-tr="iOS" data-en="iOS" data-de="iOS">iOS</span> <span class="count" data-count="ios">9</span></button>
+            <button type="button" data-filter="chrome" aria-pressed="false"><span data-tr="Eklentiler" data-en="Extensions" data-de="Erweiterungen">Eklentiler</span> <span class="count" data-count="chrome">2</span></button>
           </div>
           <label class="search">
             <svg aria-hidden="true"><use href="#i-search"/></svg>
             <input type="search" id="search" autocomplete="off" spellcheck="false"
-              data-tr="Ara…" data-en="Search…" data-attr="placeholder" placeholder="Ara…">
+              data-tr="Ara…" data-en="Search…" data-de="Suchen…" data-attr="placeholder" placeholder="Ara…">
             <kbd aria-hidden="true">/</kbd>
           </label>
         </div>
@@ -171,258 +166,258 @@
 
       <div class="grid" id="grid">
       <!-- build:projects -->
-      <article class="card is-featured" data-kind="ios" data-search="perfect draw: şekil ve renk sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu. oyunlar perfect draw: shape &amp; color the ultimate precision drawing game for artists, designers and anyone who loves a challenge. games" data-released="2026-04-13T07:00:00Z">
+      <article class="card is-featured" data-kind="ios" data-search="perfect draw: şekil ve renk sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu. oyunlar perfect draw: shape &amp; color the ultimate precision drawing game for artists, designers and anyone who loves a challenge. games perfect draw: form &amp; farbe das ultimative präzisions-zeichenspiel für künstler, designer und alle, die herausforderungen lieben. spiele" data-released="2026-04-13T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/4b/47/d24b4744-ba71-4f7c-ffca-5827e1a9d093/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games">Oyunlar</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games" data-de="Spiele">Oyunlar</span></div>
         </div>
-        <h3 class="card-title" data-tr="Perfect Draw: Şekil ve Renk" data-en="Perfect Draw: Shape &amp; Color">Perfect Draw: Şekil ve Renk</h3>
-        <p class="card-desc" data-tr="Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu." data-en="The ultimate precision drawing game for artists, designers and anyone who loves a challenge.">Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu.</p>
+        <h3 class="card-title" data-tr="Perfect Draw: Şekil ve Renk" data-en="Perfect Draw: Shape &amp; Color" data-de="Perfect Draw: Form &amp; Farbe">Perfect Draw: Şekil ve Renk</h3>
+        <p class="card-desc" data-tr="Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu." data-en="The ultimate precision drawing game for artists, designers and anyone who loves a challenge." data-de="Das ultimative Präzisions-Zeichenspiel für Künstler, Designer und alle, die Herausforderungen lieben.">Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu.</p>
         <div class="card-foot">
           <span class="rating" title="1"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(1)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6761754756" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Perfect Draw: Şekil ve Renk" data-en="— Perfect Draw: Shape &amp; Color">— Perfect Draw: Şekil ve Renk</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Perfect Draw: Şekil ve Renk" data-en="— Perfect Draw: Shape &amp; Color" data-de="— Perfect Draw: Form &amp; Farbe">— Perfect Draw: Şekil ve Renk</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="momera: hamilelik takibi momera: hamilelik takibi ve gebelik rehberi sağlık momera: hamilelik takibi momera: hamilelik takibi ve gebelik rehberi medical" data-released="2026-05-21T07:00:00Z">
+      <article class="card" data-kind="ios" data-search="momera: hamilelik takibi momera: hamilelik takibi ve gebelik rehberi sağlık momera: hamilelik takibi momera: hamilelik takibi ve gebelik rehberi medical momera: hamilelik takibi momera: hamilelik takibi ve gebelik rehberi medizin" data-released="2026-05-21T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/32/fb/ba32fb13-6d00-802b-bcbd-920f3319f961/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Sağlık" data-en="Medical">Sağlık</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Sağlık" data-en="Medical" data-de="Medizin">Sağlık</span></div>
         </div>
-        <h3 class="card-title" data-tr="Momera: Hamilelik Takibi" data-en="Momera: Hamilelik Takibi">Momera: Hamilelik Takibi</h3>
-        <p class="card-desc" data-tr="Momera: Hamilelik Takibi ve Gebelik Rehberi" data-en="Momera: Hamilelik Takibi ve Gebelik Rehberi">Momera: Hamilelik Takibi ve Gebelik Rehberi</p>
+        <h3 class="card-title" data-tr="Momera: Hamilelik Takibi" data-en="Momera: Hamilelik Takibi" data-de="Momera: Hamilelik Takibi">Momera: Hamilelik Takibi</h3>
+        <p class="card-desc" data-tr="Momera: Hamilelik Takibi ve Gebelik Rehberi" data-en="Momera: Hamilelik Takibi ve Gebelik Rehberi" data-de="Momera: Hamilelik Takibi ve Gebelik Rehberi">Momera: Hamilelik Takibi ve Gebelik Rehberi</p>
         <div class="card-foot">
           <span class="rating" title="6"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(6)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6768466757" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Momera: Hamilelik Takibi" data-en="— Momera: Hamilelik Takibi">— Momera: Hamilelik Takibi</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Momera: Hamilelik Takibi" data-en="— Momera: Hamilelik Takibi" data-de="— Momera: Hamilelik Takibi">— Momera: Hamilelik Takibi</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="deutsch mit ali abi: a1-b2 deutsch mit ali abi: a1-b2 is a simple, fun and practical german learning app designed to help you improve your german step by step. eğitim deutsch mit ali abi: a1-b2 deutsch mit ali abi: a1-b2 is a simple, fun and practical german learning app designed to help you improve your german step by step. education" data-released="2026-05-20T07:00:00Z">
+      <article class="card" data-kind="ios" data-search="deutsch mit ali abi: a1-b2 deutsch mit ali abi: a1-b2 is a simple, fun and practical german learning app designed to help you improve your german step by step. eğitim deutsch mit ali abi: a1-b2 deutsch mit ali abi: a1-b2 is a simple, fun and practical german learning app designed to help you improve your german step by step. education deutsch mit ali abi: a1-b2 deutsch mit ali abi: a1-b2 is a simple, fun and practical german learning app designed to help you improve your german step by step. bildung" data-released="2026-05-20T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/1a/4f/2e1a4f20-c6f8-03db-3e31-8729fe745e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Eğitim" data-en="Education">Eğitim</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Eğitim" data-en="Education" data-de="Bildung">Eğitim</span></div>
         </div>
-        <h3 class="card-title" data-tr="Deutsch mit Ali Abi: A1-B2" data-en="Deutsch mit Ali Abi: A1-B2">Deutsch mit Ali Abi: A1-B2</h3>
-        <p class="card-desc" data-tr="Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step." data-en="Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.">Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.</p>
+        <h3 class="card-title" data-tr="Deutsch mit Ali Abi: A1-B2" data-en="Deutsch mit Ali Abi: A1-B2" data-de="Deutsch mit Ali Abi: A1-B2">Deutsch mit Ali Abi: A1-B2</h3>
+        <p class="card-desc" data-tr="Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step." data-en="Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step." data-de="Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.">Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.</p>
         <div class="card-foot">
           <span class="rating" title="2"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(2)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6769936058" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Deutsch mit Ali Abi: A1-B2" data-en="— Deutsch mit Ali Abi: A1-B2">— Deutsch mit Ali Abi: A1-B2</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Deutsch mit Ali Abi: A1-B2" data-en="— Deutsch mit Ali Abi: A1-B2" data-de="— Deutsch mit Ali Abi: A1-B2">— Deutsch mit Ali Abi: A1-B2</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="magic pdf pro: offline editor magic pdf pro is the ultimate, privacy-focused pdf solution designed for professionals who demand security, speed, and powerful tools without comprom… verimlilik magic pdf pro: offline editor magic pdf pro is the ultimate, privacy-focused pdf solution designed for professionals who demand security, speed, and powerful tools without comprom… productivity" data-released="2026-04-25T07:00:00Z">
+      <article class="card" data-kind="ios" data-search="magic pdf pro: offline editor magic pdf pro is the ultimate, privacy-focused pdf solution designed for professionals who demand security, speed, and powerful tools without comprom… verimlilik magic pdf pro: offline editor magic pdf pro is the ultimate, privacy-focused pdf solution designed for professionals who demand security, speed, and powerful tools without comprom… productivity magic pdf pro: offline editor magic pdf pro is the ultimate, privacy-focused pdf solution designed for professionals who demand security, speed, and powerful tools without comprom… produktivität" data-released="2026-04-25T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Verimlilik" data-en="Productivity">Verimlilik</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Verimlilik" data-en="Productivity" data-de="Produktivität">Verimlilik</span></div>
         </div>
-        <h3 class="card-title" data-tr="Magic PDF Pro: Offline Editor" data-en="Magic PDF Pro: Offline Editor">Magic PDF Pro: Offline Editor</h3>
-        <p class="card-desc" data-tr="Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…" data-en="Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…">Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…</p>
+        <h3 class="card-title" data-tr="Magic PDF Pro: Offline Editor" data-en="Magic PDF Pro: Offline Editor" data-de="Magic PDF Pro: Offline Editor">Magic PDF Pro: Offline Editor</h3>
+        <p class="card-desc" data-tr="Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…" data-en="Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…" data-de="Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…">Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without comprom…</p>
         <div class="card-foot">
           <span class="rating" title="1"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(1)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6762889649" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Magic PDF Pro: Offline Editor" data-en="— Magic PDF Pro: Offline Editor">— Magic PDF Pro: Offline Editor</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Magic PDF Pro: Offline Editor" data-en="— Magic PDF Pro: Offline Editor" data-de="— Magic PDF Pro: Offline Editor">— Magic PDF Pro: Offline Editor</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="milu fm: radyo &amp; ai yapay zeka destekli modern radyo deneyimi. yaşam tarzı milu fm: radio &amp; ai a modern radio experience powered by ai. lifestyle" data-released="2026-02-28T08:00:00Z">
+      <article class="card" data-kind="ios" data-search="milu fm: radyo &amp; ai yapay zeka destekli modern radyo deneyimi. yaşam tarzı milu fm: radio &amp; ai a modern radio experience powered by ai. lifestyle milu fm: radio &amp; ki ein modernes, ki-gestütztes radioerlebnis. lifestyle" data-released="2026-02-28T08:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Yaşam Tarzı" data-en="Lifestyle">Yaşam Tarzı</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Yaşam Tarzı" data-en="Lifestyle" data-de="Lifestyle">Yaşam Tarzı</span></div>
         </div>
-        <h3 class="card-title" data-tr="Milu FM: Radyo &amp; AI" data-en="Milu FM: Radio &amp; AI">Milu FM: Radyo &amp; AI</h3>
-        <p class="card-desc" data-tr="Yapay zeka destekli modern radyo deneyimi." data-en="A modern radio experience powered by AI.">Yapay zeka destekli modern radyo deneyimi.</p>
+        <h3 class="card-title" data-tr="Milu FM: Radyo &amp; AI" data-en="Milu FM: Radio &amp; AI" data-de="Milu FM: Radio &amp; KI">Milu FM: Radyo &amp; AI</h3>
+        <p class="card-desc" data-tr="Yapay zeka destekli modern radyo deneyimi." data-en="A modern radio experience powered by AI." data-de="Ein modernes, KI-gestütztes Radioerlebnis.">Yapay zeka destekli modern radyo deneyimi.</p>
         <div class="card-foot">
           <span class="rating" title="1"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(1)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6759307332" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Milu FM: Radyo &amp; AI" data-en="— Milu FM: Radio &amp; AI">— Milu FM: Radyo &amp; AI</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Milu FM: Radyo &amp; AI" data-en="— Milu FM: Radio &amp; AI" data-de="— Milu FM: Radio &amp; KI">— Milu FM: Radyo &amp; AI</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="kur&#39;an namaz pro dijital ibadet yardımcınız. referans quran prayer pro your digital prayer companion. reference" data-released="2026-02-26T08:00:00Z">
+      <article class="card" data-kind="ios" data-search="kur&#39;an namaz pro dijital ibadet yardımcınız. referans quran prayer pro your digital prayer companion. reference quran prayer pro ihr digitaler begleiter für das gebet. nachschlagewerke" data-released="2026-02-26T08:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Referans" data-en="Reference">Referans</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Referans" data-en="Reference" data-de="Nachschlagewerke">Referans</span></div>
         </div>
-        <h3 class="card-title" data-tr="Kur&#39;an Namaz Pro" data-en="Quran Prayer Pro">Kur&#39;an Namaz Pro</h3>
-        <p class="card-desc" data-tr="Dijital ibadet yardımcınız." data-en="Your digital prayer companion.">Dijital ibadet yardımcınız.</p>
+        <h3 class="card-title" data-tr="Kur&#39;an Namaz Pro" data-en="Quran Prayer Pro" data-de="Quran Prayer Pro">Kur&#39;an Namaz Pro</h3>
+        <p class="card-desc" data-tr="Dijital ibadet yardımcınız." data-en="Your digital prayer companion." data-de="Ihr digitaler Begleiter für das Gebet.">Dijital ibadet yardımcınız.</p>
         <div class="card-foot">
           <span class="rating" title="2"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(2)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6759639265" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Kur&#39;an Namaz Pro" data-en="— Quran Prayer Pro">— Kur&#39;an Namaz Pro</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Kur&#39;an Namaz Pro" data-en="— Quran Prayer Pro" data-de="— Quran Prayer Pro">— Kur&#39;an Namaz Pro</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="anlat bul çocuklar için eğlenceli tabu deneyimi. oyunlar describe &amp; find a fun taboo-style word game for kids. games" data-released="2024-01-17T08:00:00Z">
+      <article class="card" data-kind="ios" data-search="anlat bul çocuklar için eğlenceli tabu deneyimi. oyunlar describe &amp; find a fun taboo-style word game for kids. games anlat bul ein lustiges tabu-wortspiel für kinder. spiele" data-released="2024-01-17T08:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games">Oyunlar</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games" data-de="Spiele">Oyunlar</span></div>
         </div>
-        <h3 class="card-title" data-tr="Anlat Bul" data-en="Describe &amp; Find">Anlat Bul</h3>
-        <p class="card-desc" data-tr="Çocuklar için eğlenceli tabu deneyimi." data-en="A fun taboo-style word game for kids.">Çocuklar için eğlenceli tabu deneyimi.</p>
+        <h3 class="card-title" data-tr="Anlat Bul" data-en="Describe &amp; Find" data-de="Anlat Bul">Anlat Bul</h3>
+        <p class="card-desc" data-tr="Çocuklar için eğlenceli tabu deneyimi." data-en="A fun taboo-style word game for kids." data-de="Ein lustiges Tabu-Wortspiel für Kinder.">Çocuklar için eğlenceli tabu deneyimi.</p>
         <div class="card-foot">
           <span class="rating" title="3"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(3)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6474076891" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Anlat Bul" data-en="— Describe &amp; Find">— Anlat Bul</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Anlat Bul" data-en="— Describe &amp; Find" data-de="— Anlat Bul">— Anlat Bul</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="hayvanları öğreniyorum çocuklar için eğitici hayvan oyunu. eğitim learn animals an educational animal game for kids. education" data-released="2023-10-24T07:00:00Z">
+      <article class="card" data-kind="ios" data-search="hayvanları öğreniyorum çocuklar için eğitici hayvan oyunu. eğitim learn animals an educational animal game for kids. education tiere lernen ein lernspiel über tiere für kinder. bildung" data-released="2023-10-24T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Eğitim" data-en="Education">Eğitim</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Eğitim" data-en="Education" data-de="Bildung">Eğitim</span></div>
         </div>
-        <h3 class="card-title" data-tr="Hayvanları Öğreniyorum" data-en="Learn Animals">Hayvanları Öğreniyorum</h3>
-        <p class="card-desc" data-tr="Çocuklar için eğitici hayvan oyunu." data-en="An educational animal game for kids.">Çocuklar için eğitici hayvan oyunu.</p>
+        <h3 class="card-title" data-tr="Hayvanları Öğreniyorum" data-en="Learn Animals" data-de="Tiere lernen">Hayvanları Öğreniyorum</h3>
+        <p class="card-desc" data-tr="Çocuklar için eğitici hayvan oyunu." data-en="An educational animal game for kids." data-de="Ein Lernspiel über Tiere für Kinder.">Çocuklar için eğitici hayvan oyunu.</p>
         <div class="card-foot">
           <span class="rating" title="2"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(2)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6470124663" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Hayvanları Öğreniyorum" data-en="— Learn Animals">— Hayvanları Öğreniyorum</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Hayvanları Öğreniyorum" data-en="— Learn Animals" data-de="— Tiere lernen">— Hayvanları Öğreniyorum</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="ios" data-search="eşle öğren hafıza ve zeka geliştiren eşleştirme oyunu. oyunlar match &amp; learn a matching game that builds memory and focus. games" data-released="2023-03-18T07:00:00Z">
+      <article class="card" data-kind="ios" data-search="eşle öğren hafıza ve zeka geliştiren eşleştirme oyunu. oyunlar match &amp; learn a matching game that builds memory and focus. games eşle öğren ein zuordnungsspiel, das gedächtnis und konzentration fördert. spiele" data-released="2023-03-18T07:00:00Z">
         <div class="card-head">
           <img class="card-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/d6/ee/d8d6eea0-ed2b-d9cf-8fe9-357bcfccdfae/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games">Oyunlar</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-apple"/></svg>iOS</span><span class="chip" data-tr="Oyunlar" data-en="Games" data-de="Spiele">Oyunlar</span></div>
         </div>
-        <h3 class="card-title" data-tr="Eşle Öğren" data-en="Match &amp; Learn">Eşle Öğren</h3>
-        <p class="card-desc" data-tr="Hafıza ve zeka geliştiren eşleştirme oyunu." data-en="A matching game that builds memory and focus.">Hafıza ve zeka geliştiren eşleştirme oyunu.</p>
+        <h3 class="card-title" data-tr="Eşle Öğren" data-en="Match &amp; Learn" data-de="Eşle Öğren">Eşle Öğren</h3>
+        <p class="card-desc" data-tr="Hafıza ve zeka geliştiren eşleştirme oyunu." data-en="A matching game that builds memory and focus." data-de="Ein Zuordnungsspiel, das Gedächtnis und Konzentration fördert.">Hafıza ve zeka geliştiren eşleştirme oyunu.</p>
         <div class="card-foot">
           <span class="rating" title="13"><svg aria-hidden="true"><use href="#i-star"/></svg>5.0 <small>(13)</small></span>
           <a class="store-link" href="https://apps.apple.com/app/id6446329316" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store">App Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Eşle Öğren" data-en="— Match &amp; Learn">— Eşle Öğren</span>
+            <span class="" data-tr="App Store&#39;da Gör" data-en="View on App Store" data-de="Im App Store ansehen">App Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Eşle Öğren" data-en="— Match &amp; Learn" data-de="— Eşle Öğren">— Eşle Öğren</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="chrome" data-search="app store connect dark mode app store connect için karanlık mod eklentisi. geliştirici araçları app store connect dark mode a dark mode extension for app store connect. developer tools">
+      <article class="card" data-kind="chrome" data-search="app store connect dark mode app store connect için karanlık mod eklentisi. geliştirici araçları app store connect dark mode a dark mode extension for app store connect. developer tools app store connect dark mode ein dark mode für app store connect. entwickler-tools">
         <div class="card-head">
           <img class="card-icon is-ext" src="https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s128" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Geliştirici Araçları" data-en="Developer Tools">Geliştirici Araçları</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Geliştirici Araçları" data-en="Developer Tools" data-de="Entwickler-Tools">Geliştirici Araçları</span></div>
         </div>
-        <h3 class="card-title" data-tr="App Store Connect Dark Mode" data-en="App Store Connect Dark Mode">App Store Connect Dark Mode</h3>
-        <p class="card-desc" data-tr="App Store Connect için karanlık mod eklentisi." data-en="A dark mode extension for App Store Connect.">App Store Connect için karanlık mod eklentisi.</p>
+        <h3 class="card-title" data-tr="App Store Connect Dark Mode" data-en="App Store Connect Dark Mode" data-de="App Store Connect Dark Mode">App Store Connect Dark Mode</h3>
+        <p class="card-desc" data-tr="App Store Connect için karanlık mod eklentisi." data-en="A dark mode extension for App Store Connect." data-de="Ein Dark Mode für App Store Connect.">App Store Connect için karanlık mod eklentisi.</p>
         <div class="card-foot">
           
           <a class="store-link" href="https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-chrome"/></svg>
-            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store">Web Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— App Store Connect Dark Mode" data-en="— App Store Connect Dark Mode">— App Store Connect Dark Mode</span>
+            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store" data-de="Im Chrome Web Store ansehen">Web Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— App Store Connect Dark Mode" data-en="— App Store Connect Dark Mode" data-de="— App Store Connect Dark Mode">— App Store Connect Dark Mode</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
-      <article class="card" data-kind="chrome" data-search="ekşi mesaj silme ekşi sözlük mesaj kutunuzu tek tıkla temizleyin. verimlilik eksi message deleter clear your ekşi sözlük inbox with one click. productivity">
+      <article class="card" data-kind="chrome" data-search="ekşi mesaj silme ekşi sözlük mesaj kutunuzu tek tıkla temizleyin. verimlilik eksi message deleter clear your ekşi sözlük inbox with one click. productivity ekşi nachrichten löschen leeren sie ihren ekşi-sözlük-posteingang mit einem klick. produktivität">
         <div class="card-head">
           <img class="card-icon is-ext" src="https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s128" alt="" width="72" height="72" loading="lazy" decoding="async">
-          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Verimlilik" data-en="Productivity">Verimlilik</span></div>
+          <div class="card-meta"><span class="chip chip-platform"><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome</span><span class="chip" data-tr="Verimlilik" data-en="Productivity" data-de="Produktivität">Verimlilik</span></div>
         </div>
-        <h3 class="card-title" data-tr="Ekşi Mesaj Silme" data-en="Eksi Message Deleter">Ekşi Mesaj Silme</h3>
-        <p class="card-desc" data-tr="Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin." data-en="Clear your Ekşi Sözlük inbox with one click.">Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin.</p>
+        <h3 class="card-title" data-tr="Ekşi Mesaj Silme" data-en="Eksi Message Deleter" data-de="Ekşi Nachrichten löschen">Ekşi Mesaj Silme</h3>
+        <p class="card-desc" data-tr="Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin." data-en="Clear your Ekşi Sözlük inbox with one click." data-de="Leeren Sie Ihren Ekşi-Sözlük-Posteingang mit einem Klick.">Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin.</p>
         <div class="card-foot">
           
           <a class="store-link" href="https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-chrome"/></svg>
-            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store">Web Store&#39;da Gör</span>
-            <span class="sr-only" data-tr="— Ekşi Mesaj Silme" data-en="— Eksi Message Deleter">— Ekşi Mesaj Silme</span>
+            <span class="" data-tr="Web Store&#39;da Gör" data-en="View on Chrome Web Store" data-de="Im Chrome Web Store ansehen">Web Store&#39;da Gör</span>
+            <span class="sr-only" data-tr="— Ekşi Mesaj Silme" data-en="— Eksi Message Deleter" data-de="— Ekşi Nachrichten löschen">— Ekşi Mesaj Silme</span>
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </article>
       <!-- /build:projects -->
       </div>
-      <p class="empty" id="empty" hidden data-tr="Aramanızla eşleşen proje bulunamadı." data-en="No projects match your search.">Aramanızla eşleşen proje bulunamadı.</p>
+      <p class="empty" id="empty" hidden data-tr="Aramanızla eşleşen proje bulunamadı." data-en="No projects match your search." data-de="Keine Projekte gefunden.">Aramanızla eşleşen proje bulunamadı.</p>
       <p class="sr-only" id="results-status" aria-live="polite"></p>
     </section>
 
     <section id="resume" class="section" aria-labelledby="resume-title">
       <div class="section-head">
-        <h2 id="resume-title" data-tr="Özgeçmiş" data-en="Résumé">Özgeçmiş</h2>
+        <h2 id="resume-title" data-tr="Özgeçmiş" data-en="Résumé" data-de="Lebenslauf">Özgeçmiş</h2>
         <a class="btn btn-ghost" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-file"/></svg>
-          <span data-tr="CV'yi aç (PDF)" data-en="Open CV (PDF)">CV'yi aç (PDF)</span>
+          <span data-tr="CV'yi aç (PDF)" data-en="Open CV (PDF)" data-de="Lebenslauf öffnen (PDF)">CV'yi aç (PDF)</span>
         </a>
       </div>
       <div class="resume">
         <div class="panel">
-          <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-briefcase"/></svg><span data-tr="Deneyim" data-en="Experience">Deneyim</span></h3>
+          <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-briefcase"/></svg><span data-tr="Deneyim" data-en="Experience" data-de="Berufserfahrung">Deneyim</span></h3>
           <ol class="timeline">
             <li>
               <span class="tl-date">2022 – 2025</span>
-              <h4 data-tr="Senior iOS Yazılım Geliştirici" data-en="Senior iOS Software Engineer">Senior iOS Yazılım Geliştirici</h4>
-              <p class="tl-org">Obilet Bilişim Sistemleri (BlaBlaCar) · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
-              <p data-tr="Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü." data-en="Developed and optimised the iOS app of a travel platform with millions of monthly users; analysed performance bottlenecks and resolved complex issues in 3rd-level support.">Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü.</p>
+              <h4 data-tr="Senior iOS Yazılım Geliştirici" data-en="Senior iOS Software Engineer" data-de="Senior iOS-Softwareentwickler">Senior iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Obilet Bilişim Sistemleri (BlaBlaCar) · İstanbul · <span data-tr="Uzaktan" data-en="Remote" data-de="Remote">Uzaktan</span></p>
+              <p data-tr="Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü." data-en="Developed and optimised the iOS app of a travel platform with millions of monthly users; analysed performance bottlenecks and resolved complex issues in 3rd-level support." data-de="Weiterentwicklung und Optimierung der iOS-Anwendung einer Reiseplattform mit mehreren Millionen monatlichen Nutzern; Analyse von Performance-Engpässen und Behebung komplexer Softwareprobleme im 3rd-Level-Support.">Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü.</p>
               <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>Performance</li></ul>
             </li>
             <li>
               <span class="tl-date">2021 – 2022</span>
-              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer">iOS Yazılım Geliştirici</h4>
-              <p class="tl-org">Appcent · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
-              <p data-tr="Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları." data-en="Modernised and refactored legacy code in the iOS app of one of Turkey's largest private banks; integrated REST APIs.">Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları.</p>
+              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer" data-de="iOS-Softwareentwickler">iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Appcent · İstanbul · <span data-tr="Uzaktan" data-en="Remote" data-de="Remote">Uzaktan</span></p>
+              <p data-tr="Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları." data-en="Modernised and refactored legacy code in the iOS app of one of Turkey's largest private banks; integrated REST APIs." data-de="Modernisierung und Refactoring von Legacy-Code für die iOS-Anwendung einer der größten Privatbanken der Türkei; effiziente Integration von REST-APIs.">Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları.</p>
               <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>AWS</li><li>REST</li></ul>
             </li>
             <li>
               <span class="tl-date">2020 – 2021</span>
-              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer">iOS Yazılım Geliştirici</h4>
-              <p class="tl-org">Skyland · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
-              <p data-tr="Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları." data-en="High-performance, user-focused iOS apps for one of Turkey's leading airlines (Turkish Airlines – AJet).">Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları.</p>
+              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer" data-de="iOS-Softwareentwickler">iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Skyland · İstanbul · <span data-tr="Uzaktan" data-en="Remote" data-de="Remote">Uzaktan</span></p>
+              <p data-tr="Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları." data-en="High-performance, user-focused iOS apps for one of Turkey's leading airlines (Turkish Airlines – AJet)." data-de="Weiterentwicklung leistungsstarker iOS-Anwendungen für eine der führenden Fluggesellschaften der Türkei (Turkish Airlines – AJet) mit Fokus auf Performance und Benutzerfreundlichkeit.">Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları.</p>
               <ul class="tags"><li>Swift</li><li>Core Data</li><li>REST</li></ul>
             </li>
             <li>
               <span class="tl-date">2017 – 2018</span>
-              <h4 data-tr="BT Uzmanı" data-en="IT Specialist">BT Uzmanı</h4>
-              <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University">Üniversitesi</span></p>
-              <p data-tr="Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek." data-en="Built internal software and supported the administration of the university-wide IT infrastructure.">Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek.</p>
+              <h4 data-tr="BT Uzmanı" data-en="IT Specialist" data-de="IT-Spezialist">BT Uzmanı</h4>
+              <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University" data-de="Universität">Üniversitesi</span></p>
+              <p data-tr="Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek." data-en="Built internal software and supported the administration of the university-wide IT infrastructure." data-de="Entwicklung interner Softwareanwendungen sowie Unterstützung bei der Administration der universitätsweiten IT-Infrastruktur.">Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek.</p>
               <ul class="tags"><li>Windows Server</li><li>VMware</li><li>Networking</li></ul>
             </li>
           </ol>
         </div>
         <div class="resume-side">
           <div class="panel">
-            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-cap"/></svg><span data-tr="Eğitim" data-en="Education">Eğitim</span></h3>
-            <h4 data-tr="Bilgisayar Mühendisliği (B.Sc.)" data-en="B.Sc. Computer Engineering">Bilgisayar Mühendisliği (B.Sc.)</h4>
-            <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University">Üniversitesi</span> · 2016 – 2020</p>
-            <p class="muted" data-tr="Mezuniyet notu: 3,10 / 4,00" data-en="GPA: 3.10 / 4.00">Mezuniyet notu: 3,10 / 4,00</p>
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-cap"/></svg><span data-tr="Eğitim" data-en="Education" data-de="Bildungsweg">Eğitim</span></h3>
+            <h4 data-tr="Bilgisayar Mühendisliği (B.Sc.)" data-en="B.Sc. Computer Engineering" data-de="B.Sc. Computer Engineering">Bilgisayar Mühendisliği (B.Sc.)</h4>
+            <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University" data-de="Universität">Üniversitesi</span> · 2016 – 2020</p>
+            <p class="muted" data-tr="Mezuniyet notu: 3,10 / 4,00" data-en="GPA: 3.10 / 4.00" data-de="Abschlussnote: 3,10 / 4,00">Mezuniyet notu: 3,10 / 4,00</p>
           </div>
           <div class="panel">
-            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-languages"/></svg><span data-tr="Diller" data-en="Languages">Diller</span></h3>
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-languages"/></svg><span data-tr="Diller" data-en="Languages" data-de="Sprachen">Diller</span></h3>
             <dl class="langs">
-              <div><dt data-tr="Türkçe" data-en="Turkish">Türkçe</dt><dd data-tr="Ana dil" data-en="Native">Ana dil</dd></div>
-              <div><dt data-tr="İngilizce" data-en="English">İngilizce</dt><dd data-tr="Profesyonel" data-en="Professional">Profesyonel</dd></div>
-              <div><dt data-tr="Almanca" data-en="German">Almanca</dt><dd>B1 (DTZ)</dd></div>
+              <div><dt data-tr="Türkçe" data-en="Turkish" data-de="Türkisch">Türkçe</dt><dd data-tr="Ana dil" data-en="Native" data-de="Muttersprache">Ana dil</dd></div>
+              <div><dt data-tr="İngilizce" data-en="English" data-de="Englisch">İngilizce</dt><dd data-tr="Profesyonel" data-en="Professional" data-de="Berufliche Kenntnisse">Profesyonel</dd></div>
+              <div><dt data-tr="Almanca" data-en="German" data-de="Deutsch">Almanca</dt><dd>B1 (DTZ)</dd></div>
             </dl>
           </div>
           <div class="panel">
-            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-award"/></svg><span data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</span></h3>
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-award"/></svg><span data-tr="Yetkinlikler" data-en="Skills" data-de="Fachkenntnisse">Yetkinlikler</span></h3>
             <ul class="tags">
               <li>Swift</li><li>SwiftUI</li><li>Core Data</li><li>REST APIs</li><li>AWS</li><li>Git</li><li>Jira · Agile</li>
               <li>macOS · Linux</li><li>Windows Server</li><li>VMware</li><li>SQL Server</li><li>Active Directory</li>
@@ -434,57 +429,57 @@
 
     <section id="documents" class="section" aria-labelledby="documents-title">
       <div class="section-head">
-        <h2 id="documents-title" data-tr="Belgeler" data-en="Documents">Belgeler</h2>
-        <p class="section-sub" data-tr="Diploma, transkript ve sertifikalar" data-en="Diploma, transcript and certificates">Diploma, transkript ve sertifikalar</p>
+        <h2 id="documents-title" data-tr="Belgeler" data-en="Documents" data-de="Dokumente">Belgeler</h2>
+        <p class="section-sub" data-tr="Diploma, transkript ve sertifikalar" data-en="Diploma, transcript and certificates" data-de="Diplom, Abschlusszeugnis und Zertifikate">Diploma, transkript ve sertifikalar</p>
       </div>
       <div class="docs">
       <!-- build:documents -->
         <article class="doc">
           <span class="doc-icon" aria-hidden="true"><svg><use href="#i-file"/></svg></span>
           <div class="doc-body">
-            <h3 class="doc-title" data-tr="Özgeçmiş (CV)" data-en="Résumé (CV)">Özgeçmiş (CV)</h3>
-            <p class="doc-desc" data-tr="Almanca · güncel özgeçmiş" data-en="German · current résumé">Almanca · güncel özgeçmiş</p>
+            <h3 class="doc-title" data-tr="Özgeçmiş (CV)" data-en="Résumé (CV)" data-de="Lebenslauf">Özgeçmiş (CV)</h3>
+            <p class="doc-desc" data-tr="Almanca · güncel özgeçmiş" data-en="German · current résumé" data-de="Deutsch · aktueller Lebenslauf">Almanca · güncel özgeçmiş</p>
             <p class="doc-meta">PDF · 158 KB</p>
           </div>
           <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Özgeçmiş (CV)" data-en=": Résumé (CV)">: Özgeçmiş (CV)</span></a>
-            <a class="icon-btn" href="Documents/Lebenslauf_Ali_Akgun.pdf" download data-tr="İndir: Özgeçmiş (CV)" data-en="Download: Résumé (CV)" data-attr="aria-label" aria-label="İndir: Özgeçmiş (CV)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+            <a class="btn btn-ghost btn-sm" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View" data-de="Ansehen">Görüntüle</span><span class="sr-only" data-tr=": Özgeçmiş (CV)" data-en=": Résumé (CV)" data-de=": Lebenslauf">: Özgeçmiş (CV)</span></a>
+            <a class="icon-btn" href="Documents/Lebenslauf_Ali_Akgun.pdf" download data-tr="İndir: Özgeçmiş (CV)" data-en="Download: Résumé (CV)" data-de="Herunterladen: Lebenslauf" data-attr="aria-label" aria-label="İndir: Özgeçmiş (CV)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </article>
         <article class="doc">
           <span class="doc-icon" aria-hidden="true"><svg><use href="#i-cap"/></svg></span>
           <div class="doc-body">
-            <h3 class="doc-title" data-tr="Lisans Diploması" data-en="Bachelor&#39;s Diploma">Lisans Diploması</h3>
-            <p class="doc-desc" data-tr="Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020" data-en="Computer Engineering · Istanbul Nişantaşı University · 2020">Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020</p>
+            <h3 class="doc-title" data-tr="Lisans Diploması" data-en="Bachelor&#39;s Diploma" data-de="Bachelor-Diplom">Lisans Diploması</h3>
+            <p class="doc-desc" data-tr="Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020" data-en="Computer Engineering · Istanbul Nişantaşı University · 2020" data-de="Computer Engineering · İstanbul Nişantaşı Universität · 2020">Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020</p>
             <p class="doc-meta">PDF · 3.7 MB</p>
           </div>
           <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="Documents/Diplom_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Lisans Diploması" data-en=": Bachelor&#39;s Diploma">: Lisans Diploması</span></a>
-            <a class="icon-btn" href="Documents/Diplom_Ali_Akgun.pdf" download data-tr="İndir: Lisans Diploması" data-en="Download: Bachelor&#39;s Diploma" data-attr="aria-label" aria-label="İndir: Lisans Diploması"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+            <a class="btn btn-ghost btn-sm" href="Documents/Diplom_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View" data-de="Ansehen">Görüntüle</span><span class="sr-only" data-tr=": Lisans Diploması" data-en=": Bachelor&#39;s Diploma" data-de=": Bachelor-Diplom">: Lisans Diploması</span></a>
+            <a class="icon-btn" href="Documents/Diplom_Ali_Akgun.pdf" download data-tr="İndir: Lisans Diploması" data-en="Download: Bachelor&#39;s Diploma" data-de="Herunterladen: Bachelor-Diplom" data-attr="aria-label" aria-label="İndir: Lisans Diploması"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </article>
         <article class="doc">
           <span class="doc-icon" aria-hidden="true"><svg><use href="#i-file"/></svg></span>
           <div class="doc-body">
-            <h3 class="doc-title" data-tr="Not Dökümü (Transkript)" data-en="Academic Transcript">Not Dökümü (Transkript)</h3>
-            <p class="doc-desc" data-tr="Resmi akademik kayıt · GANO 3,10 / 4,00" data-en="Official academic record · GPA 3.10 / 4.00">Resmi akademik kayıt · GANO 3,10 / 4,00</p>
+            <h3 class="doc-title" data-tr="Not Dökümü (Transkript)" data-en="Academic Transcript" data-de="Abschlusszeugnis">Not Dökümü (Transkript)</h3>
+            <p class="doc-desc" data-tr="Resmi akademik kayıt · GANO 3,10 / 4,00" data-en="Official academic record · GPA 3.10 / 4.00" data-de="Offizielles Notenblatt · Abschlussnote 3,10 / 4,00">Resmi akademik kayıt · GANO 3,10 / 4,00</p>
             <p class="doc-meta">PDF · 638 KB</p>
           </div>
           <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Not Dökümü (Transkript)" data-en=": Academic Transcript">: Not Dökümü (Transkript)</span></a>
-            <a class="icon-btn" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" download data-tr="İndir: Not Dökümü (Transkript)" data-en="Download: Academic Transcript" data-attr="aria-label" aria-label="İndir: Not Dökümü (Transkript)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+            <a class="btn btn-ghost btn-sm" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View" data-de="Ansehen">Görüntüle</span><span class="sr-only" data-tr=": Not Dökümü (Transkript)" data-en=": Academic Transcript" data-de=": Abschlusszeugnis">: Not Dökümü (Transkript)</span></a>
+            <a class="icon-btn" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" download data-tr="İndir: Not Dökümü (Transkript)" data-en="Download: Academic Transcript" data-de="Herunterladen: Abschlusszeugnis" data-attr="aria-label" aria-label="İndir: Not Dökümü (Transkript)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </article>
         <article class="doc">
           <span class="doc-icon" aria-hidden="true"><svg><use href="#i-award"/></svg></span>
           <div class="doc-body">
-            <h3 class="doc-title" data-tr="Almanca B1 Sertifikası" data-en="German B1 Certificate">Almanca B1 Sertifikası</h3>
-            <p class="doc-desc" data-tr="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" data-en="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026">Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026</p>
+            <h3 class="doc-title" data-tr="Almanca B1 Sertifikası" data-en="German B1 Certificate" data-de="Deutsch-Zertifikat B1">Almanca B1 Sertifikası</h3>
+            <p class="doc-desc" data-tr="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" data-en="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" data-de="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026">Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026</p>
             <p class="doc-meta">PDF · 1.8 MB</p>
           </div>
           <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="Documents/GAST-B1.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Almanca B1 Sertifikası" data-en=": German B1 Certificate">: Almanca B1 Sertifikası</span></a>
-            <a class="icon-btn" href="Documents/GAST-B1.pdf" download data-tr="İndir: Almanca B1 Sertifikası" data-en="Download: German B1 Certificate" data-attr="aria-label" aria-label="İndir: Almanca B1 Sertifikası"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+            <a class="btn btn-ghost btn-sm" href="Documents/GAST-B1.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View" data-de="Ansehen">Görüntüle</span><span class="sr-only" data-tr=": Almanca B1 Sertifikası" data-en=": German B1 Certificate" data-de=": Deutsch-Zertifikat B1">: Almanca B1 Sertifikası</span></a>
+            <a class="icon-btn" href="Documents/GAST-B1.pdf" download data-tr="İndir: Almanca B1 Sertifikası" data-en="Download: German B1 Certificate" data-de="Herunterladen: Deutsch-Zertifikat B1" data-attr="aria-label" aria-label="İndir: Almanca B1 Sertifikası"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </article>
       <!-- /build:documents -->
@@ -494,19 +489,19 @@
     <section class="support">
       <div class="support-card">
         <div>
-          <h2 data-tr="İşinize yaradı mı?" data-en="Found it useful?">İşinize yaradı mı?</h2>
-          <p data-tr="Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz." data-en="If I saved you from tedious manual work, you can support new projects by buying me a coffee.">Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz.</p>
+          <h2 data-tr="İşinize yaradı mı?" data-en="Found it useful?" data-de="Hat es Ihnen geholfen?">İşinize yaradı mı?</h2>
+          <p data-tr="Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz." data-en="If I saved you from tedious manual work, you can support new projects by buying me a coffee." data-de="Wenn ich Ihnen mühsame Handarbeit erspart habe, können Sie neue Projekte mit einem Kaffee unterstützen.">Sizi manuel işlerden kurtarabildiysem, bir kahve ısmarlayarak yeni projelere destek olabilirsiniz.</p>
         </div>
         <a class="btn btn-coffee btn-lg" href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-coffee"/></svg>
-          <span data-tr="Bir Kahve Ismarla" data-en="Buy me a coffee">Bir Kahve Ismarla</span>
+          <span data-tr="Bir Kahve Ismarla" data-en="Buy me a coffee" data-de="Spendier mir einen Kaffee">Bir Kahve Ismarla</span>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year">2026</span> Ali Akgün. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+    <p>© <span id="year">2026</span> Ali Akgün. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">Tüm hakları saklıdır.</span></p>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
       <a href="https://github.com/AkgunAli" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>

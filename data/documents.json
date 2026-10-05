@@ -1,30 +1,72 @@
 {
   "$comment": "Documents/ klasöründeki dosyalar sitede otomatik listelenir. Buradaki kayıtlar başlık/açıklama/sıra verir; kaydı olmayan dosyalar dosya adıyla gösterilir. exclude: listelenmeyecek dosyalar.",
-  "exclude": ["Foto_Ali_Akgun.png"],
+  "exclude": [
+    "Foto_Ali_Akgun.png"
+  ],
   "items": [
     {
       "file": "Lebenslauf_Ali_Akgun.pdf",
       "kind": "cv",
-      "tr": { "title": "Özgeçmiş (CV)", "desc": "Almanca · güncel özgeçmiş" },
-      "en": { "title": "Résumé (CV)", "desc": "German · current résumé" }
+      "tr": {
+        "title": "Özgeçmiş (CV)",
+        "desc": "Almanca · güncel özgeçmiş"
+      },
+      "en": {
+        "title": "Résumé (CV)",
+        "desc": "German · current résumé"
+      },
+      "de": {
+        "title": "Lebenslauf",
+        "desc": "Deutsch · aktueller Lebenslauf"
+      }
     },
     {
       "file": "Diplom_Ali_Akgun.pdf",
       "kind": "diploma",
-      "tr": { "title": "Lisans Diploması", "desc": "Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020" },
-      "en": { "title": "Bachelor's Diploma", "desc": "Computer Engineering · Istanbul Nişantaşı University · 2020" }
+      "tr": {
+        "title": "Lisans Diploması",
+        "desc": "Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020"
+      },
+      "en": {
+        "title": "Bachelor's Diploma",
+        "desc": "Computer Engineering · Istanbul Nişantaşı University · 2020"
+      },
+      "de": {
+        "title": "Bachelor-Diplom",
+        "desc": "Computer Engineering · İstanbul Nişantaşı Universität · 2020"
+      }
     },
     {
       "file": "Abschlusszeugnis-Ali_Akgun.pdf",
       "kind": "transcript",
-      "tr": { "title": "Not Dökümü (Transkript)", "desc": "Resmi akademik kayıt · GANO 3,10 / 4,00" },
-      "en": { "title": "Academic Transcript", "desc": "Official academic record · GPA 3.10 / 4.00" }
+      "tr": {
+        "title": "Not Dökümü (Transkript)",
+        "desc": "Resmi akademik kayıt · GANO 3,10 / 4,00"
+      },
+      "en": {
+        "title": "Academic Transcript",
+        "desc": "Official academic record · GPA 3.10 / 4.00"
+      },
+      "de": {
+        "title": "Abschlusszeugnis",
+        "desc": "Offizielles Notenblatt · Abschlussnote 3,10 / 4,00"
+      }
     },
     {
       "file": "GAST-B1.pdf",
       "kind": "certificate",
-      "tr": { "title": "Almanca B1 Sertifikası", "desc": "Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" },
-      "en": { "title": "German B1 Certificate", "desc": "Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" }
+      "tr": {
+        "title": "Almanca B1 Sertifikası",
+        "desc": "Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026"
+      },
+      "en": {
+        "title": "German B1 Certificate",
+        "desc": "Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026"
+      },
+      "de": {
+        "title": "Deutsch-Zertifikat B1",
+        "desc": "Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026"
+      }
     }
   ]
 }

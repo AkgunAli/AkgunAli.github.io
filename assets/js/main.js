@@ -32,6 +32,13 @@
       theme: { system: 'Theme: system', light: 'Theme: light', dark: 'Theme: dark' },
       results: (n) => `${n} project${n === 1 ? '' : 's'} shown`,
     },
+    de: {
+      title: 'Ali Akgün — iOS-Apps & Chrome-Erweiterungen',
+      description: 'Ali Akgün — Informatikingenieur und Softwareentwickler. Meine iOS-Apps und Chrome-Erweiterungen.',
+      new: 'Neu',
+      theme: { system: 'Design: System', light: 'Design: hell', dark: 'Design: dunkel' },
+      results: (n) => `${n} Projekt${n === 1 ? '' : 'e'} angezeigt`,
+    },
   };
   const LANGS = Object.keys(STRINGS);
   let lang = LANGS.includes(root.lang) ? root.lang : 'tr';
@@ -175,263 +182,136 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Terminal hero — the transcript is static HTML; on the first visit of a
-  // session we "type" it out, then hand over an interactive prompt.
+  // Hero code window — types a snippet, pauses, deletes it, types the next.
   // ---------------------------------------------------------------------------
-  const term = {
-    body: $('#term-body'),
-    intro: $('#term-intro'),
-    log: $('#term-log'),
-    form: $('#term-form'),
-    input: $('#term-input'),
-    history: [],
-    cursor: 0,
-  };
+  const codeEl = $('#term-code code');
+  const titleEl = $('#term-title');
+  const langEl = $('#term-lang');
+  const count = (kind) => cards.filter((c) => c.dataset.kind === kind).length;
+  const HELLO = { tr: 'Zamanınızı size geri kazandırın', en: 'Give people their time back', de: 'Gib den Menschen ihre Zeit zurück' };
 
-  const TERM = {
-    tr: {
-      help: 'Kullanılabilir komutlar:',
-      cmds: {
-        help: 'bu listeyi gösterir',
-        whoami: 'ben kimim?',
-        about: 'hakkımda',
-        ls: 'projeleri listeler',
-        apps: 'iOS uygulamalarına gider',
-        extensions: 'Chrome eklentilerine gider',
-        open: 'open <isim> — projeyi mağazada açar',
-        search: 'search <kelime> — projelerde arar',
-        resume: 'deneyim ve eğitim',
-        docs: 'diploma, transkript ve sertifikalar',
-        cv: 'CV\'yi (PDF) açar',
-        contact: 'iletişim bağlantıları',
-        coffee: 'bana bir kahve ısmarla ☕',
-        theme: 'theme light|dark|system',
-        lang: 'lang tr|en',
-        clear: 'ekranı temizler',
-      },
-      notFound: (c) => `zsh: komut bulunamadı: ${c} — 'help' yazmayı deneyin`,
-      noMatch: (q) => `'${q}' ile eşleşen proje yok.`,
-      opening: (n) => `${n} açılıyor…`,
-      jumping: (section = 'Projeler') => `${section} bölümüne gidiliyor…`,
-      searching: (q, n) => `'${q}' için ${n} sonuç.`,
-      themeSet: (v) => `Tema: ${v}`,
-      langSet: 'Dil: Türkçe',
-      usage: (u) => `kullanım: ${u}`,
-      sudo: 'Bu olay rapor edilecek. 🙂',
-      coffee: 'Teşekkürler! Buy Me a Coffee açılıyor…',
+  const SNIPPETS = [
+    {
+      file: 'Developer.swift', lang: 'Swift',
+      code: () => codeEl.dataset.initial,
     },
-    en: {
-      help: 'Available commands:',
-      cmds: {
-        help: 'show this list',
-        whoami: 'who am I?',
-        about: 'about me',
-        ls: 'list projects',
-        apps: 'jump to iOS apps',
-        extensions: 'jump to Chrome extensions',
-        open: 'open <name> — open a project in its store',
-        search: 'search <term> — search projects',
-        resume: 'experience and education',
-        docs: 'diploma, transcript and certificates',
-        cv: 'open my CV (PDF)',
-        contact: 'contact links',
-        coffee: 'buy me a coffee ☕',
-        theme: 'theme light|dark|system',
-        lang: 'lang tr|en',
-        clear: 'clear the screen',
-      },
-      notFound: (c) => `zsh: command not found: ${c} — try 'help'`,
-      noMatch: (q) => `No project matches '${q}'.`,
-      opening: (n) => `Opening ${n}…`,
-      jumping: (section = 'projects') => `Jumping to ${section}…`,
-      searching: (q, n) => `${n} result(s) for '${q}'.`,
-      themeSet: (v) => `Theme: ${v}`,
-      langSet: 'Language: English',
-      usage: (u) => `usage: ${u}`,
-      sudo: 'This incident will be reported. 🙂',
-      coffee: 'Thank you! Opening Buy Me a Coffee…',
+    {
+      file: 'ContentView.swift', lang: 'SwiftUI',
+      code: () => `import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        Text("${HELLO[lang]}")
+            .font(.largeTitle.bold())
+            .foregroundStyle(.tint)
+    }
+}`,
     },
-  };
-  const tt = (k) => TERM[lang][k];
+    {
+      file: 'zsh — ~/apps', lang: 'Shell', shell: true,
+      code: () => `$ ls ~/apps | wc -l
+${count('ios')}
+$ git commit -m "feat: ship new release"
+[main 4f2a9c1] feat: ship new release
+$ fastlane ios release
+✓ Uploaded to App Store Connect`,
+    },
+    {
+      file: 'Portfolio.swift', lang: 'Swift',
+      code: () => `// ${count('ios')} iOS apps · ${count('chrome')} Chrome extensions
+let apps = try await AppStore.apps(by: "Ali Akgün")
+
+for app in apps where app.rating >= 4.5 {
+    print("★ \\(app.name)")
+}`,
+    },
+  ];
+
+  const SWIFT = /(\/\/.*$)|("(?:[^"\\\n]|\\.)*"?)|\b(struct|let|var|import|func|some|try|await|return|for|in|where|class)\b|\b([A-Z][A-Za-z]*)\b|(\.[a-zA-Z]+)|\b(\d+(?:\.\d+)?)\b/gm;
+  const TOKEN_CLASS = [null, 'tk-c', 'tk-s', 'tk-k', 'tk-t', 'tk-f', 'tk-n'];
+
+  function highlight(text, shell) {
+    if (shell) {
+      return text.split('\n').map((line) => {
+        if (line.startsWith('$')) return `<span class="tk-p">$</span>${escapeHtml(line.slice(1)).replace(/(&quot;.*?(?:&quot;|$))/g, '<span class="tk-s">$1</span>')}`;
+        if (line.startsWith('✓')) return `<span class="tk-ok">${escapeHtml(line)}</span>`;
+        return `<span class="tk-c">${escapeHtml(line)}</span>`;
+      }).join('\n');
+    }
+    let out = '';
+    let last = 0;
+    for (const m of text.matchAll(SWIFT)) {
+      out += escapeHtml(text.slice(last, m.index));
+      const group = m.findIndex((g, i) => i > 0 && g !== undefined);
+      out += `<span class="${TOKEN_CLASS[group]}">${escapeHtml(m[0])}</span>`;
+      last = m.index + m[0].length;
+    }
+    return out + escapeHtml(text.slice(last));
+  }
+
   const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const scrollTerm = () => { term.body.scrollTop = term.body.scrollHeight; };
 
-  // Clone a line from the intro so outputs stay in sync with the static HTML (and its translations).
-  const introLine = (sel) => $(sel, term.intro).cloneNode(true);
-  const ps1 = $('.ps1', term.intro).outerHTML;
-
-  function print(content, cls = 'out') {
-    const el = typeof content === 'string' ? Object.assign(document.createElement('p'), { className: cls, innerHTML: content }) : content;
-    term.log.append(el);
-    scrollTerm();
+  // Only animate while the window is on screen and the tab is visible.
+  let onScreen = true;
+  let wake = null;
+  const resumeIfVisible = () => { if (onScreen && !document.hidden && wake) { wake(); wake = null; } };
+  const whenVisible = () => (onScreen && !document.hidden ? null : new Promise((r) => { wake = r; }));
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; resumeIfVisible(); }).observe(codeEl);
   }
+  document.addEventListener('visibilitychange', resumeIfVisible);
 
-  const projectCards = () => cards.map((c) => ({
-    card: c,
-    name: $('.card-title', c).textContent.trim(),
-    url: $('.store-link', c).href,
-    kind: c.dataset.kind,
-  }));
+  async function playCode() {
+    codeEl.dataset.initial = codeEl.textContent;
+    const caret = '<span class="caret"></span>';
+    const typingCaret = '<span class="caret is-typing"></span>';
+    const render = (text, shell, typing) => { codeEl.innerHTML = highlight(text, shell) + (typing ? typingCaret : caret); };
 
-  function goToProjects(kind, query = '') {
-    search.value = query;
-    setFilter(kind);
-    history.replaceState(null, '', kind === 'all' ? location.pathname + location.search : '#' + kind);
-    $('#projects').scrollIntoView();
-  }
-
-  const COMMANDS = {
-    help() {
-      const rows = Object.entries(tt('cmds')).map(([k, v]) => `<dt>${k}</dt><dd>${escapeHtml(v)}</dd>`).join('');
-      print(tt('help'), 'out out-muted');
-      print(Object.assign(document.createElement('dl'), { className: 'out out-grid', innerHTML: rows }));
-    },
-    whoami() { print(introLine('.out-whoami')); },
-    about() { print(introLine('.out-about')); },
-    cat([file = '']) { (file.startsWith('contact') ? COMMANDS.contact : COMMANDS.about)(); },
-    ls(args) {
-      if (/doc/.test(args[0])) {
-        return print($$('.doc').map((d) => `<a href="${escapeHtml($('a', d).href)}" target="_blank" rel="noopener">${escapeHtml($('.doc-title', d).textContent)}</a> <span class="out-muted">${escapeHtml($('.doc-meta', d).textContent)}</span>`).join('<br>'));
+    await sleep(2500); // let people read the first snippet
+    for (let i = 1; ; i = (i + 1) % SNIPPETS.length) {
+      // Delete the current snippet, a few characters at a time.
+      let text = codeEl.textContent;
+      const prev = SNIPPETS[(i + SNIPPETS.length - 1) % SNIPPETS.length];
+      while (text.length) {
+        await whenVisible();
+        text = text.slice(0, -3);
+        render(text, prev.shell, true);
+        await sleep(14);
       }
-      const kind = /ios/.test(args[0]) ? 'ios' : /chrome|ext/.test(args[0]) ? 'chrome' : null;
-      if (!kind) return print(introLine('.out-ls'));
-      const items = projectCards().filter((p) => p.kind === kind);
-      print(items.map((p) => `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(p.name)}</a>`).join('<br>'));
-    },
-    apps() { print(tt('jumping')(), 'out out-ok'); goToProjects('ios'); },
-    extensions() { print(tt('jumping')(), 'out out-ok'); goToProjects('chrome'); },
-    projects() { print(tt('jumping')(), 'out out-ok'); goToProjects('all'); },
-    search(args) {
-      const q = args.join(' ');
-      if (!q) return print(tt('usage')('search <term>'), 'out out-warn');
-      goToProjects('all', q);
-      print(tt('searching')(escapeHtml(q), cards.filter((c) => !c.hidden).length), 'out out-ok');
-    },
-    open(args) {
-      const q = normalize(args.join(' '));
-      if (!q) return print(tt('usage')('open <name>'), 'out out-warn');
-      const match = projectCards().find((p) => index.get(p.card).includes(q));
-      if (!match) return print(tt('noMatch')(escapeHtml(args.join(' '))), 'out out-err');
-      print(tt('opening')(escapeHtml(match.name)), 'out out-ok');
-      window.open(match.url, '_blank', 'noopener');
-    },
-    contact() { print(introLine('.out-links')); },
-    resume() { print(tt('jumping')(lang === 'tr' ? 'Özgeçmiş' : 'résumé'), 'out out-ok'); $('#resume').scrollIntoView(); },
-    docs() { COMMANDS.ls(['docs']); $('#documents').scrollIntoView(); },
-    cv() { print(tt('opening')('cv.pdf'), 'out out-ok'); window.open('Documents/Lebenslauf_Ali_Akgun.pdf', '_blank', 'noopener'); },
-    coffee() { print(tt('coffee'), 'out out-ok'); window.open('https://buymeacoffee.com/aliakgun', '_blank', 'noopener'); },
-    theme([value]) {
-      if (!THEMES.includes(value)) return print(tt('usage')('theme light|dark|system'), 'out out-warn');
-      setTheme(value);
-      print(tt('themeSet')(value), 'out out-ok');
-    },
-    lang([value]) {
-      if (!LANGS.includes(value)) return print(tt('usage')('lang tr|en'), 'out out-warn');
-      applyLang(value, true);
-      print(tt('langSet'), 'out out-ok');
-    },
-    clear() { term.log.innerHTML = ''; term.intro.hidden = true; },
-    sudo() { print(tt('sudo'), 'out out-err'); },
-  };
-  const ALIASES = { '?': 'help', cd: 'projects', ios: 'apps', ext: 'extensions', chrome: 'extensions', experience: 'resume', education: 'resume', documents: 'docs', diploma: 'docs', exit: 'clear', cls: 'clear', github: 'contact', linkedin: 'contact' };
 
-  function run(raw) {
-    const line = raw.trim();
-    const echo = document.createElement('p');
-    echo.className = 'cmd';
-    echo.innerHTML = `${ps1} <span class="cmd-text"></span>`;
-    $('.cmd-text', echo).textContent = line;
-    print(echo);
-    if (!line) return;
-    term.history.push(line);
-    term.cursor = term.history.length;
-    const [name, ...args] = line.split(/\s+/);
-    const cmd = COMMANDS[ALIASES[name.toLowerCase()] ?? name.toLowerCase()];
-    if (cmd) cmd(args.map((a) => a.toLowerCase()));
-    else print(tt('notFound')(escapeHtml(name)), 'out out-err');
-  }
+      const snippet = SNIPPETS[i];
+      titleEl.textContent = snippet.file;
+      langEl.textContent = snippet.lang;
+      await sleep(350);
 
-  term.form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    run(term.input.value);
-    term.input.value = '';
-    $('.term-hint', term.form).hidden = true;
-  });
-
-  term.input.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      term.cursor = Math.max(0, Math.min(term.history.length, term.cursor + (e.key === 'ArrowUp' ? -1 : 1)));
-      term.input.value = term.history[term.cursor] ?? '';
-    } else if (e.key === 'Tab') {
-      const v = term.input.value.toLowerCase();
-      const hits = Object.keys(COMMANDS).filter((c) => v && c.startsWith(v));
-      if (hits.length) { e.preventDefault(); }
-      if (hits.length === 1) term.input.value = hits[0] + ' ';
-      else if (hits.length > 1) print(hits.join('  '), 'out out-muted');
-    } else if (e.key === 'l' && e.ctrlKey) {
-      e.preventDefault();
-      COMMANDS.clear();
-    }
-  });
-
-  // Click anywhere in the terminal (except links / selected text) to focus the prompt.
-  term.body.addEventListener('click', (e) => {
-    const dir = e.target.closest('a[href^="#"]');
-    if (dir && filterBtns.some((b) => '#' + b.dataset.filter === dir.getAttribute('href'))) {
-      e.preventDefault();
-      goToProjects(dir.getAttribute('href').slice(1));
-      return;
-    }
-    if (e.target.closest('a') || getSelection().toString() || term.form.hidden) return;
-    term.input.focus({ preventScroll: true });
-  });
-
-  async function playIntro() {
-    const nodes = [...term.intro.children];
-    const texts = nodes.map((n) => n.classList.contains('cmd') ? $('.cmd-text', n).textContent : null);
-    let skipped = false;
-    const skip = () => { skipped = true; };
-    const wait = (ms) => (skipped ? null : sleep(ms));
-    ['keydown', 'pointerdown', 'wheel', 'touchstart'].forEach((ev) => addEventListener(ev, skip, { once: true, passive: true }));
-
-    nodes.forEach((n) => { n.hidden = true; });
-    const caret = Object.assign(document.createElement('span'), { className: 'caret' });
-    for (const [i, node] of nodes.entries()) {
-      node.hidden = false;
-      scrollTerm();
-      if (texts[i] == null) { await wait(90); continue; }
-      const out = $('.cmd-text', node);
-      out.textContent = '';
-      out.after(caret);
-      await wait(380);
-      for (const ch of texts[i]) {
-        if (skipped) break;
-        out.textContent += ch;
-        await sleep(35 + Math.random() * 55);
+      // Type the next one. Shell output lines appear at once, like real output.
+      const target = snippet.code();
+      const lines = target.split('\n');
+      text = '';
+      for (const [n, line] of lines.entries()) {
+        await whenVisible();
+        if (n) text += '\n';
+        if (snippet.shell && !line.startsWith('$')) {
+          await sleep(320);
+          text += line;
+          render(text, true, true);
+          continue;
+        }
+        for (const ch of line) {
+          text += ch;
+          render(text, snippet.shell, true);
+          await sleep(ch === ' ' ? 20 : 28 + Math.random() * 45);
+        }
+        render(text, snippet.shell, true);
+        await sleep(snippet.shell ? 260 : 90);
       }
-      out.textContent = texts[i];
-      await wait(260);
+      render(text, snippet.shell, false);
+      await sleep(2600);
     }
-    caret.remove();
-    nodes.forEach((n) => { n.hidden = false; });
   }
 
-  (async () => {
-    const animate = !reducedMotion.matches && !sessionStorageFlag();
-    if (animate) await playIntro();
-    term.form.hidden = false;
-    if (animate) scrollTerm(); // otherwise keep `whoami` in view
-  })();
-
-  function sessionStorageFlag() {
-    try {
-      if (sessionStorage.getItem('term-played')) return true;
-      sessionStorage.setItem('term-played', '1');
-    } catch { /* storage blocked: just play */ }
-    return false;
-  }
+  if (!reducedMotion.matches) playCode();
 
   // ---------------------------------------------------------------------------
   // Init
