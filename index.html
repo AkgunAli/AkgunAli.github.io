@@ -18,6 +18,7 @@
   <meta property="og:description" content="iOS apps and Chrome extensions built to give you your time back.">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://akgunali.github.io/assets/img/avatar.jpg">
   <meta name="twitter:card" content="summary">
 
   <!-- Apply the saved theme/language before first paint to avoid a flash. -->
@@ -55,6 +56,13 @@
     <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol>
     <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></symbol>
+    <symbol id="i-languages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6m-7 0 6-6 2-3M2 5h12M7 2h1m14 20-5-10-5 10m2-4h6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
   <a class="skip-link" href="#projects" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
@@ -65,7 +73,12 @@
         <span class="brand-mark" aria-hidden="true">AA</span>
         <span class="brand-name">Ali Akgün</span>
       </a>
-      <nav class="nav-actions">
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a>
+        <a href="#resume" data-tr="Özgeçmiş" data-en="Résumé">Özgeçmiş</a>
+        <a href="#documents" data-tr="Belgeler" data-en="Documents">Belgeler</a>
+      </nav>
+      <div class="nav-actions">
         <div class="seg seg-lang" role="group" aria-label="Language">
           <button type="button" data-set-lang="tr">TR</button>
           <button type="button" data-set-lang="en">EN</button>
@@ -77,7 +90,7 @@
           <svg aria-hidden="true"><use href="#i-coffee"/></svg>
           <span class="hide-sm" data-tr="Kahve Ismarla" data-en="Buy me a coffee">Kahve Ismarla</span>
         </a>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -92,11 +105,20 @@
         <div class="term-body" id="term-body">
           <div class="term-intro" id="term-intro">
             <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">whoami</span></p>
-            <h1 class="out out-name">Ali Akgün</h1>
-            <p class="out out-muted" data-tr="Bilgisayar Mühendisi · iOS & Web Geliştirici" data-en="Computer Engineer · iOS & Web Developer">Bilgisayar Mühendisi · iOS & Web Geliştirici</p>
+            <div class="out out-whoami">
+              <picture>
+                <source srcset="assets/img/avatar.webp" type="image/webp">
+                <img class="avatar" src="assets/img/avatar.jpg" alt="Ali Akgün" width="96" height="96">
+              </picture>
+              <div>
+                <h1 class="out-name">Ali Akgün</h1>
+                <p class="out-muted" data-tr="Bilgisayar Mühendisi (B.Sc.) · Senior iOS Geliştirici" data-en="Computer Engineer (B.Sc.) · Senior iOS Developer">Bilgisayar Mühendisi (B.Sc.) · Senior iOS Geliştirici</p>
+                <p class="out-muted"><svg class="pin" aria-hidden="true"><use href="#i-pin"/></svg> Singen, <span data-tr="Almanya" data-en="Germany">Almanya</span></p>
+              </div>
+            </div>
 
             <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">cat about.txt</span></p>
-            <p class="out out-about" data-tr="Zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum. Çocuklar için eğitici oyunlardan yapay zeka destekli radyoya, geliştirici araçlarından günlük hayatı kolaylaştıran eklentilere kadar sade ve kullanışlı ürünler." data-en="I build apps and extensions that give you your time back. From educational games for kids to an AI-powered radio, developer tools and everyday browser helpers — simple, useful products.">Zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum. Çocuklar için eğitici oyunlardan yapay zeka destekli radyoya, geliştirici araçlarından günlük hayatı kolaylaştıran eklentilere kadar sade ve kullanışlı ürünler.</p>
+            <p class="out out-about" data-tr="5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum — çocuklar için eğitici oyunlardan yapay zeka destekli radyoya." data-en="5+ years of iOS experience across the whole app lifecycle, from architecture to release. On the side I build apps and extensions that give you your time back — from educational games for kids to an AI-powered radio.">5+ yıllık iOS deneyimi; mimariden yayına kadar uygulamanın tüm yaşam döngüsü. Boş zamanlarımda zamanınızı size geri kazandıran uygulamalar ve eklentiler geliştiriyorum — çocuklar için eğitici oyunlardan yapay zeka destekli radyoya.</p>
 
             <p class="cmd"><span class="ps1" aria-hidden="true"><b>ali@akgun</b>:<i>~</i>$</span> <span class="cmd-text">ls ~/projects</span></p>
             <p class="out out-ls">
@@ -109,6 +131,7 @@
               <a href="https://www.linkedin.com/in/akgunali/" target="_blank" rel="noopener">linkedin</a>
               <a href="https://github.com/AkgunAli" target="_blank" rel="noopener">github</a>
               <a href="https://buymeacoffee.com/aliakgun" target="_blank" rel="noopener">buymeacoffee</a>
+              <a href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener">cv.pdf</a>
             </p>
           </div>
           <div class="term-log" id="term-log" aria-live="polite"></div>
@@ -339,6 +362,133 @@
       </div>
       <p class="empty" id="empty" hidden data-tr="Aramanızla eşleşen proje bulunamadı." data-en="No projects match your search.">Aramanızla eşleşen proje bulunamadı.</p>
       <p class="sr-only" id="results-status" aria-live="polite"></p>
+    </section>
+
+    <section id="resume" class="section" aria-labelledby="resume-title">
+      <div class="section-head">
+        <h2 id="resume-title" data-tr="Özgeçmiş" data-en="Résumé">Özgeçmiş</h2>
+        <a class="btn btn-ghost" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-file"/></svg>
+          <span data-tr="CV'yi aç (PDF)" data-en="Open CV (PDF)">CV'yi aç (PDF)</span>
+        </a>
+      </div>
+      <div class="resume">
+        <div class="panel">
+          <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-briefcase"/></svg><span data-tr="Deneyim" data-en="Experience">Deneyim</span></h3>
+          <ol class="timeline">
+            <li>
+              <span class="tl-date">2022 – 2025</span>
+              <h4 data-tr="Senior iOS Yazılım Geliştirici" data-en="Senior iOS Software Engineer">Senior iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Obilet Bilişim Sistemleri (BlaBlaCar) · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
+              <p data-tr="Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü." data-en="Developed and optimised the iOS app of a travel platform with millions of monthly users; analysed performance bottlenecks and resolved complex issues in 3rd-level support.">Aylık milyonlarca kullanıcıya sahip bir seyahat platformunun iOS uygulamasının geliştirilmesi ve optimizasyonu; performans darboğazlarının analizi ve 3rd-level destekte karmaşık hataların çözümü.</p>
+              <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>Performance</li></ul>
+            </li>
+            <li>
+              <span class="tl-date">2021 – 2022</span>
+              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer">iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Appcent · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
+              <p data-tr="Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları." data-en="Modernised and refactored legacy code in the iOS app of one of Turkey's largest private banks; integrated REST APIs.">Türkiye'nin en büyük özel bankalarından birinin iOS uygulamasında eski kodun modernizasyonu ve refactoring'i; REST API entegrasyonları.</p>
+              <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>AWS</li><li>REST</li></ul>
+            </li>
+            <li>
+              <span class="tl-date">2020 – 2021</span>
+              <h4 data-tr="iOS Yazılım Geliştirici" data-en="iOS Software Engineer">iOS Yazılım Geliştirici</h4>
+              <p class="tl-org">Skyland · İstanbul · <span data-tr="Uzaktan" data-en="Remote">Uzaktan</span></p>
+              <p data-tr="Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları." data-en="High-performance, user-focused iOS apps for one of Turkey's leading airlines (Turkish Airlines – AJet).">Türkiye'nin önde gelen havayollarından biri (Turkish Airlines – AJet) için performans ve kullanılabilirlik odaklı iOS uygulamaları.</p>
+              <ul class="tags"><li>Swift</li><li>Core Data</li><li>REST</li></ul>
+            </li>
+            <li>
+              <span class="tl-date">2017 – 2018</span>
+              <h4 data-tr="BT Uzmanı" data-en="IT Specialist">BT Uzmanı</h4>
+              <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University">Üniversitesi</span></p>
+              <p data-tr="Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek." data-en="Built internal software and supported the administration of the university-wide IT infrastructure.">Kurum içi yazılımların geliştirilmesi ve üniversite genelindeki BT altyapısının yönetimine destek.</p>
+              <ul class="tags"><li>Windows Server</li><li>VMware</li><li>Networking</li></ul>
+            </li>
+          </ol>
+        </div>
+        <div class="resume-side">
+          <div class="panel">
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-cap"/></svg><span data-tr="Eğitim" data-en="Education">Eğitim</span></h3>
+            <h4 data-tr="Bilgisayar Mühendisliği (B.Sc.)" data-en="B.Sc. Computer Engineering">Bilgisayar Mühendisliği (B.Sc.)</h4>
+            <p class="tl-org">İstanbul Nişantaşı <span data-tr="Üniversitesi" data-en="University">Üniversitesi</span> · 2016 – 2020</p>
+            <p class="muted" data-tr="Mezuniyet notu: 3,10 / 4,00" data-en="GPA: 3.10 / 4.00">Mezuniyet notu: 3,10 / 4,00</p>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-languages"/></svg><span data-tr="Diller" data-en="Languages">Diller</span></h3>
+            <dl class="langs">
+              <div><dt data-tr="Türkçe" data-en="Turkish">Türkçe</dt><dd data-tr="Ana dil" data-en="Native">Ana dil</dd></div>
+              <div><dt data-tr="İngilizce" data-en="English">İngilizce</dt><dd data-tr="Profesyonel" data-en="Professional">Profesyonel</dd></div>
+              <div><dt data-tr="Almanca" data-en="German">Almanca</dt><dd>B1 (DTZ)</dd></div>
+            </dl>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title"><svg aria-hidden="true"><use href="#i-award"/></svg><span data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</span></h3>
+            <ul class="tags">
+              <li>Swift</li><li>SwiftUI</li><li>Core Data</li><li>REST APIs</li><li>AWS</li><li>Git</li><li>Jira · Agile</li>
+              <li>macOS · Linux</li><li>Windows Server</li><li>VMware</li><li>SQL Server</li><li>Active Directory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents" class="section" aria-labelledby="documents-title">
+      <div class="section-head">
+        <h2 id="documents-title" data-tr="Belgeler" data-en="Documents">Belgeler</h2>
+        <p class="section-sub" data-tr="Diploma, transkript ve sertifikalar" data-en="Diploma, transcript and certificates">Diploma, transkript ve sertifikalar</p>
+      </div>
+      <div class="docs">
+      <!-- build:documents -->
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#i-file"/></svg></span>
+          <div class="doc-body">
+            <h3 class="doc-title" data-tr="Özgeçmiş (CV)" data-en="Résumé (CV)">Özgeçmiş (CV)</h3>
+            <p class="doc-desc" data-tr="Almanca · güncel özgeçmiş" data-en="German · current résumé">Almanca · güncel özgeçmiş</p>
+            <p class="doc-meta">PDF · 158 KB</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="Documents/Lebenslauf_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Özgeçmiş (CV)" data-en=": Résumé (CV)">: Özgeçmiş (CV)</span></a>
+            <a class="icon-btn" href="Documents/Lebenslauf_Ali_Akgun.pdf" download data-tr="İndir: Özgeçmiş (CV)" data-en="Download: Résumé (CV)" data-attr="aria-label" aria-label="İndir: Özgeçmiş (CV)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          </div>
+        </article>
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#i-cap"/></svg></span>
+          <div class="doc-body">
+            <h3 class="doc-title" data-tr="Lisans Diploması" data-en="Bachelor&#39;s Diploma">Lisans Diploması</h3>
+            <p class="doc-desc" data-tr="Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020" data-en="Computer Engineering · Istanbul Nişantaşı University · 2020">Bilgisayar Mühendisliği · İstanbul Nişantaşı Üniversitesi · 2020</p>
+            <p class="doc-meta">PDF · 3.7 MB</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="Documents/Diplom_Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Lisans Diploması" data-en=": Bachelor&#39;s Diploma">: Lisans Diploması</span></a>
+            <a class="icon-btn" href="Documents/Diplom_Ali_Akgun.pdf" download data-tr="İndir: Lisans Diploması" data-en="Download: Bachelor&#39;s Diploma" data-attr="aria-label" aria-label="İndir: Lisans Diploması"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          </div>
+        </article>
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#i-file"/></svg></span>
+          <div class="doc-body">
+            <h3 class="doc-title" data-tr="Not Dökümü (Transkript)" data-en="Academic Transcript">Not Dökümü (Transkript)</h3>
+            <p class="doc-desc" data-tr="Resmi akademik kayıt · GANO 3,10 / 4,00" data-en="Official academic record · GPA 3.10 / 4.00">Resmi akademik kayıt · GANO 3,10 / 4,00</p>
+            <p class="doc-meta">PDF · 638 KB</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Not Dökümü (Transkript)" data-en=": Academic Transcript">: Not Dökümü (Transkript)</span></a>
+            <a class="icon-btn" href="Documents/Abschlusszeugnis-Ali_Akgun.pdf" download data-tr="İndir: Not Dökümü (Transkript)" data-en="Download: Academic Transcript" data-attr="aria-label" aria-label="İndir: Not Dökümü (Transkript)"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          </div>
+        </article>
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#i-award"/></svg></span>
+          <div class="doc-body">
+            <h3 class="doc-title" data-tr="Almanca B1 Sertifikası" data-en="German B1 Certificate">Almanca B1 Sertifikası</h3>
+            <p class="doc-desc" data-tr="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026" data-en="Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026">Deutsch-Test für Zuwanderer (DTZ) · g.a.s.t. · 2026</p>
+            <p class="doc-meta">PDF · 1.8 MB</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="Documents/GAST-B1.pdf" target="_blank" rel="noopener"><span class="" data-tr="Görüntüle" data-en="View">Görüntüle</span><span class="sr-only" data-tr=": Almanca B1 Sertifikası" data-en=": German B1 Certificate">: Almanca B1 Sertifikası</span></a>
+            <a class="icon-btn" href="Documents/GAST-B1.pdf" download data-tr="İndir: Almanca B1 Sertifikası" data-en="Download: German B1 Certificate" data-attr="aria-label" aria-label="İndir: Almanca B1 Sertifikası"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          </div>
+        </article>
+      <!-- /build:documents -->
+      </div>
     </section>
 
     <section class="support">

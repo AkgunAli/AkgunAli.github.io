@@ -9,6 +9,7 @@ on:
     paths:
       - "data/**"
       - "scripts/**"
+      - "Documents/**"
       - ".github/workflows/sync-apps.yml"
 
 permissions:

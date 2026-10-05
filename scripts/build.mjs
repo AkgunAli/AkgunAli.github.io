@@ -6,7 +6,7 @@
 //
 // No dependencies; needs Node 18+ (global fetch). Run by .github/workflows/sync-apps.yml.
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -170,6 +170,48 @@ function renderCard(p) {
       </article>`;
 }
 
+// ---------------------------------------------------------------------------
+// Documents — every file in Documents/ is listed; data/documents.json adds titles/order.
+// ---------------------------------------------------------------------------
+
+const DOC_ICONS = { cv: 'i-file', diploma: 'i-cap', transcript: 'i-file', certificate: 'i-award' };
+
+const formatSize = (bytes) => (bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1e3))} KB`);
+
+async function loadDocuments() {
+  const cfg = await readJson('data/documents.json');
+  let files;
+  try { files = (await readdir(file('Documents'))).filter((f) => !f.startsWith('.')); } catch { return []; }
+  files = files.filter((f) => !cfg.exclude.includes(f));
+  const known = cfg.items.filter((i) => files.includes(i.file));
+  const unknown = files.filter((f) => !cfg.items.some((i) => i.file === f)).sort().map((f) => {
+    const title = f.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ');
+    return { file: f, kind: 'other', tr: { title, desc: '' }, en: { title, desc: '' } };
+  });
+  return Promise.all([...known, ...unknown].map(async (d) => ({
+    ...d,
+    ext: path.extname(d.file).slice(1).toUpperCase(),
+    size: formatSize((await stat(file(`Documents/${d.file}`))).size),
+  })));
+}
+
+function renderDocument(d) {
+  const href = esc('Documents/' + encodeURIComponent(d.file));
+  return `
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
+          <div class="doc-body">
+            ${i18n('h3', 'doc-title', { tr: d.tr.title, en: d.en.title })}
+            ${d.tr.desc ? i18n('p', 'doc-desc', { tr: d.tr.desc, en: d.en.desc }) : ''}
+            <p class="doc-meta">${esc(d.ext)} · ${esc(d.size)}</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="${href}" target="_blank" rel="noopener">${i18n('span', '', { tr: 'Görüntüle', en: 'View' })}${i18n('span', 'sr-only', { tr: `: ${d.tr.title}`, en: `: ${d.en.title}` })}</a>
+            <a class="icon-btn" href="${href}" download ${LANGS.map((l) => `data-${l}="${esc((l === 'tr' ? 'İndir: ' : 'Download: ') + d[l].title)}"`).join(' ')} data-attr="aria-label" aria-label="${esc('İndir: ' + d.tr.title)}"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          </div>
+        </article>`;
+}
+
 function renderJsonLd(projects) {
   const person = {
     '@context': 'https://schema.org',
@@ -223,6 +265,8 @@ const counts = { all: projects.length, ios: projects.filter((p) => p.kind === 'i
 let html = await readFile(file('index.html'), 'utf8');
 html = replaceBlock(html, 'projects', projects.map(renderCard).join(''));
 html = replaceBlock(html, 'jsonld', '\n  ' + renderJsonLd(projects));
+const documents = await loadDocuments();
+html = replaceBlock(html, 'documents', documents.map(renderDocument).join(''));
 for (const [k, v] of Object.entries(counts)) html = html.replace(new RegExp(`(data-count="${k}">)\\d*(<)`), `$1${v}$2`);
 html = html.replace(/(<strong data-stat="apps">)\d*(<)/, `$1${counts.ios}$2`).replace(/(<strong data-stat="ext">)\d*(<)/, `$1${counts.chrome}$2`);
 await writeFile(file('index.html'), html);
@@ -234,4 +278,4 @@ await writeFile(file('sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `);
 
-console.log(`Rendered ${counts.ios} apps and ${counts.chrome} extensions into index.html.`);
+console.log(`Rendered ${counts.ios} apps, ${counts.chrome} extensions and ${documents.length} documents into index.html.`);

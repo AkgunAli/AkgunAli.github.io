@@ -167,7 +167,7 @@
         io.unobserve(entry.target);
       }
     }, { rootMargin: '0px 0px -8% 0px' });
-    $$('.card, .support-card').forEach((el, i) => {
+    $$('.card, .support-card, .panel, .doc').forEach((el, i) => {
       el.classList.add('reveal');
       if (el.classList.contains('card')) el.style.setProperty('--i', i % 6);
       io.observe(el);
@@ -200,6 +200,9 @@
         extensions: 'Chrome eklentilerine gider',
         open: 'open <isim> — projeyi mağazada açar',
         search: 'search <kelime> — projelerde arar',
+        resume: 'deneyim ve eğitim',
+        docs: 'diploma, transkript ve sertifikalar',
+        cv: 'CV\'yi (PDF) açar',
         contact: 'iletişim bağlantıları',
         coffee: 'bana bir kahve ısmarla ☕',
         theme: 'theme light|dark|system',
@@ -209,7 +212,7 @@
       notFound: (c) => `zsh: komut bulunamadı: ${c} — 'help' yazmayı deneyin`,
       noMatch: (q) => `'${q}' ile eşleşen proje yok.`,
       opening: (n) => `${n} açılıyor…`,
-      jumping: 'Projelere gidiliyor…',
+      jumping: (section = 'Projeler') => `${section} bölümüne gidiliyor…`,
       searching: (q, n) => `'${q}' için ${n} sonuç.`,
       themeSet: (v) => `Tema: ${v}`,
       langSet: 'Dil: Türkçe',
@@ -228,6 +231,9 @@
         extensions: 'jump to Chrome extensions',
         open: 'open <name> — open a project in its store',
         search: 'search <term> — search projects',
+        resume: 'experience and education',
+        docs: 'diploma, transcript and certificates',
+        cv: 'open my CV (PDF)',
         contact: 'contact links',
         coffee: 'buy me a coffee ☕',
         theme: 'theme light|dark|system',
@@ -237,7 +243,7 @@
       notFound: (c) => `zsh: command not found: ${c} — try 'help'`,
       noMatch: (q) => `No project matches '${q}'.`,
       opening: (n) => `Opening ${n}…`,
-      jumping: 'Jumping to projects…',
+      jumping: (section = 'projects') => `Jumping to ${section}…`,
       searching: (q, n) => `${n} result(s) for '${q}'.`,
       themeSet: (v) => `Theme: ${v}`,
       langSet: 'Language: English',
@@ -281,18 +287,21 @@
       print(tt('help'), 'out out-muted');
       print(Object.assign(document.createElement('dl'), { className: 'out out-grid', innerHTML: rows }));
     },
-    whoami() { print(introLine('.out-name')); print(introLine('.out-name + .out')); },
+    whoami() { print(introLine('.out-whoami')); },
     about() { print(introLine('.out-about')); },
     cat([file = '']) { (file.startsWith('contact') ? COMMANDS.contact : COMMANDS.about)(); },
     ls(args) {
+      if (/doc/.test(args[0])) {
+        return print($$('.doc').map((d) => `<a href="${escapeHtml($('a', d).href)}" target="_blank" rel="noopener">${escapeHtml($('.doc-title', d).textContent)}</a> <span class="out-muted">${escapeHtml($('.doc-meta', d).textContent)}</span>`).join('<br>'));
+      }
       const kind = /ios/.test(args[0]) ? 'ios' : /chrome|ext/.test(args[0]) ? 'chrome' : null;
       if (!kind) return print(introLine('.out-ls'));
       const items = projectCards().filter((p) => p.kind === kind);
       print(items.map((p) => `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(p.name)}</a>`).join('<br>'));
     },
-    apps() { print(tt('jumping'), 'out out-ok'); goToProjects('ios'); },
-    extensions() { print(tt('jumping'), 'out out-ok'); goToProjects('chrome'); },
-    projects() { print(tt('jumping'), 'out out-ok'); goToProjects('all'); },
+    apps() { print(tt('jumping')(), 'out out-ok'); goToProjects('ios'); },
+    extensions() { print(tt('jumping')(), 'out out-ok'); goToProjects('chrome'); },
+    projects() { print(tt('jumping')(), 'out out-ok'); goToProjects('all'); },
     search(args) {
       const q = args.join(' ');
       if (!q) return print(tt('usage')('search <term>'), 'out out-warn');
@@ -308,6 +317,9 @@
       window.open(match.url, '_blank', 'noopener');
     },
     contact() { print(introLine('.out-links')); },
+    resume() { print(tt('jumping')(lang === 'tr' ? 'Özgeçmiş' : 'résumé'), 'out out-ok'); $('#resume').scrollIntoView(); },
+    docs() { COMMANDS.ls(['docs']); $('#documents').scrollIntoView(); },
+    cv() { print(tt('opening')('cv.pdf'), 'out out-ok'); window.open('Documents/Lebenslauf_Ali_Akgun.pdf', '_blank', 'noopener'); },
     coffee() { print(tt('coffee'), 'out out-ok'); window.open('https://buymeacoffee.com/aliakgun', '_blank', 'noopener'); },
     theme([value]) {
       if (!THEMES.includes(value)) return print(tt('usage')('theme light|dark|system'), 'out out-warn');
@@ -322,7 +334,7 @@
     clear() { term.log.innerHTML = ''; term.intro.hidden = true; },
     sudo() { print(tt('sudo'), 'out out-err'); },
   };
-  const ALIASES = { '?': 'help', cd: 'projects', ios: 'apps', ext: 'extensions', chrome: 'extensions', exit: 'clear', cls: 'clear', github: 'contact', linkedin: 'contact' };
+  const ALIASES = { '?': 'help', cd: 'projects', ios: 'apps', ext: 'extensions', chrome: 'extensions', experience: 'resume', education: 'resume', documents: 'docs', diploma: 'docs', exit: 'clear', cls: 'clear', github: 'contact', linkedin: 'contact' };
 
   function run(raw) {
     const line = raw.trim();
