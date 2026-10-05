@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /liste.html
+# Personal documents are linked from the site but kept out of search results.
+Disallow: /Documents/
 
 Sitemap: https://akgunali.github.io/sitemap.xml
