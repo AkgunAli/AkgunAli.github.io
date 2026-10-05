@@ -93,6 +93,17 @@ async function syncAppStore(cfg, previous) {
 // Rendering
 // ---------------------------------------------------------------------------
 
+// The iTunes API returns English genre names in every storefront.
+const GENRES_TR = {
+  Books: 'Kitaplar', Business: 'İş', 'Developer Tools': 'Geliştirici Araçları', Education: 'Eğitim',
+  Entertainment: 'Eğlence', Finance: 'Finans', 'Food & Drink': 'Yemek ve İçecek', Games: 'Oyunlar',
+  'Graphics & Design': 'Grafik ve Tasarım', 'Health & Fitness': 'Sağlık ve Fitness', Kids: 'Çocuklar',
+  Lifestyle: 'Yaşam Tarzı', Magazines: 'Dergiler', Medical: 'Sağlık', Music: 'Müzik', Navigation: 'Navigasyon',
+  News: 'Haberler', 'Photo & Video': 'Fotoğraf ve Video', Productivity: 'Verimlilik', Reference: 'Referans',
+  Shopping: 'Alışveriş', 'Social Networking': 'Sosyal Ağ', Sports: 'Spor', Travel: 'Seyahat',
+  Utilities: 'Araçlar', Weather: 'Hava Durumu',
+};
+
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 function firstSentence(text, max = 150) {
@@ -119,7 +130,7 @@ function toProjects(catalog, cfg, extensions) {
       const text = Object.fromEntries(LANGS.map((l) => [l, {
         name: o[l]?.name ?? a[l].name,
         tagline: o[l]?.tagline ?? firstSentence(a[l].description),
-        genre: o[l]?.genre ?? a[l].genre,
+        genre: o[l]?.genre ?? (l === 'tr' ? GENRES_TR[a[l].genre] : null) ?? a[l].genre,
       }]));
       return { kind: 'ios', featured: featured.includes(a.id), ...a, ...text };
     });
