@@ -192,7 +192,7 @@ p { margin: 0; }
 .hero {
   position: relative; isolation: isolate;
   max-width: var(--max); margin: 0 auto;
-  padding: clamp(56px, 10vw, 112px) var(--gutter) clamp(40px, 6vw, 64px);
+  padding: clamp(32px, 7vw, 80px) var(--gutter) clamp(32px, 5vw, 56px);
   text-align: center;
 }
 .hero-glow {
@@ -202,36 +202,91 @@ p { margin: 0; }
     radial-gradient(40% 60% at 70% 20%, var(--glow-2), transparent 70%);
   filter: blur(20px);
 }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
-  padding: 6px 14px; border-radius: 999px;
-  background: var(--bg-elev); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
-  color: var(--text-2); font-size: 13px; font-weight: 600;
-}
-.eyebrow svg { color: var(--accent); }
-.hero h1 {
-  max-width: 820px; margin: 0 auto;
-  font-size: clamp(36px, 6.4vw, 68px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.04;
-  text-wrap: balance;
-}
-.hero h1 span { display: block; }
 .grad {
   background: linear-gradient(100deg, var(--accent) 10%, var(--accent-2) 90%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.lead {
-  max-width: 620px; margin: 24px auto 0;
-  font-size: clamp(16px, 1.6vw, 18px); color: var(--text-2); text-wrap: pretty;
-}
-.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 32px; }
 
-.stats {
-  display: flex; justify-content: center; gap: clamp(24px, 6vw, 64px);
-  margin: 48px 0 0; padding: 0;
+/* Terminal — stays dark in both themes, like a real terminal app. */
+.term {
+  --t-bg: #0d0e12;
+  --t-bar: #17181e;
+  --t-text: #e6e6ea;
+  --t-muted: #8b8d98;
+  --t-green: #4ade80;
+  --t-blue: #60a5fa;
+  --t-cyan: #22d3ee;
+  --t-yellow: #fbbf24;
+  --t-red: #f87171;
+  max-width: 780px; margin: 0 auto; text-align: left;
+  border-radius: 14px; overflow: hidden;
+  background: var(--t-bg); color: var(--t-text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 30px 80px -20px rgba(15, 15, 40, 0.55), 0 0 120px -40px var(--glow-1);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px; line-height: 1.7;
 }
-.stats div { display: flex; flex-direction: column-reverse; align-items: center; gap: 2px; }
-.stats dt { font-size: 13px; color: var(--text-3); font-weight: 500; }
-.stats dd { margin: 0; font-size: clamp(22px, 3vw, 28px); font-weight: 800; letter-spacing: -0.03em; }
+.term-bar {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  height: 38px; background: var(--t-bar); border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.term-dots { position: absolute; left: 14px; display: flex; gap: 8px; }
+.term-dots i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.term-dots i:nth-child(2) { background: #febc2e; }
+.term-dots i:nth-child(3) { background: #28c840; }
+.term-title { font-size: 12px; color: var(--t-muted); }
+.term-body {
+  height: clamp(340px, 52vh, 440px); padding: 18px 20px 20px;
+  overflow-y: auto; overscroll-behavior: contain; cursor: text;
+  scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+.term p, .term h1 { margin: 0; font: inherit; letter-spacing: 0; }
+.term a { color: var(--t-cyan); text-decoration: none; border-bottom: 1px dashed rgba(34, 211, 238, 0.4); }
+.term a:hover { color: #fff; border-bottom-color: currentColor; }
+.term .cmd { display: flex; gap: 0.6em; margin-top: 12px; }
+.term-intro .cmd:first-child { margin-top: 0; }
+.term .cmd-text { white-space: pre-wrap; word-break: break-word; }
+.ps1 { flex-shrink: 0; color: var(--t-muted); user-select: none; }
+.ps1 b { color: var(--t-green); font-weight: 700; }
+.ps1 i { color: var(--t-blue); font-style: normal; }
+.out { color: var(--t-text); text-wrap: pretty; }
+.out-muted { color: var(--t-muted); }
+.out-name {
+  font-size: clamp(26px, 5vw, 40px) !important; font-weight: 700 !important; line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  background: linear-gradient(100deg, #a5b4fc, #67e8f9); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.out-ls, .out-links { display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline; }
+.out-ls .dir { color: var(--t-blue); font-weight: 700; border-bottom-color: rgba(96, 165, 250, 0.4); }
+.out-ls .out-muted { margin-left: -16px; }
+.out-ok { color: var(--t-green); }
+.out-warn { color: var(--t-yellow); }
+.out-err { color: var(--t-red); }
+.out-grid { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0 18px; }
+.out-grid dt { color: var(--t-yellow); }
+.out-grid dd { margin: 0; color: var(--t-muted); }
+
+.term-prompt .cmd { margin-top: 12px; align-items: baseline; }
+.term-prompt input {
+  flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent;
+  color: var(--t-text); caret-color: var(--t-green); font: inherit;
+}
+.term-hint { margin-top: 2px !important; color: var(--t-muted); font-size: 12px !important; opacity: 0.8; }
+
+.caret {
+  display: inline-block; width: 0.6em; height: 1.15em; margin-left: 1px; vertical-align: text-bottom;
+  background: var(--t-green); animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.scroll-cue {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 28px;
+  color: var(--text-2); font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: color 0.2s;
+}
+.scroll-cue:hover { color: var(--text); }
+.scroll-cue svg { transform: rotate(135deg); transition: transform 0.25s var(--ease); }
+.scroll-cue:hover svg { transform: rotate(135deg) translate(2px, -2px); }
 
 /* ==========================================================================
    Projects
@@ -403,7 +458,7 @@ p { margin: 0; }
   .seg-filter { justify-content: space-between; }
   .seg-filter button { flex: 1; justify-content: center; }
   .search input { width: 100%; }
-  .hero-cta .btn-primary { flex-basis: 100%; }
-  .stats { gap: 20px; }
+  .term { font-size: 12.5px; border-radius: 12px; }
+  .term-body { height: 460px; padding: 14px; }
   .support-card .btn { width: 100%; }
 }
