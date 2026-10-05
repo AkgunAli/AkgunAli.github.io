@@ -9,10 +9,11 @@
 import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_URL = 'https://akgunali.github.io/';
-const LANGS = ['tr', 'en'];
+const LANGS = ['tr', 'en', 'de'];
 
 const file = (p) => path.join(ROOT, p);
 const readJson = async (p) => JSON.parse(await readFile(file(p), 'utf8'));
@@ -94,7 +95,8 @@ async function syncAppStore(cfg, previous) {
 // ---------------------------------------------------------------------------
 
 // The iTunes API returns English genre names in every storefront.
-const GENRES_TR = {
+const GENRES = {};
+GENRES.tr = {
   Books: 'Kitaplar', Business: 'İş', 'Developer Tools': 'Geliştirici Araçları', Education: 'Eğitim',
   Entertainment: 'Eğlence', Finance: 'Finans', 'Food & Drink': 'Yemek ve İçecek', Games: 'Oyunlar',
   'Graphics & Design': 'Grafik ve Tasarım', 'Health & Fitness': 'Sağlık ve Fitness', Kids: 'Çocuklar',
@@ -102,6 +104,15 @@ const GENRES_TR = {
   News: 'Haberler', 'Photo & Video': 'Fotoğraf ve Video', Productivity: 'Verimlilik', Reference: 'Referans',
   Shopping: 'Alışveriş', 'Social Networking': 'Sosyal Ağ', Sports: 'Spor', Travel: 'Seyahat',
   Utilities: 'Araçlar', Weather: 'Hava Durumu',
+};
+GENRES.de = {
+  Books: 'Bücher', Business: 'Wirtschaft', 'Developer Tools': 'Entwickler-Tools', Education: 'Bildung',
+  Entertainment: 'Unterhaltung', Finance: 'Finanzen', 'Food & Drink': 'Essen und Trinken', Games: 'Spiele',
+  'Graphics & Design': 'Grafik und Design', 'Health & Fitness': 'Gesundheit und Fitness', Kids: 'Kinder',
+  Lifestyle: 'Lifestyle', Magazines: 'Zeitschriften', Medical: 'Medizin', Music: 'Musik', Navigation: 'Navigation',
+  News: 'Nachrichten', 'Photo & Video': 'Foto und Video', Productivity: 'Produktivität', Reference: 'Nachschlagewerke',
+  Shopping: 'Shopping', 'Social Networking': 'Soziale Netze', Sports: 'Sport', Travel: 'Reisen',
+  Utilities: 'Dienstprogramme', Weather: 'Wetter',
 };
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -111,6 +122,9 @@ function firstSentence(text, max = 150) {
   const sentence = line.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? line;
   return sentence.length > max ? sentence.slice(0, max - 1).trimEnd() + '…' : sentence;
 }
+
+// { tr, en, de } for one field of a localized object, optionally formatted.
+const pick = (obj, key, fmt = (v) => v) => Object.fromEntries(LANGS.map((l) => [l, fmt((obj[l] ?? obj.en)[key])]));
 
 // Element whose text is swapped by the client when the language changes.
 const i18n = (tag, cls, values) =>
@@ -127,11 +141,14 @@ function toProjects(catalog, cfg, extensions) {
     .sort((a, b) => rank(a) - rank(b) || (b.released ?? '').localeCompare(a.released ?? '') || a.order - b.order)
     .map((a) => {
       const o = cfg.overrides[a.id] ?? {};
-      const text = Object.fromEntries(LANGS.map((l) => [l, {
-        name: o[l]?.name ?? a[l].name,
-        tagline: o[l]?.tagline ?? firstSentence(a[l].description),
-        genre: o[l]?.genre ?? (l === 'tr' ? GENRES_TR[a[l].genre] : null) ?? a[l].genre,
-      }]));
+      const text = Object.fromEntries(LANGS.map((l) => {
+        const store = a[l] ?? a.en ?? a.tr; // a storefront may be missing until the next sync
+        return [l, {
+          name: o[l]?.name ?? store.name,
+          tagline: o[l]?.tagline ?? firstSentence(store.description),
+          genre: o[l]?.genre ?? GENRES[l]?.[store.genre] ?? store.genre,
+        }];
+      }));
       return { kind: 'ios', featured: featured.includes(a.id), ...a, ...text };
     });
 
@@ -141,10 +158,10 @@ function toProjects(catalog, cfg, extensions) {
 
 function renderCard(p) {
   const store = p.kind === 'ios'
-    ? { icon: 'i-apple', tr: "App Store'da Gör", en: 'View on App Store' }
-    : { icon: 'i-chrome', tr: "Web Store'da Gör", en: 'View on Chrome Web Store' };
+    ? { icon: 'i-apple', tr: "App Store'da Gör", en: 'View on App Store', de: 'Im App Store ansehen' }
+    : { icon: 'i-chrome', tr: "Web Store'da Gör", en: 'View on Chrome Web Store', de: 'Im Chrome Web Store ansehen' };
   const search = LANGS.flatMap((l) => [p[l].name, p[l].tagline, p[l].genre]).filter(Boolean).join(' ').toLowerCase();
-  const genre = p.tr.genre ? i18n('span', 'chip', { tr: p.tr.genre, en: p.en.genre }) : '';
+  const genre = p.tr.genre ? i18n('span', 'chip', pick(p, 'genre')) : '';
   const platform = `<span class="chip chip-platform"><svg aria-hidden="true"><use href="#${store.icon}"/></svg>${p.kind === 'ios' ? 'iOS' : 'Chrome'}</span>`;
   const rating = p.ratingCount
     ? `<span class="rating" title="${p.ratingCount}"><svg aria-hidden="true"><use href="#i-star"/></svg>${p.rating.toFixed(1)} <small>(${p.ratingCount})</small></span>`
@@ -156,14 +173,14 @@ function renderCard(p) {
           <img class="card-icon${p.kind === 'chrome' ? ' is-ext' : ''}" src="${esc(p.icon)}" alt="" width="72" height="72" loading="lazy" decoding="async">
           <div class="card-meta">${platform}${genre}</div>
         </div>
-        ${i18n('h3', 'card-title', { tr: p.tr.name, en: p.en.name })}
-        ${i18n('p', 'card-desc', { tr: p.tr.tagline, en: p.en.tagline })}
+        ${i18n('h3', 'card-title', pick(p, 'name'))}
+        ${i18n('p', 'card-desc', pick(p, 'tagline'))}
         <div class="card-foot">
           ${rating}
           <a class="store-link" href="${esc(p.url)}" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#${store.icon}"/></svg>
             ${i18n('span', '', store)}
-            ${i18n('span', 'sr-only', { tr: `— ${p.tr.name}`, en: `— ${p.en.name}` })}
+            ${i18n('span', 'sr-only', pick(p, 'name', (v) => `— ${v}`))}
             <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
@@ -173,6 +190,8 @@ function renderCard(p) {
 // ---------------------------------------------------------------------------
 // Documents — every file in Documents/ is listed; data/documents.json adds titles/order.
 // ---------------------------------------------------------------------------
+
+const DOWNLOAD = { tr: 'İndir: ', en: 'Download: ', de: 'Herunterladen: ' };
 
 const DOC_ICONS = { cv: 'i-file', diploma: 'i-cap', transcript: 'i-file', certificate: 'i-award' };
 
@@ -186,7 +205,7 @@ async function loadDocuments() {
   const known = cfg.items.filter((i) => files.includes(i.file));
   const unknown = files.filter((f) => !cfg.items.some((i) => i.file === f)).sort().map((f) => {
     const title = f.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ');
-    return { file: f, kind: 'other', tr: { title, desc: '' }, en: { title, desc: '' } };
+    return { file: f, kind: 'other', ...Object.fromEntries(LANGS.map((l) => [l, { title, desc: '' }])) };
   });
   return Promise.all([...known, ...unknown].map(async (d) => ({
     ...d,
@@ -201,13 +220,13 @@ function renderDocument(d) {
         <article class="doc">
           <span class="doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
           <div class="doc-body">
-            ${i18n('h3', 'doc-title', { tr: d.tr.title, en: d.en.title })}
-            ${d.tr.desc ? i18n('p', 'doc-desc', { tr: d.tr.desc, en: d.en.desc }) : ''}
+            ${i18n('h3', 'doc-title', pick(d, 'title'))}
+            ${d.tr.desc ? i18n('p', 'doc-desc', pick(d, 'desc')) : ''}
             <p class="doc-meta">${esc(d.ext)} · ${esc(d.size)}</p>
           </div>
           <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="${href}" target="_blank" rel="noopener">${i18n('span', '', { tr: 'Görüntüle', en: 'View' })}${i18n('span', 'sr-only', { tr: `: ${d.tr.title}`, en: `: ${d.en.title}` })}</a>
-            <a class="icon-btn" href="${href}" download ${LANGS.map((l) => `data-${l}="${esc((l === 'tr' ? 'İndir: ' : 'Download: ') + d[l].title)}"`).join(' ')} data-attr="aria-label" aria-label="${esc('İndir: ' + d.tr.title)}"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
+            <a class="btn btn-ghost btn-sm" href="${href}" target="_blank" rel="noopener">${i18n('span', '', { tr: 'Görüntüle', en: 'View', de: 'Ansehen' })}${i18n('span', 'sr-only', pick(d, 'title', (v) => `: ${v}`))}</a>
+            <a class="icon-btn" href="${href}" download ${LANGS.map((l) => `data-${l}="${esc(DOWNLOAD[l] + d[l].title)}"`).join(' ')} data-attr="aria-label" aria-label="${esc(DOWNLOAD.tr + d.tr.title)}"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </article>`;
 }
@@ -269,6 +288,11 @@ const documents = await loadDocuments();
 html = replaceBlock(html, 'documents', documents.map(renderDocument).join(''));
 for (const [k, v] of Object.entries(counts)) html = html.replace(new RegExp(`(data-count="${k}">)\\d*(<)`), `$1${v}$2`);
 html = html.replace(/(<strong data-stat="apps">)\d*(<)/, `$1${counts.ios}$2`).replace(/(<strong data-stat="ext">)\d*(<)/, `$1${counts.chrome}$2`);
+// Cache-busting: browsers (and GitHub Pages' 10-minute cache) must never pair new HTML with old CSS/JS.
+for (const asset of ['assets/css/main.css', 'assets/js/main.js']) {
+  const hash = createHash('sha256').update(await readFile(file(asset))).digest('hex').slice(0, 10);
+  html = html.replace(new RegExp(`(${asset.replace(/[.]/g, '\\.')})\\?v=[\\w]*`, 'g'), `$1?v=${hash}`);
+}
 await writeFile(file('index.html'), html);
 
 const lastmod = (catalog.syncedAt ?? new Date().toISOString()).slice(0, 10);
