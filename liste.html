@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Klassenliste</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
@@ -425,6 +432,8 @@
     font-size: clamp(16px, 1.3vw, 20px)
   }
 </style>
+</head>
+<body>
 
 <div class="wrap">
   <div class="topbar">
@@ -628,6 +637,13 @@
     return adj;
   }
 
+  // Fisher–Yates: sort(() => Math.random() - .5) gives a biased shuffle.
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]] }
+    return a;
+  }
+
   function allActive() { return Object.keys(S).filter(id => !absent.has(id)) }
 
   function doGroups() {
@@ -660,7 +676,7 @@
     let minViolations = Infinity;
 
     for (let t = 0; t < 2000; t++) {
-      const sh = [...active].sort(() => Math.random() - .5);
+      const sh = shuffle(active);
       const groups = [];
       let ok = true;
       let start = 0;
@@ -794,3 +810,5 @@
   b.style.color = 'white';
   b.style.borderColor = '#4F46E5';
 </script>
+</body>
+</html>
