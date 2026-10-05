@@ -2,33 +2,99 @@
   "$comment": "App Store senkronizasyon ayarları. developerId boşsa seedAppId üzerinden otomatik bulunur. overrides: App Store açıklaması yerine gösterilecek kısa metinler (isteğe bağlı). hidden: sitede gösterilmeyecek uygulama ID'leri. featured: öne çıkarılacak uygulamalar (sırasıyla).",
   "developerId": null,
   "seedAppId": 6761754756,
-  "storefronts": { "tr": "tr", "en": "us" },
+  "storefronts": {
+    "tr": "tr",
+    "en": "us",
+    "de": "de"
+  },
   "hidden": [],
-  "featured": [6761754756],
+  "featured": [
+    6761754756
+  ],
   "overrides": {
     "6761754756": {
-      "tr": { "name": "Perfect Draw: Şekil ve Renk", "tagline": "Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu." },
-      "en": { "name": "Perfect Draw: Shape & Color", "tagline": "The ultimate precision drawing game for artists, designers and anyone who loves a challenge." }
+      "tr": {
+        "name": "Perfect Draw: Şekil ve Renk",
+        "tagline": "Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu."
+      },
+      "en": {
+        "name": "Perfect Draw: Shape & Color",
+        "tagline": "The ultimate precision drawing game for artists, designers and anyone who loves a challenge."
+      },
+      "de": {
+        "name": "Perfect Draw: Form & Farbe",
+        "tagline": "Das ultimative Präzisions-Zeichenspiel für Künstler, Designer und alle, die Herausforderungen lieben."
+      }
     },
     "6759307332": {
-      "tr": { "name": "Milu FM: Radyo & AI", "tagline": "Yapay zeka destekli modern radyo deneyimi." },
-      "en": { "name": "Milu FM: Radio & AI", "tagline": "A modern radio experience powered by AI." }
+      "tr": {
+        "name": "Milu FM: Radyo & AI",
+        "tagline": "Yapay zeka destekli modern radyo deneyimi."
+      },
+      "en": {
+        "name": "Milu FM: Radio & AI",
+        "tagline": "A modern radio experience powered by AI."
+      },
+      "de": {
+        "name": "Milu FM: Radio & KI",
+        "tagline": "Ein modernes, KI-gestütztes Radioerlebnis."
+      }
     },
     "6759639265": {
-      "tr": { "name": "Kur'an Namaz Pro", "tagline": "Dijital ibadet yardımcınız." },
-      "en": { "name": "Quran Prayer Pro", "tagline": "Your digital prayer companion." }
+      "tr": {
+        "name": "Kur'an Namaz Pro",
+        "tagline": "Dijital ibadet yardımcınız."
+      },
+      "en": {
+        "name": "Quran Prayer Pro",
+        "tagline": "Your digital prayer companion."
+      },
+      "de": {
+        "name": "Quran Prayer Pro",
+        "tagline": "Ihr digitaler Begleiter für das Gebet."
+      }
     },
     "6474076891": {
-      "tr": { "name": "Anlat Bul", "tagline": "Çocuklar için eğlenceli tabu deneyimi." },
-      "en": { "name": "Describe & Find", "tagline": "A fun taboo-style word game for kids." }
+      "tr": {
+        "name": "Anlat Bul",
+        "tagline": "Çocuklar için eğlenceli tabu deneyimi."
+      },
+      "en": {
+        "name": "Describe & Find",
+        "tagline": "A fun taboo-style word game for kids."
+      },
+      "de": {
+        "name": "Anlat Bul",
+        "tagline": "Ein lustiges Tabu-Wortspiel für Kinder."
+      }
     },
     "6446329316": {
-      "tr": { "name": "Eşle Öğren", "tagline": "Hafıza ve zeka geliştiren eşleştirme oyunu." },
-      "en": { "name": "Match & Learn", "tagline": "A matching game that builds memory and focus." }
+      "tr": {
+        "name": "Eşle Öğren",
+        "tagline": "Hafıza ve zeka geliştiren eşleştirme oyunu."
+      },
+      "en": {
+        "name": "Match & Learn",
+        "tagline": "A matching game that builds memory and focus."
+      },
+      "de": {
+        "name": "Eşle Öğren",
+        "tagline": "Ein Zuordnungsspiel, das Gedächtnis und Konzentration fördert."
+      }
     },
     "6470124663": {
-      "tr": { "name": "Hayvanları Öğreniyorum", "tagline": "Çocuklar için eğitici hayvan oyunu." },
-      "en": { "name": "Learn Animals", "tagline": "An educational animal game for kids." }
+      "tr": {
+        "name": "Hayvanları Öğreniyorum",
+        "tagline": "Çocuklar için eğitici hayvan oyunu."
+      },
+      "en": {
+        "name": "Learn Animals",
+        "tagline": "An educational animal game for kids."
+      },
+      "de": {
+        "name": "Tiere lernen",
+        "tagline": "Ein Lernspiel über Tiere für Kinder."
+      }
     }
   }
 }

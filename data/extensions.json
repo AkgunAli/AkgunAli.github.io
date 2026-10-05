@@ -3,14 +3,40 @@
     "id": "cddfiohdfankeghchpephkbkoihiekhb",
     "icon": "https://lh3.googleusercontent.com/5t5Hb1r6G1jcf7kAfezBOcXa5nSF2QAX-rAys27sTiW1n45zZSIF3gJ8OqGyq43GjgZWO0LJlksQRYcxSYhrxvmw3g=s128",
     "url": "https://chrome.google.com/webstore/detail/app-store-connect-dark-mo/cddfiohdfankeghchpephkbkoihiekhb",
-    "tr": { "name": "App Store Connect Dark Mode", "tagline": "App Store Connect için karanlık mod eklentisi.", "genre": "Geliştirici Araçları" },
-    "en": { "name": "App Store Connect Dark Mode", "tagline": "A dark mode extension for App Store Connect.", "genre": "Developer Tools" }
+    "tr": {
+      "name": "App Store Connect Dark Mode",
+      "tagline": "App Store Connect için karanlık mod eklentisi.",
+      "genre": "Geliştirici Araçları"
+    },
+    "en": {
+      "name": "App Store Connect Dark Mode",
+      "tagline": "A dark mode extension for App Store Connect.",
+      "genre": "Developer Tools"
+    },
+    "de": {
+      "name": "App Store Connect Dark Mode",
+      "tagline": "Ein Dark Mode für App Store Connect.",
+      "genre": "Entwickler-Tools"
+    }
   },
   {
     "id": "amomaaoijndplbglmfbfgfedffognfbh",
     "icon": "https://lh3.googleusercontent.com/BnIYS9iwbhr171mJz2q39nQeDWkTywmVpy8qUQkbaqekKmjdtVqXIo2lWu1K5wWWzqORaywR_U0MpoWQaloKHPuA=s128",
     "url": "https://chrome.google.com/webstore/detail/ek%C5%9Fi-s%C3%B6zl%C3%BCk-toplu-mesaj-s/amomaaoijndplbglmfbfgfedffognfbh",
-    "tr": { "name": "Ekşi Mesaj Silme", "tagline": "Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin.", "genre": "Verimlilik" },
-    "en": { "name": "Eksi Message Deleter", "tagline": "Clear your Ekşi Sözlük inbox with one click.", "genre": "Productivity" }
+    "tr": {
+      "name": "Ekşi Mesaj Silme",
+      "tagline": "Ekşi Sözlük mesaj kutunuzu tek tıkla temizleyin.",
+      "genre": "Verimlilik"
+    },
+    "en": {
+      "name": "Eksi Message Deleter",
+      "tagline": "Clear your Ekşi Sözlük inbox with one click.",
+      "genre": "Productivity"
+    },
+    "de": {
+      "name": "Ekşi Nachrichten löschen",
+      "tagline": "Leeren Sie Ihren Ekşi-Sözlük-Posteingang mit einem Klick.",
+      "genre": "Produktivität"
+    }
   }
 ]
