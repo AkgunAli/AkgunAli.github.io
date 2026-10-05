@@ -1,0 +1,34 @@
+{
+  "$comment": "App Store senkronizasyon ayarları. developerId boşsa seedAppId üzerinden otomatik bulunur. overrides: App Store açıklaması yerine gösterilecek kısa metinler (isteğe bağlı). hidden: sitede gösterilmeyecek uygulama ID'leri. featured: öne çıkarılacak uygulamalar (sırasıyla).",
+  "developerId": null,
+  "seedAppId": 6761754756,
+  "storefronts": { "tr": "tr", "en": "us" },
+  "hidden": [],
+  "featured": [6761754756],
+  "overrides": {
+    "6761754756": {
+      "tr": { "name": "Perfect Draw: Şekil ve Renk", "tagline": "Sanatçılar, tasarımcılar ve meydan okumayı seven herkes için tasarlanmış en üst düzey hassas çizim oyunu." },
+      "en": { "name": "Perfect Draw: Shape & Color", "tagline": "The ultimate precision drawing game for artists, designers and anyone who loves a challenge." }
+    },
+    "6759307332": {
+      "tr": { "name": "Milu FM: Radyo & AI", "tagline": "Yapay zeka destekli modern radyo deneyimi." },
+      "en": { "name": "Milu FM: Radio & AI", "tagline": "A modern radio experience powered by AI." }
+    },
+    "6759639265": {
+      "tr": { "name": "Kur'an Namaz Pro", "tagline": "Dijital ibadet yardımcınız." },
+      "en": { "name": "Quran Prayer Pro", "tagline": "Your digital prayer companion." }
+    },
+    "6474076891": {
+      "tr": { "name": "Anlat Bul", "tagline": "Çocuklar için eğlenceli tabu deneyimi." },
+      "en": { "name": "Describe & Find", "tagline": "A fun taboo-style word game for kids." }
+    },
+    "6446329316": {
+      "tr": { "name": "Eşle Öğren", "tagline": "Hafıza ve zeka geliştiren eşleştirme oyunu." },
+      "en": { "name": "Match & Learn", "tagline": "A matching game that builds memory and focus." }
+    },
+    "6470124663": {
+      "tr": { "name": "Hayvanları Öğreniyorum", "tagline": "Çocuklar için eğitici hayvan oyunu." },
+      "en": { "name": "Learn Animals", "tagline": "An educational animal game for kids." }
+    }
+  }
+}
