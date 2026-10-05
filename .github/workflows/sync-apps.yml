@@ -10,6 +10,7 @@ on:
       - "data/**"
       - "scripts/**"
       - "Documents/**"
+      - "assets/**"
       - ".github/workflows/sync-apps.yml"
 
 permissions:
