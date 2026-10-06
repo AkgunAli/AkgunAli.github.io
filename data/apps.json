@@ -1,12 +1,38 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-10-05T07:51:28.300Z",
+  "syncedAt": "2026-10-06T11:16:38.684Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
     "url": "https://apps.apple.com/developer/id1672967762"
   },
   "apps": [
+    {
+      "id": 6474076891,
+      "url": "https://apps.apple.com/app/id6474076891",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2024-01-17T08:00:00Z",
+      "updated": "2024-02-19T22:52:13Z",
+      "version": "1.1",
+      "price": 29.99,
+      "tr": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "en": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "de": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "rating": 5,
+      "ratingCount": 4
+    },
     {
       "id": 6769936058,
       "url": "https://apps.apple.com/app/id6769936058",
@@ -55,32 +81,6 @@
         "name": "Koran Qibla Gebetszeiten Pro",
         "genre": "Reference",
         "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
-      },
-      "rating": 5,
-      "ratingCount": 4
-    },
-    {
-      "id": 6474076891,
-      "url": "https://apps.apple.com/app/id6474076891",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
-      "released": "2024-01-17T08:00:00Z",
-      "updated": "2024-02-19T22:52:13Z",
-      "version": "1.1",
-      "price": 29.99,
-      "tr": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
-      },
-      "en": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
-      },
-      "de": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
       },
       "rating": 5,
       "ratingCount": 4
