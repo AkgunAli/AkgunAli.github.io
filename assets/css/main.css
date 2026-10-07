@@ -459,6 +459,8 @@ p { margin: 0; }
 .doc-title { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
 .doc-desc { color: var(--text-2); font-size: 14px; }
 .doc-meta { margin-top: 2px; color: var(--text-3); font-size: 12px; font-family: "JetBrains Mono", ui-monospace, monospace; }
+.doc-private { display: inline-flex; align-items: center; gap: 5px; font-family: inherit; }
+.doc-private svg { width: 12px; height: 12px; }
 .doc-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 @media (max-width: 480px) {
   .doc { flex-wrap: wrap; }

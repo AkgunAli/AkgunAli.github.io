@@ -13,7 +13,7 @@ Kişisel portfolyo sitesi — iOS uygulamaları ve Chrome eklentileri. Derleme a
 | `data/appstore.json` | Senkronizasyon ayarları: öne çıkanlar, gizlenenler, kısa açıklama/isim override'ları. |
 | `data/extensions.json` | Chrome eklentileri (Web Store'un açık API'si yok, elle eklenir). |
 | `data/documents.json` | `Documents/` klasöründeki belgelerin başlıkları; yeni dosyalar otomatik listelenir. |
-| `Documents/` | CV, diploma, transkript, sertifikalar (arama motorlarına kapalı). |
+| `Documents/` | Herkese açık belgeler (şu an sadece CV). Repo public olduğu için buradaki **her dosya herkes tarafından indirilebilir** — kimlik bilgisi içeren belgeler (diploma, transkript, sertifika) buraya konmaz; `data/documents.json` içinde `onRequest: true` ile "talep üzerine" listelenir. |
 | `scripts/build.mjs` | App Store'dan veri çeker ve `index.html` + `sitemap.xml` üretir. |
 | `.github/workflows/sync-apps.yml` | Her gün çalışır; yeni/güncellenen uygulamaları siteye işler. |
 | `liste.html` | Sınıf oturma planı / grup oluşturucu (arama motorlarına kapalı). |
