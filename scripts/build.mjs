@@ -202,19 +202,38 @@ async function loadDocuments() {
   let files;
   try { files = (await readdir(file('Documents'))).filter((f) => !f.startsWith('.')); } catch { return []; }
   files = files.filter((f) => !cfg.exclude.includes(f));
-  const known = cfg.items.filter((i) => files.includes(i.file));
+  // onRequest items are credentials listed without a file: anything in Documents/ is public.
+  const known = cfg.items.filter((i) => i.onRequest || files.includes(i.file));
   const unknown = files.filter((f) => !cfg.items.some((i) => i.file === f)).sort().map((f) => {
     const title = f.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ');
     return { file: f, kind: 'other', ...Object.fromEntries(LANGS.map((l) => [l, { title, desc: '' }])) };
   });
-  return Promise.all([...known, ...unknown].map(async (d) => ({
+  return Promise.all([...known, ...unknown].map(async (d) => d.onRequest ? d : ({
     ...d,
     ext: path.extname(d.file).slice(1).toUpperCase(),
     size: formatSize((await stat(file(`Documents/${d.file}`))).size),
   })));
 }
 
+const ON_REQUEST = { tr: 'Talep üzerine paylaşılır', en: 'Available on request', de: 'Auf Anfrage erhältlich' };
+const REQUEST = { tr: 'Talep et', en: 'Request', de: 'Anfragen' };
+const REQUEST_URL = 'https://www.linkedin.com/in/akgunali/';
+
 function renderDocument(d) {
+  if (d.onRequest) {
+    return `
+        <article class="doc">
+          <span class="doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
+          <div class="doc-body">
+            ${i18n('h3', 'doc-title', pick(d, 'title'))}
+            ${d.tr.desc ? i18n('p', 'doc-desc', pick(d, 'desc')) : ''}
+            <p class="doc-meta doc-private"><svg aria-hidden="true"><use href="#i-lock"/></svg>${i18n('span', '', ON_REQUEST)}</p>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-ghost btn-sm" href="${REQUEST_URL}" target="_blank" rel="noopener">${i18n('span', '', REQUEST)}${i18n('span', 'sr-only', pick(d, 'title', (v) => `: ${v}`))}</a>
+          </div>
+        </article>`;
+  }
   const href = esc('Documents/' + encodeURIComponent(d.file));
   return `
         <article class="doc">

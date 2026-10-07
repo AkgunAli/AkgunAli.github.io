@@ -1,5 +1,5 @@
 {
-  "$comment": "Documents/ klasöründeki dosyalar sitede otomatik listelenir. Buradaki kayıtlar başlık/açıklama/sıra verir; kaydı olmayan dosyalar dosya adıyla gösterilir. exclude: listelenmeyecek dosyalar.",
+  "$comment": "Documents/ klasöründeki HER dosya herkese açıktır (repo public). Kimlik bilgisi içeren belgeleri (diploma, transkript, sertifika) buraya KOYMAYIN; onRequest: true ile dosyasız listeleyin. Kaydı olmayan dosyalar dosya adıyla otomatik listelenir. exclude: listelenmeyecek dosyalar.",
   "exclude": [
     "Foto_Ali_Akgun.png"
   ],
@@ -21,7 +21,7 @@
       }
     },
     {
-      "file": "Diplom_Ali_Akgun.pdf",
+      "onRequest": true,
       "kind": "diploma",
       "tr": {
         "title": "Lisans Diploması",
@@ -37,7 +37,7 @@
       }
     },
     {
-      "file": "Abschlusszeugnis-Ali_Akgun.pdf",
+      "onRequest": true,
       "kind": "transcript",
       "tr": {
         "title": "Not Dökümü (Transkript)",
@@ -53,7 +53,7 @@
       }
     },
     {
-      "file": "GAST-B1.pdf",
+      "onRequest": true,
       "kind": "certificate",
       "tr": {
         "title": "Almanca B1 Sertifikası",
