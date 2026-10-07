@@ -5,7 +5,7 @@
   ],
   "items": [
     {
-      "file": "Lebenslauf_Ali_Akgun_Web.pdf",
+      "onRequest": true,
       "kind": "cv",
       "tr": {
         "title": "Özgeçmiş (CV)",
