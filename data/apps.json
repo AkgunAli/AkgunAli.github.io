@@ -1,6 +1,6 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-10-20T09:25:38.606Z",
+  "syncedAt": "2026-10-22T09:24:54.843Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
@@ -112,6 +112,32 @@
       "ratingCount": 15
     },
     {
+      "id": 6769936058,
+      "url": "https://apps.apple.com/app/id6769936058",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/1a/4f/2e1a4f20-c6f8-03db-3e31-8729fe745e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-05-20T07:00:00Z",
+      "updated": "2026-05-20T22:41:38Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Deutsch mit Ali Abi: A1-B2",
+        "genre": "Education",
+        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+      },
+      "en": {
+        "name": "Deutsch mit Ali Abi: A1-B2",
+        "genre": "Education",
+        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+      },
+      "de": {
+        "name": "Deutsch mit Ali Abi: A1-B2",
+        "genre": "Education",
+        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+      },
+      "rating": 5,
+      "ratingCount": 2
+    },
+    {
       "id": 6470124663,
       "url": "https://apps.apple.com/app/id6470124663",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
@@ -138,27 +164,27 @@
       "ratingCount": 4
     },
     {
-      "id": 6769936058,
-      "url": "https://apps.apple.com/app/id6769936058",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/1a/4f/2e1a4f20-c6f8-03db-3e31-8729fe745e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-05-20T07:00:00Z",
-      "updated": "2026-05-20T22:41:38Z",
+      "id": 6759307332,
+      "url": "https://apps.apple.com/app/id6759307332",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp",
+      "released": "2026-02-28T08:00:00Z",
+      "updated": "2026-02-28T09:07:45Z",
       "version": "1.0",
       "price": 0,
       "tr": {
-        "name": "Deutsch mit Ali Abi: A1-B2",
-        "genre": "Education",
-        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+        "name": "Milu FM: Radyo, MP3 Player, AI",
+        "genre": "Lifestyle",
+        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
       },
       "en": {
-        "name": "Deutsch mit Ali Abi: A1-B2",
-        "genre": "Education",
-        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+        "name": "Milu FM: Radyo, MP3 Player, AI",
+        "genre": "Lifestyle",
+        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
       },
       "de": {
-        "name": "Deutsch mit Ali Abi: A1-B2",
-        "genre": "Education",
-        "description": "Deutsch mit Ali Abi: A1-B2 is a simple, fun and practical German learning app designed to help you improve your German step by step.\n\nLearn German words organized by A1, A2, B1 and B2 levels, listen to pronunciations, practice with dialogs and stories, and build your vocabulary through daily exercises.\n\nThe app is more than a vocabulary list. You can practice with word cards, matching games, balloon word games, writing templates and letter examples.\n\nYou can also chat with Ali Abi, your AI German speaking partner, to practice real conversation and use the words you learn in a more natural way.\n\nThe app supports Turkish, English, Spanish, French, Italian, Portuguese, Russian, Japanese and Korean, so you can learn German words with meanings in your own language.\n\nKey features:\n\n• German words organized by A1, A2, B1 and B2 levels\n• Word of the day and daily vocabulary practice\n• Audio pronunciation support\n• Dialog and story listening practice\n• Word cards and meaning reveal system\n• Matching and balloon vocabulary games\n• German writing templates and letter examples\n• AI-powered German conversation with Ali Abi\n• Multilingual word meanings\n• Clean, modern and easy-to-use design\n\nMake German vocabulary, listening, writing and speaking practice easier and more enjoyable with Deutsch mit Ali Abi."
+        "name": "Milu FM: Radyo, MP3 Player, AI",
+        "genre": "Lifestyle",
+        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
       },
       "rating": 5,
       "ratingCount": 2
@@ -190,32 +216,6 @@
       "ratingCount": 1
     },
     {
-      "id": 6759307332,
-      "url": "https://apps.apple.com/app/id6759307332",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp",
-      "released": "2026-02-28T08:00:00Z",
-      "updated": "2026-02-28T09:07:45Z",
-      "version": "1.0",
-      "price": 0,
-      "tr": {
-        "name": "Milu FM: Radyo, MP3 Player, AI",
-        "genre": "Lifestyle",
-        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
-      },
-      "en": {
-        "name": "Milu FM: Radyo, MP3 Player, AI",
-        "genre": "Lifestyle",
-        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
-      },
-      "de": {
-        "name": "Milu FM: Radyo, MP3 Player, AI",
-        "genre": "Lifestyle",
-        "description": "Milu FM, müzik ve radyo deneyiminizi bir üst seviyeye taşıyan modern bir eğlence platformudur. İster dünyanın dört bir yanından canlı radyoları dinleyin, ister kendi müzik kütüphanenizi yönetin.\n\nÖne Çıkan Özellikler: • Binlerce Radyo İstasyonu: Yerel ve küresel binlerce canlı radyo yayınına anında ulaşın. • Yapay Zeka (AI) Desteği: Müzik asistanınızla sohbet edin, yeni şarkılar keşfedin ve müzik hakkında merak ettiklerinizi sorun. • Gelişmiş MP3 Çalar: Cihazınızdaki yerel müzikleri yüksek ses kalitesi ve şık bir arayüzle dinleyin. • Kişiselleştirilmiş Liste: Favori istasyonlarınızı kaydedin, dinleme kuyruğunuzu kolayca yönetin.\n\nModern tasarımı ve kullanıcı dostu arayüzüyle Milu FM, her anınıza eşlik etmek için tasarlandı. Hemen indirin ve kesintisiz müziğin keyfini çıkarın!"
-      },
-      "rating": 5,
-      "ratingCount": 2
-    },
-    {
       "id": 6762889649,
       "url": "https://apps.apple.com/app/id6762889649",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
@@ -240,6 +240,32 @@
       },
       "rating": 5,
       "ratingCount": 1
+    },
+    {
+      "id": 6819028699,
+      "url": "https://apps.apple.com/app/id6819028699",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/ba/99/73ba9924-706c-c70c-e25d-cc1f6ff795f4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-10-21T07:00:00Z",
+      "updated": "2026-10-21T09:44:28Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
+      },
+      "en": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
+      },
+      "de": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Bestehe den Test „Leben in Deutschland“ (LiD) und den Einbürgerungstest – entspannt und gut vorbereitet.\n\nLiDmitAliAbi enthält alle Fragen des offiziellen Fragenkatalogs: 300 allgemeine Fragen und die 10 Fragen deines Bundeslandes – inklusive der neuen Fragen zum jüdischen Leben.\n\nSCHRITT FÜR SCHRITT\n• Alle Fragen der Reihe nach – du machst immer dort weiter, wo du aufgehört hast\n• Springe zu jeder beliebigen Frage, z. B. direkt zu Frage 100\n• Nach Themen lernen: Grundrechte, Wahlen, Geschichte, Europa, Alltag und mehr\n\nIN DEINER SPRACHE\n• Die Fragen bleiben auf Deutsch – wie im echten Test\n• Mit einem Tipp: Übersetzung in Englisch, Türkisch, Arabisch, Ukrainisch, Russisch, Polnisch, Rumänisch, Italienisch, Persisch/Dari und Kroatisch\n• Zu jeder Frage eine kurze Erklärung („Hintergrund“) in deiner Sprache\n• App-Oberfläche auf Deutsch oder in deiner Sprache\n\nLERNT MIT DIR\n• Falsch beantwortete Fragen kommen gezielt wieder, bis sie sitzen\n• Deine Prüfungsreife zeigt, wie wahrscheinlich du heute bestehen würdest\n• Tagesziel, Lernserie und Countdown bis zu deinem Testtermin\n• Freundliche tägliche Erinnerung und kurze Wissens-Häppchen: eine Frage mit Antwort direkt auf dem Sperrbildschirm\n\nPRÜFUNG WIE IM ECHTEN TEST\n• 33 Fragen, 60 Minuten, bestanden ab 17 richtigen Antworten\n• Mit Zeitlimit (Countdown) oder ohne\n• Auswertung mit allen Lösungen\n\nDATENSCHUTZ\nKein Konto, kein Tracking, keine Werbung. Dein Lernfortschritt bleibt auf deinem Gerät.\n\nHinweis: LiDmitAliAbi ist keine offizielle App des Bundesamts für Migration und Flüchtlinge (BAMF). Maßgeblich ist allein der aktuelle Fragenkatalog des BAMF."
+      },
+      "rating": null,
+      "ratingCount": 0
     }
   ]
 }
