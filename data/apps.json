@@ -1,12 +1,38 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-10-25T09:09:28.727Z",
+  "syncedAt": "2026-10-26T10:07:41.774Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
     "url": "https://apps.apple.com/developer/id1672967762"
   },
   "apps": [
+    {
+      "id": 6759639265,
+      "url": "https://apps.apple.com/app/id6759639265",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-02-26T08:00:00Z",
+      "updated": "2026-04-25T08:51:43Z",
+      "version": "1.5",
+      "price": 0,
+      "tr": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "en": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "de": {
+        "name": "Koran Qibla Gebetszeiten Pro",
+        "genre": "Reference",
+        "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
+      },
+      "rating": 5,
+      "ratingCount": 4
+    },
     {
       "id": 6474076891,
       "url": "https://apps.apple.com/app/id6474076891",
@@ -58,32 +84,6 @@
       },
       "rating": 5,
       "ratingCount": 7
-    },
-    {
-      "id": 6759639265,
-      "url": "https://apps.apple.com/app/id6759639265",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-02-26T08:00:00Z",
-      "updated": "2026-04-25T08:51:43Z",
-      "version": "1.5",
-      "price": 0,
-      "tr": {
-        "name": "Quran Qibla Prayer Times Pro",
-        "genre": "Reference",
-        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
-      },
-      "en": {
-        "name": "Quran Qibla Prayer Times Pro",
-        "genre": "Reference",
-        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
-      },
-      "de": {
-        "name": "Koran Qibla Gebetszeiten Pro",
-        "genre": "Reference",
-        "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
-      },
-      "rating": 5,
-      "ratingCount": 4
     },
     {
       "id": 6446329316,
@@ -138,32 +138,6 @@
       "ratingCount": 2
     },
     {
-      "id": 6470124663,
-      "url": "https://apps.apple.com/app/id6470124663",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
-      "released": "2023-10-24T07:00:00Z",
-      "updated": "2024-01-23T16:16:29Z",
-      "version": "1.4",
-      "price": 29.99,
-      "tr": {
-        "name": "Hayvanları Öğreniyorum +4 Yaş",
-        "genre": "Education",
-        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
-      },
-      "en": {
-        "name": "Hayvanları Öğreniyorum +4 Yaş",
-        "genre": "Education",
-        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
-      },
-      "de": {
-        "name": "Hayvanları Öğreniyorum +4 Yaş",
-        "genre": "Education",
-        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
-      },
-      "rating": 5,
-      "ratingCount": 4
-    },
-    {
       "id": 6759307332,
       "url": "https://apps.apple.com/app/id6759307332",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/c1/8d/b2c18df2-24d5-0092-64db-354718108b0e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/256x256bb.webp",
@@ -188,6 +162,32 @@
       },
       "rating": 5,
       "ratingCount": 2
+    },
+    {
+      "id": 6470124663,
+      "url": "https://apps.apple.com/app/id6470124663",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/22/81/a6/2281a609-d3c0-38cd-b62b-6fad32b0125c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2023-10-24T07:00:00Z",
+      "updated": "2024-01-23T16:16:29Z",
+      "version": "1.4",
+      "price": 29.99,
+      "tr": {
+        "name": "Hayvanları Öğreniyorum +4 Yaş",
+        "genre": "Education",
+        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
+      },
+      "en": {
+        "name": "Hayvanları Öğreniyorum +4 Yaş",
+        "genre": "Education",
+        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
+      },
+      "de": {
+        "name": "Hayvanları Öğreniyorum +4 Yaş",
+        "genre": "Education",
+        "description": "CodingTech ‘Hayvanları Öğreniyorum’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara hayvanlar ailemini keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Hayvanları Öğreniyorum!\n \nHayvanları Öğreniyorum oyunu, hem çok kolay hem de çok öğretici. Çocuklar eğlenerek hayvanların isimlerini, seslerini, türlerini ve özelliklerini öğrenme fırsatı bulacak. Öğretmenler ve çocuk psikologları ile birlikte geliştirilen oyunumuz güvenli ve temiz içerikleriyle eğlenceli bir öğrenme fırsatı sunmaktadır.\n \nHaydi, hemen indirin! Çocuğunuzla birlikte hayvanların renkli dünyasını eğlenceli ve eğitici oyunlarla keşfetmenin tadını çıkarın!\n \nDijital eğitim oyunlarına büyük önem veren CodingTech Bilişim Şirketi’nin diğer oyunlarını da inceleyebilir, çocuğunuzun gelişimi için uygun oyunları indirebilirsiniz.\n \n4 YAŞ VE ÜZERİ ÇOCUKLAR İÇİN EŞLE ÖĞREN OYUNU\n \n- Oyun temel olarak hayvanların temel özellikleriyle öğrenimini içermektedir.\n- Çocuğunuz hayvanları öğrenirken aynı zamanda; işitsel ayırt etme, eşleme, hafıza, dikkat, akıl yürütme, boyama gibi birçok farklı beceriyi de geliştirmiş olacak.\n-Hayvanları Öğreniyorum oyunu şu ana kadar kendi alanında yapılmış en kapsamlı oyundur.\n- Oyun içerisinde hayvanların isimleri, hayvanların türleri, hayvanlara ait sesler, hayvanların nasıl beslendiği, hayvanların yaşam alanları ve belirleyici özellikleri gibi çocuğunuzun hayvanlarla ilgili öğrenmesi gereken tüm bilgiler bulunmaktadır.\n- Oyunumuz, özenle seçilmiş kavramlar ve içeriğinde yer alan ayrıntılı kategoriler ile çocuğunuzun merak duygusunu canlı tutarak; kavramlara ait ayrıntılı bilgiler edinmesine olanak sağlayacaktır.\n- Hayvanları Öğreniyorum oyunu, kolay oynanabilir ve çocuklara uygun olarak tasarlandı.\n- Oyunumuz çocuk psikologları ve öğretmenler ile birlikte geliştirildi.\n- Çocuklar için güvenli içeriktir.\n \nAİLELER İÇİN HAYVANLARI ÖĞRENİYORUM OYUNU\n \nOyunlarımız, çocukların aileleri ile birlikte hem kaliteli zaman geçirmesi, hem de öğrenim zamanlarının eğlenceli olması için tasarlanmıştır. \n\nÇocuğunuzla birlikte keyifle oynamanızı tavsiye ediyoruz. Böylece çocuğunuz, hem Hayvanları Öğreniyorum oyunundan azami derecede fayda sağlayacak hem de sizinle eğlenleceli vakitler geçirme fırsatı bulacak."
+      },
+      "rating": 5,
+      "ratingCount": 4
     },
     {
       "id": 6761754756,
