@@ -1,6 +1,6 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-11-08T11:16:16.267Z",
+  "syncedAt": "2026-11-09T12:52:18.809Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
@@ -244,20 +244,20 @@
     {
       "id": 6831680597,
       "url": "https://apps.apple.com/app/id6831680597",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/fa/93/05fa9382-44d7-b6c8-cc7a-e8d4badb590c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/bf/c2/88bfc270-e593-43dc-44cc-c4fbf5877615/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
       "released": "2026-11-06T08:00:00Z",
-      "updated": "2026-11-07T00:18:12Z",
-      "version": "1.0",
+      "updated": "2026-11-08T23:14:18Z",
+      "version": "1.1",
       "price": 0,
       "tr": {
-        "name": "Schichtfrei – Dienstplan",
+        "name": "Schichtfrei – Shift Calendar",
         "genre": "Productivity",
-        "description": "Schichtfrei ist der Schichtkalender für alle, die im Schichtdienst arbeiten – in Pflege, Industrie, Logistik, Gastronomie oder bei Polizei und Feuerwehr.\n\n• Monat in Sekunden eintragen: Schicht wählen, über die Tage wischen.\n• Dienstplan scannen: Schichtfrei liest den Plan direkt auf deinem iPhone – das Foto wird nicht gespeichert.\n• Einfach sagen: „Montag bis Freitag Früh, Wochenende frei“.\n• Rotation einrichten, z. B. F F S S N N – –.\n• Feiertage aller 16 Bundesländer, Nacht-, Sonntags- und Feiertagsstunden, Überstunden und Resturlaub.\n• Widgets für Home- und Sperrbildschirm, Erinnerung vor Schichtbeginn, Export in deinen Kalender.\n• PDF- und CSV-Export für die Abrechnung.\n\nKeine Werbung. Kein Tracking. Kein Konto. Alles bleibt auf deinem iPhone."
+        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. F F S S N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for all 16 German states are built in.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
       },
       "en": {
-        "name": "Schichtfrei – Dienstplan",
+        "name": "Schichtfrei – Shift Calendar",
         "genre": "Productivity",
-        "description": "Schichtfrei ist der Schichtkalender für alle, die im Schichtdienst arbeiten – in Pflege, Industrie, Logistik, Gastronomie oder bei Polizei und Feuerwehr.\n\n• Monat in Sekunden eintragen: Schicht wählen, über die Tage wischen.\n• Dienstplan scannen: Schichtfrei liest den Plan direkt auf deinem iPhone – das Foto wird nicht gespeichert.\n• Einfach sagen: „Montag bis Freitag Früh, Wochenende frei“.\n• Rotation einrichten, z. B. F F S S N N – –.\n• Feiertage aller 16 Bundesländer, Nacht-, Sonntags- und Feiertagsstunden, Überstunden und Resturlaub.\n• Widgets für Home- und Sperrbildschirm, Erinnerung vor Schichtbeginn, Export in deinen Kalender.\n• PDF- und CSV-Export für die Abrechnung.\n\nKeine Werbung. Kein Tracking. Kein Konto. Alles bleibt auf deinem iPhone."
+        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. F F S S N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for all 16 German states are built in.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
       },
       "de": {
         "name": "Schichtfrei – Dienstplan",
