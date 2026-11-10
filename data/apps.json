@@ -1,6 +1,6 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-11-09T12:52:18.809Z",
+  "syncedAt": "2026-11-10T12:39:02.233Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
@@ -34,32 +34,6 @@
       "ratingCount": 4
     },
     {
-      "id": 6759639265,
-      "url": "https://apps.apple.com/app/id6759639265",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-02-26T08:00:00Z",
-      "updated": "2026-04-25T08:51:43Z",
-      "version": "1.5",
-      "price": 0,
-      "tr": {
-        "name": "Quran Qibla Prayer Times Pro",
-        "genre": "Reference",
-        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
-      },
-      "en": {
-        "name": "Quran Qibla Prayer Times Pro",
-        "genre": "Reference",
-        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
-      },
-      "de": {
-        "name": "Koran Qibla Gebetszeiten Pro",
-        "genre": "Reference",
-        "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
-      },
-      "rating": 5,
-      "ratingCount": 4
-    },
-    {
       "id": 6768466757,
       "url": "https://apps.apple.com/app/id6768466757",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/32/fb/ba32fb13-6d00-802b-bcbd-920f3319f961/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
@@ -84,6 +58,32 @@
       },
       "rating": 5,
       "ratingCount": 7
+    },
+    {
+      "id": 6759639265,
+      "url": "https://apps.apple.com/app/id6759639265",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-02-26T08:00:00Z",
+      "updated": "2026-04-25T08:51:43Z",
+      "version": "1.5",
+      "price": 0,
+      "tr": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "en": {
+        "name": "Quran Qibla Prayer Times Pro",
+        "genre": "Reference",
+        "description": "With its modern and user-friendly design, Quran Mubin will be your closest companion in your daily religious life. Whether you read the Holy Quran, follow prayer times, or find your Qibla in seconds.\n\nKey Features:\n\nHoly Quran: The Quran is with you at any time with different translations and impressive recitations.\n\nPrecise Prayer Times: The most accurate times and adhan reminders based on your location.\n\nQibla Finder: Accurate direction all over the world with advanced compass technology.\n\nDaily Hadith and Dhikr: Start each day with a hadith, track your tasbihat with the dhikr counter feature.\n\nMulti-Language Support: Available in 10 different languages.\n\nQuran Mubin is designed with an ad-free and simple structure to focus entirely on your worship. Download now and start your spiritual journey."
+      },
+      "de": {
+        "name": "Koran Qibla Gebetszeiten Pro",
+        "genre": "Reference",
+        "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
+      },
+      "rating": 5,
+      "ratingCount": 4
     },
     {
       "id": 6769936058,
@@ -244,25 +244,25 @@
     {
       "id": 6831680597,
       "url": "https://apps.apple.com/app/id6831680597",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/bf/c2/88bfc270-e593-43dc-44cc-c4fbf5877615/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/e6/e7/ffe6e71d-836f-6a6a-4ca0-6e75a58733e0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
       "released": "2026-11-06T08:00:00Z",
-      "updated": "2026-11-08T23:14:18Z",
-      "version": "1.1",
+      "updated": "2026-11-09T17:23:45Z",
+      "version": "1.2",
       "price": 0,
       "tr": {
         "name": "Schichtfrei – Shift Calendar",
         "genre": "Productivity",
-        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. F F S S N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for all 16 German states are built in.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
+        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. E E L L N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for more than 200 countries and their regions are built in – fully offline.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
       },
       "en": {
         "name": "Schichtfrei – Shift Calendar",
         "genre": "Productivity",
-        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. F F S S N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for all 16 German states are built in.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
+        "description": "Schichtfrei is the shift calendar for everyone who works shifts – in healthcare, industry, logistics, hospitality, the police or the fire service.\n\n• Fill in a month in seconds: pick a shift and swipe across the days.\n• Scan your roster: Schichtfrei reads the printed plan right on your iPhone – the photo is never stored.\n• Just say it: “Monday to Friday early, weekend off”.\n• Set up a rotation, e.g. E E L L N N – –.\n• Night, Sunday and holiday hours, overtime balance and remaining vacation days. Public holidays for more than 200 countries and their regions are built in – fully offline.\n• Widgets for the Home and Lock Screen, reminders before your shift starts, export to your calendar.\n• PDF and CSV export for payroll.\n\nNo ads. No tracking. No account. Everything stays on your iPhone."
       },
       "de": {
         "name": "Schichtfrei – Dienstplan",
         "genre": "Productivity",
-        "description": "Schichtfrei ist der Schichtkalender für alle, die im Schichtdienst arbeiten – in Pflege, Industrie, Logistik, Gastronomie oder bei Polizei und Feuerwehr.\n\n• Monat in Sekunden eintragen: Schicht wählen, über die Tage wischen.\n• Dienstplan scannen: Schichtfrei liest den Plan direkt auf deinem iPhone – das Foto wird nicht gespeichert.\n• Einfach sagen: „Montag bis Freitag Früh, Wochenende frei“.\n• Rotation einrichten, z. B. F F S S N N – –.\n• Feiertage aller 16 Bundesländer, Nacht-, Sonntags- und Feiertagsstunden, Überstunden und Resturlaub.\n• Widgets für Home- und Sperrbildschirm, Erinnerung vor Schichtbeginn, Export in deinen Kalender.\n• PDF- und CSV-Export für die Abrechnung.\n\nKeine Werbung. Kein Tracking. Kein Konto. Alles bleibt auf deinem iPhone."
+        "description": "Schichtfrei ist der Schichtkalender für alle, die im Schichtdienst arbeiten – in Pflege, Industrie, Logistik, Gastronomie oder bei Polizei und Feuerwehr.\n\n• Monat in Sekunden eintragen: Schicht wählen, über die Tage wischen.\n• Dienstplan scannen: Schichtfrei liest den Plan direkt auf deinem iPhone – das Foto wird nicht gespeichert.\n• Einfach sagen: „Montag bis Freitag Früh, Wochenende frei“.\n• Rotation einrichten, z. B. F F S S N N – –.\n• Nacht-, Sonntags- und Feiertagsstunden, Überstunden und Resturlaub. Feiertage aller 16 Bundesländer – und von über 200 weiteren Ländern und ihren Regionen, komplett offline.\n• Widgets für Home- und Sperrbildschirm, Wecker vor Schichtbeginn, Export in deinen Kalender.\n• PDF- und CSV-Export für die Abrechnung.\n\nKeine Werbung. Kein Tracking. Kein Konto. Alles bleibt auf deinem iPhone."
       },
       "rating": null,
       "ratingCount": 0
