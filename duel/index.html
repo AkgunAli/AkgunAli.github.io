@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Duel invite · Deutsch mit Ali Abi</title>
+  <meta name="description" content="Join a live German duel in Deutsch mit Ali Abi. Same 10 questions, at the same time.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="⚔️ Almanca düellosu daveti · German duel invite">
+  <meta property="og:description" content="Deutsch mit Ali Abi'de aynı 10 soruyu aynı anda cevaplayalım. Answer the same 10 questions live.">
+  <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/cd/bf/57cdbfde-db50-7ca1-6007-c28ecc796240/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="apple-itunes-app" content="app-id=6769936058">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    :root {
+      --duel-1: #4f46e5;
+      --duel-2: #8b5cf6;
+      --duel-3: #0ea5e9;
+      --duel-grad: linear-gradient(135deg, var(--duel-3) 0%, var(--duel-1) 45%, var(--duel-2) 100%);
+      --tile: var(--bg-elev);
+      --ok: #10b981;
+    }
+
+    body { min-height: 100vh; min-height: 100dvh; }
+
+    /* Arka plan: yumuşak ışımalar + ince nokta deseni */
+    .bg {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+      background:
+        radial-gradient(40rem 28rem at 15% -5%, var(--glow-1), transparent 70%),
+        radial-gradient(36rem 26rem at 100% 10%, var(--glow-2), transparent 70%),
+        radial-gradient(30rem 24rem at 50% 110%, rgba(139, 92, 246, 0.16), transparent 70%);
+    }
+    .bg::after {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(var(--border-strong) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 65%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 65%);
+      opacity: 0.55;
+    }
+
+    .wrap {
+      max-width: 480px; margin: 0 auto;
+      padding: max(20px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+      display: flex; flex-direction: column; gap: 22px;
+    }
+
+    /* Üst bar */
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .app { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+    .app img { width: 36px; height: 36px; border-radius: 9px; box-shadow: var(--shadow-md); flex-shrink: 0; }
+    .app span { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+      padding: 5px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      color: var(--accent); background: var(--accent-soft);
+    }
+    .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(16,185,129,.6); animation: ping 1.8s infinite; }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,.55); } 70%,100% { box-shadow: 0 0 0 7px rgba(16,185,129,0); } }
+
+    /* Kahraman alanı */
+    .hero { text-align: center; display: grid; gap: 12px; padding-top: 6px; }
+    .versus { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 4px; }
+    .avatar {
+      width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+      font-size: 28px; position: relative;
+    }
+    .avatar.friend { background: var(--duel-grad); color: #fff; box-shadow: 0 10px 28px -10px var(--duel-1); }
+    .avatar.you { background: var(--bg-elev); border: 2px dashed var(--border-strong); color: var(--text-3); }
+    .avatar.you::after {
+      content: ""; position: absolute; inset: -6px; border-radius: 50%;
+      border: 2px solid var(--accent); opacity: 0; animation: ring 2.2s var(--ease) infinite;
+    }
+    @keyframes ring { 0% { transform: scale(.85); opacity: .6; } 100% { transform: scale(1.25); opacity: 0; } }
+    .avatar svg { width: 30px; height: 30px; }
+    .vs {
+      font: 800 13px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .08em;
+      padding: 8px 10px; border-radius: 10px; color: var(--bg); background: var(--text);
+      transform: rotate(-6deg); box-shadow: var(--shadow-md);
+    }
+    :root[dir="rtl"] .vs { transform: rotate(6deg); }
+    .hero h1 { font-size: clamp(28px, 8vw, 38px); font-weight: 800; letter-spacing: -0.035em; text-wrap: balance; }
+    .grad { background: var(--duel-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { color: var(--text-2); font-size: 16px; text-wrap: pretty; }
+
+    /* Kod bileti */
+    .ticket {
+      position: relative; padding: 20px 18px 18px; border-radius: 24px;
+      background: var(--bg-elev); border: 1px solid var(--border); box-shadow: var(--shadow-lg);
+      display: grid; gap: 14px; text-align: center;
+    }
+    .ticket::before, .ticket::after {
+      content: ""; position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--bg); border: 1px solid var(--border); transform: translateY(-50%);
+    }
+    .ticket::before { left: -12px; clip-path: inset(0 0 0 50%); }
+    .ticket::after { right: -12px; clip-path: inset(0 50% 0 0); }
+    .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+    .digits { display: flex; justify-content: center; align-items: center; gap: 5px; direction: ltr; }
+    .digit {
+      width: clamp(36px, 10.5vw, 50px); height: clamp(48px, 14vw, 62px); border-radius: 12px;
+      display: grid; place-items: center;
+      font: 800 clamp(26px, 8vw, 32px)/1 "JetBrains Mono", ui-monospace, monospace;
+      background: var(--bg-sunken); border: 1px solid var(--border);
+      animation: pop .5s var(--ease) backwards;
+    }
+    .digit:nth-child(1) { animation-delay: .05s; } .digit:nth-child(2) { animation-delay: .1s; }
+    .digit:nth-child(3) { animation-delay: .15s; } .digit:nth-child(5) { animation-delay: .2s; }
+    .digit:nth-child(6) { animation-delay: .25s; } .digit:nth-child(7) { animation-delay: .3s; }
+    .gap { width: 8px; height: 3px; border-radius: 2px; background: var(--border-strong); }
+    @keyframes pop { from { transform: translateY(8px) scale(.92); opacity: 0; } }
+    .copy {
+      justify-self: center; display: inline-flex; align-items: center; gap: 7px;
+      height: 34px; padding: 0 14px; border-radius: 999px; border: 0; cursor: pointer;
+      font: inherit; font-size: 13px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
+      transition: transform .2s var(--ease), background-color .2s, color .2s;
+    }
+    .copy:active { transform: scale(.96); }
+    .copy.done { color: var(--ok); background: rgba(16,185,129,.12); }
+    .copy svg { width: 15px; height: 15px; }
+    .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; padding-top: 2px; }
+    .fact {
+      display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; white-space: nowrap;
+      font-size: 11px; font-weight: 600; color: var(--text-2); background: var(--bg-sunken);
+    }
+
+    /* Düğmeler */
+    .ctas { display: grid; gap: 10px; }
+    .cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      height: 56px; border-radius: 16px; text-decoration: none;
+      font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .cta:active { transform: scale(.98); }
+    .cta svg { width: 20px; height: 20px; }
+    .cta-main { color: #fff; background: var(--duel-grad); box-shadow: 0 14px 30px -12px var(--duel-1); }
+    .cta-main:hover { box-shadow: 0 18px 36px -12px var(--duel-1); transform: translateY(-1px); }
+    .cta-store { color: var(--bg); background: var(--text); box-shadow: var(--shadow-md); }
+    .cta-store small { display: block; font-size: 11px; font-weight: 600; opacity: .7; line-height: 1.1; }
+    .cta-store b { display: block; font-size: 17px; line-height: 1.15; }
+    .cta-store .txt { text-align: start; }
+    .hint {
+      text-align: center; font-size: 13px; color: var(--text-3);
+      transition: color .3s;
+    }
+    .hint.attn { color: var(--accent); font-weight: 600; }
+
+    /* Adımlar */
+    .steps { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; counter-reset: s; }
+    .steps li {
+      counter-increment: s; display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      font-size: 15px; color: var(--text-2);
+    }
+    .steps li::before {
+      content: counter(s); flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 13px; font-weight: 800; color: #fff; background: var(--duel-grad);
+    }
+    .steps b { color: var(--text); font-weight: 700; }
+
+    .foot { text-align: center; font-size: 12px; color: var(--text-3); }
+    .foot a { color: var(--text-2); text-decoration: none; font-weight: 600; }
+
+    .no-code .ticket .digits, .no-code .ticket .copy, .no-code #open { display: none; }
+    .no-code .ticket .missing { display: block; }
+    .missing { display: none; font-size: 15px; color: var(--text-2); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="top">
+      <a class="app" href="https://apps.apple.com/app/id6769936058">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/cd/bf/57cdbfde-db50-7ca1-6007-c28ecc796240/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.webp" alt="" width="36" height="36">
+        <span>Deutsch mit Ali Abi</span>
+      </a>
+      <span class="pill"><span class="dot"></span><span data-t="live">Live duel</span></span>
+    </header>
+
+    <section class="hero">
+      <div class="versus" aria-hidden="true">
+        <div class="avatar friend">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1c0-2.76-3.58-5-8-5Z"/></svg>
+        </div>
+        <span class="vs">VS</span>
+        <div class="avatar you">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9.1 9a3 3 0 1 1 4.2 2.75c-.8.36-1.3 1.1-1.3 1.95V14"/><circle cx="12" cy="18" r=".6" fill="currentColor"/></svg>
+        </div>
+      </div>
+      <h1 data-t="title">You're invited to a <span class="grad">German duel</span></h1>
+      <p data-t="intro">Your friend is waiting in the room. You both get the same 10 questions at the same time.</p>
+    </section>
+
+    <section class="ticket" aria-labelledby="code-label">
+      <div class="label" id="code-label" data-t="code">Room code</div>
+      <div class="digits" id="digits" role="text"></div>
+      <p class="missing" data-t="missing">Ask your friend for the 6-digit room code.</p>
+      <button class="copy" id="copy" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+        <span data-t="copy">Copy code</span>
+      </button>
+      <div class="facts">
+        <span class="fact">❓ <span data-t="f1">10 questions</span></span>
+        <span class="fact">⏱️ <span data-t="f2">10 s each</span></span>
+        <span class="fact">⚡ <span data-t="f3">Speed bonus</span></span>
+      </div>
+    </section>
+
+    <div class="ctas">
+      <a class="cta cta-main" id="open" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="m13 19 6-6M16 16l4 4M19 21l2-2"/><path d="M14.5 6.5 18 3h3v3l-3.5 3.5M5 14l4 4M7 17l-3 3M3 19l2 2"/></svg>
+        <span data-t="open">Join the duel</span>
+      </a>
+      <a class="cta cta-store" href="https://apps.apple.com/app/id6769936058">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.68 0-1.74-.78-2.86-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.73 2.19 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.3-3.48ZM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.03-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.21Z"/></svg>
+        <span class="txt"><small data-t="get1">Free on the</small><b>App Store</b></span>
+      </a>
+      <p class="hint" id="hint" data-t="hint">Don't have the app yet? Install it, then come back to this link.</p>
+    </div>
+
+    <ol class="steps">
+      <li><span data-t="s1h">Install <b>Deutsch mit Ali Abi</b> (free)</span></li>
+      <li><span data-t="s2h">Open <b>Play → Duel → Join with a code</b></span></li>
+      <li><span data-t="s3h">Enter the code. <b>The game starts on its own.</b></span></li>
+    </ol>
+
+    <footer class="foot">
+      <a href="/">Ali Akgün</a> · Deutsch mit Ali Abi
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      // Uygulamanın 13 dili (HTML içeren anahtarlar *h ile biter)
+      var T = {
+        tr: { live: "Canlı düello", title: 'Bir <span class="grad">Almanca düellosuna</span> davet edildin', intro: "Arkadaşın odada seni bekliyor. İkiniz aynı 10 soruyu aynı anda cevaplayacaksınız.", code: "Oda kodu", missing: "6 haneli oda kodunu arkadaşından iste.", copy: "Kodu kopyala", copied: "Kopyalandı", f1: "10 soru", f2: "Soru başı 10 sn", f3: "Hız bonusu", open: "Düelloya katıl", get1: "Ücretsiz indir", hint: "Uygulama yüklü değil mi? Yükle, sonra bu linke tekrar dokun.", s1h: "<b>Deutsch mit Ali Abi</b>'yi yükle (ücretsiz)", s2h: "<b>Oyna → Düello → Kodla katıl</b>'a dokun", s3h: "Kodu gir. <b>Oyun kendiliğinden başlar.</b>" },
+        de: { live: "Live-Duell", title: 'Du bist zu einem <span class="grad">Deutsch-Duell</span> eingeladen', intro: "Dein Freund wartet im Raum. Ihr bekommt beide gleichzeitig dieselben 10 Fragen.", code: "Raumcode", missing: "Frag deinen Freund nach dem 6-stelligen Raumcode.", copy: "Code kopieren", copied: "Kopiert", f1: "10 Fragen", f2: "Je 10 Sek.", f3: "Tempo-Bonus", open: "Zum Duell", get1: "Kostenlos im", hint: "App noch nicht installiert? Installieren und dann diesen Link erneut öffnen.", s1h: "<b>Deutsch mit Ali Abi</b> installieren (kostenlos)", s2h: "<b>Spielen → Duell → Mit Code beitreten</b> öffnen", s3h: "Code eingeben. <b>Das Spiel startet von selbst.</b>" },
+        es: { live: "Duelo en vivo", title: 'Te invitaron a un <span class="grad">duelo de alemán</span>', intro: "Tu amigo te espera en la sala. Ambos recibiréis las mismas 10 preguntas a la vez.", code: "Código de sala", missing: "Pide a tu amigo el código de sala de 6 cifras.", copy: "Copiar código", copied: "Copiado", f1: "10 preguntas", f2: "10 s cada una", f3: "Bonus de velocidad", open: "Unirse al duelo", get1: "Gratis en", hint: "¿Aún no tienes la app? Instálala y vuelve a tocar este enlace.", s1h: "Instala <b>Deutsch mit Ali Abi</b> (gratis)", s2h: "Abre <b>Jugar → Duelo → Unirse con código</b>", s3h: "Escribe el código. <b>La partida empieza sola.</b>" },
+        fr: { live: "Duel en direct", title: 'Tu es invité à un <span class="grad">duel d’allemand</span>', intro: "Ton ami t’attend dans le salon. Vous recevez les mêmes 10 questions en même temps.", code: "Code du salon", missing: "Demande à ton ami le code à 6 chiffres.", copy: "Copier le code", copied: "Copié", f1: "10 questions", f2: "10 s chacune", f3: "Bonus rapidité", open: "Rejoindre le duel", get1: "Gratuit sur l’", hint: "Pas encore l’app ? Installe-la puis touche à nouveau ce lien.", s1h: "Installe <b>Deutsch mit Ali Abi</b> (gratuit)", s2h: "Ouvre <b>Jouer → Duel → Rejoindre avec un code</b>", s3h: "Saisis le code. <b>La partie démarre toute seule.</b>" },
+        it: { live: "Duello dal vivo", title: 'Sei invitato a un <span class="grad">duello di tedesco</span>', intro: "Il tuo amico ti aspetta nella stanza. Riceverete le stesse 10 domande nello stesso momento.", code: "Codice stanza", missing: "Chiedi al tuo amico il codice di 6 cifre.", copy: "Copia codice", copied: "Copiato", f1: "10 domande", f2: "10 s ciascuna", f3: "Bonus velocità", open: "Entra nel duello", get1: "Gratis su", hint: "Non hai ancora l’app? Installala e poi tocca di nuovo questo link.", s1h: "Installa <b>Deutsch mit Ali Abi</b> (gratis)", s2h: "Apri <b>Gioca → Duello → Entra con un codice</b>", s3h: "Inserisci il codice. <b>La partita parte da sola.</b>" },
+        pt: { live: "Duelo ao vivo", title: 'Foste convidado para um <span class="grad">duelo de alemão</span>', intro: "O teu amigo está à tua espera na sala. Recebem as mesmas 10 perguntas ao mesmo tempo.", code: "Código da sala", missing: "Pede ao teu amigo o código de 6 dígitos.", copy: "Copiar código", copied: "Copiado", f1: "10 perguntas", f2: "10 s cada", f3: "Bónus de rapidez", open: "Entrar no duelo", get1: "Grátis na", hint: "Ainda não tens a app? Instala-a e volta a tocar neste link.", s1h: "Instala o <b>Deutsch mit Ali Abi</b> (grátis)", s2h: "Abre <b>Jogar → Duelo → Entrar com código</b>", s3h: "Escreve o código. <b>O jogo começa sozinho.</b>" },
+        ru: { live: "Живая дуэль", title: 'Тебя пригласили на <span class="grad">дуэль по немецкому</span>', intro: "Друг ждёт в комнате. Вы одновременно получите одни и те же 10 вопросов.", code: "Код комнаты", missing: "Попроси у друга 6-значный код комнаты.", copy: "Скопировать код", copied: "Скопировано", f1: "10 вопросов", f2: "По 10 сек", f3: "Бонус за скорость", open: "Вступить в дуэль", get1: "Бесплатно в", hint: "Ещё нет приложения? Установи его и снова нажми на эту ссылку.", s1h: "Установи <b>Deutsch mit Ali Abi</b> (бесплатно)", s2h: "Открой <b>Играть → Дуэль → Войти по коду</b>", s3h: "Введи код. <b>Игра начнётся сама.</b>" },
+        uk: { live: "Жива дуель", title: 'Тебе запросили на <span class="grad">дуель з німецької</span>', intro: "Друг чекає в кімнаті. Ви одночасно отримаєте ті самі 10 запитань.", code: "Код кімнати", missing: "Попроси в друга 6-значний код кімнати.", copy: "Скопіювати код", copied: "Скопійовано", f1: "10 запитань", f2: "По 10 с", f3: "Бонус за швидкість", open: "Приєднатися до дуелі", get1: "Безкоштовно в", hint: "Ще немає застосунку? Встанови його й знову торкнися цього посилання.", s1h: "Встанови <b>Deutsch mit Ali Abi</b> (безкоштовно)", s2h: "Відкрий <b>Грати → Дуель → Увійти за кодом</b>", s3h: "Введи код. <b>Гра почнеться сама.</b>" },
+        ja: { live: "ライブ対戦", title: '<span class="grad">ドイツ語対戦</span>に招待されました', intro: "友だちがルームで待っています。2人に同じ10問が同時に出題されます。", code: "ルームコード", missing: "友だちに6桁のルームコードを聞いてください。", copy: "コードをコピー", copied: "コピーしました", f1: "全10問", f2: "各10秒", f3: "スピードボーナス", open: "対戦に参加", get1: "無料ダウンロード", hint: "アプリをまだ入れていない？インストールしてから、もう一度このリンクをタップ。", s1h: "<b>Deutsch mit Ali Abi</b>をインストール（無料）", s2h: "<b>プレイ → 対戦 → コードで参加</b>を開く", s3h: "コードを入力。<b>自動でゲームが始まります。</b>" },
+        ko: { live: "실시간 대결", title: '<span class="grad">독일어 대결</span>에 초대받았어요', intro: "친구가 방에서 기다리고 있어요. 두 사람이 같은 10문제를 동시에 풀어요.", code: "방 코드", missing: "친구에게 6자리 방 코드를 물어보세요.", copy: "코드 복사", copied: "복사됨", f1: "10문제", f2: "문제당 10초", f3: "스피드 보너스", open: "대결 참가", get1: "무료 다운로드", hint: "아직 앱이 없나요? 설치한 뒤 이 링크를 다시 누르세요.", s1h: "<b>Deutsch mit Ali Abi</b> 설치 (무료)", s2h: "<b>플레이 → 대결 → 코드로 참가</b> 열기", s3h: "코드를 입력하세요. <b>게임이 자동으로 시작돼요.</b>" },
+        sq: { live: "Duel live", title: 'Je ftuar në një <span class="grad">duel gjermanishteje</span>', intro: "Shoku të pret në dhomë. Të dy merrni të njëjtat 10 pyetje njëkohësisht.", code: "Kodi i dhomës", missing: "Kërkoji shokut kodin 6-shifror të dhomës.", copy: "Kopjo kodin", copied: "U kopjua", f1: "10 pyetje", f2: "10 sek secila", f3: "Bonus shpejtësie", open: "Hyr në duel", get1: "Falas në", hint: "Nuk e ke ende aplikacionin? Instaloje dhe prek sërish këtë lidhje.", s1h: "Instalo <b>Deutsch mit Ali Abi</b> (falas)", s2h: "Hap <b>Luaj → Duel → Hyr me kod</b>", s3h: "Shkruaj kodin. <b>Loja nis vetë.</b>" },
+        ar: { live: "مبارزة مباشرة", title: 'تمت دعوتك إلى <span class="grad">مبارزة في الألمانية</span>', intro: "صديقك ينتظرك في الغرفة. ستحصلان على الأسئلة العشرة نفسها في الوقت نفسه.", code: "رمز الغرفة", missing: "اطلب من صديقك رمز الغرفة المكوّن من 6 أرقام.", copy: "نسخ الرمز", copied: "تم النسخ", f1: "10 أسئلة", f2: "10 ثوانٍ لكل سؤال", f3: "مكافأة السرعة", open: "انضم إلى المبارزة", get1: "مجانًا على", hint: "ليس لديك التطبيق بعد؟ ثبّته ثم اضغط هذا الرابط مرة أخرى.", s1h: "ثبّت <b>Deutsch mit Ali Abi</b> (مجانًا)", s2h: "افتح <b>العب ← مبارزة ← انضم برمز</b>", s3h: "أدخل الرمز. <b>تبدأ اللعبة تلقائيًا.</b>" },
+        fa: { live: "دوئل زنده", title: 'به یک <span class="grad">دوئل آلمانی</span> دعوت شدی', intro: "دوستت در اتاق منتظر توست. هر دو همان ۱۰ سؤال را هم‌زمان جواب می‌دهید.", code: "کد اتاق", missing: "کد ۶ رقمی اتاق را از دوستت بپرس.", copy: "کپی کد", copied: "کپی شد", f1: "۱۰ سؤال", f2: "هر سؤال ۱۰ ثانیه", f3: "امتیاز سرعت", open: "ورود به دوئل", get1: "رایگان در", hint: "هنوز برنامه را نداری؟ نصبش کن و دوباره روی این لینک بزن.", s1h: "<b>Deutsch mit Ali Abi</b> را نصب کن (رایگان)", s2h: "<b>بازی ← دوئل ← ورود با کد</b> را باز کن", s3h: "کد را وارد کن. <b>بازی خودش شروع می‌شود.</b>" }
+      };
+      var EN = { copied: "Copied" };
+
+      var params = new URLSearchParams(location.search);
+      // ?lang=tr gibi bir parametre tarayıcı dilinin önüne geçer
+      var langs = [params.get("lang") || ""].concat(navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"]);
+      var lang = "en";
+      for (var i = 0; i < langs.length; i++) {
+        var l = String(langs[i]).toLowerCase().split("-")[0];
+        if (!l) continue;
+        if (l === "prs") l = "fa";
+        if (T[l]) { lang = l; break; }
+        if (l === "en") break;
+      }
+      var dict = T[lang] || {};
+      var root = document.documentElement;
+      root.lang = lang;
+      if (lang === "ar" || lang === "fa") root.dir = "rtl";
+      document.querySelectorAll("[data-t]").forEach(function (el) {
+        var v = dict[el.getAttribute("data-t")];
+        if (!v) return;
+        if (/h$/.test(el.getAttribute("data-t")) || el.getAttribute("data-t") === "title") el.innerHTML = v; else el.textContent = v;
+      });
+
+      // Kod
+      var raw = params.get("code") || "";
+      var code = raw.replace(/[٠-٩]/g, function (d) { return "٠١٢٣٤٥٦٧٨٩".indexOf(d); })
+                    .replace(/[۰-۹]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹".indexOf(d); })
+                    .replace(/\D/g, "").slice(0, 6);
+      var digits = document.getElementById("digits");
+      var open = document.getElementById("open");
+      if (code.length === 6) {
+        code.split("").forEach(function (c, idx) {
+          if (idx === 3) { var g = document.createElement("span"); g.className = "gap"; digits.appendChild(g); }
+          var d = document.createElement("span"); d.className = "digit"; d.textContent = c; digits.appendChild(d);
+        });
+        digits.setAttribute("aria-label", code.split("").join(" "));
+        open.href = "deutschmitaliabi://duel?code=" + code;
+        document.title = "⚔️ " + code.slice(0, 3) + " " + code.slice(3) + " · Deutsch mit Ali Abi";
+      } else {
+        document.body.classList.add("no-code");
+      }
+
+      // Kodu kopyala
+      var copyBtn = document.getElementById("copy");
+      var copyLabel = copyBtn.querySelector("span");
+      var copyText = copyLabel.textContent;
+      copyBtn.addEventListener("click", function () {
+        var done = function () {
+          copyBtn.classList.add("done");
+          copyLabel.textContent = dict.copied || EN.copied;
+          setTimeout(function () { copyBtn.classList.remove("done"); copyLabel.textContent = copyText; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, done);
+        } else {
+          var ta = document.createElement("textarea"); ta.value = code; document.body.appendChild(ta);
+          ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done();
+        }
+      });
+
+      // Uygulama açılmazsa (yüklü değilse) App Store yönlendirmesini öne çıkar
+      open.addEventListener("click", function () {
+        setTimeout(function () {
+          if (document.visibilityState === "visible") document.getElementById("hint").classList.add("attn");
+        }, 1400);
+      });
+    })();
+  </script>
+</body>
+</html>
