@@ -2,10 +2,33 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["JPKQC95M43.com.aliakgun.deutschapp"],
+        "appIDs": [
+          "JPKQC95M43.com.aliakgun.deutschapp"
+        ],
         "components": [
-          { "/": "/duel/*", "comment": "Deutsch mit Ali Abi duel invite" },
-          { "/": "/duel", "comment": "Deutsch mit Ali Abi duel invite" }
+          {
+            "/": "/duel/*",
+            "comment": "Deutsch mit Ali Abi duel invite"
+          },
+          {
+            "/": "/duel",
+            "comment": "Deutsch mit Ali Abi duel invite"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "JPKQC95M43.com.aliakgun.derdiedas"
+        ],
+        "components": [
+          {
+            "/": "/derdiedas/duel/*",
+            "comment": "Der Die Das mit Ali Abi duel invite"
+          },
+          {
+            "/": "/derdiedas/duel",
+            "comment": "Der Die Das mit Ali Abi duel invite"
+          }
         ]
       }
     ]
