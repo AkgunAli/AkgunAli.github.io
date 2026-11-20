@@ -1,38 +1,12 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-11-18T13:02:44.202Z",
+  "syncedAt": "2026-11-20T12:53:24.734Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
     "url": "https://apps.apple.com/developer/id1672967762"
   },
   "apps": [
-    {
-      "id": 6474076891,
-      "url": "https://apps.apple.com/app/id6474076891",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
-      "released": "2024-01-17T08:00:00Z",
-      "updated": "2024-02-19T22:52:13Z",
-      "version": "1.1",
-      "price": 29.99,
-      "tr": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
-      },
-      "en": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
-      },
-      "de": {
-        "name": "Anlat Bul - Çocuklar İçin Tabu",
-        "genre": "Games",
-        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
-      },
-      "rating": 5,
-      "ratingCount": 4
-    },
     {
       "id": 6759639265,
       "url": "https://apps.apple.com/app/id6759639265",
@@ -55,6 +29,32 @@
         "name": "Koran Qibla Gebetszeiten Pro",
         "genre": "Reference",
         "description": "Mit seinem modernen und benutzerfreundlichen Design wird Quran Mubin Ihr engster Begleiter in Ihrem täglichen religiösen Leben sein. Lesen Sie den Heiligen Koran, verfolgen Sie die Gebetszeiten or find your Qibla in seconds.\n\nHauptmerkmale:\n\nHeiliger Koran: Der Koran ist jederzeit bei Ihnen mit verschiedenen Übersetzungen und beeindruckenden Rezitationen.\n\nPräzise Gebetszeiten: Die genauesten Zeiten und Adhan-Erinnerungen basierend auf Ihrem Standort.\n\nQibla-Finder: Genaue Richtung auf der ganzen Welt mit fortschrittlicher Kompasstechnologie.\n\nTäglich Hadith und Dhikr: Beginnen Sie jeden Tag mit einem Hadith, verfolgen Sie Ihre Tasbihat mit der Dhikr-Zähler-Funktion.\n\nMehrsprachige Unterstützung: Verfügbar in 10 verschiedenen Sprachen.\n\nQuran Mubin ist mit einer werbefreien und einfachen Struktur konzipiert, damit Sie sich ganz auf Ihren Gottesdienst konzentrieren können. Laden Sie es jetzt herunter und beginnen Sie Ihre spirituelle Reise."
+      },
+      "rating": 5,
+      "ratingCount": 4
+    },
+    {
+      "id": 6474076891,
+      "url": "https://apps.apple.com/app/id6474076891",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/57/64/8b/57648b6f-c5c9-1e28-7322-51d32e315968/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.webp",
+      "released": "2024-01-17T08:00:00Z",
+      "updated": "2024-02-19T22:52:13Z",
+      "version": "1.1",
+      "price": 29.99,
+      "tr": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "en": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
+      },
+      "de": {
+        "name": "Anlat Bul - Çocuklar İçin Tabu",
+        "genre": "Games",
+        "description": "CodingTech ‘Anlat Bul- Çocuklar İçin Tabu’ uygulaması, eğlenceli ve eğitici oyunlarıyla çocuklara kelimeleri öğrenme. ve keşfetme fırsatı sunuyor .\n \nCodingTech Bilişim’den çocukların çok seveceği, anne babaların çok faydalı bulacağı bir oyun daha: Anlat Bul- Çocuklar İçin Tabu!"
       },
       "rating": 5,
       "ratingCount": 4
@@ -216,6 +216,58 @@
       "ratingCount": 1
     },
     {
+      "id": 6834449885,
+      "url": "https://apps.apple.com/app/id6834449885",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/01/6c/04/016c04bb-e3be-ad0a-c314-fafa11f40de7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-11-19T08:00:00Z",
+      "updated": "2026-11-20T07:34:44Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Hands Free Hub",
+        "genre": "Utilities",
+        "description": "Elleriniz meşgulken telefonunuzu sesinizle ve el hareketlerinizle yönetin.\n\nDuşta, mutfakta ya da dokunmanın zor olduğu her an: “Oynat”, “durdur”, “aşağı kaydır”, “geri git”, “makarna tarifi ara” deyin. Tam anlaşılmazsa uygulama “Bunu mu demek istediniz?” diye sorar; “evet” ya da “hayır” demeniz yeter. Aramalarınız otomatik tamamlamayla düzeltilir.\n\nÖn kamera elinizi algılar; kısa bir pinch ile tıklayın, parmaklarınız birleşikken elinizi hareket ettirerek kaydırın.\n\nERİŞİLEBİLİRLİK MODU\nFace ID'li iPhone'larda imleci başınızın hareketiyle yönetin. İmleç bir noktada kısa süre durunca tıklar; ekranın üst veya alt bölgesine yönelince kaydırır.\n\nÜÇ MOD\n• Duş Modu — yalnızca sesle kontrol\n• Mutfak Modu — ses + el hareketleri\n• Erişilebilirlik Modu — ses, el ve baş hareketi\n\nGİZLİLİK\nHesap yok, reklam yok, takip yok. Kamera görüntüsü ve yüz verisi yalnızca cihazınızda anlık işlenir; kaydedilmez, gönderilmez.\n\nWidget ve Siri kısayollarıyla favori modunuzu tek dokunuşla başlatın."
+      },
+      "en": {
+        "name": "Hands Free Hub",
+        "genre": "Utilities",
+        "description": "Elleriniz meşgulken telefonunuzu sesinizle ve el hareketlerinizle yönetin.\n\nDuşta, mutfakta ya da dokunmanın zor olduğu her an: “Oynat”, “durdur”, “aşağı kaydır”, “geri git”, “makarna tarifi ara” deyin. Tam anlaşılmazsa uygulama “Bunu mu demek istediniz?” diye sorar; “evet” ya da “hayır” demeniz yeter. Aramalarınız otomatik tamamlamayla düzeltilir.\n\nÖn kamera elinizi algılar; kısa bir pinch ile tıklayın, parmaklarınız birleşikken elinizi hareket ettirerek kaydırın.\n\nERİŞİLEBİLİRLİK MODU\nFace ID'li iPhone'larda imleci başınızın hareketiyle yönetin. İmleç bir noktada kısa süre durunca tıklar; ekranın üst veya alt bölgesine yönelince kaydırır.\n\nÜÇ MOD\n• Duş Modu — yalnızca sesle kontrol\n• Mutfak Modu — ses + el hareketleri\n• Erişilebilirlik Modu — ses, el ve baş hareketi\n\nGİZLİLİK\nHesap yok, reklam yok, takip yok. Kamera görüntüsü ve yüz verisi yalnızca cihazınızda anlık işlenir; kaydedilmez, gönderilmez.\n\nWidget ve Siri kısayollarıyla favori modunuzu tek dokunuşla başlatın."
+      },
+      "de": {
+        "name": "Hands Free Hub",
+        "genre": "Utilities",
+        "description": "Elleriniz meşgulken telefonunuzu sesinizle ve el hareketlerinizle yönetin.\n\nDuşta, mutfakta ya da dokunmanın zor olduğu her an: “Oynat”, “durdur”, “aşağı kaydır”, “geri git”, “makarna tarifi ara” deyin. Tam anlaşılmazsa uygulama “Bunu mu demek istediniz?” diye sorar; “evet” ya da “hayır” demeniz yeter. Aramalarınız otomatik tamamlamayla düzeltilir.\n\nÖn kamera elinizi algılar; kısa bir pinch ile tıklayın, parmaklarınız birleşikken elinizi hareket ettirerek kaydırın.\n\nERİŞİLEBİLİRLİK MODU\nFace ID'li iPhone'larda imleci başınızın hareketiyle yönetin. İmleç bir noktada kısa süre durunca tıklar; ekranın üst veya alt bölgesine yönelince kaydırır.\n\nÜÇ MOD\n• Duş Modu — yalnızca sesle kontrol\n• Mutfak Modu — ses + el hareketleri\n• Erişilebilirlik Modu — ses, el ve baş hareketi\n\nGİZLİLİK\nHesap yok, reklam yok, takip yok. Kamera görüntüsü ve yüz verisi yalnızca cihazınızda anlık işlenir; kaydedilmez, gönderilmez.\n\nWidget ve Siri kısayollarıyla favori modunuzu tek dokunuşla başlatın."
+      },
+      "rating": null,
+      "ratingCount": 0
+    },
+    {
+      "id": 6819028699,
+      "url": "https://apps.apple.com/app/id6819028699",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/ba/99/73ba9924-706c-c70c-e25d-cc1f6ff795f4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-10-21T07:00:00Z",
+      "updated": "2026-10-21T09:44:28Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
+      },
+      "en": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
+      },
+      "de": {
+        "name": "Leben in Deutschland mitAliAbi",
+        "genre": "Education",
+        "description": "Bestehe den Test „Leben in Deutschland“ (LiD) und den Einbürgerungstest – entspannt und gut vorbereitet.\n\nLiDmitAliAbi enthält alle Fragen des offiziellen Fragenkatalogs: 300 allgemeine Fragen und die 10 Fragen deines Bundeslandes – inklusive der neuen Fragen zum jüdischen Leben.\n\nSCHRITT FÜR SCHRITT\n• Alle Fragen der Reihe nach – du machst immer dort weiter, wo du aufgehört hast\n• Springe zu jeder beliebigen Frage, z. B. direkt zu Frage 100\n• Nach Themen lernen: Grundrechte, Wahlen, Geschichte, Europa, Alltag und mehr\n\nIN DEINER SPRACHE\n• Die Fragen bleiben auf Deutsch – wie im echten Test\n• Mit einem Tipp: Übersetzung in Englisch, Türkisch, Arabisch, Ukrainisch, Russisch, Polnisch, Rumänisch, Italienisch, Persisch/Dari und Kroatisch\n• Zu jeder Frage eine kurze Erklärung („Hintergrund“) in deiner Sprache\n• App-Oberfläche auf Deutsch oder in deiner Sprache\n\nLERNT MIT DIR\n• Falsch beantwortete Fragen kommen gezielt wieder, bis sie sitzen\n• Deine Prüfungsreife zeigt, wie wahrscheinlich du heute bestehen würdest\n• Tagesziel, Lernserie und Countdown bis zu deinem Testtermin\n• Freundliche tägliche Erinnerung und kurze Wissens-Häppchen: eine Frage mit Antwort direkt auf dem Sperrbildschirm\n\nPRÜFUNG WIE IM ECHTEN TEST\n• 33 Fragen, 60 Minuten, bestanden ab 17 richtigen Antworten\n• Mit Zeitlimit (Countdown) oder ohne\n• Auswertung mit allen Lösungen\n\nDATENSCHUTZ\nKein Konto, kein Tracking, keine Werbung. Dein Lernfortschritt bleibt auf deinem Gerät.\n\nHinweis: LiDmitAliAbi ist keine offizielle App des Bundesamts für Migration und Flüchtlinge (BAMF). Maßgeblich ist allein der aktuelle Fragenkatalog des BAMF."
+      },
+      "rating": null,
+      "ratingCount": 0
+    },
+    {
       "id": 6762889649,
       "url": "https://apps.apple.com/app/id6762889649",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
@@ -289,32 +341,6 @@
         "name": "Der Die Das mit Ali Abi",
         "genre": "Education",
         "description": "Nie wieder der, die oder das raten.\n\nDer Die Das mit Ali Abi ist ein schnelles Artikel-Wörterbuch vom Macher von Deutsch mit Ali Abi. Gib ein Nomen ein und sieh sofort Artikel, Plural und Bedeutung in deiner Sprache.\n\nWÖRTERBUCH\n• Über 89.000 deutsche Nomen mit Artikel und Plural\n• Schnelle Suche, auch ohne Umlaute (a statt ä, ss statt ß)\n• Bedeutung in deiner Sprache per Übersetzung auf dem Gerät\n• Favoriten und letzte Suchen\n\nREGELN LERNEN\n• Endungen, die den Artikel verraten, mit echten Trefferquoten aus dem Wörterbuch\n• Bedeutungsgruppen: Tage, Wetter, Automarken, Farben und mehr\n• Komposita: Das letzte Wort entscheidet\n\nSPIELEN\n• Wortmodus: Wähle den richtigen Artikel\n• Satzmodus: Ergänze den Artikel in einem echten Satz, in allen Fällen\n• Duell mit Freunden per Raumcode oder Einladungslink (Game Center)\n\nFORTSCHRITT\n• Richtig beantwortete Wörter, geöffnete Wörter, Trefferquote und Tagesserie\n• Wort des Tages und Quiz-Erinnerungen\n\nApp in 13 Sprachen: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nKein Konto nötig, keine persönlichen Daten."
-      },
-      "rating": null,
-      "ratingCount": 0
-    },
-    {
-      "id": 6819028699,
-      "url": "https://apps.apple.com/app/id6819028699",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/ba/99/73ba9924-706c-c70c-e25d-cc1f6ff795f4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-10-21T07:00:00Z",
-      "updated": "2026-10-21T09:44:28Z",
-      "version": "1.0",
-      "price": 0,
-      "tr": {
-        "name": "Leben in Deutschland mitAliAbi",
-        "genre": "Education",
-        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
-      },
-      "en": {
-        "name": "Leben in Deutschland mitAliAbi",
-        "genre": "Education",
-        "description": "Pass the \"Leben in Deutschland\" (LiD) test and the German citizenship test – relaxed and well prepared.\n\nLiDmitAliAbi contains every question of the official catalogue: 300 general questions plus the 10 questions for your federal state – including the new questions on Jewish life.\n\n• All questions in order – always continue where you stopped, or jump to any question\n• Learn by topic: basic rights, elections, history, Europe, everyday life and more\n• Questions stay in German, as in the real test – translation with one tap into English, Turkish, Arabic, Ukrainian, Russian, Polish, Romanian, Italian, Persian/Dari and Croatian\n• A short explanation for every question in your language\n• Wrong answers come back until you know them; your readiness shows how likely you would pass today\n• Exam simulation: 33 questions, 60 minutes, pass mark 17 – timed or untimed\n• Daily goal, streak, test-date countdown, a friendly daily reminder and short knowledge bites – a question with its answer right on your lock screen\n\nNo account, no tracking, no ads. Your progress stays on your device.\n\nLiDmitAliAbi is not an official app of the Federal Office for Migration and Refugees (BAMF). Only the current BAMF question catalogue is authoritative."
-      },
-      "de": {
-        "name": "Leben in Deutschland mitAliAbi",
-        "genre": "Education",
-        "description": "Bestehe den Test „Leben in Deutschland“ (LiD) und den Einbürgerungstest – entspannt und gut vorbereitet.\n\nLiDmitAliAbi enthält alle Fragen des offiziellen Fragenkatalogs: 300 allgemeine Fragen und die 10 Fragen deines Bundeslandes – inklusive der neuen Fragen zum jüdischen Leben.\n\nSCHRITT FÜR SCHRITT\n• Alle Fragen der Reihe nach – du machst immer dort weiter, wo du aufgehört hast\n• Springe zu jeder beliebigen Frage, z. B. direkt zu Frage 100\n• Nach Themen lernen: Grundrechte, Wahlen, Geschichte, Europa, Alltag und mehr\n\nIN DEINER SPRACHE\n• Die Fragen bleiben auf Deutsch – wie im echten Test\n• Mit einem Tipp: Übersetzung in Englisch, Türkisch, Arabisch, Ukrainisch, Russisch, Polnisch, Rumänisch, Italienisch, Persisch/Dari und Kroatisch\n• Zu jeder Frage eine kurze Erklärung („Hintergrund“) in deiner Sprache\n• App-Oberfläche auf Deutsch oder in deiner Sprache\n\nLERNT MIT DIR\n• Falsch beantwortete Fragen kommen gezielt wieder, bis sie sitzen\n• Deine Prüfungsreife zeigt, wie wahrscheinlich du heute bestehen würdest\n• Tagesziel, Lernserie und Countdown bis zu deinem Testtermin\n• Freundliche tägliche Erinnerung und kurze Wissens-Häppchen: eine Frage mit Antwort direkt auf dem Sperrbildschirm\n\nPRÜFUNG WIE IM ECHTEN TEST\n• 33 Fragen, 60 Minuten, bestanden ab 17 richtigen Antworten\n• Mit Zeitlimit (Countdown) oder ohne\n• Auswertung mit allen Lösungen\n\nDATENSCHUTZ\nKein Konto, kein Tracking, keine Werbung. Dein Lernfortschritt bleibt auf deinem Gerät.\n\nHinweis: LiDmitAliAbi ist keine offizielle App des Bundesamts für Migration und Flüchtlinge (BAMF). Maßgeblich ist allein der aktuelle Fragenkatalog des BAMF."
       },
       "rating": null,
       "ratingCount": 0
