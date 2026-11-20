@@ -1,0 +1,10 @@
+:root { color-scheme: light; --ink: #1C2747; --bg: #FFF1B8; --blue: #1F7FD6; --muted: #5A6485; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 17px/1.6 Futura, "Avenir Next", "Century Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg) radial-gradient(circle at 1px 1px, rgba(28,39,71,.08) 1.2px, transparent 1.4px) 0 0 / 18px 18px; color: var(--ink); }
+a { color: var(--blue); }
+main { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px; }
+h1 { font-size: 34px; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 20px; margin: 32px 0 8px; }
+.muted { color: var(--muted); }
+nav { display: flex; gap: 16px; margin-bottom: 32px; font-weight: 700; }
+ul { padding-inline-start: 22px; }
