@@ -1,0 +1,12 @@
+:root { color-scheme: light; --ink: #1D2B53; --paper: #FDFCF7; --red: #E5484D; --muted: #5B6788; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 17px/1.6 "Avenir Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink);
+  background: linear-gradient(90deg, transparent 38px, #F2AAAA 38px, #F2AAAA 40px, transparent 40px), repeating-linear-gradient(180deg, transparent 0 31px, #D9E6F6 31px 32px), var(--paper); }
+a { color: #2C6BD6; }
+main { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px 56px; }
+h1, h2 { font-family: "Chalkboard SE", "Marker Felt", "Patrick Hand", "Comic Sans MS", cursive; }
+h1 { font-size: 36px; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 22px; margin: 32px 0 8px; }
+.muted { color: var(--muted); }
+nav { display: flex; gap: 16px; margin-bottom: 32px; font-weight: 700; }
+ul { padding-inline-start: 22px; }
