@@ -1,0 +1,11 @@
+[
+  {
+    "id": "perfektlebenslauf",
+    "url": "https://www.perfektlebenslauf.com/",
+    "domain": "perfektlebenslauf.com",
+    "monogram": "PL",
+    "tr": { "name": "Perfekt Lebenslauf", "tagline": "Almanya'daki iş başvuruları için dakikalar içinde profesyonel Almanca özgeçmiş (Lebenslauf) hazırlayın.", "genre": "CV Oluşturucu" },
+    "en": { "name": "Perfekt Lebenslauf", "tagline": "Create a professional German CV (Lebenslauf) for job applications in Germany in minutes.", "genre": "CV Builder" },
+    "de": { "name": "Perfekt Lebenslauf", "tagline": "Erstellen Sie in wenigen Minuten einen professionellen Lebenslauf für Ihre Bewerbung in Deutschland.", "genre": "Lebenslauf-Generator" }
+  }
+]

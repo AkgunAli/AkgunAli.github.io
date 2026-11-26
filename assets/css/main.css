@@ -348,6 +348,11 @@ p { margin: 0; }
   background: var(--bg-sunken); object-fit: cover;
   box-shadow: 0 0 0 1px var(--border), 0 6px 16px -6px rgba(0, 0, 0, 0.25);
 }
+.card-monogram {
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, #0f766e, #22c55e); color: #fff;
+  font-size: 24px; font-weight: 800; letter-spacing: -0.02em;
+}
 .card-icon.is-ext { padding: 10px; border-radius: 18px; object-fit: contain; }
 .card-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 
@@ -528,8 +533,8 @@ p { margin: 0; }
   .brand-name { display: none; }
   .section-head { flex-direction: column; align-items: stretch; }
   .toolbar { flex-direction: column; align-items: stretch; }
-  .seg-filter { justify-content: space-between; }
-  .seg-filter button { flex: 1; justify-content: center; }
+  .seg-filter { display: grid; grid-template-columns: 1fr 1fr; border-radius: 18px; }
+  .seg-filter button { justify-content: center; border-radius: 14px; }
   .search input { width: 100%; }
   .term-body { height: 240px; padding: 14px; }
   .code { font-size: 12px; }
