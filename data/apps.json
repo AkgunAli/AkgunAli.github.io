@@ -1,6 +1,6 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-11-24T14:52:47.612Z",
+  "syncedAt": "2026-11-26T13:54:04.704Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
@@ -34,6 +34,32 @@
       "ratingCount": 4
     },
     {
+      "id": 6836943130,
+      "url": "https://apps.apple.com/app/id6836943130",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/26/b7/ab26b77d-a360-49a7-6599-3079bb905c08/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-11-20T08:00:00Z",
+      "updated": "2026-11-20T17:15:39Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Block Crash: Color Sort",
+        "genre": "Games",
+        "description": "Move blocks from tower to tower. A block can only land on the same color or in an empty tower. Stack four of one color and they crash and vanish. Clear the whole box in the fewest moves to earn three stars.\n\nBlock Crash is a calm sorting puzzle that takes seconds to learn. Every box can be solved, and the target shows the smallest number of moves it takes.\n\n• Tap two towers, or slide from one to the other\n• Combos when one move sets off several crashes\n• 80 levels and a daily puzzle, the same for everyone\n• Free hints whenever you are stuck, and undo for every move\n• Every color also has a symbol, so it is colorblind-friendly\n• No timer, plays offline, no account, no ads\n• Available in 70 languages"
+      },
+      "en": {
+        "name": "Block Crash: Color Sort",
+        "genre": "Games",
+        "description": "Move blocks from tower to tower. A block can only land on the same color or in an empty tower. Stack four of one color and they crash and vanish. Clear the whole box in the fewest moves to earn three stars.\n\nBlock Crash is a calm sorting puzzle that takes seconds to learn. Every box can be solved, and the target shows the smallest number of moves it takes.\n\n• Tap two towers, or slide from one to the other\n• Combos when one move sets off several crashes\n• 80 levels and a daily puzzle, the same for everyone\n• Free hints whenever you are stuck, and undo for every move\n• Every color also has a symbol, so it is colorblind-friendly\n• No timer, plays offline, no account, no ads\n• Available in 70 languages"
+      },
+      "de": {
+        "name": "Block Crash: Farben sortieren",
+        "genre": "Games",
+        "description": "Bewege Blöcke von Turm zu Turm. Ein Block landet nur auf derselben Farbe oder in einem leeren Turm. Staple vier einer Farbe und sie zerbrechen. Leere die ganze Box mit möglichst wenigen Zügen für drei Sterne.\n\nBlock Crash ist ein entspanntes Sortierrätsel, das du in Sekunden verstehst. Jede Box ist lösbar, und das Ziel zeigt die kleinste mögliche Zahl an Zügen.\n\n• Tippe zwei Türme an oder wische von einem zum anderen\n• Kombos, wenn ein Zug mehrere Crashs auslöst\n• 80 Level und ein Tagesrätsel, für alle gleich\n• Kostenlose Tipps, wenn du feststeckst, und Rückgängig für jeden Zug\n• Jede Farbe hat auch ein Symbol, gut bei Farbschwäche\n• Kein Zeitdruck, offline spielbar, kein Konto, keine Werbung\n• In 70 Sprachen"
+      },
+      "rating": null,
+      "ratingCount": 0
+    },
+    {
       "id": 6759639265,
       "url": "https://apps.apple.com/app/id6759639265",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/34/fe/2534fe19-2759-b813-1fd1-ebc71098b4d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
@@ -60,6 +86,32 @@
       "ratingCount": 4
     },
     {
+      "id": 6762889649,
+      "url": "https://apps.apple.com/app/id6762889649",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-04-25T07:00:00Z",
+      "updated": "2026-04-26T06:16:44Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Magic PDF Pro: Offline Editor",
+        "genre": "Productivity",
+        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
+      },
+      "en": {
+        "name": "Magic PDF Pro: Offline Editor",
+        "genre": "Productivity",
+        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
+      },
+      "de": {
+        "name": "Magic PDF Pro: Offline-Editor",
+        "genre": "Productivity",
+        "description": "Magic PDF Pro ist die ultimative, datenschutzorientierte PDF-Lösung für Profis, die Sicherheit, Geschwindigkeit und leistungsstarke Tools verlangen, ohne ihre Daten zu gefährden. Alles passiert direkt auf Ihrem Gerät - 100 % offline. Keine Cloud, keine Server, kein Internet erforderlich. Ihre Dokumente verlassen nie Ihre Tasche.\n\n### DATENSCHUTZ ZUERST\nSeien Sie beruhigt, da Ihre sensiblen Dokumente nur auf Ihrem iPhone verarbeitet werden. Magic PDF Pro nutzt die fortschrittlichsten lokalen Frameworks von Apple, um sicherzustellen, dass Ihre Daten privat und sicher bleiben, fernab von Clouds von Drittanbietern.\n\n### LOKALE KI-POWER\nErleben Sie die Zukunft des Dokumentenmanagements mit integrierter KI, die vollständig offline arbeitet:\n- **KI-Zusammenfassung**: Erhalten Sie sofortige Zusammenfassungen langer Dokumente, ohne ein einziges Byte an einen Server zu senden.\n- **KI-Chat mit PDF**: Stellen Sie Fragen und erhalten Sie Antworten basierend auf dem Dokumenteninhalt mithilfe lokaler RAG-Technologie.\n- **Lokale Übersetzung**: Übersetzen Sie Text in Ihrem PDF privat in mehrere Sprachen.\n\n### PROFESSIONELLER EDITOR\nUmfassende Anmerkungstools mit Live-Vorschau:\n- **Zeichnen & Hervorheben**: Markieren Sie Dokumente mit natürlichen Zeichenwerkzeugen und professionellen Textmarkern.\n- **Text hinzufügen**: Platzieren Sie Text überall mit anpassbaren Schriftarten, -größen und -farben.\n- **Live-Vorschau**: Sehen Sie Ihre Bearbeitungen in Echtzeit, bevor Sie Änderungen übernehmen.\n\n### ALL-IN-ONE-WERKZEUGKASTEN\n- **Hochwertiger Scanner**: Verwandeln Sie Papierdokumente mit VisionKit in professionelle PDFs.\n- **Intelligente Schwärzung**: \"Schwärzen\" Sie vertrauliche Informationen mühelos mit lokaler OCR-gestützter Texterkennung.\n- **Digitale Signatur**: Signieren Sie Dokumente ganz natürlich mit voller PencilKit-Unterstützung.\n- **Zusammenführen & Teilen**: Kombinieren Sie mehrere PDFs oder extrahieren Sie bestimmte Seiten in eine neue Datei.\n- **Bild zu PDF**: Konvertieren Sie Ihre Fotos und Galeriebilder in saubere, formatierte PDFs.\n- **Erweiterte Verschlüsselung**: Schützen Sie Dateien mit Passwörtern in Industriestärke und entfernen Sie versteckte Metadaten.\n\n### WARUM MAGIC PDF PRO?\n- **Geschwindigkeit**: Sofortige Verarbeitung ohne Warten auf Uploads oder Downloads.\n- **Zuverlässigkeit**: Funktioniert überall - in Flugzeugen, an abgelegenen Orten oder in Hochsicherheitsumgebungen.\n- **Einfachheit**: Eine schlanke, erstklassige Benutzeroberfläche für ein nahtloses Benutzererlebnis.\n\nHören Sie auf, Ihre privaten Dokumente auf unbekannte Server hochzuladen. Laden Sie Magic PDF Pro noch heute herunter und erleben Sie professionelles PDF-Management mit ultimativer Privatsphäre."
+      },
+      "rating": 5,
+      "ratingCount": 1
+    },
+    {
       "id": 6834784021,
       "url": "https://apps.apple.com/app/id6834784021",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/32/87/ae328715-3c5a-a277-d373-499d886f43f7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
@@ -81,32 +133,6 @@
         "name": "Der Die Das mit Ali Abi",
         "genre": "Education",
         "description": "Nie wieder der, die oder das raten.\n\nDer Die Das mit Ali Abi ist ein schnelles Artikel-Wörterbuch vom Macher von Deutsch mit Ali Abi. Gib ein Nomen ein und sieh sofort Artikel, Plural und Bedeutung in deiner Sprache.\n\nWÖRTERBUCH\n• Über 89.000 deutsche Nomen mit Artikel und Plural\n• Schnelle Suche, auch ohne Umlaute (a statt ä, ss statt ß)\n• Bedeutung in deiner Sprache per Übersetzung auf dem Gerät\n• Favoriten und letzte Suchen\n\nREGELN LERNEN\n• Endungen, die den Artikel verraten, mit echten Trefferquoten aus dem Wörterbuch\n• Bedeutungsgruppen: Tage, Wetter, Automarken, Farben und mehr\n• Komposita: Das letzte Wort entscheidet\n\nSPIELEN\n• Wortmodus: Wähle den richtigen Artikel\n• Satzmodus: Ergänze den Artikel in einem echten Satz, in allen Fällen\n• Duell mit Freunden per Raumcode oder Einladungslink (Game Center)\n\nFORTSCHRITT\n• Richtig beantwortete Wörter, geöffnete Wörter, Trefferquote und Tagesserie\n• Wort des Tages und Quiz-Erinnerungen\n\nApp in 13 Sprachen: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nKein Konto nötig, keine persönlichen Daten."
-      },
-      "rating": null,
-      "ratingCount": 0
-    },
-    {
-      "id": 6836943130,
-      "url": "https://apps.apple.com/app/id6836943130",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/26/b7/ab26b77d-a360-49a7-6599-3079bb905c08/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-11-20T08:00:00Z",
-      "updated": "2026-11-20T17:15:39Z",
-      "version": "1.0",
-      "price": 0,
-      "tr": {
-        "name": "Block Crash: Color Sort",
-        "genre": "Games",
-        "description": "Move blocks from tower to tower. A block can only land on the same color or in an empty tower. Stack four of one color and they crash and vanish. Clear the whole box in the fewest moves to earn three stars.\n\nBlock Crash is a calm sorting puzzle that takes seconds to learn. Every box can be solved, and the target shows the smallest number of moves it takes.\n\n• Tap two towers, or slide from one to the other\n• Combos when one move sets off several crashes\n• 80 levels and a daily puzzle, the same for everyone\n• Free hints whenever you are stuck, and undo for every move\n• Every color also has a symbol, so it is colorblind-friendly\n• No timer, plays offline, no account, no ads\n• Available in 70 languages"
-      },
-      "en": {
-        "name": "Block Crash: Color Sort",
-        "genre": "Games",
-        "description": "Move blocks from tower to tower. A block can only land on the same color or in an empty tower. Stack four of one color and they crash and vanish. Clear the whole box in the fewest moves to earn three stars.\n\nBlock Crash is a calm sorting puzzle that takes seconds to learn. Every box can be solved, and the target shows the smallest number of moves it takes.\n\n• Tap two towers, or slide from one to the other\n• Combos when one move sets off several crashes\n• 80 levels and a daily puzzle, the same for everyone\n• Free hints whenever you are stuck, and undo for every move\n• Every color also has a symbol, so it is colorblind-friendly\n• No timer, plays offline, no account, no ads\n• Available in 70 languages"
-      },
-      "de": {
-        "name": "Block Crash: Farben sortieren",
-        "genre": "Games",
-        "description": "Bewege Blöcke von Turm zu Turm. Ein Block landet nur auf derselben Farbe oder in einem leeren Turm. Staple vier einer Farbe und sie zerbrechen. Leere die ganze Box mit möglichst wenigen Zügen für drei Sterne.\n\nBlock Crash ist ein entspanntes Sortierrätsel, das du in Sekunden verstehst. Jede Box ist lösbar, und das Ziel zeigt die kleinste mögliche Zahl an Zügen.\n\n• Tippe zwei Türme an oder wische von einem zum anderen\n• Kombos, wenn ein Zug mehrere Crashs auslöst\n• 80 Level und ein Tagesrätsel, für alle gleich\n• Kostenlose Tipps, wenn du feststeckst, und Rückgängig für jeden Zug\n• Jede Farbe hat auch ein Symbol, gut bei Farbschwäche\n• Kein Zeitdruck, offline spielbar, kein Konto, keine Werbung\n• In 70 Sprachen"
       },
       "rating": null,
       "ratingCount": 0
@@ -315,32 +341,6 @@
         "name": "Leben in Deutschland mitAliAbi",
         "genre": "Education",
         "description": "Bestehe den Test „Leben in Deutschland“ (LiD) und den Einbürgerungstest – entspannt und gut vorbereitet.\n\nLiDmitAliAbi enthält alle Fragen des offiziellen Fragenkatalogs: 300 allgemeine Fragen und die 10 Fragen deines Bundeslandes – inklusive der neuen Fragen zum jüdischen Leben.\n\nSCHRITT FÜR SCHRITT\n• Alle Fragen der Reihe nach – du machst immer dort weiter, wo du aufgehört hast\n• Springe zu jeder beliebigen Frage, z. B. direkt zu Frage 100\n• Nach Themen lernen: Grundrechte, Wahlen, Geschichte, Europa, Alltag und mehr\n\nIN DEINER SPRACHE\n• Die Fragen bleiben auf Deutsch – wie im echten Test\n• Mit einem Tipp: Übersetzung in Englisch, Türkisch, Arabisch, Ukrainisch, Russisch, Polnisch, Rumänisch, Italienisch, Persisch/Dari und Kroatisch\n• Zu jeder Frage eine kurze Erklärung („Hintergrund“) in deiner Sprache\n• App-Oberfläche auf Deutsch oder in deiner Sprache\n\nLERNT MIT DIR\n• Falsch beantwortete Fragen kommen gezielt wieder, bis sie sitzen\n• Deine Prüfungsreife zeigt, wie wahrscheinlich du heute bestehen würdest\n• Tagesziel, Lernserie und Countdown bis zu deinem Testtermin\n• Freundliche tägliche Erinnerung und kurze Wissens-Häppchen: eine Frage mit Antwort direkt auf dem Sperrbildschirm\n\nPRÜFUNG WIE IM ECHTEN TEST\n• 33 Fragen, 60 Minuten, bestanden ab 17 richtigen Antworten\n• Mit Zeitlimit (Countdown) oder ohne\n• Auswertung mit allen Lösungen\n\nDATENSCHUTZ\nKein Konto, kein Tracking, keine Werbung. Dein Lernfortschritt bleibt auf deinem Gerät.\n\nHinweis: LiDmitAliAbi ist keine offizielle App des Bundesamts für Migration und Flüchtlinge (BAMF). Maßgeblich ist allein der aktuelle Fragenkatalog des BAMF."
-      },
-      "rating": 5,
-      "ratingCount": 1
-    },
-    {
-      "id": 6762889649,
-      "url": "https://apps.apple.com/app/id6762889649",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/f6/c7/07f6c797-a3fc-2f93-d95a-04a4be9d6e87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-04-25T07:00:00Z",
-      "updated": "2026-04-26T06:16:44Z",
-      "version": "1.0",
-      "price": 0,
-      "tr": {
-        "name": "Magic PDF Pro: Offline Editor",
-        "genre": "Productivity",
-        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
-      },
-      "en": {
-        "name": "Magic PDF Pro: Offline Editor",
-        "genre": "Productivity",
-        "description": "Magic PDF Pro is the ultimate, privacy-focused PDF solution designed for professionals who demand security, speed, and powerful tools without compromising their data. Everything happens directly on your device-100% offline. No cloud, no servers, no internet required. Your documents never leave your pocket.\n\nPRIVACY FIRST\nRest easy knowing your sensitive documents are processed only on your iPhone. Magic PDF Pro utilizes Apple’s most advanced local frameworks to ensure your data stays private and secure, away from third-party clouds.\n\nLOCAL AI POWER\nExperience the future of document management with built-in AI that works entirely offline:\n- **AI Summary**: Get instant summaries of long documents without sending a single byte to a server.\n- **AI Chat with PDF**: Ask questions and get answers based on the document’s content using local RAG technology.\n- **Local Translation**: Translate text within your PDF across multiple languages privately.\n\nPROFESSIONAL EDITOR\nComprehensive annotation tools with a live preview:\n- **Draw & Highlight**: Mark up documents with natural drawing tools and professional highlighters.\n- **Add Text**: Place text anywhere with customizable fonts, sizes, and colors.\n- **Live Preview**: See your edits in real-time before committing changes.\n\nALL-IN-ONE TOOLBOX\n- **High-Quality Scanner**: Transform paper documents into professional PDFs using VisionKit.\n- **Smart Redaction**: Effortlessly \"black-out\" sensitive information with local OCR-powered text detection.\n- **Digital Signature**: Sign documents naturally with full PencilKit support.\n- **Merge & Split**: Combine multiple PDFs or extract specific pages into a new file.\n- **Image to PDF**: Convert your photos and gallery images into clean, formatted PDFs.\n- **Advanced Encryption**: Protect files with industrial-strength passwords and strip away hidden metadata.\n\nWHY MAGIC PDF PRO?\n- **Speed**: Instant processing without waiting for uploads or downloads.\n- **Reliability**: Works anywhere-on planes, in remote locations, or in high-security environments.\n- **Simplicity**: A sleek, premium interface designed for a seamless user experience.\n\nStop uploading your private documents to unknown servers. Download Magic PDF Pro today and experience professional PDF management with ultimate privacy."
-      },
-      "de": {
-        "name": "Magic PDF Pro: Offline-Editor",
-        "genre": "Productivity",
-        "description": "Magic PDF Pro ist die ultimative, datenschutzorientierte PDF-Lösung für Profis, die Sicherheit, Geschwindigkeit und leistungsstarke Tools verlangen, ohne ihre Daten zu gefährden. Alles passiert direkt auf Ihrem Gerät - 100 % offline. Keine Cloud, keine Server, kein Internet erforderlich. Ihre Dokumente verlassen nie Ihre Tasche.\n\n### DATENSCHUTZ ZUERST\nSeien Sie beruhigt, da Ihre sensiblen Dokumente nur auf Ihrem iPhone verarbeitet werden. Magic PDF Pro nutzt die fortschrittlichsten lokalen Frameworks von Apple, um sicherzustellen, dass Ihre Daten privat und sicher bleiben, fernab von Clouds von Drittanbietern.\n\n### LOKALE KI-POWER\nErleben Sie die Zukunft des Dokumentenmanagements mit integrierter KI, die vollständig offline arbeitet:\n- **KI-Zusammenfassung**: Erhalten Sie sofortige Zusammenfassungen langer Dokumente, ohne ein einziges Byte an einen Server zu senden.\n- **KI-Chat mit PDF**: Stellen Sie Fragen und erhalten Sie Antworten basierend auf dem Dokumenteninhalt mithilfe lokaler RAG-Technologie.\n- **Lokale Übersetzung**: Übersetzen Sie Text in Ihrem PDF privat in mehrere Sprachen.\n\n### PROFESSIONELLER EDITOR\nUmfassende Anmerkungstools mit Live-Vorschau:\n- **Zeichnen & Hervorheben**: Markieren Sie Dokumente mit natürlichen Zeichenwerkzeugen und professionellen Textmarkern.\n- **Text hinzufügen**: Platzieren Sie Text überall mit anpassbaren Schriftarten, -größen und -farben.\n- **Live-Vorschau**: Sehen Sie Ihre Bearbeitungen in Echtzeit, bevor Sie Änderungen übernehmen.\n\n### ALL-IN-ONE-WERKZEUGKASTEN\n- **Hochwertiger Scanner**: Verwandeln Sie Papierdokumente mit VisionKit in professionelle PDFs.\n- **Intelligente Schwärzung**: \"Schwärzen\" Sie vertrauliche Informationen mühelos mit lokaler OCR-gestützter Texterkennung.\n- **Digitale Signatur**: Signieren Sie Dokumente ganz natürlich mit voller PencilKit-Unterstützung.\n- **Zusammenführen & Teilen**: Kombinieren Sie mehrere PDFs oder extrahieren Sie bestimmte Seiten in eine neue Datei.\n- **Bild zu PDF**: Konvertieren Sie Ihre Fotos und Galeriebilder in saubere, formatierte PDFs.\n- **Erweiterte Verschlüsselung**: Schützen Sie Dateien mit Passwörtern in Industriestärke und entfernen Sie versteckte Metadaten.\n\n### WARUM MAGIC PDF PRO?\n- **Geschwindigkeit**: Sofortige Verarbeitung ohne Warten auf Uploads oder Downloads.\n- **Zuverlässigkeit**: Funktioniert überall - in Flugzeugen, an abgelegenen Orten oder in Hochsicherheitsumgebungen.\n- **Einfachheit**: Eine schlanke, erstklassige Benutzeroberfläche für ein nahtloses Benutzererlebnis.\n\nHören Sie auf, Ihre privaten Dokumente auf unbekannte Server hochzuladen. Laden Sie Magic PDF Pro noch heute herunter und erleben Sie professionelles PDF-Management mit ultimativer Privatsphäre."
       },
       "rating": 5,
       "ratingCount": 1
