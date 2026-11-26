@@ -44,7 +44,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/apps.json index.html sitemap.xml
+          git add data/apps.json index.html sitemap.xml $(test -f onizleme.html && echo onizleme.html)
           git commit -m "chore: sync apps from App Store"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"

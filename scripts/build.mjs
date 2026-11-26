@@ -259,6 +259,52 @@ function renderDocument(d) {
         </article>`;
 }
 
+// ---------------------------------------------------------------------------
+// Preview page (onizleme.html) — list-style items for the new design.
+// ---------------------------------------------------------------------------
+
+function renderPvProject(p) {
+  const store = STORES[p.kind];
+  const search = LANGS.flatMap((l) => [p[l].name, p[l].tagline, p[l].genre]).filter(Boolean).join(' ').toLowerCase();
+  const thumb = p.icon
+    ? `<img class="pv-thumb${p.kind === 'chrome' ? ' is-ext' : ''}" src="${esc(p.icon)}" alt="" width="64" height="64" loading="lazy" decoding="async">`
+    : `<span class="pv-thumb pv-monogram" aria-hidden="true">${esc(p.monogram ?? p.en.name.slice(0, 2))}</span>`;
+  const rating = p.ratingCount
+    ? `<p class="pv-rating"><svg aria-hidden="true"><use href="#i-star"/></svg>${p.rating.toFixed(1)} <span>(${p.ratingCount})</span></p>`
+    : '';
+  return `
+          <li class="pv-item pv-project" data-kind="${p.kind}" data-search="${esc(search)}"${p.released ? ` data-released="${esc(p.released)}"` : ''}>
+            <div class="pv-item-bg" aria-hidden="true"></div>
+            ${thumb}
+            <div>
+              <h3 class="pv-item-title">
+                <a class="pv-link" href="${esc(p.url)}" target="_blank" rel="noopener">
+                  ${i18n('span', '', pick(p, 'name'))}<svg class="pv-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  ${i18n('span', 'sr-only', Object.fromEntries(LANGS.map((l) => [l, ` — ${store[l]}`])))}
+                </a>
+              </h3>
+              ${i18n('p', 'pv-item-desc', pick(p, 'tagline'))}
+              ${rating}
+              <ul class="pv-tags"><li><svg aria-hidden="true"><use href="#${store.icon}"/></svg>${store.platform}</li>${p.tr.genre ? i18n('li', '', pick(p, 'genre')) : ''}</ul>
+            </div>
+          </li>`;
+}
+
+function renderPvDocument(d) {
+  return `
+          <li class="pv-item pv-doc">
+            <div class="pv-item-bg" aria-hidden="true"></div>
+            <span class="pv-thumb pv-doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
+            <div>
+              <h3 class="pv-item-title">
+                <a class="pv-link" href="${REQUEST_URL}" target="_blank" rel="noopener">${i18n('span', '', pick(d, 'title'))}<svg class="pv-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </h3>
+              ${d.tr.desc ? i18n('p', 'pv-item-desc', pick(d, 'desc')) : ''}
+              <p class="pv-private"><svg aria-hidden="true"><use href="#i-lock"/></svg>${i18n('span', '', ON_REQUEST)}</p>
+            </div>
+          </li>`;
+}
+
 function renderJsonLd(projects) {
   const person = {
     '@context': 'https://schema.org',
@@ -323,6 +369,21 @@ for (const asset of ['assets/css/main.css', 'assets/js/main.js']) {
   html = html.replace(new RegExp(`(${asset.replace(/[.]/g, '\\.')})\\?v=[\\w]*`, 'g'), `$1?v=${hash}`);
 }
 await writeFile(file('index.html'), html);
+
+// Preview page, while it exists.
+try {
+  let pv = await readFile(file('onizleme.html'), 'utf8');
+  pv = replaceBlock(pv, 'pv-projects', projects.map(renderPvProject).join(''));
+  pv = replaceBlock(pv, 'pv-documents', documents.filter((d) => d.onRequest).map(renderPvDocument).join(''));
+  for (const [k, v] of Object.entries(counts)) pv = pv.replace(new RegExp(`(data-count="${k}">)\\d*(<)`), `$1${v}$2`);
+  for (const asset of ['assets/css/preview.css', 'assets/js/preview.js']) {
+    const hash = createHash('sha256').update(await readFile(file(asset))).digest('hex').slice(0, 10);
+    pv = pv.replace(new RegExp(`(${asset.replace(/[.]/g, '\\.')})\\?v=[\\w]*`, 'g'), `$1?v=${hash}`);
+  }
+  await writeFile(file('onizleme.html'), pv);
+} catch (err) {
+  if (err.code !== 'ENOENT') throw err;
+}
 
 const lastmod = (catalog.syncedAt ?? new Date().toISOString()).slice(0, 10);
 await writeFile(file('sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
