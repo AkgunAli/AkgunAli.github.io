@@ -130,7 +130,7 @@ const pick = (obj, key, fmt = (v) => v) => Object.fromEntries(LANGS.map((l) => [
 const i18n = (tag, cls, values) =>
   `<${tag} class="${cls}" ${LANGS.map((l) => `data-${l}="${esc(values[l])}"`).join(' ')}>${esc(values.tr)}</${tag}>`;
 
-function toProjects(catalog, cfg, extensions) {
+function toProjects(catalog, cfg, extensions, websites) {
   const hidden = new Set(cfg.hidden.map(Number));
   const featured = cfg.featured.map(Number);
   const rank = (a) => (featured.includes(a.id) ? featured.indexOf(a.id) : Infinity);
@@ -152,17 +152,26 @@ function toProjects(catalog, cfg, extensions) {
       return { kind: 'ios', featured: featured.includes(a.id), ...a, ...text };
     });
 
+  const sites = websites.map((w) => ({ kind: 'web', ...w }));
   const exts = extensions.map((e) => ({ kind: 'chrome', ...e }));
-  return [...apps, ...exts];
+  return [...apps, ...sites, ...exts];
 }
 
+const STORES = {
+  ios: { icon: 'i-apple', platform: 'iOS', tr: "App Store'da Gör", en: 'View on App Store', de: 'Im App Store ansehen' },
+  web: { icon: 'i-globe', platform: 'Web', tr: 'Siteyi ziyaret et', en: 'Visit website', de: 'Website besuchen' },
+  chrome: { icon: 'i-chrome', platform: 'Chrome', tr: "Web Store'da Gör", en: 'View on Chrome Web Store', de: 'Im Chrome Web Store ansehen' },
+};
+
 function renderCard(p) {
-  const store = p.kind === 'ios'
-    ? { icon: 'i-apple', tr: "App Store'da Gör", en: 'View on App Store', de: 'Im App Store ansehen' }
-    : { icon: 'i-chrome', tr: "Web Store'da Gör", en: 'View on Chrome Web Store', de: 'Im Chrome Web Store ansehen' };
+  const store = STORES[p.kind];
   const search = LANGS.flatMap((l) => [p[l].name, p[l].tagline, p[l].genre]).filter(Boolean).join(' ').toLowerCase();
   const genre = p.tr.genre ? i18n('span', 'chip', pick(p, 'genre')) : '';
-  const platform = `<span class="chip chip-platform"><svg aria-hidden="true"><use href="#${store.icon}"/></svg>${p.kind === 'ios' ? 'iOS' : 'Chrome'}</span>`;
+  const platform = `<span class="chip chip-platform"><svg aria-hidden="true"><use href="#${store.icon}"/></svg>${store.platform}</span>`;
+  // Websites without an icon get a monogram tile.
+  const icon = p.icon
+    ? `<img class="card-icon${p.kind === 'chrome' ? ' is-ext' : ''}" src="${esc(p.icon)}" alt="" width="72" height="72" loading="lazy" decoding="async">`
+    : `<span class="card-icon card-monogram" aria-hidden="true">${esc(p.monogram ?? p.en.name.slice(0, 2))}</span>`;
   const rating = p.ratingCount
     ? `<span class="rating" title="${p.ratingCount}"><svg aria-hidden="true"><use href="#i-star"/></svg>${p.rating.toFixed(1)} <small>(${p.ratingCount})</small></span>`
     : '';
@@ -170,7 +179,7 @@ function renderCard(p) {
   return `
       <article class="card${p.featured ? ' is-featured' : ''}" data-kind="${p.kind}" data-search="${esc(search)}"${p.released ? ` data-released="${esc(p.released)}"` : ''}>
         <div class="card-head">
-          <img class="card-icon${p.kind === 'chrome' ? ' is-ext' : ''}" src="${esc(p.icon)}" alt="" width="72" height="72" loading="lazy" decoding="async">
+          ${icon}
           <div class="card-meta">${platform}${genre}</div>
         </div>
         ${i18n('h3', 'card-title', pick(p, 'name'))}
@@ -263,9 +272,9 @@ function renderJsonLd(projects) {
       name: p.en.name,
       description: p.en.tagline,
       url: p.url,
-      image: p.icon,
-      operatingSystem: p.kind === 'ios' ? 'iOS' : 'Chrome',
-      applicationCategory: p.kind === 'ios' ? 'MobileApplication' : 'BrowserApplication',
+      ...(p.icon ? { image: p.icon } : {}),
+      operatingSystem: { ios: 'iOS', web: 'Web', chrome: 'Chrome' }[p.kind],
+      applicationCategory: { ios: 'MobileApplication', web: 'WebApplication', chrome: 'BrowserApplication' }[p.kind],
       ...(p.ratingCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, ratingCount: p.ratingCount } } : {}),
     })),
   };
@@ -283,6 +292,7 @@ function replaceBlock(html, name, content) {
 const cfg = await readJson('data/appstore.json');
 let catalog = await readJson('data/apps.json');
 const extensions = await readJson('data/extensions.json');
+const websites = await readJson('data/websites.json');
 
 if (process.argv.includes('--sync')) {
   const next = await syncAppStore(cfg, catalog);
@@ -297,8 +307,8 @@ if (process.argv.includes('--sync')) {
   }
 }
 
-const projects = toProjects(catalog, cfg, extensions);
-const counts = { all: projects.length, ios: projects.filter((p) => p.kind === 'ios').length, chrome: projects.filter((p) => p.kind === 'chrome').length };
+const projects = toProjects(catalog, cfg, extensions, websites);
+const counts = { all: projects.length, ...Object.fromEntries(Object.keys(STORES).map((k) => [k, projects.filter((p) => p.kind === k).length])) };
 
 let html = await readFile(file('index.html'), 'utf8');
 html = replaceBlock(html, 'projects', projects.map(renderCard).join(''));
@@ -321,4 +331,4 @@ await writeFile(file('sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `);
 
-console.log(`Rendered ${counts.ios} apps, ${counts.chrome} extensions and ${documents.length} documents into index.html.`);
+console.log(`Rendered ${counts.ios} apps, ${counts.web} websites, ${counts.chrome} extensions and ${documents.length} documents into index.html.`);
