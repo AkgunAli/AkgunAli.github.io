@@ -11,6 +11,7 @@ Kişisel portfolyo sitesi — iOS uygulamaları ve Chrome eklentileri. Derleme a
 | `assets/js/main.js` | Dil (TR/EN/DE), tema (sistem/açık/koyu), filtre, arama, kod animasyonu. |
 | `data/apps.json` | App Store'dan **otomatik** çekilen uygulamalar — elle düzenlemeyin. |
 | `data/appstore.json` | Senkronizasyon ayarları: öne çıkanlar, gizlenenler, kısa açıklama/isim override'ları. |
+| `data/websites.json` | Web siteleri ("Web Siteleri" sekmesi). `icon` verilmezse `monogram` harfleriyle ikon üretilir. |
 | `data/extensions.json` | Chrome eklentileri (Web Store'un açık API'si yok, elle eklenir). |
 | `data/documents.json` | `Documents/` klasöründeki belgelerin başlıkları; yeni dosyalar otomatik listelenir. |
 | `Documents/` | Herkese açık dosyalar (şu an sadece profil fotoğrafı; CV ve belgeler talep üzerine paylaşılır). Repo public olduğu için buradaki **her dosya herkes tarafından indirilebilir** — kimlik bilgisi içeren belgeler (diploma, transkript, sertifika) buraya konmaz; `data/documents.json` içinde `onRequest: true` ile "talep üzerine" listelenir. |
