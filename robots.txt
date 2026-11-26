@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /liste.html
+Disallow: /onizleme.html
 # Personal documents are linked from the site but kept out of search results.
 Disallow: /Documents/
 
