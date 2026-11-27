@@ -1,6 +1,6 @@
 {
   "$comment": "OTOMATİK ÜRETİLİR — elle düzenlemeyin. scripts/build.mjs --sync tarafından App Store'dan çekilir. Kısa açıklama/isim değişiklikleri için data/appstore.json içindeki overrides alanını kullanın.",
-  "syncedAt": "2026-11-26T13:54:04.704Z",
+  "syncedAt": "2026-11-27T07:12:26.215Z",
   "developer": {
     "id": 1672967762,
     "name": "Ali Akgun",
@@ -32,6 +32,32 @@
       },
       "rating": 5,
       "ratingCount": 4
+    },
+    {
+      "id": 6834784021,
+      "url": "https://apps.apple.com/app/id6834784021",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/32/87/ae328715-3c5a-a277-d373-499d886f43f7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
+      "released": "2026-11-17T08:00:00Z",
+      "updated": "2026-11-17T12:50:21Z",
+      "version": "1.0",
+      "price": 0,
+      "tr": {
+        "name": "Der Die Das mit Ali Abi",
+        "genre": "Education",
+        "description": "Never guess der, die or das again.\n\nDer Die Das mit Ali Abi is a fast German article dictionary from the creator of Deutsch mit Ali Abi. Type any noun and instantly see its article, plural and meaning in your language.\n\nDICTIONARY\n• 89,000+ German nouns with article and plural\n• Fast search, works without umlauts too (a for ä, ss for ß)\n• Meaning in your language with on-device translation\n• Favorites and recent searches\n\nLEARN THE RULES\n• Endings that tell you the article, with real hit rates from the dictionary\n• Meaning groups: days, weather, cars, colors and more\n• Compound nouns: the last word decides\n\nPLAY\n• Word mode: pick the right article\n• Sentence mode: fill in the article in a real sentence, in every case\n• Duel a friend with a room code or invite link (Game Center)\n\nTRACK YOUR PROGRESS\n• Words you got right, words you opened, accuracy and daily streak\n• Word of the day and quiz reminders\n\nApp in 13 languages: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nNo account needed, no personal data collected."
+      },
+      "en": {
+        "name": "Der Die Das mit Ali Abi",
+        "genre": "Education",
+        "description": "Never guess der, die or das again.\n\nDer Die Das mit Ali Abi is a fast German article dictionary from the creator of Deutsch mit Ali Abi. Type any noun and instantly see its article, plural and meaning in your language.\n\nDICTIONARY\n• 89,000+ German nouns with article and plural\n• Fast search, works without umlauts too (a for ä, ss for ß)\n• Meaning in your language with on-device translation\n• Favorites and recent searches\n\nLEARN THE RULES\n• Endings that tell you the article, with real hit rates from the dictionary\n• Meaning groups: days, weather, cars, colors and more\n• Compound nouns: the last word decides\n\nPLAY\n• Word mode: pick the right article\n• Sentence mode: fill in the article in a real sentence, in every case\n• Duel a friend with a room code or invite link (Game Center)\n\nTRACK YOUR PROGRESS\n• Words you got right, words you opened, accuracy and daily streak\n• Word of the day and quiz reminders\n\nApp in 13 languages: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nNo account needed, no personal data collected."
+      },
+      "de": {
+        "name": "Der Die Das mit Ali Abi",
+        "genre": "Education",
+        "description": "Nie wieder der, die oder das raten.\n\nDer Die Das mit Ali Abi ist ein schnelles Artikel-Wörterbuch vom Macher von Deutsch mit Ali Abi. Gib ein Nomen ein und sieh sofort Artikel, Plural und Bedeutung in deiner Sprache.\n\nWÖRTERBUCH\n• Über 89.000 deutsche Nomen mit Artikel und Plural\n• Schnelle Suche, auch ohne Umlaute (a statt ä, ss statt ß)\n• Bedeutung in deiner Sprache per Übersetzung auf dem Gerät\n• Favoriten und letzte Suchen\n\nREGELN LERNEN\n• Endungen, die den Artikel verraten, mit echten Trefferquoten aus dem Wörterbuch\n• Bedeutungsgruppen: Tage, Wetter, Automarken, Farben und mehr\n• Komposita: Das letzte Wort entscheidet\n\nSPIELEN\n• Wortmodus: Wähle den richtigen Artikel\n• Satzmodus: Ergänze den Artikel in einem echten Satz, in allen Fällen\n• Duell mit Freunden per Raumcode oder Einladungslink (Game Center)\n\nFORTSCHRITT\n• Richtig beantwortete Wörter, geöffnete Wörter, Trefferquote und Tagesserie\n• Wort des Tages und Quiz-Erinnerungen\n\nApp in 13 Sprachen: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nKein Konto nötig, keine persönlichen Daten."
+      },
+      "rating": null,
+      "ratingCount": 0
     },
     {
       "id": 6836943130,
@@ -110,32 +136,6 @@
       },
       "rating": 5,
       "ratingCount": 1
-    },
-    {
-      "id": 6834784021,
-      "url": "https://apps.apple.com/app/id6834784021",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/32/87/ae328715-3c5a-a277-d373-499d886f43f7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp",
-      "released": "2026-11-17T08:00:00Z",
-      "updated": "2026-11-17T12:50:21Z",
-      "version": "1.0",
-      "price": 0,
-      "tr": {
-        "name": "Der Die Das mit Ali Abi",
-        "genre": "Education",
-        "description": "Never guess der, die or das again.\n\nDer Die Das mit Ali Abi is a fast German article dictionary from the creator of Deutsch mit Ali Abi. Type any noun and instantly see its article, plural and meaning in your language.\n\nDICTIONARY\n• 89,000+ German nouns with article and plural\n• Fast search, works without umlauts too (a for ä, ss for ß)\n• Meaning in your language with on-device translation\n• Favorites and recent searches\n\nLEARN THE RULES\n• Endings that tell you the article, with real hit rates from the dictionary\n• Meaning groups: days, weather, cars, colors and more\n• Compound nouns: the last word decides\n\nPLAY\n• Word mode: pick the right article\n• Sentence mode: fill in the article in a real sentence, in every case\n• Duel a friend with a room code or invite link (Game Center)\n\nTRACK YOUR PROGRESS\n• Words you got right, words you opened, accuracy and daily streak\n• Word of the day and quiz reminders\n\nApp in 13 languages: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nNo account needed, no personal data collected."
-      },
-      "en": {
-        "name": "Der Die Das mit Ali Abi",
-        "genre": "Education",
-        "description": "Never guess der, die or das again.\n\nDer Die Das mit Ali Abi is a fast German article dictionary from the creator of Deutsch mit Ali Abi. Type any noun and instantly see its article, plural and meaning in your language.\n\nDICTIONARY\n• 89,000+ German nouns with article and plural\n• Fast search, works without umlauts too (a for ä, ss for ß)\n• Meaning in your language with on-device translation\n• Favorites and recent searches\n\nLEARN THE RULES\n• Endings that tell you the article, with real hit rates from the dictionary\n• Meaning groups: days, weather, cars, colors and more\n• Compound nouns: the last word decides\n\nPLAY\n• Word mode: pick the right article\n• Sentence mode: fill in the article in a real sentence, in every case\n• Duel a friend with a room code or invite link (Game Center)\n\nTRACK YOUR PROGRESS\n• Words you got right, words you opened, accuracy and daily streak\n• Word of the day and quiz reminders\n\nApp in 13 languages: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nNo account needed, no personal data collected."
-      },
-      "de": {
-        "name": "Der Die Das mit Ali Abi",
-        "genre": "Education",
-        "description": "Nie wieder der, die oder das raten.\n\nDer Die Das mit Ali Abi ist ein schnelles Artikel-Wörterbuch vom Macher von Deutsch mit Ali Abi. Gib ein Nomen ein und sieh sofort Artikel, Plural und Bedeutung in deiner Sprache.\n\nWÖRTERBUCH\n• Über 89.000 deutsche Nomen mit Artikel und Plural\n• Schnelle Suche, auch ohne Umlaute (a statt ä, ss statt ß)\n• Bedeutung in deiner Sprache per Übersetzung auf dem Gerät\n• Favoriten und letzte Suchen\n\nREGELN LERNEN\n• Endungen, die den Artikel verraten, mit echten Trefferquoten aus dem Wörterbuch\n• Bedeutungsgruppen: Tage, Wetter, Automarken, Farben und mehr\n• Komposita: Das letzte Wort entscheidet\n\nSPIELEN\n• Wortmodus: Wähle den richtigen Artikel\n• Satzmodus: Ergänze den Artikel in einem echten Satz, in allen Fällen\n• Duell mit Freunden per Raumcode oder Einladungslink (Game Center)\n\nFORTSCHRITT\n• Richtig beantwortete Wörter, geöffnete Wörter, Trefferquote und Tagesserie\n• Wort des Tages und Quiz-Erinnerungen\n\nApp in 13 Sprachen: English, Türkçe, Español, Français, Italiano, Português, Русский, 日本語, 한국어, Українська, العربية, فارسی, Shqip.\n\nKein Konto nötig, keine persönlichen Daten."
-      },
-      "rating": null,
-      "ratingCount": 0
     },
     {
       "id": 6769936058,
@@ -368,8 +368,8 @@
         "genre": "Productivity",
         "description": "Schichtfrei ist der Schichtkalender für alle, die im Schichtdienst arbeiten – in Pflege, Industrie, Logistik, Gastronomie oder bei Polizei und Feuerwehr.\n\n• Monat in Sekunden eintragen: Schicht wählen, über die Tage wischen.\n• Dienstplan scannen: Schichtfrei liest den Plan direkt auf deinem iPhone – das Foto wird nicht gespeichert.\n• Einfach sagen: „Montag bis Freitag Früh, Wochenende frei“.\n• Rotation einrichten, z. B. F F S S N N – –.\n• Nacht-, Sonntags- und Feiertagsstunden, Überstunden und Resturlaub. Feiertage aller 16 Bundesländer – und von über 200 weiteren Ländern und ihren Regionen, komplett offline.\n• Widgets für Home- und Sperrbildschirm, Wecker vor Schichtbeginn, Export in deinen Kalender.\n• PDF- und CSV-Export für die Abrechnung.\n\nKeine Werbung. Kein Tracking. Kein Konto. Alles bleibt auf deinem iPhone."
       },
-      "rating": null,
-      "ratingCount": 0
+      "rating": 5,
+      "ratingCount": 1
     }
   ]
 }
