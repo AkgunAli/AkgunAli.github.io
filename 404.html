@@ -4,20 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0f172a">
   <title>Sayfa bulunamadı — Ali Akgün</title>
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/assets/css/theme.css">
   <style>
-    .nf { min-height: 100vh; display: grid; place-content: center; gap: 16px; padding: 24px; text-align: center; }
-    .nf h1 { font-size: clamp(64px, 14vw, 120px); font-weight: 800; letter-spacing: -0.05em; }
-    .nf p { color: var(--text-2); }
+    body {
+      min-height: 100vh; min-height: 100dvh;
+      background: radial-gradient(40rem 30rem at 50% -10%, var(--glow-1), transparent 70%), var(--bg);
+    }
+    .nf { min-height: 100vh; min-height: 100dvh; display: grid; place-content: center; gap: 18px; padding: 24px; text-align: center; }
+    .code { font: 500 13px/1 "JetBrains Mono", ui-monospace, monospace; color: var(--accent); letter-spacing: .08em; }
+    .nf h1 { font-size: clamp(72px, 16vw, 128px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+    .nf p { color: var(--text-2); max-width: 420px; }
+    .home {
+      justify-self: center; display: inline-flex; align-items: center; gap: 8px; margin-top: 6px;
+      padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;
+      color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(94, 234, 212, 0.3);
+      transition: background-color .2s, color .2s;
+    }
+    .home:hover { background: var(--accent); color: var(--bg); }
   </style>
 </head>
 <body>
   <main class="nf">
-    <h1 class="grad">404</h1>
-    <p>Aradığınız sayfa bulunamadı. · The page you're looking for doesn't exist.</p>
-    <p><a class="btn btn-primary" href="/">Ana sayfa · Home</a></p>
+    <p class="code">$ cd ~/bu-sayfa</p>
+    <h1>404</h1>
+    <p>Aradığınız sayfa bulunamadı. · The page you're looking for doesn't exist. · Diese Seite gibt es nicht.</p>
+    <a class="home" href="/">← Ana sayfa · Home · Startseite</a>
   </main>
 </body>
 </html>

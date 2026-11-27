@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#3B82F6">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0f172a">
   <title>Duel invite · Der Die Das mit Ali Abi</title>
   <meta name="description" content="Join a live der-die-das duel in Der Die Das mit Ali Abi. Same 10 questions, at the same time.">
   <meta property="og:type" content="website">
@@ -16,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@700;800&display=swap">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
   <style>
     :root {
       --duel-1: #3B82F6;
@@ -33,9 +34,9 @@
     .bg {
       position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
       background:
-        radial-gradient(40rem 28rem at 15% -5%, var(--glow-1), transparent 70%),
-        radial-gradient(36rem 26rem at 100% 10%, var(--glow-2), transparent 70%),
-        radial-gradient(30rem 24rem at 50% 110%, rgba(16, 185, 129, 0.14), transparent 70%);
+        radial-gradient(38rem 30rem at 50% -12%, var(--glow-1), transparent 70%),
+        radial-gradient(30rem 22rem at 100% 15%, var(--glow-2), transparent 70%),
+        radial-gradient(30rem 24rem at 50% 112%, rgba(16, 185, 129, 0.14), transparent 70%);
     }
     .bg::after {
       content: ""; position: absolute; inset: 0;
@@ -43,7 +44,7 @@
       background-size: 22px 22px;
       mask-image: linear-gradient(to bottom, #000 0%, transparent 65%);
       -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 65%);
-      opacity: 0.55;
+      opacity: 0.35;
     }
 
     .wrap {
@@ -103,13 +104,13 @@
     }
     .ticket::before { left: -12px; clip-path: inset(0 0 0 50%); }
     .ticket::after { right: -12px; clip-path: inset(0 50% 0 0); }
-    .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+    .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); }
     .digits { display: flex; justify-content: center; align-items: center; gap: 5px; direction: ltr; }
     .digit {
       width: clamp(36px, 10.5vw, 50px); height: clamp(48px, 14vw, 62px); border-radius: 12px;
       display: grid; place-items: center;
       font: 800 clamp(26px, 8vw, 32px)/1 "JetBrains Mono", ui-monospace, monospace;
-      background: var(--bg-sunken); border: 1px solid var(--border);
+      color: var(--text); background: var(--bg-sunken); border: 1px solid var(--border-strong);
       animation: pop .5s var(--ease) backwards;
     }
     .digit:nth-child(1) { animation-delay: .05s; } .digit:nth-child(2) { animation-delay: .1s; }
@@ -124,7 +125,7 @@
       transition: transform .2s var(--ease), background-color .2s, color .2s;
     }
     .copy:active { transform: scale(.96); }
-    .copy.done { color: var(--ok); background: rgba(16,185,129,.12); }
+    .copy.done { color: var(--bg); background: var(--accent); }
     .copy svg { width: 15px; height: 15px; }
     .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; padding-top: 2px; }
     .fact {
@@ -158,7 +159,8 @@
     .steps { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; counter-reset: s; }
     .steps li {
       counter-increment: s; display: flex; align-items: center; gap: 12px;
-      padding: 12px 14px; border-radius: 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      padding: 12px 14px; border-radius: 16px; background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border);
+      box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.06);
       font-size: 15px; color: var(--text-2);
     }
     .steps li::before {
@@ -176,7 +178,8 @@
     .store-off .cta-store { display: none; }
 
     .foot { text-align: center; font-size: 12px; color: var(--text-3); }
-    .foot a { color: var(--text-2); text-decoration: none; font-weight: 600; }
+    .foot a { color: var(--text-2); text-decoration: none; font-weight: 600; transition: color .2s; }
+    .foot a:hover { color: var(--accent); }
 
     .no-code .ticket .digits, .no-code .ticket .copy, .no-code #open { display: none; }
     .no-code .ticket .missing { display: block; }
