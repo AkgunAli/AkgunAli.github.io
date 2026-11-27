@@ -7,8 +7,9 @@ Kişisel portfolyo sitesi — iOS uygulamaları ve Chrome eklentileri. Derleme a
 | Yol | Açıklama |
 | --- | --- |
 | `index.html` | Sayfa. Proje kartları `<!-- build:projects -->` arasına **otomatik** yazılır. |
-| `assets/css/main.css` | Tasarım token'ları (açık/koyu tema), bileşenler. |
-| `assets/js/main.js` | Dil (TR/EN/DE), tema (sistem/açık/koyu), filtre, arama, kod animasyonu. |
+| `assets/css/home.css` | Ana sayfa tasarımı: koyu tema, iki sütun, imleç ışığı, kart efektleri. |
+| `assets/js/home.js` | Dil (TR/EN/DE), imleç ışığı, aktif bölüm menüsü, proje filtresi, kod animasyonu. |
+| `assets/css/main.css` | Önceki tasarımın stilleri; `404.html` ve `duel/` davet sayfaları hâlâ kullanıyor. |
 | `data/apps.json` | App Store'dan **otomatik** çekilen uygulamalar — elle düzenlemeyin. |
 | `data/appstore.json` | Senkronizasyon ayarları: öne çıkanlar, gizlenenler, kısa açıklama/isim override'ları. |
 | `data/websites.json` | Web siteleri ("Web Siteleri" sekmesi). `icon` verilmezse `monogram` harfleriyle ikon üretilir. |
@@ -41,4 +42,4 @@ node scripts/build.mjs --sync   # önce App Store'dan güncel veriyi çek
 python3 -m http.server 8000     # http://localhost:8000
 ```
 
-> CSS/JS dosyalarını değiştirdikten sonra `node scripts/build.mjs` çalıştırın (veya push edin; Action çalıştırır): `index.html` içindeki `?v=` sürüm etiketleri güncellenir, böylece tarayıcılar eski önbelleği kullanmaz.
+> CSS/JS dosyalarını değiştirdikten sonra `node scripts/build.mjs` çalıştırın (veya push edin; Action çalıştırır): `index.html` içindeki `home.css`/`home.js` `?v=` sürüm etiketleri güncellenir, böylece tarayıcılar eski önbelleği kullanmaz.

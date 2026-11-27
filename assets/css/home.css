@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Preview design — dark, two columns, cursor spotlight.
+   Homepage — dark, two columns, cursor spotlight.
    ========================================================================== */
 :root {
   --bg: #0f172a;
@@ -159,6 +159,8 @@ img { display: block; max-width: 100%; }
 
 .pv-footer { max-width: 440px; padding-bottom: 64px; color: var(--text-2); font-size: 13px; }
 .pv-footer p + p { margin-top: 8px; }
+.pv-footer-link { color: var(--text); font-weight: 600; transition: color 0.2s; }
+.pv-footer-link:hover { color: var(--accent); }
 
 /* Project and document rows: thumbnail beside text from tablet width up. */
 @media (min-width: 640px) {

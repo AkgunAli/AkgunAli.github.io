@@ -163,44 +163,9 @@ const STORES = {
   chrome: { icon: 'i-chrome', platform: 'Chrome', tr: "Web Store'da Gör", en: 'View on Chrome Web Store', de: 'Im Chrome Web Store ansehen' },
 };
 
-function renderCard(p) {
-  const store = STORES[p.kind];
-  const search = LANGS.flatMap((l) => [p[l].name, p[l].tagline, p[l].genre]).filter(Boolean).join(' ').toLowerCase();
-  const genre = p.tr.genre ? i18n('span', 'chip', pick(p, 'genre')) : '';
-  const platform = `<span class="chip chip-platform"><svg aria-hidden="true"><use href="#${store.icon}"/></svg>${store.platform}</span>`;
-  // Websites without an icon get a monogram tile.
-  const icon = p.icon
-    ? `<img class="card-icon${p.kind === 'chrome' ? ' is-ext' : ''}" src="${esc(p.icon)}" alt="" width="72" height="72" loading="lazy" decoding="async">`
-    : `<span class="card-icon card-monogram" aria-hidden="true">${esc(p.monogram ?? p.en.name.slice(0, 2))}</span>`;
-  const rating = p.ratingCount
-    ? `<span class="rating" title="${p.ratingCount}"><svg aria-hidden="true"><use href="#i-star"/></svg>${p.rating.toFixed(1)} <small>(${p.ratingCount})</small></span>`
-    : '';
-
-  return `
-      <article class="card${p.featured ? ' is-featured' : ''}" data-kind="${p.kind}" data-search="${esc(search)}"${p.released ? ` data-released="${esc(p.released)}"` : ''}>
-        <div class="card-head">
-          ${icon}
-          <div class="card-meta">${platform}${genre}</div>
-        </div>
-        ${i18n('h3', 'card-title', pick(p, 'name'))}
-        ${i18n('p', 'card-desc', pick(p, 'tagline'))}
-        <div class="card-foot">
-          ${rating}
-          <a class="store-link" href="${esc(p.url)}" target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#${store.icon}"/></svg>
-            ${i18n('span', '', store)}
-            ${i18n('span', 'sr-only', pick(p, 'name', (v) => `— ${v}`))}
-            <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          </a>
-        </div>
-      </article>`;
-}
-
 // ---------------------------------------------------------------------------
 // Documents — every file in Documents/ is listed; data/documents.json adds titles/order.
 // ---------------------------------------------------------------------------
-
-const DOWNLOAD = { tr: 'İndir: ', en: 'Download: ', de: 'Herunterladen: ' };
 
 const DOC_ICONS = { cv: 'i-file', diploma: 'i-cap', transcript: 'i-file', certificate: 'i-award' };
 
@@ -228,42 +193,11 @@ const ON_REQUEST = { tr: 'Talep üzerine paylaşılır', en: 'Available on reque
 const REQUEST = { tr: 'Talep et', en: 'Request', de: 'Anfragen' };
 const REQUEST_URL = 'https://www.linkedin.com/in/akgunali/';
 
-function renderDocument(d) {
-  if (d.onRequest) {
-    return `
-        <article class="doc">
-          <span class="doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
-          <div class="doc-body">
-            ${i18n('h3', 'doc-title', pick(d, 'title'))}
-            ${d.tr.desc ? i18n('p', 'doc-desc', pick(d, 'desc')) : ''}
-            <p class="doc-meta doc-private"><svg aria-hidden="true"><use href="#i-lock"/></svg>${i18n('span', '', ON_REQUEST)}</p>
-          </div>
-          <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="${REQUEST_URL}" target="_blank" rel="noopener">${i18n('span', '', REQUEST)}${i18n('span', 'sr-only', pick(d, 'title', (v) => `: ${v}`))}</a>
-          </div>
-        </article>`;
-  }
-  const href = esc('Documents/' + encodeURIComponent(d.file));
-  return `
-        <article class="doc">
-          <span class="doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
-          <div class="doc-body">
-            ${i18n('h3', 'doc-title', pick(d, 'title'))}
-            ${d.tr.desc ? i18n('p', 'doc-desc', pick(d, 'desc')) : ''}
-            <p class="doc-meta">${esc(d.ext)} · ${esc(d.size)}</p>
-          </div>
-          <div class="doc-actions">
-            <a class="btn btn-ghost btn-sm" href="${href}" target="_blank" rel="noopener">${i18n('span', '', { tr: 'Görüntüle', en: 'View', de: 'Ansehen' })}${i18n('span', 'sr-only', pick(d, 'title', (v) => `: ${v}`))}</a>
-            <a class="icon-btn" href="${href}" download ${LANGS.map((l) => `data-${l}="${esc(DOWNLOAD[l] + d[l].title)}"`).join(' ')} data-attr="aria-label" aria-label="${esc(DOWNLOAD.tr + d.tr.title)}"><svg aria-hidden="true"><use href="#i-download"/></svg></a>
-          </div>
-        </article>`;
-}
-
 // ---------------------------------------------------------------------------
-// Preview page (onizleme.html) — list-style items for the new design.
+// Homepage list items
 // ---------------------------------------------------------------------------
 
-function renderPvProject(p) {
+function renderProject(p) {
   const store = STORES[p.kind];
   const search = LANGS.flatMap((l) => [p[l].name, p[l].tagline, p[l].genre]).filter(Boolean).join(' ').toLowerCase();
   const thumb = p.icon
@@ -290,17 +224,22 @@ function renderPvProject(p) {
           </li>`;
 }
 
-function renderPvDocument(d) {
+function renderDocument(d) {
+  // Public files link to the file; credentials link to the request contact.
+  const href = d.onRequest ? REQUEST_URL : esc('Documents/' + encodeURIComponent(d.file));
+  const meta = d.onRequest
+    ? `<p class="pv-private"><svg aria-hidden="true"><use href="#i-lock"/></svg>${i18n('span', '', ON_REQUEST)}</p>`
+    : `<p class="pv-private">${esc(d.ext)} · ${esc(d.size)}</p>`;
   return `
           <li class="pv-item pv-doc">
             <div class="pv-item-bg" aria-hidden="true"></div>
             <span class="pv-thumb pv-doc-icon" aria-hidden="true"><svg><use href="#${DOC_ICONS[d.kind] ?? 'i-file'}"/></svg></span>
             <div>
               <h3 class="pv-item-title">
-                <a class="pv-link" href="${REQUEST_URL}" target="_blank" rel="noopener">${i18n('span', '', pick(d, 'title'))}<svg class="pv-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="pv-link" href="${href}" target="_blank" rel="noopener">${i18n('span', '', pick(d, 'title'))}<svg class="pv-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
               </h3>
               ${d.tr.desc ? i18n('p', 'pv-item-desc', pick(d, 'desc')) : ''}
-              <p class="pv-private"><svg aria-hidden="true"><use href="#i-lock"/></svg>${i18n('span', '', ON_REQUEST)}</p>
+              ${meta}
             </div>
           </li>`;
 }
@@ -356,34 +295,19 @@ if (process.argv.includes('--sync')) {
 const projects = toProjects(catalog, cfg, extensions, websites);
 const counts = { all: projects.length, ...Object.fromEntries(Object.keys(STORES).map((k) => [k, projects.filter((p) => p.kind === k).length])) };
 
-let html = await readFile(file('index.html'), 'utf8');
-html = replaceBlock(html, 'projects', projects.map(renderCard).join(''));
-html = replaceBlock(html, 'jsonld', '\n  ' + renderJsonLd(projects));
 const documents = await loadDocuments();
-html = replaceBlock(html, 'documents', documents.map(renderDocument).join(''));
+
+let html = await readFile(file('index.html'), 'utf8');
+html = replaceBlock(html, 'pv-projects', projects.map(renderProject).join(''));
+html = replaceBlock(html, 'pv-documents', documents.map(renderDocument).join(''));
+html = replaceBlock(html, 'jsonld', '\n  ' + renderJsonLd(projects));
 for (const [k, v] of Object.entries(counts)) html = html.replace(new RegExp(`(data-count="${k}">)\\d*(<)`), `$1${v}$2`);
-html = html.replace(/(<strong data-stat="apps">)\d*(<)/, `$1${counts.ios}$2`).replace(/(<strong data-stat="ext">)\d*(<)/, `$1${counts.chrome}$2`);
 // Cache-busting: browsers (and GitHub Pages' 10-minute cache) must never pair new HTML with old CSS/JS.
-for (const asset of ['assets/css/main.css', 'assets/js/main.js']) {
+for (const asset of ['assets/css/home.css', 'assets/js/home.js']) {
   const hash = createHash('sha256').update(await readFile(file(asset))).digest('hex').slice(0, 10);
   html = html.replace(new RegExp(`(${asset.replace(/[.]/g, '\\.')})\\?v=[\\w]*`, 'g'), `$1?v=${hash}`);
 }
 await writeFile(file('index.html'), html);
-
-// Preview page, while it exists.
-try {
-  let pv = await readFile(file('onizleme.html'), 'utf8');
-  pv = replaceBlock(pv, 'pv-projects', projects.map(renderPvProject).join(''));
-  pv = replaceBlock(pv, 'pv-documents', documents.filter((d) => d.onRequest).map(renderPvDocument).join(''));
-  for (const [k, v] of Object.entries(counts)) pv = pv.replace(new RegExp(`(data-count="${k}">)\\d*(<)`), `$1${v}$2`);
-  for (const asset of ['assets/css/preview.css', 'assets/js/preview.js']) {
-    const hash = createHash('sha256').update(await readFile(file(asset))).digest('hex').slice(0, 10);
-    pv = pv.replace(new RegExp(`(${asset.replace(/[.]/g, '\\.')})\\?v=[\\w]*`, 'g'), `$1?v=${hash}`);
-  }
-  await writeFile(file('onizleme.html'), pv);
-} catch (err) {
-  if (err.code !== 'ENOENT') throw err;
-}
 
 const lastmod = (catalog.syncedAt ?? new Date().toISOString()).slice(0, 10);
 await writeFile(file('sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
