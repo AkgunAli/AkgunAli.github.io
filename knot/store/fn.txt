@@ -1,0 +1,268 @@
+// Bundled for the Supabase dashboard editor: www/js/engine.js inlined, then supabase/functions/knot/index.ts.
+// @ts-nocheck
+import postgres from 'npm:postgres@3.4.5';
+
+// Pure rules for Knot (no DOM). A puzzle is a planar drawing of a shape (star, heart, fish ...): its points
+// and the lines between them never cross in the drawing. The game scrambles the points onto a circle so the
+// lines tangle; the player drags points until no two lines cross. Then the points fly back into the shape.
+// Everything comes from a seed, so a solve is described by its puzzle and its move list [[point, x, y], ...]
+// (x, y in thousandths of the board): the leaderboard server replays the moves and checks the result.
+
+const SIZE = 1000;                       // board width in board units (moves are whole numbers)
+const TALL = 1500;                       // board height: the knot sits in the middle, with room above and below
+const TOP = (TALL - SIZE) / 2;
+const LEVELS = 120;
+const HINTS = 3;                          // per puzzle: a hint puts one point where it belongs
+
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const utcDay = (d = new Date()) => Math.floor(d.getTime() / 86400000);
+const dailySeed = (day) => ((2166136261 ^ 0x4b4e4f54) + day * 2654435761) >>> 0;
+const levelSeed = (n) => ((2166136261 ^ 0x4c564c53) + n * 2246822519) >>> 0;
+
+// Shapes as closed outlines in a 0..1 box (clockwise), with a colour for the reveal.
+const SHAPES = [
+  { id: 'diamond', c: '#4C9EEB', o: [[.5, .05], [.92, .5], [.5, .95], [.08, .5]] },
+  { id: 'house', c: '#E8774C', o: [[.5, .06], [.92, .42], [.84, .42], [.84, .94], [.16, .94], [.16, .42], [.08, .42]] },
+  { id: 'star', c: '#F2B33D', o: [[.5, .03], [.62, .37], [.97, .38], [.69, .59], [.79, .94], [.5, .73], [.21, .94], [.31, .59], [.03, .38], [.38, .37]] },
+  { id: 'heart', c: '#E5484D', o: [[.5, .28], [.62, .1], [.82, .08], [.96, .25], [.93, .48], [.5, .93], [.07, .48], [.04, .25], [.18, .08], [.38, .1]] },
+  { id: 'fish', c: '#2EAE9B', o: [[.08, .5], [.3, .24], [.55, .2], [.74, .34], [.95, .14], [.88, .5], [.95, .86], [.74, .66], [.55, .8], [.3, .76]] },
+  { id: 'tree', c: '#3E9B4F', o: [[.5, .04], [.78, .38], [.66, .38], [.88, .68], [.56, .68], [.56, .95], [.44, .95], [.44, .68], [.12, .68], [.34, .38], [.22, .38]] },
+  { id: 'moon', c: '#8E7CF0', o: [[.55, .04], [.3, .16], [.16, .4], [.18, .66], [.36, .88], [.62, .96], [.86, .86], [.6, .76], [.44, .56], [.44, .32]] },
+  { id: 'boat', c: '#3A86FF', o: [[.52, .05], [.82, .6], [.52, .6], [.52, .66], [.94, .66], [.8, .9], [.2, .9], [.06, .66], [.46, .66], [.46, .2]] },
+  { id: 'crown', c: '#F2B33D', o: [[.06, .22], [.3, .48], [.5, .12], [.7, .48], [.94, .22], [.86, .86], [.14, .86]] },
+  { id: 'rocket', c: '#E5484D', o: [[.5, .03], [.66, .2], [.68, .6], [.86, .8], [.66, .8], [.6, .93], [.4, .93], [.34, .8], [.14, .8], [.32, .6], [.34, .2]] },
+  { id: 'bell', c: '#E8A33D', o: [[.5, .06], [.66, .14], [.72, .36], [.76, .66], [.92, .8], [.08, .8], [.24, .66], [.28, .36], [.34, .14]] },
+  { id: 'leaf', c: '#4FB35A', o: [[.14, .9], [.12, .6], [.24, .3], [.5, .12], [.88, .06], [.82, .4], [.66, .7], [.4, .86]] },
+  { id: 'arrow', c: '#3A86FF', o: [[.06, .38], [.56, .38], [.56, .14], [.95, .5], [.56, .86], [.56, .62], [.06, .62]] },
+  { id: 'bird', c: '#5B8DEF', o: [[.06, .46], [.28, .3], [.44, .34], [.6, .08], [.66, .36], [.94, .4], [.72, .58], [.62, .86], [.42, .66], [.24, .66]] },
+  { id: 'cup', c: '#B4744A', o: [[.12, .14], [.74, .14], [.74, .26], [.92, .3], [.92, .56], [.72, .62], [.62, .9], [.24, .9]] },
+  { id: 'cat', c: '#7A6CE0', o: [[.18, .08], [.36, .28], [.64, .28], [.82, .08], [.86, .5], [.76, .78], [.5, .92], [.24, .78], [.14, .5]] },
+  { id: 'umbrella', c: '#E5484D', o: [[.5, .06], [.8, .16], [.96, .46], [.56, .46], [.56, .84], [.44, .94], [.3, .84], [.38, .8], [.44, .84], [.44, .46], [.04, .46], [.2, .16]] },
+  { id: 'key', c: '#E8A33D', o: [[.06, .3], [.3, .3], [.36, .42], [.94, .42], [.94, .58], [.84, .58], [.84, .72], [.72, .72], [.72, .58], [.36, .58], [.3, .7], [.06, .7]] },
+  { id: 'cloud', c: '#6BA8E5', o: [[.1, .66], [.12, .46], [.28, .38], [.36, .2], [.56, .16], [.7, .3], [.88, .34], [.94, .56], [.84, .74], [.2, .76]] },
+  { id: 'flame', c: '#F07A3D', o: [[.5, .04], [.7, .3], [.66, .44], [.82, .4], [.86, .64], [.7, .9], [.3, .9], [.14, .64], [.24, .36], [.36, .48], [.4, .24]] },
+  { id: 'shield', c: '#4C6FE0', o: [[.5, .05], [.9, .2], [.84, .6], [.5, .95], [.16, .6], [.1, .2]] },
+  { id: 'gem', c: '#2EC4B6', o: [[.24, .14], [.76, .14], [.95, .38], [.5, .92], [.05, .38]] },
+  { id: 'mushroom', c: '#E5484D', o: [[.5, .08], [.8, .16], [.96, .46], [.64, .5], [.66, .9], [.34, .9], [.36, .5], [.04, .46], [.2, .16]] },
+  { id: 'butterfly', c: '#C065D9', o: [[.5, .3], [.7, .08], [.94, .14], [.88, .46], [.6, .52], [.84, .78], [.66, .94], [.5, .7], [.34, .94], [.16, .78], [.4, .52], [.12, .46], [.06, .14], [.3, .08]] }
+];
+
+const inside = (pts, x, y) => { let c = false; for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) { const [xi, yi] = pts[i], [xj, yj] = pts[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; } return c; };
+const orient = (a, b, c) => (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+// do segments ab and cd cross (sharing an end point does not count)
+function crosses(a, b, c, d) {
+  const d1 = orient(a, b, c), d2 = orient(a, b, d), d3 = orient(c, d, a), d4 = orient(c, d, b);
+  return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0));
+}
+const segDist = (p, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], l = dx * dx + dy * dy; let t = l ? ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / l : 0; t = Math.max(0, Math.min(1, t)); return Math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy); };
+
+// Build a puzzle: shape outline + `extra` points inside it, then inner lines nearest-first that cross nothing
+// and stay inside the shape. `sol` are the solution positions (board coords), `start` the scrambled circle.
+function makePuzzle(seed, shapeIndex, extra, swaps = 0) {
+  const r = rng(seed), shape = SHAPES[shapeIndex % SHAPES.length];
+  const pad = 90, span = SIZE - pad * 2, toB = ([x, y]) => [pad + x * span, TOP + pad + y * span];
+  const pts = shape.o.map(toB);
+  for (let k = 0, tries = 0; k < extra && tries < 4000; tries++) {
+    const x = r(), y = r(); if (!inside(shape.o, x, y)) continue;
+    const p = toB([x, y]); if (pts.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < 95)) continue;
+    if (shape.o.some((_, i) => segDist(p, toB(shape.o[i]), toB(shape.o[(i + 1) % shape.o.length])) < 45)) continue;
+    pts.push(p); k++;
+  }
+  let n = pts.length; const m = shape.o.length, edges = [], deg = new Array(n).fill(0);
+  const ok = (i, j) => !edges.some(([a, b]) => crosses(pts[i], pts[j], pts[a], pts[b])) && !pts.some((p, k) => k !== i && k !== j && segDist(p, pts[i], pts[j]) < 28);
+  for (let i = 0; i < m; i++) { const j = (i + 1) % m; edges.push([i, j]); deg[i]++; deg[j]++; }
+  const cand = []; for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) cand.push([i, j, Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1])]);
+  cand.sort((a, b) => a[2] - b[2]);
+  for (const [i, j] of cand) {
+    if (deg[i] >= 4 || deg[j] >= 4 || edges.some(([a, b]) => (a === i && b === j) || (a === j && b === i))) continue;
+    const mx = ((pts[i][0] + pts[j][0]) / 2 - pad) / span, my = ((pts[i][1] + pts[j][1]) / 2 - TOP - pad) / span;
+    if (!inside(shape.o, mx, my) || !ok(i, j)) continue;
+    edges.push([i, j]); deg[i]++; deg[j]++;
+  }
+  // every point needs at least two lines, or dragging it means nothing: drop inner points that have fewer
+  for (let i = n - 1; i >= m; i--) if (deg[i] < 2) {
+    pts.splice(i, 1);
+    for (let k = edges.length - 1; k >= 0; k--) { const [a, b] = edges[k]; if (a === i || b === i) { deg[a === i ? b : a]--; edges.splice(k, 1); } }
+    edges.forEach((e) => { if (e[0] > i) e[0]--; if (e[1] > i) e[1]--; }); deg.splice(i, 1);
+  }
+  n = pts.length;
+  const sol = pts.map(([x, y]) => [Math.round(x), Math.round(y)]);
+  let start;
+  if (swaps > 0) {
+    // gentle scramble for the first levels: the drawing stays, `swaps` pairs of dots trade places
+    for (let t = 0; t < 80; t++) {
+      start = sol.map((q) => q.slice());
+      for (let k = 0; k < swaps; k++) { const i = Math.floor(r() * n); let j = Math.floor(r() * (n - 1)); if (j >= i) j++; [start[i], start[j]] = [start[j], start[i]]; }
+      if (countCrossings(start, edges) >= 2) break;
+    }
+  } else {
+    // full scramble: points on a circle in a shuffled order, again until it is tangled enough
+    for (let t = 0; t < 50; t++) {
+      const order = [...Array(n).keys()]; for (let i = n - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+      start = new Array(n); order.forEach((k, i) => { const a = -Math.PI / 2 + (i / n) * Math.PI * 2; start[k] = [Math.round(SIZE / 2 + Math.cos(a) * SIZE * 0.42), Math.round(TALL / 2 + Math.sin(a) * SIZE * 0.42)]; });
+      if (countCrossings(start, edges) >= Math.max(2, Math.floor(n / 2))) break;
+    }
+  }
+  // par: one move per dot that does not start where it belongs
+  const off = start.filter((q, i) => q[0] !== sol[i][0] || q[1] !== sol[i][1]).length;
+  return { shape: shape.id, color: shape.c, n, outline: m, edges, sol, start, par: Math.max(1, off) };
+}
+// A dot resting on a line it does not belong to counts as a crossing too (TOUCH units), so dots cannot be
+// stacked or lined up on a line to cheat the count.
+const TOUCH = 12;
+function problems(pos, edges, mark) {
+  let k = 0;
+  for (let i = 0; i < edges.length; i++) {
+    const [a, b] = edges[i];
+    for (let j = i + 1; j < edges.length; j++) {
+      const [c, d] = edges[j];
+      if (a === c || a === d || b === c || b === d) continue;
+      if (crosses(pos[a], pos[b], pos[c], pos[d])) { k++; if (mark) { mark.add(i); mark.add(j); } }
+    }
+    for (let p = 0; p < pos.length; p++) if (p !== a && p !== b && segDist(pos[p], pos[a], pos[b]) < TOUCH) { k++; if (mark) mark.add(i); }
+  }
+  return k;
+}
+const countCrossings = (pos, edges) => problems(pos, edges, null);
+function crossingEdges(pos, edges) { const bad = new Set(); problems(pos, edges, bad); return bad; }
+// Level n (0-based): shapes in turn, more points as the levels go on.
+// Levels 1-40 keep the drawing and only swap a few pairs of dots (1 pair, then more every 5 levels); later levels
+// start from a full scramble on a circle.
+const GENTLE = 40;
+function levelPuzzle(n) { return makePuzzle(levelSeed(n), n % SHAPES.length, Math.min(12, 1 + Math.floor(n / 5)), n < GENTLE ? 1 + Math.floor(n / 5) : 0); }
+function dailyPuzzle(day) { const r = rng(dailySeed(day)); return makePuzzle(dailySeed(day), Math.floor(r() * SHAPES.length), 8); }
+// stars for a solve: 3 at or under par moves, 2 within one and a half times par, else 1
+const starsFor = (moves, par) => (moves <= par ? 3 : moves <= Math.ceil(par * 1.5) ? 2 : 1);
+
+// Replays a move list on a puzzle: returns the move count and whether the result has no crossings.
+function replay(puzzle, moves) {
+  const pos = puzzle.start.map((p) => p.slice());
+  if (!Array.isArray(moves) || moves.length > 2000) return { bad: true };
+  for (const m of moves) {
+    if (!Array.isArray(m) || m.length !== 3 || !m.every(Number.isInteger)) return { bad: true };
+    const [i, x, y] = m; if (i < 0 || i >= puzzle.n || x < 0 || y < 0 || x > SIZE || y > TALL) return { bad: true };
+    pos[i] = [x, y];
+  }
+  return { bad: false, moves: moves.length, solved: countCrossings(pos, puzzle.edges) === 0 };
+}
+
+// Knot leaderboard API. One endpoint, POST JSON { action, id, secret, ... }.
+// Scores are never trusted: the client sends the puzzle (daily day or level number) and its move list, and this function
+// replays it with the game's own engine (www/js/engine.js, copied to _shared) before saving.
+// Everything it touches lives in the `knot` schema (the project is shared with Tilt and another app).
+// Deploy from the dashboard: sh tools/bundle-function.sh → Edge Functions → knot → paste → Deploy
+// ("Verify JWT" off; the function checks the player itself).
+
+const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 2 });
+
+const CORS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS'
+};
+const json = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), { status, headers: { ...CORS, 'Content-Type': 'application/json' } });
+class Bad extends Error { constructor(msg: string, public status = 400) { super(msg); } }
+
+// Names come only from these lists, so nobody can put words of their own on the board.
+const ADJ = ['Bouncy', 'Calm', 'Brave', 'Clever', 'Lucky', 'Sunny', 'Quiet', 'Bold', 'Merry', 'Witty',
+  'Gentle', 'Rapid', 'Bright', 'Cosy', 'Daring', 'Eager', 'Fuzzy', 'Golden', 'Happy', 'Jolly',
+  'Kind', 'Lively', 'Mighty', 'Nimble', 'Proud', 'Rosy', 'Silver', 'Tiny', 'Vivid', 'Zesty'];
+const ANIMAL = ['Otter', 'Panda', 'Fox', 'Koala', 'Owl', 'Tiger', 'Dolphin', 'Falcon', 'Lynx', 'Puffin',
+  'Badger', 'Beaver', 'Bison', 'Camel', 'Crane', 'Gecko', 'Heron', 'Ibis', 'Jaguar', 'Lemur',
+  'Llama', 'Moose', 'Orca', 'Parrot', 'Rabbit', 'Robin', 'Seal', 'Sloth', 'Wolf', 'Zebra'];
+const rnd = () => crypto.getRandomValues(new Uint32Array(1))[0];
+const pick = <T>(a: T[]) => a[rnd() % a.length];
+const randomName = () => pick(ADJ) + ' ' + pick(ANIMAL) + ' ' + (10 + (rnd() % 90));
+
+async function sha256(s: string) {
+  const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+async function player(id: unknown, secret: unknown) {
+  if (typeof id !== 'string' || !UUID.test(id) || typeof secret !== 'string' || secret.length < 32 || secret.length > 128) throw new Bad('bad identity');
+  const hash = await sha256(secret);
+  const [row] = await sql`select secret_hash, name from knot.players where id = ${id}`;
+  if (row) {
+    if (row.secret_hash !== hash) throw new Bad('wrong secret', 403);
+    return { id, name: row.name as string };
+  }
+  const name = randomName();
+  await sql`insert into knot.players (id, secret_hash, name) values (${id}, ${hash}, ${name}) on conflict (id) do nothing`;
+  return { id, name };
+}
+
+// A solve: moves [[point, x, y], ...] (whole board units) and the claimed score (daily: moves, level: stars).
+function solve(b: Record<string, unknown>) {
+  const moves = b.moves, score = Number(b.score);
+  if (!Array.isArray(moves) || moves.length < 1 || moves.length > 2000) throw new Bad('bad moves');
+  for (const m of moves) if (!Array.isArray(m) || m.length !== 3 || !m.every((v) => Number.isInteger(v))) throw new Bad('bad moves');
+  if (!Number.isInteger(score) || score < 1) throw new Bad('bad score');
+  return { moves: moves as number[][], score };
+}
+
+const dailyBoard = (day: number, me: string) => sql`select rank::int, name, score, me from knot.daily_board(${day}, ${me})`;
+const bestBoard = (me: string) => sql`select rank::int, name, score, me from knot.best_board(${me})`;
+
+async function handle(b: Record<string, unknown>) {
+  const me = await player(b.id, b.secret);
+  switch (b.action) {
+    case 'hello':
+      return { name: me.name, day: utcDay() };
+
+    case 'rename': {
+      const name = randomName();
+      await sql`update knot.players set name = ${name} where id = ${me.id}`;
+      return { name };
+    }
+
+    case 'score': {
+      const g = solve(b);
+      if (b.mode === 'daily') {
+        const day = Number(b.day), t = utcDay();
+        if (!Number.isInteger(day) || day < t - 1 || day > t) throw new Bad('day closed');
+        const r = replay(dailyPuzzle(day), g.moves);
+        if (r.bad || !r.solved || g.moves.length !== g.score) throw new Bad('score does not match');
+        await sql`insert into knot.daily_scores (player_id, day, moves) values (${me.id}, ${day}, ${g.score})
+          on conflict (player_id, day) do update set moves = excluded.moves, played_at = now()
+          where knot.daily_scores.moves > excluded.moves`;
+        const [mine] = (await dailyBoard(day, me.id)).filter((r) => r.me);
+        return { ok: true, rank: mine ? mine.rank : null, name: me.name };
+      }
+      const level = Number(b.level);
+      if (!Number.isInteger(level) || level < 0 || level >= LEVELS) throw new Bad('bad level');
+      const p = levelPuzzle(level), r = replay(p, g.moves);
+      if (r.bad || !r.solved || starsFor(g.moves.length, p.par) !== g.score) throw new Bad('score does not match');
+      await sql`insert into knot.level_stars (player_id, level, stars) values (${me.id}, ${level}, ${g.score})
+        on conflict (player_id, level) do update set stars = excluded.stars, played_at = now()
+        where knot.level_stars.stars < excluded.stars`;
+      const [mine] = (await bestBoard(me.id)).filter((r) => r.me);
+      return { ok: true, rank: mine ? mine.rank : null, name: me.name };
+    }
+
+    case 'board': {
+      if (b.kind === 'best') return { name: me.name, rows: await bestBoard(me.id) };
+      const day = b.day === undefined ? utcDay() : Number(b.day);
+      if (!Number.isInteger(day)) throw new Bad('bad day');
+      return { name: me.name, day, rows: await dailyBoard(day, me.id) };
+    }
+  }
+  throw new Bad('unknown action');
+}
+
+Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
+  if (req.method !== 'POST') return json({ error: 'POST only' }, 405);
+  try {
+    return json(await handle(await req.json()));
+  } catch (e) {
+    if (e instanceof Bad) return json({ error: e.message }, e.status);
+    console.error(e);
+    return json({ error: 'server error' }, 500);
+  }
+});
