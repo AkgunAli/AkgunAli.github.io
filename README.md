@@ -8,7 +8,7 @@ Kişisel portfolyo sitesi — iOS uygulamaları ve Chrome eklentileri. Derleme a
 | --- | --- |
 | `index.html` | Sayfa. Proje kartları `<!-- build:projects -->` arasına **otomatik** yazılır. |
 | `assets/css/home.css` | Ana sayfa tasarımı: koyu tema, iki sütun, imleç ışığı, kart efektleri. |
-| `assets/js/home.js` | Dil (TR/EN/DE), imleç ışığı, aktif bölüm menüsü, proje filtresi, kod animasyonu. |
+| `assets/js/home.js` | Dil (TR/EN/DE), imleç ışığı, aktif bölüm menüsü, proje filtresi, kod animasyonu ve etkileşimli terminal (`analiz et`, `swift`, `projeler`, `yardım`…). |
 | `assets/css/theme.css` | Ana sayfanın koyu renkleri ve temel ayarlar; `404.html` ve `duel/` davet sayfaları kullanır. |
 | `assets/css/doc.css` | Uygulama destek ve gizlilik sayfaları (`blockcrash/`, `fit/`, `knot/`, `orbit/`, `plop/`, `popword/`, `derdiedas/privacy/`) için ortak stil. Her uygulamanın `style.css`'i yalnızca marka rengini (`--app`) tanımlar. |
 | `data/apps.json` | App Store'dan **otomatik** çekilen uygulamalar — elle düzenlemeyin. |
