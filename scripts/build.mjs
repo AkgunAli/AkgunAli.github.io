@@ -257,7 +257,7 @@ function renderJsonLd(projects) {
       name: p.en.name,
       description: p.en.tagline,
       url: p.url,
-      ...(p.icon ? { image: p.icon } : {}),
+      ...(p.icon ? { image: new URL(p.icon, SITE_URL).href } : {}),
       operatingSystem: { ios: 'iOS', web: 'Web', chrome: 'Chrome' }[p.kind],
       applicationCategory: { ios: 'MobileApplication', web: 'WebApplication', chrome: 'BrowserApplication' }[p.kind],
       ...(p.ratingCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, ratingCount: p.ratingCount } } : {}),
