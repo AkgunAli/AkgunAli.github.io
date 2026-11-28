@@ -3,9 +3,21 @@
     "id": "perfektlebenslauf",
     "url": "https://www.perfektlebenslauf.com/",
     "domain": "perfektlebenslauf.com",
-    "monogram": "PL",
-    "tr": { "name": "Perfekt Lebenslauf", "tagline": "Almanya'daki iş başvuruları için dakikalar içinde profesyonel Almanca özgeçmiş (Lebenslauf) hazırlayın.", "genre": "CV Oluşturucu" },
-    "en": { "name": "Perfekt Lebenslauf", "tagline": "Create a professional German CV (Lebenslauf) for job applications in Germany in minutes.", "genre": "CV Builder" },
-    "de": { "name": "Perfekt Lebenslauf", "tagline": "Erstellen Sie in wenigen Minuten einen professionellen Lebenslauf für Ihre Bewerbung in Deutschland.", "genre": "Lebenslauf-Generator" }
+    "icon": "assets/img/perfektlebenslauf.svg",
+    "tr": {
+      "name": "PerfektLebenslauf",
+      "tagline": "Almanya'daki başvurular için özgeçmiş (Lebenslauf), DIN 5008'e uygun ön yazı ve kapak sayfasını ücretsiz hazırlayın: 100+ şablon, yapay zeka yardımı, abonelik ve hesap olmadan PDF.",
+      "genre": "CV Oluşturucu"
+    },
+    "en": {
+      "name": "PerfektLebenslauf",
+      "tagline": "Create a German CV (Lebenslauf), a DIN 5008 cover letter and a cover page for free: 100+ templates, AI help, PDF download with no subscription and no account.",
+      "genre": "CV Builder"
+    },
+    "de": {
+      "name": "PerfektLebenslauf",
+      "tagline": "Lebenslauf, Anschreiben nach DIN 5008 und Deckblatt kostenlos erstellen: 100+ Vorlagen, KI-Hilfe, PDF-Download ohne Abo und ohne Konto.",
+      "genre": "Lebenslauf-Generator"
+    }
   }
 ]
