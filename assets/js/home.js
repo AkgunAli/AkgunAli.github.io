@@ -209,38 +209,44 @@ for app in apps where app.rating >= 4.5 {
   }
   document.addEventListener('visibilitychange', resumeIfVisible);
 
+  const STOP = Symbol("stop");
   async function playCode() {
+    try { await demoLoop(); } catch (e) { if (e !== STOP) throw e; }
+  }
+
+  async function demoLoop() {
     codeEl.dataset.initial = codeEl.textContent;
     const caret = '<span class="caret"></span>';
     const typingCaret = '<span class="caret is-typing"></span>';
+    const nap = async (ms) => { await sleep(ms); if (interactive) throw STOP; };
     const render = (text, shell, typing) => { codeEl.innerHTML = highlight(text, shell) + (typing ? typingCaret : caret); };
 
-    await sleep(2500); // let people read the first snippet
+    await nap(2500); // let people read the first snippet
     for (let i = 1; ; i = (i + 1) % SNIPPETS.length) {
       // Delete the current snippet, a few characters at a time.
       let text = codeEl.textContent;
       const prev = SNIPPETS[(i + SNIPPETS.length - 1) % SNIPPETS.length];
       while (text.length) {
-        await whenVisible();
+        await whenVisible(); if (interactive) throw STOP;
         text = text.slice(0, -3);
         render(text, prev.shell, true);
-        await sleep(14);
+        await nap(14);
       }
 
       const snippet = SNIPPETS[i];
       titleEl.textContent = snippet.file;
       langEl.textContent = snippet.lang;
-      await sleep(350);
+      await nap(350);
 
       // Type the next one. Shell output lines appear at once, like real output.
       const target = snippet.code();
       const lines = target.split('\n');
       text = '';
       for (const [n, line] of lines.entries()) {
-        await whenVisible();
+        await whenVisible(); if (interactive) throw STOP;
         if (n) text += '\n';
         if (snippet.shell && !line.startsWith('$')) {
-          await sleep(320);
+          await nap(320);
           text += line;
           render(text, true, true);
           continue;
@@ -248,14 +254,309 @@ for app in apps where app.rating >= 4.5 {
         for (const ch of line) {
           text += ch;
           render(text, snippet.shell, true);
-          await sleep(ch === ' ' ? 20 : 28 + Math.random() * 45);
+          await nap(ch === ' ' ? 20 : 28 + Math.random() * 45);
         }
         render(text, snippet.shell, true);
-        await sleep(snippet.shell ? 260 : 90);
+        await nap(snippet.shell ? 260 : 90);
       }
       render(text, snippet.shell, false);
-      await sleep(2600);
+      await nap(2600);
     }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Interactive terminal — visitors can type commands (or tap the example
+  // chips). The first interaction stops the demo loop; `demo` restarts it.
+  // ---------------------------------------------------------------------------
+  const termEl = $('#term');
+  const preEl = $('#term-code');
+  const formEl = $('#term-form');
+  const inputEl = $('#term-input');
+  const srEl = $('#term-sr');
+  const initialHTML = codeEl.innerHTML;
+  let interactive = false;
+  let busy = false;
+  let skip = false;
+  const termLog = [];
+  const cmdHistory = [];
+  let historyPos = 0;
+
+  const T = {
+    tr: {
+      welcome: "Merhaba! 👋 Bir komut yaz ya da aşağıdaki örneklerden birine dokun. Tüm komutlar için 'yardım'.",
+      notFound: (c) => `zsh: komut bulunamadı: ${c} — 'yardım' yazmayı dene`,
+      analyzing: 'Portföy analiz ediliyor…',
+      keys: { ios: 'iOS uygulaması', web: 'web sitesi', chrome: 'Chrome eklentisi', rating: 'ortalama puan', reviews: 'toplam değerlendirme', newest: 'en yeni', top: 'en çok değerlendirilen', exp: 'deneyim', langs: 'diller' },
+      exp: '5+ yıl iOS',
+      langs: ['Türkçe', 'English', 'Deutsch'],
+      verdict: (n) => `// sonuç: zamanınızı geri kazandıran ${n} proje ✓`,
+      projectsMore: '→ Detaylar aşağıda, Projeler bölümünde.',
+      whoami: 'Ali Akgün — Senior iOS Geliştirici · Singen, Almanya',
+      demo: 'Demo moduna dönülüyor…',
+      help: [
+        ['analiz et', 'portföyü canlı analiz eder'],
+        ['swift', 'örnek bir SwiftUI kodu yazar'],
+        ['projeler', 'tüm uygulama ve siteleri listeler'],
+        ['iletişim', 'bağlantılar'],
+        ['ben kimim', 'kısaca ben'],
+        ['temizle', 'ekranı temizler'],
+        ['demo', 'animasyona geri döner'],
+      ],
+    },
+    en: {
+      welcome: "Hi! 👋 Type a command or tap one of the examples below. 'help' lists everything.",
+      notFound: (c) => `zsh: command not found: ${c} — try 'help'`,
+      analyzing: 'Analyzing portfolio…',
+      keys: { ios: 'iOS apps', web: 'websites', chrome: 'Chrome extensions', rating: 'average rating', reviews: 'total reviews', newest: 'newest', top: 'most reviewed', exp: 'experience', langs: 'languages' },
+      exp: '5+ years of iOS',
+      langs: ['Turkish', 'English', 'German'],
+      verdict: (n) => `// result: ${n} projects that give you your time back ✓`,
+      projectsMore: '→ Details below, in the Projects section.',
+      whoami: 'Ali Akgün — Senior iOS Developer · Singen, Germany',
+      demo: 'Back to demo mode…',
+      help: [
+        ['analyze', 'analyzes the portfolio live'],
+        ['swift', 'writes a sample SwiftUI view'],
+        ['projects', 'lists all apps and sites'],
+        ['contact', 'links'],
+        ['whoami', 'me, in one line'],
+        ['clear', 'clears the screen'],
+        ['demo', 'back to the animation'],
+      ],
+    },
+    de: {
+      welcome: "Hallo! 👋 Gib einen Befehl ein oder tippe auf ein Beispiel unten. 'hilfe' zeigt alle Befehle.",
+      notFound: (c) => `zsh: Befehl nicht gefunden: ${c} — versuch 'hilfe'`,
+      analyzing: 'Portfolio wird analysiert…',
+      keys: { ios: 'iOS-Apps', web: 'Websites', chrome: 'Chrome-Erweiterungen', rating: 'Durchschnittsbewertung', reviews: 'Bewertungen gesamt', newest: 'neueste', top: 'meistbewertet', exp: 'Erfahrung', langs: 'Sprachen' },
+      exp: '5+ Jahre iOS',
+      langs: ['Türkisch', 'Englisch', 'Deutsch'],
+      verdict: (n) => `// Ergebnis: ${n} Projekte, die Ihnen Zeit zurückgeben ✓`,
+      projectsMore: '→ Details unten im Bereich Projekte.',
+      whoami: 'Ali Akgün — Senior iOS-Entwickler · Singen, Deutschland',
+      demo: 'Zurück zum Demo-Modus…',
+      help: [
+        ['analysieren', 'analysiert das Portfolio live'],
+        ['swift', 'schreibt eine SwiftUI-Beispielansicht'],
+        ['projekte', 'listet alle Apps und Websites'],
+        ['kontakt', 'Links'],
+        ['whoami', 'ich, in einer Zeile'],
+        ['löschen', 'leert den Bildschirm'],
+        ['demo', 'zurück zur Animation'],
+      ],
+    },
+  };
+  const ALIASES = {
+    analyze: ['analiz et', 'analiz', 'analyze', 'analyse', 'analysieren', 'analysiere'],
+    swift: ['swift', 'swift örneği', 'swift ornegi', 'swift example', 'swift-beispiel', 'kod', 'code', 'beispiel'],
+    projects: ['projeler', 'projects', 'projekte', 'ls'],
+    contact: ['iletişim', 'iletisim', 'contact', 'kontakt'],
+    whoami: ['whoami', 'ben kimim', 'kimim', 'wer bin ich'],
+    clear: ['temizle', 'clear', 'cls', 'löschen', 'loschen'],
+    demo: ['demo'],
+    help: ['yardım', 'yardim', 'help', 'hilfe', '?'],
+  };
+  const fold = (s) => s.toLocaleLowerCase(lang).trim().replace(/\s+/g, ' ');
+  const resolve = (raw) => Object.keys(ALIASES).find((k) => ALIASES[k].some((a) => fold(a) === fold(raw)));
+  const t2 = () => T[lang];
+  const pause = (ms) => (skip || reducedMotion.matches ? Promise.resolve() : sleep(ms));
+
+  function show(current, typing) {
+    const parts = current == null ? termLog : [...termLog, current];
+    codeEl.innerHTML = parts.join('\n') + (typing ? '<span class="caret is-typing"></span>' : '');
+    preEl.scrollTop = preEl.scrollHeight;
+  }
+  const line = (html) => { termLog.push(html); if (termLog.length > 300) termLog.splice(0, termLog.length - 300); show(); };
+  const dim = (text) => `<span class="term-dim">${escapeHtml(text)}</span>`;
+
+  // Types `text` with syntax highlighting, then keeps it in the log.
+  async function typeOut(text, speed = 9) {
+    let cur = '';
+    for (const ch of text) {
+      cur += ch;
+      if (!skip) show(highlight(cur, false), true);
+      if (ch !== ' ') await pause(speed);
+    }
+    line(highlight(cur, false));
+  }
+
+  function portfolio() {
+    const items = cards.map((c) => {
+      const m = ($('.pv-rating', c)?.textContent ?? '').match(/([\d.]+)\s*\((\d+)\)/);
+      return {
+        kind: c.dataset.kind,
+        name: $('.pv-link span', c).textContent.trim(),
+        released: c.dataset.released ?? '',
+        rating: m ? Number(m[1]) : 0,
+        reviews: m ? Number(m[2]) : 0,
+      };
+    });
+    const reviews = items.reduce((n, i) => n + i.reviews, 0);
+    const avg = reviews ? items.reduce((s, i) => s + i.rating * i.reviews, 0) / reviews : 0;
+    const newest = items.filter((i) => i.released).sort((a, b) => b.released.localeCompare(a.released))[0];
+    const top = [...items].sort((a, b) => b.reviews - a.reviews)[0];
+    return { items, reviews, avg, newest, top };
+  }
+
+  const COMMANDS = {
+    async analyze() {
+      const s = t2();
+      const p = portfolio();
+      line(`<span class="tk-p">▸</span> ${escapeHtml(s.analyzing)}`);
+      for (let pct = 0; pct <= 100; pct += 10) {
+        const filled = Math.round(pct / 5);
+        show(`<span class="term-ok">[${'█'.repeat(filled)}${'░'.repeat(20 - filled)}]</span> ${pct}%`, false);
+        await pause(70);
+      }
+      line(`<span class="term-ok">[${'█'.repeat(20)}]</span> 100%`);
+      const k = s.keys;
+      const n = (kind) => p.items.filter((i) => i.kind === kind).length;
+      const json = [
+        '{',
+        `  "${k.ios}": ${n('ios')},`,
+        `  "${k.web}": ${n('web')},`,
+        `  "${k.chrome}": ${n('chrome')},`,
+        `  "${k.rating}": "★ ${p.avg.toFixed(1)}",`,
+        `  "${k.reviews}": ${p.reviews},`,
+        `  "${k.newest}": "${p.newest?.name ?? '-'}",`,
+        `  "${k.top}": "${p.top ? `${p.top.name} (${p.top.reviews})` : '-'}",`,
+        `  "${k.exp}": "${s.exp}",`,
+        `  "${k.langs}": [${s.langs.map((l) => `"${l}"`).join(', ')}]`,
+        '}',
+      ].join('\n');
+      await typeOut(json, 6);
+      line(`<span class="term-ok">${escapeHtml(s.verdict(p.items.length))}</span>`);
+      return json;
+    },
+    async swift() {
+      const code = `struct AppCard: View {
+    let app: App
+
+    var body: some View {
+        HStack(spacing: 12) {
+            AsyncImage(url: app.icon)
+                .frame(width: 56, height: 56)
+                .clipShape(.rect(cornerRadius: 12))
+            VStack(alignment: .leading) {
+                Text(app.name).font(.headline)
+                Text("★ \\(app.rating, specifier: "%.1f")")
+            }
+        }
+    }
+}`;
+      titleEl.textContent = 'AppCard.swift';
+      langEl.textContent = 'SwiftUI';
+      await typeOut(code, 14);
+      return code;
+    },
+    async projects() {
+      const p = portfolio();
+      const label = { ios: 'iOS', web: 'Web', chrome: 'Chrome' };
+      for (const i of p.items) {
+        line(`<span class="tk-f">•</span> ${escapeHtml(i.name)} ${dim(`(${label[i.kind]})`)}`);
+        await pause(35);
+      }
+      line(dim(t2().projectsMore));
+      return p.items.map((i) => i.name).join(', ');
+    },
+    async contact() {
+      const links = [
+        ['github', 'https://github.com/AkgunAli', 'github.com/AkgunAli'],
+        ['linkedin', 'https://www.linkedin.com/in/akgunali/', 'linkedin.com/in/akgunali'],
+        ['coffee', 'https://buymeacoffee.com/aliakgun', 'buymeacoffee.com/aliakgun'],
+      ];
+      for (const [k, href, text] of links) {
+        line(`<span class="tk-k">${k.padEnd(9)}</span>→ <a href="${href}" target="_blank" rel="noopener">${text}</a>`);
+        await pause(60);
+      }
+      return links.map((l) => l[2]).join(', ');
+    },
+    async whoami() { line(escapeHtml(t2().whoami)); return t2().whoami; },
+    async help() {
+      for (const [cmd, desc] of t2().help) line(`  <span class="tk-p">${escapeHtml(cmd.padEnd(13))}</span>${dim(desc)}`);
+      return t2().help.map((h) => h[0]).join(', ');
+    },
+    async clear() { termLog.length = 0; show(); return ''; },
+    async demo() {
+      line(dim(t2().demo));
+      await pause(500);
+      leaveInteractive();
+      return t2().demo;
+    },
+  };
+
+  function enterInteractive() {
+    if (interactive) return;
+    interactive = true;
+    termEl.classList.add('is-live');
+    termLog.length = 0;
+    titleEl.textContent = 'zsh — ~';
+    langEl.textContent = 'zsh';
+    line(dim(t2().welcome));
+  }
+
+  function leaveInteractive() {
+    interactive = false;
+    termEl.classList.remove('is-live');
+    termLog.length = 0;
+    codeEl.innerHTML = initialHTML;
+    titleEl.textContent = 'Developer.swift';
+    langEl.textContent = 'Swift';
+    if (!reducedMotion.matches) playCode();
+  }
+
+  async function runCommand(raw) {
+    const cmd = raw.trim();
+    if (!cmd) return;
+    if (busy) { skip = true; while (busy) await sleep(20); }
+    enterInteractive();
+    busy = true;
+    skip = false;
+    cmdHistory.push(cmd);
+    historyPos = cmdHistory.length;
+    line(`<span class="tk-p">$</span> ${escapeHtml(cmd)}`);
+    const key = resolve(cmd);
+    let said;
+    if (key) {
+      said = await COMMANDS[key]();
+    } else {
+      said = t2().notFound(cmd);
+      line(`<span class="term-err">${escapeHtml(said)}</span>`);
+    }
+    if (srEl) srEl.textContent = said ?? '';
+    busy = false;
+    skip = false;
+  }
+
+  formEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = inputEl.value;
+    inputEl.value = '';
+    runCommand(value);
+  });
+  inputEl.addEventListener('focus', enterInteractive);
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+    e.preventDefault();
+    historyPos = Math.max(0, Math.min(cmdHistory.length, historyPos + (e.key === 'ArrowUp' ? -1 : 1)));
+    inputEl.value = cmdHistory[historyPos] ?? '';
+  });
+  // Clicking anywhere in the window focuses the prompt (links keep working).
+  $('.term-body', termEl).addEventListener('click', (e) => {
+    if (!e.target.closest('a') && !getSelection().toString()) inputEl.focus({ preventScroll: true });
+  });
+
+  // Example chips: the command is typed into the prompt, then run.
+  for (const chip of $$('.term-chip')) {
+    chip.addEventListener('click', async () => {
+      const cmd = chip.textContent.trim();
+      enterInteractive();
+      inputEl.value = '';
+      for (const ch of cmd) { inputEl.value += ch; await pause(45); }
+      await pause(150);
+      inputEl.value = '';
+      runCommand(cmd);
+    });
   }
 
   if (!reducedMotion.matches) playCode();
